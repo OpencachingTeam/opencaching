@@ -1,0 +1,3994 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Reorder ID's"
+msgstr "Reorder IDs "
+
+msgid "The database could not be reconnected."
+msgstr "The database could not be reconnected."
+
+msgid "Testing - do not login, please"
+msgstr "Testing – please do not login"
+
+msgid "User"
+msgstr "User"
+
+msgid "(empty)"
+msgstr "(empty)"
+
+msgid "Logged in as"
+msgstr "Logged in as"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Waypoint-Search"
+msgstr "Waypoint search"
+
+msgid "Page timing"
+msgstr "Page timing"
+
+msgid "sec"
+msgstr "sec"
+
+msgid "Page cached"
+msgstr "Page cached"
+
+msgid "DB connected"
+msgstr "DB connected"
+
+msgid "Created at"
+msgstr "Created at"
+
+msgid "Privacy statement"
+msgstr "Privacy statement"
+
+msgid "Imprint"
+msgstr "Legal information"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Sitemap"
+msgstr "Sitemap"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "New user registered"
+msgstr "New user registered"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "E-Mail"
+msgstr "E-mail"
+
+msgid "First name"
+msgstr "First name"
+
+msgid "Last name"
+msgstr "Last name"
+
+msgid "Country"
+msgstr "Country"
+
+msgid "Register new user"
+msgstr "Register new user"
+
+msgid "Uzbek"
+msgstr "Uzbek"
+
+msgid "The username is not valid."
+msgstr "The username is not valid."
+
+msgid "Print last logs"
+msgstr "Print last logs"
+
+msgid "The last name is not valid."
+msgstr "The last name is not valid."
+
+msgid "The first name is not valid."
+msgstr "The first name is not valid."
+
+msgid "Not specified"
+msgstr "Not specified"
+
+msgid "Show all"
+msgstr "Show all"
+
+msgid "The E-Mail is not valid."
+msgstr "The e-mail address is not valid."
+
+msgid "Turkish"
+msgstr "Turkish"
+
+msgid "Your password"
+msgstr "Your password"
+
+msgid "The password contains invalid chars."
+msgstr "The password contains invalid characters or is too short."
+
+msgid "The passwords did not match."
+msgstr "The passwords did not match."
+
+msgid "Please repeat"
+msgstr "Please repeat"
+
+msgid "* are required"
+msgstr "Fields marked with * are mandatory"
+
+msgid "Swedish"
+msgstr "Swedish"
+
+msgid "Slovenian"
+msgstr "Slovenian"
+
+msgid "length at least 6 chars"
+msgstr "length at least 6 characters"
+
+msgid "at least 4 different chars"
+msgstr "at least 4 different characters"
+
+msgid "not part of the username"
+msgstr "not part of the username"
+
+msgid "not in the wordlist with often used passwords"
+msgstr "not in the list of commonly used passwords"
+
+msgid "Slovak"
+msgstr "Slovak"
+
+msgid "Russian"
+msgstr "Russian"
+
+msgid "You have to accept the privacy statement and terms of use to register at opencaching.de"
+msgstr "You have to accept the privacy statement and terms of use to register at opencaching.de"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Special caches"
+msgstr "Recommendations"
+
+msgid "Index"
+msgstr "Index"
+
+msgid "Recommendations"
+msgstr "Recommendations"
+
+msgid "Found"
+msgstr "Found"
+
+msgid "by"
+msgstr "by"
+
+msgid "HTML preview"
+msgstr "HTML preview"
+
+msgid "Romanian"
+msgstr "Romanian"
+
+msgid "Step 1"
+msgstr "Step 1"
+
+msgid "Enter the text in following field:"
+msgstr "Enter the text here:"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "Step 2"
+msgstr "Step 2"
+
+msgid "Portuguese"
+msgstr "Portuguese"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Step 3"
+msgstr "Step 3"
+
+msgid "The Browser will show your HTML code like the following:"
+msgstr "The browser will show your HTML code as follows:"
+
+msgid "You can save the following HTML code and enter it in the cache description."
+msgstr "You can save the following HTML code and enter it in the cache description."
+
+msgid "News"
+msgstr "News"
+
+msgid "Latest caches"
+msgstr "Latest caches"
+
+msgid "Latest caches without germany"
+msgstr "Latest caches without Germany"
+
+msgid "Latest logs entries"
+msgstr "Latest log entries"
+
+msgid "Polish"
+msgstr "Polish"
+
+msgid "Norwegian"
+msgstr "Norwegian"
+
+msgid "Latvian"
+msgstr "Latvian"
+
+msgid "Lithuanian"
+msgstr "Lithuanian"
+
+msgid "Italian"
+msgstr "Italian"
+
+msgid "Icelandic"
+msgstr "Icelandic"
+
+msgid "Start"
+msgstr "Home"
+
+msgid "What do i find on this website?"
+msgstr "Welcome to opencaching.de"
+
+msgid "You can find everything you need to go Geocaching ..."
+msgstr "Dear international visitors,<br />\n"
+" <br />\n"
+"welcome to the english version of opencaching.de. We created these pages to make it easier for you to use the opencaching platform. Actually you may find or even list caches worldwide on opencaching.de, although the primary focus is the german speaking part of europe until now. Please be aware that today there are only few users which use opencaching.de for worldwide caching, but you may help opencaching to spread across more countries with your international listings and logs. If you have any questions about the usage of the opencaching platform, feel free to get in contact with us.<br />\n"
+" <br />\n"
+"Due to the fact that opencaching.de is a non-profit project run by volunteers, unfortunately we do not really have the capacity to run a worldwide caching plattform or provide full international user support on our own. We need your help to build a real worldwide opencaching network. If you want to support our project, you may host your own opencaching node for your country. The idea is to have several opencaching nodes for different countries around the world with a synchronized database of users and caches. If you want to launch an new opencaching site in your country, please get in contact with us. We will provide you with the necessary source code and some support for the first setup. Besides that, you may support us by translating the opencaching software into your language or by offering email support for your country. We will implement your translation on opencaching.de until a native node will be available in your area.<br />\n"
+" <br />\n"
+"Best Regards,<br />\n"
+" <br />\n"
+"The opencaching.de Team<br />\n"
+" "
+
+msgid "The file was not uploaded correctly."
+msgstr "The file was not uploaded correctly."
+
+msgid "The file was too big. The maximum file size is 150 KB."
+msgstr "The file was too big. The maximum file size is 150 KB."
+
+msgid "No picture file given."
+msgstr "No picture file given."
+
+msgid "same type"
+msgstr "same type"
+
+msgid "Opencaching.de"
+msgstr "Opencaching.de"
+
+msgid "Total of %1 active Caches and %2 founds by %3 users"
+msgstr "%1 active caches and %2 founds by %3 users total"
+
+msgid "Hungarian"
+msgstr "Hungarian"
+
+msgid "Croatian"
+msgstr "Croatian"
+
+msgid "Finnish"
+msgstr "Finnish"
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "No"
+msgstr "No"
+
+msgid "Hello"
+msgstr "Hello"
+
+msgid "This E-Mail was generated by the opencaching.de website, because an account with this E-Mail address was created. If you don't want to receive E-Mails in future, please contact us via E-Mail %1"
+msgstr "This e-mail was generated by the opencaching.de website, because an account with your e-mail address has been created. If you don't want to receive further e-mails, please contact us via %1."
+
+msgid "Basque"
+msgstr "Basque"
+
+msgid "Estonian"
+msgstr "Estonian"
+
+msgid "Esperanto"
+msgstr "Esperanto"
+
+msgid "Greek"
+msgstr "Greek"
+
+msgid "Danish"
+msgstr "Danish"
+
+msgid "An unkown error occured."
+msgstr "An unkown error occurred."
+
+msgid "Template does not exist."
+msgstr "Template does not exist."
+
+msgid "Sorry, you are not allowed to view this page."
+msgstr "Sorry, you are not allowed to view this page."
+
+msgid "Sorry, the requested cache does not exist."
+msgstr "Sorry, the requested cache does not exist."
+
+msgid "Sorry, the requested operation cannot be performed."
+msgstr "Sorry, the requested operation cannot be performed."
+
+msgid "Sorry, the requested operation cannot be performed because you are not logged in with an user account."
+msgstr "Sorry, the requested operation cannot be performed because you are not logged in with an user account."
+
+msgid "Sorry, the requested user does not exist."
+msgstr "Sorry, the requested user does not exist."
+
+msgid "Mail template does not exist."
+msgstr "Mail template does not exist."
+
+msgid "HTML Tags"
+msgstr "HTML Tags"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Create a cache"
+msgstr "Hide a cache"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Informations"
+msgstr "Information"
+
+msgid "Caches"
+msgstr "Caches"
+
+msgid "My profile"
+msgstr "My profile"
+
+msgid "New logs"
+msgstr "Latest logs"
+
+msgid "Without Germany"
+msgstr "Without Germany"
+
+msgid "New caches"
+msgstr "New caches"
+
+msgid "About Geocaching"
+msgstr "About geocaching"
+
+msgid "New Item"
+msgstr "New item"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Translation"
+msgstr "Translation"
+
+msgid "Activation"
+msgstr "Activation"
+
+msgid "Userprofile"
+msgstr "Userprofile"
+
+msgid "An error occured while processing the page"
+msgstr "An error occurred while processing the page."
+
+msgid "An error occured while processing the page. If you've called this page from an hyperlink on our site and this error persists some time, please contact us via E-Mail."
+msgstr "An error occurred while processing the page. If you have called this page by a hyperlink on our site and this error persists for some time, please contact us via e-mail. "
+
+msgid "The following error occured"
+msgstr "The following error occurred"
+
+msgid "Site"
+msgstr "Site"
+
+msgid "Error message"
+msgstr "Error message"
+
+msgid "%2 found %1"
+msgstr "%2 found %1"
+
+msgid "%2 didn't find %1"
+msgstr "%2 didn't find %1"
+
+msgid "%2 wrote a note for %1"
+msgstr "%2 wrote a note for %1"
+
+msgid "%2 visited %1"
+msgstr "%2 visited %1"
+
+msgid "%2 want's to visit %1"
+msgstr "%2 wants to visit %1 "
+
+msgid "Registration confirmation"
+msgstr "Registration confirmation"
+
+msgid "welcome at www.opencaching.de!"
+msgstr "Welcome at www.opencaching.de!"
+
+msgid "The following data has been stored for your E-Mail address %1:"
+msgstr "The following data has been stored for your e-mail address %1: "
+
+msgid "Slave"
+msgstr "Slave"
+
+msgid "The activation can be performed on the following URL:"
+msgstr "The activation can be performed at the following web address:"
+
+msgid "If you don't login in the next 14 days, your account may be deleted."
+msgstr "If you don't login within the next 14 days, your account will be deleted."
+
+msgid "Czech"
+msgstr "Czech"
+
+msgid "Bulgarian"
+msgstr "Bulgarian"
+
+msgid "Userprofile of %1"
+msgstr "User profile of %1"
+
+msgid "Send E-Mail"
+msgstr "Send e-mail"
+
+msgid "Others"
+msgstr "Others"
+
+msgid "I'm taking an PMR radio on channel 2 with me"
+msgstr "I'm taking a PMR walkie-talkie on channel 2 with me"
+
+msgid "Registered since"
+msgstr "Registered since"
+
+msgid "Hidden caches"
+msgstr "Caches hidden"
+
+msgid "Caches found"
+msgstr "Caches found"
+
+msgid "%1 of %2 possibles"
+msgstr "%1 of %2 possible"
+
+msgid "Dutch"
+msgstr "Dutch"
+
+msgid "Japanese"
+msgstr "Japanese"
+
+msgid "Spanish"
+msgstr "Spanish"
+
+msgid "French"
+msgstr "French"
+
+msgid "English"
+msgstr "English"
+
+msgid "German"
+msgstr "German"
+
+msgid "Attention: If you are using this option, don't forget to log out before other persons can use your computer. Otherwise, they can use and modify your personal data."
+msgstr "Attention: If you are using this option, don't forget to log out before other persons have access to your computer. Otherwise, they may use and modify your personal data."
+
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+msgid "Zambia"
+msgstr "Zambia"
+
+msgid "South Africa"
+msgstr "South Africa"
+
+msgid "Mayotte"
+msgstr "Mayotte"
+
+msgid "The activation code was sent with an E-Mail to you.<br> Please follow the instructions in the E-Mail."
+msgstr "The activation code was sent to you by e-mail.<br> Please follow the instructions in the e-mail."
+
+msgid "To create an account on opencaching.de, you have to enter a vaild E-Mail address and an username. An E-Mail will be sent to the address you supplied with an activation code. Only one account can be created per E-Mail address. First name, last name and country are optional."
+msgstr "To create an account at opencaching.de, you have to enter a vaild e-mail address and a user name. An activation code will be sent to the e-mail address you supplied. Only one account can be created per e-mail address. First name, last name and country are optional."
+
+msgid "There already exists an account with that E-Mail address. It's not possible the register a scond account with the same E-Mail address."
+msgstr "An account with that e-mail address already exists. It is not possible to create a second account with the same e-mail address."
+
+msgid "The account is already activated. Please try to <a href=\"login.php\">login</a>.<br /> If you cannot login, please read the following page: <a href=\"http://cms.opencaching.de/index.php?id=login\">problems with login</a>"
+msgstr "The account is already activated. Please try to <a href=\"login.php\">login</a>.<br /> If you cannot login, please read the following page: <a href=\"http://cms.opencaching.de/index.php?id=login\">Login problems</a>"
+
+msgid "Your choosen password was too simple. For your own security, we recommend a stronger password:"
+msgstr "The password you have entered is too simple. For your own security, we recommend a stronger password:"
+
+msgid "The activation code or E-Mail was incorrect.<br /> The activation of your account was not successfull<br /> Please use the E-Mail where the registration mail was sent to.<br /> <br /> Please check if you have mistyped - if you cannot solve the problem yourself, contact us via <a href=\"mailto:%1\">%1</a>"
+msgstr "The activation code or e-mail address was incorrect.<br /> The activation of your account was not successful.<br /> Please use the same e-mail address to which the registration mail was sent.<br /> <br /> Please check if you have mistyped. If you cannot solve the problem, contact us via <a href=\"mailto:%1\">%1</a>."
+
+msgid "Yemen"
+msgstr "Yemen"
+
+msgid "Samoa"
+msgstr "Samoa"
+
+msgid "Go"
+msgstr "Go"
+
+msgid "Developer system - only testing"
+msgstr "Developer system – testing only"
+
+msgid "I've read and understand the <a target=\"_blank\" href=\"articles.php?page=dsb\">privacy statement</a> and the <a target=\"_blank\" href=\"articles.php?page=tos\">terms of use</a> and accept them."
+msgstr "I've read and understand the <a target=\"_blank\" href=\"articles.php?page=dsb\">privacy statement</a> and the <a target=\"_blank\" href=\"articles.php?page=tos\">terms of use</a> and accept them."
+
+msgid "With this wizard, you can make some part of your description <b>bold</b> or <i>italic</i>. No HTML knowledge required."
+msgstr "With this wizard, you can make some part of your description <b>bold</b> or <i>italic</i>. No HTML knowledge required."
+
+msgid "Here you can see the HTML code generated from your text. If you want to make a word <b>bold</b>, insert before the word &lt;b&gt; and after the word &lt;/b&gt;"
+msgstr "Here you can see the HTML code generated from your text. If you want to make a word <b>bold</b>, insert &lt;b&gt; before the word and &lt;/b&gt; after."
+
+msgid "Wallis And Futuna Islands"
+msgstr "Wallis And Futuna Islands"
+
+msgid "Post some news"
+msgstr "Create a news entry"
+
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+msgid "Viet Nam"
+msgstr "Viet Nam"
+
+msgid "Virgin Islands (U.S.)"
+msgstr "Virgin Islands (U.S.)"
+
+msgid "Virgin Islands (British)"
+msgstr "Virgin Islands (British)"
+
+msgid "Venezuela"
+msgstr "Venezuela"
+
+msgid "Select target language:"
+msgstr "Select target language:"
+
+msgid "Show new translations"
+msgstr "Show new translations"
+
+msgid "Clear smarty cache"
+msgstr "Clear smarty cache"
+
+msgid "Not defined"
+msgstr "Not defined"
+
+msgid "Show translations no longer referenced"
+msgstr "Show translations no longer referenced"
+
+msgid "Show all translations"
+msgstr "Show all translations"
+
+msgid "Saint Vincent And The Grenadines"
+msgstr "Saint Vincent And The Grenadines"
+
+msgid "Vatican City State (Holy See)"
+msgstr "Vatican City State (Holy See)"
+
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+msgid "Use existing translations:"
+msgstr "Use existing translations:"
+
+msgid "All translations:"
+msgstr "All translations:"
+
+msgid "New translations:"
+msgstr "New translations:"
+
+msgid "Translations no longer referenced:"
+msgstr "Translations no longer referenced:"
+
+msgid "Languages"
+msgstr "Languages"
+
+msgid "Uruguay"
+msgstr "Uruguay"
+
+msgid "Activation code:"
+msgstr "Activation code:"
+
+msgid "United States"
+msgstr "United States"
+
+msgid "United States Minor Outlying Islands"
+msgstr "United States Minor Outlying Islands"
+
+msgid "Your browser has rejected our cookie.<br /> You can find more informations about this topic in the <a href=\"http://cms.opencaching.de/index.php?id=login\">Opencaching.de-help</a>."
+msgstr "Your browser has rejected our cookie.<br /> For more information on this topic, see <a href=\"http://cms.opencaching.de/index.php?id=login\">Opencaching.de-help</a>."
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Uganda"
+msgstr "Uganda"
+
+msgid "Ukraine"
+msgstr "Ukraine"
+
+msgid "Tanzania, United Republic Of"
+msgstr "Tanzania, United Republic Of"
+
+msgid "Taiwan, Province Of China"
+msgstr "Taiwan, Province Of China"
+
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+msgid "Trinidad And Tobago"
+msgstr "Trinidad And Tobago"
+
+msgid "Turkey"
+msgstr "Turkey"
+
+msgid "Not registered?"
+msgstr "Not registered?"
+
+msgid "Forgotten your password?"
+msgstr "Forgot your password?"
+
+msgid "Forgotten your E-Mail-Address?"
+msgstr "Forgot your e-mail address?"
+
+msgid "Here you can find more troubleshooting:"
+msgstr "For more troubleshooting hints, see"
+
+msgid "Print no logs"
+msgstr "Print no logs"
+
+msgid "Create a new password"
+msgstr "Enter a new password"
+
+msgid "Remind me"
+msgstr "Send a reminder"
+
+msgid "Tonga"
+msgstr "Tonga"
+
+msgid "Please fill in username and password!"
+msgstr "Please fill in username and password!"
+
+msgid "Logout was successful."
+msgstr "Logout was successful."
+
+msgid "The login was not successfull."
+msgstr "login failed"
+
+msgid "The entered username/e-mail or the specified password did not match."
+msgstr "The entered username/e-mail or the specified password did not match."
+
+msgid "Your tried to login more than %1 times in the last hour. The next login will not be allowed before one hour since the first try has passed."
+msgstr "Your tried to login more than %1 times within the last hour. The next login will not be allowed before one hour since the first try has passed."
+
+msgid "Your account is not acivated."
+msgstr "Your account is not acivated."
+
+msgid "&gt;<a href=\"activation.php\">Here</a>&lt; you can activate your account."
+msgstr "&gt;<a href=\"activation.php\">Here</a>&lt; you can activate your account. "
+
+msgid "Tunisia"
+msgstr "Tunisia"
+
+msgid "To complete the registration, you have to enter your E-Mail and activation code."
+msgstr "To complete the registration, you have to enter your e-mail address and activation code."
+
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+msgid "Tokelau"
+msgstr "Tokelau"
+
+msgid "Tajikistan"
+msgstr "Tajikistan"
+
+msgid "Thailand"
+msgstr "Thailand"
+
+msgid "Togo"
+msgstr "Togo"
+
+msgid "French Southern Territories"
+msgstr "French Southern Territories"
+
+msgid "Chad"
+msgstr "Chad"
+
+msgid "Turks And Caicos Islands"
+msgstr "Turks And Caicos Islands"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Swaziland"
+msgstr "Swaziland"
+
+msgid "Syrian Arab Republic"
+msgstr "Syrian Arab Republic"
+
+msgid "Recommendations of <a href=\"viewprofile.php?userid=%1\">%2</a>"
+msgstr "Recommendations of <a href=\"viewprofile.php?userid=%1\">%2</a>"
+
+msgid "<a href=\"viewcache.php?cacheid=%1\">%2</a> by %3"
+msgstr "<a href=\"viewcache.php?cacheid=%1\">%2</a> by %3"
+
+msgid "%1 has not recommended any geocache."
+msgstr "%1 has not recommended any geocache."
+
+msgid "Date:"
+msgstr "Date:"
+
+msgid "Show recommendations"
+msgstr "Show recommendations"
+
+msgid "El Salvador"
+msgstr "El Salvador"
+
+msgid "Sao Tome And Principe"
+msgstr "Sao Tome And Principe"
+
+msgid "Suriname"
+msgstr "Suriname"
+
+msgid "Somalia"
+msgstr "Somalia"
+
+msgid "Unkown format of the given waypoint. The following formats are known OCxxxx, NCxxxx and GCxxxx, whereas xxxx can be any number or char."
+msgstr "Unkown waypoint format. The following formats are valid: OCxxxx, NCxxxx and GCxxxx, where xxxx is any number or characters."
+
+msgid "There exists more than one cache with the waypoint &quot;%1&quot;."
+msgstr "More than one cache with the waypoint &quot;%1&quot; exists."
+
+msgid "The waypoint &quot;%1&quot; was not found."
+msgstr "The waypoint &quot;%1&quot; was not found."
+
+msgid "Senegal"
+msgstr "Senegal"
+
+msgid "San Marino"
+msgstr "San Marino"
+
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+msgid "Slovakia (Slovak Republic)"
+msgstr "Slovakia (Slovak Republic)"
+
+msgid "Svalbard And Jan Mayen Islands"
+msgstr "Svalbard And Jan Mayen Islands"
+
+msgid "Slovenia"
+msgstr "Slovenia"
+
+msgid "St. Helena"
+msgstr "St. Helena"
+
+msgid "Singapore"
+msgstr "Singapore"
+
+msgid "Sweden"
+msgstr "Sweden"
+
+msgid "Sudan"
+msgstr "Sudan"
+
+msgid "Seychelles"
+msgstr "Seychelles"
+
+msgid "Solomon Islands"
+msgstr "Solomon Islands"
+
+msgid "Saudi Arabia"
+msgstr "Saudi Arabia"
+
+msgid "Rwanda"
+msgstr "Rwanda"
+
+msgid "Russian Federation"
+msgstr "Russian Federation"
+
+msgid "Romania"
+msgstr "Romania"
+
+msgid "Reunion"
+msgstr "Reunion"
+
+msgid "Qatar"
+msgstr "Qatar"
+
+msgid "Paraguay"
+msgstr "Paraguay"
+
+msgid "Palau"
+msgstr "Palau"
+
+msgid "Portugal"
+msgstr "Portugal"
+
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+msgid "St. Pierre And Miquelon"
+msgstr "St. Pierre And Miquelon"
+
+msgid "Poland"
+msgstr "Poland"
+
+msgid "Pakistan"
+msgstr "Pakistan"
+
+msgid "Philippines"
+msgstr "Philippines"
+
+msgid "Papua New Guinea"
+msgstr "Papua New Guinea"
+
+msgid "French Polynesia"
+msgstr "French Polynesia"
+
+msgid "Peru"
+msgstr "Peru"
+
+msgid "Panama"
+msgstr "Panama"
+
+msgid "Oman"
+msgstr "Oman"
+
+msgid "New Zealand"
+msgstr "New Zealand"
+
+msgid "Niue"
+msgstr "Niue"
+
+msgid "Nauru"
+msgstr "Nauru"
+
+msgid "Nepal"
+msgstr "Nepal"
+
+msgid "Norway"
+msgstr "Norway"
+
+msgid "Netherlands"
+msgstr "Netherlands"
+
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+msgid "Nigeria"
+msgstr "Nigeria"
+
+msgid "Norfolk Island"
+msgstr "Norfolk Island"
+
+msgid "Niger"
+msgstr "Niger"
+
+msgid "New Caledonia"
+msgstr "New Caledonia"
+
+msgid "Namibia"
+msgstr "Namibia"
+
+msgid "Mozambique"
+msgstr "Mozambique"
+
+msgid "Malaysia"
+msgstr "Malaysia"
+
+msgid "Mexico"
+msgstr "Mexico"
+
+msgid "Malawi"
+msgstr "Malawi"
+
+msgid "Maldives"
+msgstr "Maldives"
+
+msgid "Mauritius"
+msgstr "Mauritius"
+
+msgid "Malta"
+msgstr "Malta"
+
+msgid "Montserrat"
+msgstr "Montserrat"
+
+msgid "Mauritania"
+msgstr "Mauritania"
+
+msgid "Martinique"
+msgstr "Martinique"
+
+msgid "Northern Mariana Islands"
+msgstr "Northern Mariana Islands"
+
+msgid "Macau"
+msgstr "Macau"
+
+msgid "Mongolia"
+msgstr "Mongolia"
+
+msgid "Myanmar"
+msgstr "Myanmar"
+
+msgid "Mali"
+msgstr "Mali"
+
+msgid "Macedonia, The Former Yugoslav Republic Of"
+msgstr "Macedonia, The Former Yugoslav Republic Of"
+
+msgid "Marshall Islands"
+msgstr "Marshall Islands"
+
+msgid "Madagascar"
+msgstr "Madagascar"
+
+msgid "Moldova, Republic Of"
+msgstr "Moldova, Republic Of"
+
+msgid "Monaco"
+msgstr "Monaco"
+
+msgid "Morocco"
+msgstr "Morocco"
+
+msgid "Libyan Arab Jamahiriya"
+msgstr "Libyan Arab Jamahiriya"
+
+msgid "Latvia"
+msgstr "Latvia"
+
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+msgid "Lithuania"
+msgstr "Lithuania"
+
+msgid "Lesotho"
+msgstr "Lesotho"
+
+msgid "Liberia"
+msgstr "Liberia"
+
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+msgid "Lebanon"
+msgstr "Lebanon"
+
+msgid "Lao People's Democratic Republic"
+msgstr "Lao People's Democratic Republic"
+
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+msgid "Cayman Islands"
+msgstr "Cayman Islands"
+
+msgid "Kuwait"
+msgstr "Kuwait"
+
+msgid "Korea, Republic Of"
+msgstr "Korea, Republic Of"
+
+msgid "Korea, Democratic People's Republic Of"
+msgstr "Korea, Democratic People's Republic Of"
+
+msgid "Saint Kitts And Nevis"
+msgstr "Saint Kitts And Nevis"
+
+msgid "Comoros"
+msgstr "Comoros"
+
+msgid "Kiribati"
+msgstr "Kiribati"
+
+msgid "Cambodia"
+msgstr "Cambodia"
+
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstan"
+
+msgid "Kenya"
+msgstr "Kenya"
+
+msgid "Japan"
+msgstr "Japan"
+
+msgid "Jordan"
+msgstr "Jordan"
+
+msgid "Jamaica"
+msgstr "Jamaica"
+
+msgid "Italy"
+msgstr "Italy"
+
+msgid "Iceland"
+msgstr "Iceland"
+
+msgid "Iran (Islamic Republic Of)"
+msgstr "Iran (Islamic Republic Of)"
+
+msgid "Iraq"
+msgstr "Iraq"
+
+msgid "British Indian Ocean Territory"
+msgstr "British Indian Ocean Territory"
+
+msgid "India"
+msgstr "India"
+
+msgid "Israel"
+msgstr "Israel"
+
+msgid "Ireland"
+msgstr "Ireland"
+
+msgid "Indonesia"
+msgstr "Indonesia"
+
+msgid "Hungary"
+msgstr "Hungary"
+
+msgid "Haiti"
+msgstr "Haiti"
+
+msgid "Croatia (local name: Hrvatska)"
+msgstr "Croatia (local name: Hrvatska)"
+
+msgid "Honduras"
+msgstr "Honduras"
+
+msgid "Heard And Mc Donald Islands"
+msgstr "Heard And Mc Donald Islands"
+
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+msgid "Guyana"
+msgstr "Guyana"
+
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+msgid "Guam"
+msgstr "Guam"
+
+msgid "Guatemala"
+msgstr "Guatemala"
+
+msgid "South Georgia And The South Sandwich Islands"
+msgstr "South Georgia And The South Sandwich Islands"
+
+msgid "Greece"
+msgstr "Greece"
+
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+msgid "Guinea"
+msgstr "Guinea"
+
+msgid "Gambia"
+msgstr "Gambia"
+
+msgid "Greenland"
+msgstr "Greenland"
+
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+msgid "Ghana"
+msgstr "Ghana"
+
+msgid "French Guiana"
+msgstr "French Guiana"
+
+msgid "Georgia"
+msgstr "Georgia"
+
+msgid "Grenada"
+msgstr "Grenada"
+
+msgid "United Kingdom (UK)"
+msgstr "United Kingdom (UK)"
+
+msgid "Gabon"
+msgstr "Gabon"
+
+msgid "France"
+msgstr "France"
+
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+msgid "Micronesia, Federated States Of"
+msgstr "Micronesia, Federated States Of"
+
+msgid "Falkland Islands (Malvinas)"
+msgstr "Falkland Islands (Malvinas)"
+
+msgid "Fiji"
+msgstr "Fiji"
+
+msgid "Finland"
+msgstr "Finland"
+
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+msgid "Spain"
+msgstr "Spain"
+
+msgid "Eritrea"
+msgstr "Eritrea"
+
+msgid "Western Sahara"
+msgstr "Western Sahara"
+
+msgid "Egypt"
+msgstr "Egypt"
+
+msgid "Estonia"
+msgstr "Estonia"
+
+msgid "Ecuador"
+msgstr "Ecuador"
+
+msgid "Algeria"
+msgstr "Algeria"
+
+msgid "Dominican Republic"
+msgstr "Dominican Republic"
+
+msgid "Denmark"
+msgstr "Denmark"
+
+msgid "Djibouti"
+msgstr "Djibouti"
+
+msgid "Germany"
+msgstr "Germany"
+
+msgid "Czech Republic"
+msgstr "Czech Republic"
+
+msgid "Cyprus"
+msgstr "Cyprus"
+
+msgid "Christmas Island"
+msgstr "Christmas Island"
+
+msgid "Cape Verde"
+msgstr "Cape Verde"
+
+msgid "Cuba"
+msgstr "Cuba"
+
+msgid "Attendees"
+msgstr "Attendees"
+
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+msgid "Colombia"
+msgstr "Colombia"
+
+msgid "China"
+msgstr "China"
+
+msgid "Cameroon"
+msgstr "Cameroon"
+
+msgid "Chile"
+msgstr "Chile"
+
+msgid "Cook Islands"
+msgstr "Cook Islands"
+
+msgid "Cote d'Ivoire"
+msgstr "Cote d'Ivoire"
+
+msgid "Switzerland"
+msgstr "Switzerland"
+
+msgid "Congo"
+msgstr "Congo"
+
+msgid "Central African Republic"
+msgstr "Central African Republic"
+
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling) Islands"
+
+msgid "Canada"
+msgstr "Canada"
+
+msgid "Belize"
+msgstr "Belize"
+
+msgid "Belarus"
+msgstr "Belarus"
+
+msgid "Botswana"
+msgstr "Botswana"
+
+msgid "Bouvet Island"
+msgstr "Bouvet Island"
+
+msgid "Bhutan"
+msgstr "Bhutan"
+
+msgid "Bahamas"
+msgstr "Bahamas"
+
+msgid "Brazil"
+msgstr "Brazil"
+
+msgid "Bolivia"
+msgstr "Bolivia"
+
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+msgid "Bermuda"
+msgstr "Bermuda"
+
+msgid "Benin"
+msgstr "Benin"
+
+msgid "Burundi"
+msgstr "Burundi"
+
+msgid "Bahrain"
+msgstr "Bahrain"
+
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+msgid "Belgium"
+msgstr "Belgium"
+
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+msgid "Barbados"
+msgstr "Barbados"
+
+msgid "Bosnia And Herzegowina"
+msgstr "Bosnia And Herzegowina"
+
+msgid "Azerbaijan"
+msgstr "Azerbaijan"
+
+msgid "Aruba"
+msgstr "Aruba"
+
+msgid "Australia"
+msgstr "Australia"
+
+msgid "Austria"
+msgstr "Austria"
+
+msgid "American Samoa"
+msgstr "American Samoa"
+
+msgid "Argentina"
+msgstr "Argentina"
+
+msgid "Angola"
+msgstr "Angola"
+
+msgid "Netherlands Antilles"
+msgstr "Netherlands Antilles"
+
+msgid "Armenia"
+msgstr "Armenia"
+
+msgid "Albania"
+msgstr "Albania"
+
+msgid "Anguilla"
+msgstr "Anguilla"
+
+msgid "Antigua And Barbuda"
+msgstr "Antigua And Barbuda"
+
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+msgid "United Arab Emirates"
+msgstr "United Arab Emirates"
+
+msgid "Andorra"
+msgstr "Andorra"
+
+msgid "Switching to db-root failed."
+msgstr "Switching to db-root failed."
+
+msgid "(before an export)"
+msgstr "(before an export)"
+
+msgid "We are updating Opencaching.de and to protect against faults it processing, we set to entire page offline."
+msgstr "We are currently updating opencaching.de. To protect against faults while processing, the entire page is offline."
+
+msgid "Newsentry saved"
+msgstr "News entry has been saved"
+
+msgid "Thank you very much for your newsentry. We'll try to validate your entry as soon as possible.<br /> <br /> Back to <a href=\"index.php\">Start</a>"
+msgstr "Thank you very much for your news entry. We will try to validate your entry as soon as possible.<br /><br />Back to <a href=\"index.php\">Start</a> "
+
+msgid "Submit a newsentry"
+msgstr "Submit a news entry"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "The code did not match."
+msgstr "The code did not match."
+
+msgid "And now fill in the code to protect against spammers:"
+msgstr "And now fill in the spam protection code:"
+
+msgid "What does this picture show?"
+msgstr "What does this picture show?"
+
+msgid "E-Mail-Adress is not valid."
+msgstr "E-mail address is not valid."
+
+msgid "Your E-Mail for further questions:"
+msgstr "Your e-mail address for queries:"
+
+msgid "Please only use HTML tags to format the text - eg. bold, color or hyperlinks. We do not want tables, divs etc."
+msgstr "Please use only text formatting HTML tags - e.g. bold, color or hyperlinks. Do not enter tables, divs etc."
+
+msgid "The newsentry is written with HTML tags"
+msgstr "The news entry was entered with HTML tags "
+
+msgid "Newsentry:"
+msgstr "News entry:"
+
+msgid "Topic:"
+msgstr "Topic:"
+
+msgid "Are there any news about Geocaching?<br /> Here you can create a newsentry, that will be shown on the start page."
+msgstr "You know some interesting news about Geocaching?<br /> Here you can create a news entry which will be shown on the homepage."
+
+msgid "The activation of your account was successfull. You can now login on the login page.<br /><br /> <a href=\"login.php\">Go to the login page</a>"
+msgstr "The activation of your account was successful. You may now login at the login page.<br /><br /> <a href=\"login.php\">Go to the login page</a>"
+
+msgid "Hint"
+msgstr "Hint"
+
+msgid "Activate account"
+msgstr "Activate account"
+
+msgid "Best regards,<br/>the Opencaching.de-Team"
+msgstr "Best regards,<br/>your Opencaching.de team"
+
+msgid "Please be patient, we will do our best to get the site back online as soon as possible."
+msgstr "Please be patient, we will do our best to get the site back online as soon as possible."
+
+msgid "The account could not be created, the reason is not known. If you cannot solve this problem yourself, pleas contact us via <a href=\"mailto:%1\">E-Mail</a>"
+msgstr "The account could not be created, the reason is not known. If you cannot solve this problem by yourself, please contact us via <a href=\"mailto:%1\">e-mail</a>."
+
+msgid "We respect your privacy. Your personal data will be stored in our database, but not shared to third parties. Please note our exact <a href=\"articles.php?page=dsb\">privacy statement</a>. If you have further questions, please <a href=\"mailto:%1\">contact us</a> <b>before</b> you create your account."
+msgstr "We respect your privacy. Your personal data will be stored in our database but not disclosed to third parties. Please note our detailed <a href=\"articles.php?page=dsb\">privacy statement</a>. If you have further questions, please <a href=\"mailto:%1\">contact us</a> <b>before</b> you create an account."
+
+msgid "We have to approve your newsentry before we can display it. We try to do this within 24h to 48h. The newsentry cannot be modified after you have submitted it. If you want to take changes in the newsentry, please resubmit the correct newsentry. It is allowed to submit news about everything around Geocaching - but it is not allowed to submit advertisement for products or geocaches. The decission to approve or not approve a newsentry lies exclusively in the discretion of the operator of the web page - there is not a requirement on publication. In the case of doubts, please submit your newsentry and wait if it will be shown - or ask via E-Mail before submitting <a href=\"mailto:%1\">%1</a>."
+msgstr "We have to approve your news entry before we can display it. We will try to do this within 24 to 48 hours. The news entry cannot be modified after you have submitted it. If you want to make changes, please resubmit the corrected entry. You may submit any news concerning Geocaching, but you may not submit advertisement for products or geocaches. The decision to approve or not approve a news entry is exclusively up to the operator of the web page - there is no claim for publication. In the case of doubts, please wait if your news entry will be published, or ask via e-mail to <a href=\"mailto:%1\">%1</a> before submitting."
+
+msgid "If this problem persists over a longer time, please contact us at <a href=\"mailto:%1\">%1</a>."
+msgstr "If this problem persists over a longer time, please contact us via <a href=\"mailto:%1\">%1</a>."
+
+msgid "Opencaching is out of service"
+msgstr "Opencaching is currently out of service"
+
+msgid "Created at:"
+msgstr "Created at:"
+
+msgid "Total runtime:"
+msgstr "Total runtime:"
+
+msgid "Business layer runtime:"
+msgstr "Business layer runtime:"
+
+msgid "Framework runtime:"
+msgstr "Framework runtime:"
+
+msgid "User runtime:"
+msgstr "User runtime:"
+
+msgid "SQL Debugger"
+msgstr "SQL Debugger"
+
+msgid "%1 commands"
+msgstr "%1 commands"
+
+msgid "Overview"
+msgstr "Overview"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Stored queries"
+msgstr "Stored queries"
+
+msgid "Watched caches"
+msgstr "Watched caches"
+
+msgid "Ignored caches"
+msgstr "Ignored caches"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Edit profile"
+msgstr "Edit profile"
+
+msgid "The notification radius must be not more than 150 km. To deaktivate notifications, set the radius to 0."
+msgstr "The notification radius must not be greater than 150 km. To deactivate notifications, set the radius to 0."
+
+msgid "Change password"
+msgstr "Change password"
+
+msgid "Change statpic"
+msgstr "Change statpic"
+
+msgid "E-Mail Address"
+msgstr "E-mail address "
+
+msgid "Available"
+msgstr "Available"
+
+msgid "Temporary disabled"
+msgstr "Temporarily disabled"
+
+msgid "Archived"
+msgstr "Archived"
+
+msgid "Not found"
+msgstr "Not found"
+
+msgid "Attended"
+msgstr "Attended"
+
+msgid "Will attend"
+msgstr "Will attend"
+
+msgid "Hello %1"
+msgstr "Hello %1"
+
+msgid "Logs"
+msgstr "Logs"
+
+msgid "Geocaches found: %1"
+msgstr "Geocaches found: %1"
+
+msgid "Your latest log entries:"
+msgstr "Your latest log entries:"
+
+msgid "No entries found"
+msgstr "No entries found"
+
+msgid "Geocaches hidden: %1"
+msgstr "Geocaches hidden: %1"
+
+msgid "Your latest Geocaches hidden:"
+msgstr "Your latest geocaches hidden:"
+
+msgid "No Geocaches hidden"
+msgstr "No geocaches hidden "
+
+msgid "Not published Geocaches will be available"
+msgstr "Your pending geocaches will be published"
+
+msgid "All Geocaches are published"
+msgstr "All your geocaches are published."
+
+msgid "E-Mails sent"
+msgstr "E-mails sent"
+
+msgid "E-Mails sent: %1"
+msgstr "E-mails sent: %1 "
+
+msgid "Unknown Geocache"
+msgstr "Unknown Geocache"
+
+msgid "Traditional Geocache"
+msgstr "Traditional Geocache"
+
+msgid "Multicache"
+msgstr "Multi cache"
+
+msgid "Virtual Geocache"
+msgstr "Virtual Geocache"
+
+msgid "Webcam Geocache"
+msgstr "Webcam Geocache"
+
+msgid "Event Geocache"
+msgstr "Event Geocache"
+
+msgid "Quizcache"
+msgstr "Quiz cache"
+
+msgid "Math/Physics Geocache"
+msgstr "Math/Physics Geocache"
+
+msgid "Moving Geocache"
+msgstr "Moving Geocache"
+
+msgid "Drive-In Geocache"
+msgstr "Drive-In Geocache"
+
+msgid "Motocycle Geocache"
+msgstr "Motorcycle Geocache"
+
+msgid "other size"
+msgstr "other size"
+
+msgid "micro"
+msgstr "micro"
+
+msgid "small"
+msgstr "small"
+
+msgid "normal"
+msgstr "normal"
+
+msgid "large"
+msgstr "large"
+
+msgid "very large"
+msgstr "very large"
+
+msgid "no container"
+msgstr "no container"
+
+msgid "Ready for search"
+msgstr "Available"
+
+msgid "Temporary not available"
+msgstr "Temporarily not available"
+
+msgid "Hidden by approvers to check"
+msgstr "Hidden by approvers to check"
+
+msgid "Not yet available"
+msgstr "Not yet published"
+
+msgid "unknown cachetyp"
+msgstr "unknown cache type"
+
+msgid "Traditional Cache"
+msgstr "Traditional Cache"
+
+msgid "virtual Cache"
+msgstr "Virtual Cache"
+
+msgid "Webcam Cache"
+msgstr "Webcam Cache"
+
+msgid "Event Cache"
+msgstr "Event Cache"
+
+msgid "Math/Physics-Cache"
+msgstr "Math/Physics Cache"
+
+msgid "Moving Cache"
+msgstr "Moving Cache"
+
+msgid "Drive-In"
+msgstr "Drive-in Cache"
+
+msgid "I want to be notified about new Geocaches within an radius of %1 km."
+msgstr "I want to be notified about new geocaches within a radius of %1 km."
+
+msgid "BBCode for webforums:"
+msgstr "BBCode for web forums:"
+
+msgid "Opencaching.de-statstic of %1"
+msgstr "Opencaching.de statstics of %1"
+
+msgid "Choose logo"
+msgstr "Choose logo"
+
+msgid "HTML-Code:"
+msgstr "HTML code:"
+
+msgid "Text displayed:"
+msgstr "Text displayed:"
+
+msgid "Text contains invalid charecters!"
+msgstr "Text contains invalid characters!"
+
+msgid "Available logos:"
+msgstr "Available logos:"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "The following settings are stored for your logo:"
+msgstr "The following settings are stored for your logo:"
+
+msgid "Show logentries"
+msgstr "Show log entries"
+
+msgid "Statistic picture:"
+msgstr "Statistics picture:"
+
+msgid "Registered since:"
+msgstr "Registered since:"
+
+msgid "Don't use an HTML editor by default."
+msgstr "Don't use the HTML editor by default."
+
+msgid "Don't log me out after 15 minutes inaktivity."
+msgstr "Don't log me out after 15 minutes of inactivity."
+
+msgid "I'm taking an PMR walkie talkie on channel 2 with me."
+msgstr "I'm taking a PMR walkie talkie on channel 2 with me."
+
+msgid "Others:"
+msgstr "Others:"
+
+msgid "Notification about new Geocaches is not activated."
+msgstr "Notification about new geocaches is disabled."
+
+msgid "Notify about new Geocaches in a radius of %1 km."
+msgstr "Notify me about new geocaches within a radius of %1 km."
+
+msgid "Notifications:"
+msgstr "Notifications:"
+
+msgid "Home coordinates:"
+msgstr "Home coordinates:"
+
+msgid "Country:"
+msgstr "Country:"
+
+msgid "Last name:"
+msgstr "Last name:"
+
+msgid "First name:"
+msgstr "First name:"
+
+msgid "Recommended"
+msgstr "Recommended"
+
+msgid "%1 found the Geocache"
+msgstr "%1 found the geocache"
+
+msgid "%1 didn't find the Geoacache"
+msgstr "%1 did not find the geoacache"
+
+msgid "%1 wrote a note"
+msgstr "%1 wrote a note"
+
+msgid "%1 has visited the event"
+msgstr "%1 has visited the event"
+
+msgid "%1 wants to visit the event"
+msgstr "%1 wants to visit the event"
+
+msgid "%1"
+msgstr "%1"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Upload picture"
+msgstr "Upload picture"
+
+msgid "Pictures for this logentry:"
+msgstr "Pictures for this log entry: "
+
+msgid "Back to the Geocache"
+msgstr "Back to the geocache listing"
+
+msgid "E-Mail-Address:"
+msgstr "E-mail address:"
+
+msgid "Logentries for %1"
+msgstr "Log entries for %1"
+
+msgid "Picture selection"
+msgstr "Picture selection"
+
+msgid "Picture selection for %1"
+msgstr "Picture selection for %1"
+
+msgid "There are no pictures for the Geocache."
+msgstr "There are no pictures for this geocache."
+
+msgid "As preview picture"
+msgstr "As preview picture"
+
+msgid "My profile data"
+msgstr "My profile data"
+
+msgid "The following informations are stored in your userprofile:"
+msgstr "The following information is stored in your user profile:"
+
+msgid "Gray entries will be hidden to other users."
+msgstr "Gray entries will be hidden to other users."
+
+msgid "Username:"
+msgstr "Username:"
+
+msgid "The country is not valid."
+msgstr "The country is not valid."
+
+msgid "The entered radius is not valid."
+msgstr "The entered radius is not valid."
+
+msgid "An unknown error occured."
+msgstr "An unknown error occurred."
+
+msgid "Before you can login the first time you have to activate your account with to followin code:"
+msgstr "Before you can login for the first time, you have to activate your account by entering the following code:"
+
+msgid "New password"
+msgstr "New password"
+
+msgid "Request"
+msgstr "Request"
+
+msgid "Change"
+msgstr "Change"
+
+msgid "Request code"
+msgstr "Request code"
+
+msgid "New password code"
+msgstr "New password code"
+
+msgid "you requested at %1 a security code to change your password."
+msgstr "on %1 you requested a security code to change your password."
+
+msgid "The following code was generated: %1"
+msgstr "The following code has been generated: %1"
+
+msgid "This code is 3 days valid."
+msgstr "This code is valid for 3 days."
+
+msgid "You can enter your new password at %1newpw.php"
+msgstr "You can enter your new password at %1newpw.php"
+
+msgid "To change your password, you have to request a security code which will be sent to you via E-Mail."
+msgstr "To change your password, you have to request a security code which will be sent to you by e-mail."
+
+msgid "This E-Mail-Address is not registered with a valid username."
+msgstr "This e-mail address is not registered with a valid username."
+
+msgid "An E-Mail was sent to you with the security code."
+msgstr "An e-mail has been sent to you containing the security code."
+
+msgid "An unknown error occured. The security code could not be sent to you."
+msgstr "An unknown error occurred. The security code could not be sent to you."
+
+msgid "Please enter your E-Mail-Address, the security code you received and your new password. The security code is only 3 days valid. You have to request a new one after that time."
+msgstr "Please enter your e-mail address, the security code you received and your new password. The security code is valid for 3 days only. You have to request a new one if that period of time has elapsed."
+
+msgid "The user account is not activated."
+msgstr "This user account has not been activated yet."
+
+msgid "Security code:"
+msgstr "Security code:"
+
+msgid "The security code is expired. Request a new one."
+msgstr "The security code is expired. Please request a new one."
+
+msgid "The security code does not match."
+msgstr "The security code does not match."
+
+msgid "Please repeat:"
+msgstr "Please repeat:"
+
+msgid "The password has been changed, you can now <a href=\"login.php\">login</a> with the new password."
+msgstr "The password has been changed. You can now <a href=\"login.php\">login</a> with the new password."
+
+msgid "New email code"
+msgstr "Security code for new e-mail address "
+
+msgid "you requested at %1 a security code to change your E-Mail-Address."
+msgstr "on %1 you requested a security code to change your e-mail address."
+
+msgid "You can verify your new E-Mail-Address at %1newemail.php"
+msgstr "You can verify your new e-mail address at %1newemail.php"
+
+msgid "Change E-Mail address"
+msgstr "Change e-mail address"
+
+msgid "To change your E-Mail address, you have to request a security code. It will be sent to your new E-Mail-Address."
+msgstr "To change your e-mail address, you have to request a security code. It will be sent to your new e-mail address."
+
+msgid "New E-Mail address:"
+msgstr "New e-mail address:"
+
+msgid "This E-Mail is already assigned to your account."
+msgstr "This e-mail address is already assigned to your account."
+
+msgid "Please enter the security code you received. The security code is only 3 days valid. You have to request a new one after that time."
+msgstr "Please enter the security code you received. The security code is valid for 3 days only. You have to request a new one if that period of time has elapsed."
+
+msgid "Request security code first."
+msgstr "Please request a security code first."
+
+msgid "There was no new E-Mail-Address entered, please request a security code first."
+msgstr "No new e-mail address has been stored. Please request a security code first."
+
+msgid "The E-Mail-Address was changed."
+msgstr "The e-mail address has been changed."
+
+msgid "Download"
+msgstr "Download"
+
+msgid "No stored queries found"
+msgstr "No stored queries found"
+
+msgid "With the download you accept the <a href=\"articles.php?page=impressum#tos\">term of use</a> from opencaching.de"
+msgstr "By downloading you accept the opencaching.de <a href=\"articles.php?page=impressum#tos\">terms of use</a>."
+
+msgid "Store query"
+msgstr "Store query"
+
+msgid "Store options as new search"
+msgstr "Store options as a new search"
+
+msgid "Name of the search"
+msgstr "Name of the search"
+
+msgid "You have to enter a name for this search"
+msgstr "You have to enter a name for this search"
+
+msgid "There already exists a search with this name"
+msgstr "A search with this name already exists"
+
+msgid "Store"
+msgstr "Store"
+
+msgid "Overwrite old search options"
+msgstr "Overwrite old search options"
+
+msgid "-- Select search to overwrite --"
+msgstr "-- Select search to overwrite --"
+
+msgid "-- no stored search found --"
+msgstr "-- no stored search found --"
+
+msgid "My recommendations"
+msgstr "My recommendations"
+
+msgid "Your recommendation for \"<a href=\"viewcache.php?wp=%1\">%2</a>\" has been removed!"
+msgstr "Your recommendation for \"<a href=\"viewcache.php?wp=%1\">%2</a>\" has been removed!"
+
+msgid "Remove recommendation"
+msgstr "Remove recommendation"
+
+msgid "You haven't recommended a Geocache."
+msgstr "You haven't recommended a geocache. "
+
+msgid "Ignored Geocaches"
+msgstr "Ignored geocaches"
+
+msgid "remove"
+msgstr "remove"
+
+msgid "No ignored Geocaches found."
+msgstr "No ignored geocaches found."
+
+msgid "Watched Geocaches - Settings"
+msgstr "Watched geocaches - settings"
+
+msgid "Delivery:"
+msgstr "Delivery:"
+
+msgid "Immediate"
+msgstr "Immediate"
+
+msgid "Daily"
+msgstr "Daily"
+
+msgid "Weekly"
+msgstr "Weekly"
+
+msgid "Send at:"
+msgstr "Send at:"
+
+msgid "#timetitle"
+msgstr "&nbsp;"
+
+msgid "Sent day:"
+msgstr "Send on:"
+
+msgid "Sent time and day is only used with daily or weekly delivery."
+msgstr "Sending time and day will only be used for daily or weekly delivery."
+
+msgid "Error while trying to save!"
+msgstr "Error while trying to save settings!"
+
+msgid "Settings stored successfull."
+msgstr "Settings have been stored."
+
+msgid "Watched Geocaches"
+msgstr "Watched geocaches"
+
+msgid "Last found"
+msgstr "Last found"
+
+msgid "No Geocaches watched."
+msgstr "No watched geocaches."
+
+msgid "Remind E-Mail"
+msgstr "Remind e-mail address"
+
+msgid "Remind my account E-Mail"
+msgstr "E-mail address reminder"
+
+msgid "Enter your username and we will send an E-Mail to your E-Mail-Address."
+msgstr "Enter your username and we will send a reminder e-mail to your e-mail address."
+
+msgid "Enter an username."
+msgstr "Enter an username."
+
+msgid "Username does not exist."
+msgstr "Username does not exist."
+
+msgid "The remind E-Mail was sent."
+msgstr "The reminder e-mail has been sent."
+
+msgid "Reminder to your E-Mail-Address"
+msgstr "Reminder to your e-mail address"
+
+msgid "Your E-Mail-Address to login:"
+msgstr "Your login e-mail address:"
+
+msgid "you requested an reminder E-Mail at %1 ."
+msgstr "you requested a reminder e-mail on %1 ."
+
+msgid "Cache-Recommendations"
+msgstr "Cache recommendations"
+
+msgid "User that recommended %1 by %2 also recommended the following geocaches:"
+msgstr "Users that recommended %1 by %2 also recommended the following geocaches:"
+
+msgid "Quota"
+msgstr "Quota"
+
+msgid "No recommendations found."
+msgstr "No recommendations found."
+
+msgid "Database maintainance"
+msgstr "Database maintenance"
+
+msgid "DB Maintainance"
+msgstr "DB maintenance"
+
+msgid "%1 corrected: %2 entries"
+msgstr "%1 corrected %2 entries "
+
+msgid "Execute"
+msgstr "Execute"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "E-Mail from"
+msgstr "E-mail from"
+
+msgid "Sorry, the requested user account is deactivated."
+msgstr "Sorry, the requested user account is deactivated."
+
+msgid "Sorry, there is no E-Mail address for the user requested."
+msgstr "Sorry, there is no e-mail address for this user."
+
+msgid "An unkown error occured and the E-Mail was not sent."
+msgstr "An unkown error occurred and the e-mail was not sent."
+
+msgid "'%1' contacted you via %2 The user profile: %2viewprofile.php?userid=%3 To reply this E-Mail use the E-Mail link on the users profile."
+msgstr "'%1' contacted you via %2 The user profile: %2viewprofile.php?userid=%3 To answer this e-mail use the e-mail link at the user's profile."
+
+msgid "Subject:"
+msgstr "Subject:"
+
+msgid "All informations will be handled confidential and not published to third parties!"
+msgstr "All information will be handled confidential and will not be disclosed to third parties!"
+
+msgid "'%1' with the E-Mail address %2 contacted you via %3 The user profile: %3viewprofile.php?userid=%4 Use the reply button of your E-Mail agent to answer this E-Mail."
+msgstr "'%1' with e-mail address %2 contacted you via %3 The user profile: %3viewprofile.php?userid=%4 Use the reply button of your e-mail client to answer this mail."
+
+msgid "E-Mail to %1 was sent"
+msgstr "E-mail to %1 has been sent."
+
+msgid "Content:"
+msgstr "Content:"
+
+msgid "Send E-Mail to %1"
+msgstr "Send E-Mail to %1"
+
+msgid "You have to enter a subject!"
+msgstr "You have to enter a subject!"
+
+msgid "You have to enter a content!"
+msgstr "You have to enter a content!"
+
+msgid "Send my E-Mail address with this message"
+msgstr "Send my e-mail address with this message"
+
+msgid "This enables the receiver to answer your E-Mail directly with his E-Mail agent."
+msgstr "This enables the receiver to answer your e-mail directly using his e-mail client."
+
+msgid "To protect you and us from abuse:"
+msgstr "To protect you and us from abuse:"
+
+msgid "Only E-Mail that regards Geocaching are allowed. Spaming is not allowed!"
+msgstr "Only e-mails concerning geocaching are allowed. Spamming is prohibited!"
+
+msgid "All relevant informations will be logged (date/time, sender/receiver and IP address)"
+msgstr "All relevant information will be logged (date/time, sender/receiver and IP address)."
+
+msgid "Sorry, the Geocache is not published."
+msgstr "Sorry, this geocache is not published."
+
+msgid "Show all logentries"
+msgstr "Show all log entries"
+
+msgid "Show Geocache"
+msgstr "Show geocache"
+
+msgid "You are already logged in.<br /> Please <a href=\"login.php?action=logout\">logout</a> to login again."
+msgstr "You are already logged in.<br /> Please <a href=\"login.php?action=logout\">logout</a> first to login again."
+
+msgid "When downloading this file, you accept our <a href=\"articles.php?page=impressum#tos\">terms of use</a>."
+msgstr "By downloading this file, you accept our <a href=\"articles.php?page=impressum#tos\">terms of use</a>."
+
+msgid "Difficulty: %1 of 5.0"
+msgstr "Difficulty: %1 of 5"
+
+msgid "Terrain: %1 of 5.0"
+msgstr "Terrain: %1 of 5"
+
+msgid "List of participants"
+msgstr "List of attendees"
+
+msgid "Log this cache"
+msgstr "Log this cache"
+
+msgid "Don't watch"
+msgstr "Don't watch"
+
+msgid "Watch"
+msgstr "Watch"
+
+msgid "Don't ignore"
+msgstr "Don't ignore"
+
+msgid "Ignore"
+msgstr "Ignore"
+
+msgid "Print"
+msgstr "Print"
+
+msgid "Convert coordinates"
+msgstr "Convert coordinates"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Time required"
+msgstr "Time required"
+
+msgid "Distance"
+msgstr "Distance"
+
+msgid "Caches displayed"
+msgstr "Caches displayed"
+
+msgid "Hidden at"
+msgstr "Hidden on"
+
+msgid "Listed since"
+msgstr "Listed since"
+
+msgid "Last update"
+msgstr "Last update"
+
+msgid "Waypoint"
+msgstr "Waypoint"
+
+msgid "Also listed at"
+msgstr "Also listed at"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Watched"
+msgstr "Watched"
+
+msgid "Ignored"
+msgstr "Ignored"
+
+msgid "Page visits"
+msgstr "Page visits"
+
+msgid "Cache attributes"
+msgstr "Cache attributes"
+
+msgid "Additional hint"
+msgstr "Additional hint"
+
+msgid "Decrypt"
+msgstr "Decrypt"
+
+msgid "Pictures"
+msgstr "Pictures"
+
+msgid "Utilities"
+msgstr "Utilities"
+
+msgid "Show cache recommendations from users that recommended this geocache: <a href=\"recommendations.php?cacheid=%1\">alle</a>"
+msgstr "Show cache recommendations from users that recommended this geocache: <a href=\"recommendations.php?cacheid=%1\">all</a>"
+
+msgid "Search geocaches nearby:"
+msgstr "Search geocaches nearby:"
+
+msgid "all"
+msgstr "all"
+
+msgid "searchable"
+msgstr "searchable"
+
+msgid "Download as file:"
+msgstr "Download as file:"
+
+msgid "GPS Exchange Format .gpx"
+msgstr "GPS Exchange Format .gpx"
+
+msgid "Waypointfile .loc"
+msgstr "Waypoint file .loc"
+
+msgid "Google Earth .kml"
+msgstr "Google Earth .kml"
+
+msgid "TomTom POI .ov2"
+msgstr "TomTom POI .ov2"
+
+msgid "TOP50-Overlay .ovl"
+msgstr "TOP50 Overlay .ovl"
+
+msgid "Textfile .txt"
+msgstr "Text file .txt"
+
+msgid "C O P Y"
+msgstr "C O P Y"
+
+msgid "Edit picture"
+msgstr "Edit picture"
+
+msgid "Sorry, the requested picture does not exist."
+msgstr "Sorry, the requested picture does not exist."
+
+msgid "Sorry, the requested cachelog does not exist."
+msgstr "Sorry, the requested cachelog does not exist."
+
+msgid "Show statistics"
+msgstr "Show statistics"
+
+msgid "Age"
+msgstr "Age"
+
+msgid "Free text"
+msgstr "Description"
+
+msgid "Hometown"
+msgstr "Location"
+
+msgid "MiniMap-Zoom"
+msgstr "MiniMap-Zoom"
+
+msgid "Report this cache"
+msgstr "Report this cache"
+
+msgid "Reported caches"
+msgstr "Reported caches"
+
+msgid "File:"
+msgstr "File:"
+
+msgid "Please give the picture a name!"
+msgstr "Please name the picture!"
+
+msgid "Add picture for Geocaches %1"
+msgstr "Add picture for geocache %1"
+
+msgid "Add picture for Logentry %1"
+msgstr "Add picture for log entry %1"
+
+msgid "Edit picture for Geocaches %1"
+msgstr "Edit picture for geocache %1"
+
+msgid "Edit picture for Logentry %1"
+msgstr "Edit picture for log entry %1"
+
+msgid "Name:"
+msgstr "Name:"
+
+msgid "Give the picture a name!"
+msgstr "Name the picture!"
+
+msgid "After click to upload, it can take a while, until the next page is been shown."
+msgstr "After clicking <i>upload</i>, it may take a while until the next page appears."
+
+msgid "This picture is a spoiler - dont show a thumbnail."
+msgstr "This picture is a spoiler - don't show a thumbnail."
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Only the following picture formats are allowed: BMP, GIF, PNG and JPEG. We recommend JPEG for photos."
+msgstr "Only the following picture formats are allowed: BMP, GIF, PNG and JPEG. We recommend JPEG for photos."
+
+msgid "The file size of the pictures must not exeed 150 KB. We recommend 480x360 pixel of picture size."
+msgstr "The file size of the picture must not exeed 150 KB. We recommend 480x360 pixels picture size."
+
+msgid "Report for %1 submitted"
+msgstr "Report for %1 has been submitted."
+
+msgid "Reason:"
+msgstr "Reason:"
+
+msgid "Comment:"
+msgstr "Comment:"
+
+msgid "Report %1"
+msgstr "Report %1"
+
+msgid "You have to select a reason for your report!"
+msgstr "You have to select a reason for your report!"
+
+msgid "Comment: (required)"
+msgstr "Comment: (required)"
+
+msgid "It is required to enter a comment for reporting a cache!"
+msgstr "It is required to enter a comment for reporting a cache!"
+
+msgid "An unknown error occured. Reporting failed."
+msgstr "An unknown error occurred. Reporting failed."
+
+msgid "Report cache"
+msgstr "Report cache"
+
+msgid "New"
+msgstr "New"
+
+msgid "In progress"
+msgstr "In progress"
+
+msgid "Done"
+msgstr "Done"
+
+msgid "Cache on private property"
+msgstr "Cache on private property"
+
+msgid "Copyright violation"
+msgstr "Copyright violation"
+
+msgid "Cache is gone"
+msgstr "Cache is gone"
+
+msgid "Other reason"
+msgstr "Other reason"
+
+msgid "The report is already assigned to another admin!"
+msgstr "This report is already assigned to another admin!"
+
+msgid "The report is already assigned to you!"
+msgstr "This report is already assigned to you! "
+
+msgid "You can not work on this report! Another admin is already pursuing it."
+msgstr "You cannot work on this report, it is already assigned to another admin!"
+
+msgid "To work on a report you have to assign it to you!"
+msgstr "To work on a report you have to assign it to you!"
+
+msgid "No reported caches"
+msgstr "No reported caches"
+
+msgid "Details for report of "
+msgstr "Details for report of "
+
+msgid " by "
+msgstr " by "
+
+msgid "not assigned"
+msgstr "not assigned"
+
+msgid "Assign to me"
+msgstr "Assign to me"
+
+msgid "Contact owner"
+msgstr "Contact owner"
+
+msgid "to"
+msgstr "to"
+
+msgid "Mark as finished"
+msgstr "Mark as done"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Prior to reporting a cache to your Opencaching team you should try to contact the owner, to solve possible problems immediate user to user. This does not apply for caches violating the Opencaching terms of use in a way, that requires immediate action of an Opencaching administrator."
+msgstr "Prior to reporting a cache to the Opencaching team, you should try to contact the owner and try to solve the presumed problems yourself. This does not apply for caches violating the Opencaching terms of use in a way that requires immediate action of an Opencaching administrator."
+
+msgid "Do not display this picture (only used in HTML description)"
+msgstr "Do not display this picture (which is only used in HTML description etc.)"
+
+msgid "No information on user details found."
+msgstr "No information on user details found."
+
+msgid "Coordinates"
+msgstr "Coordinates"
+
+msgid "Geokrets"
+msgstr "Geokrets"
+
+msgid "My details"
+msgstr "My details"
+
+msgid "Edit details"
+msgstr "Edit details"
+
+msgid "User details"
+msgstr "User details"
+
+msgid "My profile details"
+msgstr "My profile details"
+
+msgid "The following detailed information is stored in your userprofile:"
+msgstr "The following detailed information is stored in your user profile:"
+
+msgid "Unchecked entries are not visible for other users.<br /> Entries without checkbox are only needed for internal purposes and will never show up in your public profile."
+msgstr "Unchecked entries are not visible to other users.<br /> Entries without checkbox are only used for internal purposes and will never show up in your public profile."
+
+msgid "Error while saving."
+msgstr "Error while saving."
+
+msgid "Illegal characters found in"
+msgstr "Illegal characters found in"
+
+msgid "Field values too long in"
+msgstr "Field values too long in"
+
+msgid "Original values were restored."
+msgstr "Original values have been restored."
+
+msgid "visible"
+msgstr "visible"
+
+msgid "invisible"
+msgstr "invisible"
+
+msgid "internal"
+msgstr "internal"
+
+msgid "(*) New reports"
+msgstr "(*) New reports"
+
+msgid "User statistics"
+msgstr "User statistics"
+
+msgid "show"
+msgstr "show"
+
+msgid "The user has not found any caches yet."
+msgstr "This user has not found any caches yet."
+
+msgid "The geocache was locked by an administrator because it did not follow the Opencaching terms of use. If you wish to unlock it, contact us using the \"report cache\"-link. Please choose \"other\" as reason and explain shortly what you have changed to make the listing compliant to our terms of use. Thank you!"
+msgstr "This geocache has been locked by an administrator because it did not comply with the Opencaching terms of use. If you wish to unlock it, contact us using the \"report cache\" link. Please choose \"other\" as reason and explain briefly what you have changed to make the listing compliant with our terms of use. Thank you!"
+
+msgid "doc/sql/static-data/data.sql has been changed with last CVS checkout.<br /> Before you change translastions, update database with data.sql!<br /> &nbsp;"
+msgstr "doc/sql/static-data/data.sql has been changed with last CVS checkout.<br /> Before you edit translastions, update database from data.sql!<br /> &nbsp;"
+
+msgid "Sorry, the Geocache is locked and can not be viewed."
+msgstr "Sorry, this geocache is locked and cannot be viewed."
+
+msgid "Only at night"
+msgstr "Only at night"
+
+msgid "Locked, visible"
+msgstr "Locked, visible"
+
+msgid "Locked, invisible"
+msgstr "Locked, invisible"
+
+msgid "Last modified:"
+msgstr "Last modified:"
+
+msgid "Route"
+msgstr "Route"
+
+msgid "Cachesize:"
+msgstr "Cachesize"
+
+msgid "=== Please select ==="
+msgstr "=== Please select ==="
+
+msgid "Adoptions"
+msgstr "Adoptions"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Yes, i've read and understand the <a href=\"articles.php?page=impressum#tos\">terms of use</a> of Opencaching.de"
+msgstr "Yes, I have read and will comply with the Opencaching.de <a href=\"articles.php?page=impressum#tos\">terms of use</a>."
+
+msgid "To complete the adoption, you have to submit this form.<br /> With submitting this form you are the responsible owner of this Geocache."
+msgstr "To complete the adoption, you have to submit this form.<br /> By submitting this form, you will become the responsible owner of this geocache."
+
+msgid "%1 offered you this Geocache for adoption at %2"
+msgstr "on %2, %1 offered this geocache to you for adoption "
+
+msgid "Thank you for adopting %1"
+msgstr "Thank you for adopting %1"
+
+msgid "Commit the adoption of %1"
+msgstr "Commit the adoption of %1"
+
+msgid "There are no caches that can be adopted by you at the moment."
+msgstr "There are no caches that can be adopted by you at the moment."
+
+msgid "Adopt now"
+msgstr "Adopt now"
+
+msgid "Geocaches the owner offers you for adoption"
+msgstr "Geocaches which are offered to you for adoption"
+
+msgid "Yes, i've read and understand the above and agree with it."
+msgstr "Yes, I have read and understand the above and agree with it. "
+
+msgid "If you find a user that wants to adopt your Geocache, fill in the username here and submit. The user will then see this Geocache under My Profile &gt; Adoptions. To complete, the user has to accept our terms of use and commit the adoption. You can offer this Geocache to more than one user. The first user committing the adoption will get the new owner of this Geocache. With the adoption, you will give the committing user an unlimited right to use, modifiy, publish and sublicense content of this Geocache."
+msgstr "When you have found a user who wants to adopt your geocache, fill in the username here and submit. The user will see this geocache in My Profile &gt; Adoptions. To complete the adoption, the user has to accept our terms of use and commit the adoption. You may offer this geocache to more than one user. The first user committing the adoption will become the new owner of this cache. With the adoption, you will grant to the committing user an unlimited right to use, modifiy, publish and sublicense content of this geocache."
+
+msgid "Offer %1 for adoption"
+msgstr "Offer %1 for adoption"
+
+msgid "You have no users invited to adopt your cache."
+msgstr "You have not invited any users to adopt this cache."
+
+msgid "Reject adoption"
+msgstr "Reject adoption"
+
+msgid "List of users you offered %1 for adoption"
+msgstr "List of users you offered %1 for adoption"
+
+msgid "Username unknown"
+msgstr "Username unknown"
+
+msgid "You cannot adopt your own cache!"
+msgstr "You cannot adopt your own cache!"
+
+msgid "Sorry, you have to read and accept the above to proceed!"
+msgstr "Sorry, you have to read and accept the above to proceed!"
+
+msgid "Sorry, you have to read and accept the terms of use to proceed!"
+msgstr "Sorry, you have to read and accept the terms of use to proceed!"
+
+msgid "This rules ensures that your password cannot be guessed by an automated script."
+msgstr "This rules ensures that your password cannot be guessed by an automated script."
+
+msgid "a-z A-Z 0-9 and .-_ @&auml;&uuml;&ouml;&Auml;&Uuml;&Ouml;=)(/\\&amp;*+~#"
+msgstr "a-z A-Z 0-9 and .-_ @&auml;&uuml;&ouml;&Auml;&Uuml;&Ouml;=)(/\\&amp;*+~#"
+
+msgid "Not all special characters are allowed. You may only use"
+msgstr "Not all special characters are allowed. You may only use"
+
+msgid "Do not use dictionary words like 'master'"
+msgstr "Do not use dictionary words like 'master'"
+
+msgid "Do not use common geocaching words"
+msgstr "Do not use common geocaching words"
+
+msgid "Do not use parts of your username, name or email"
+msgstr "Do not use parts of your username, real name or e-mail address."
+
+msgid "Between 6 and 60 chars of length"
+msgstr "Between 6 and 60 characters long"
+
+msgid "Verify that your password matches the following criteria:"
+msgstr "Please verify that your password matches the following criteria:"
+
+msgid "Your password did not pass our security check."
+msgstr "Your password did not pass our security check."
+
+msgid "Montenegro"
+msgstr "Montenegro"
+
+msgid "Serbia"
+msgstr "Serbia"
+
+msgid "* If the user explicitly logged out after page visit or last login <br /> is older than 90 days, the last login cannot be determined."
+msgstr "* If the user explicitly logged out after his last visit or more than<br /> 90 days have passed since last login, the last login cannot be determined. "
+
+msgid "Manage User"
+msgstr "Manage user"
+
+msgid "Sure?"
+msgstr "Sure?"
+
+msgid "Disable (and lock all geocaches owned)"
+msgstr "Disable (and lock all geocaches owned)"
+
+msgid "Unknown"
+msgstr "Unknown"
+
+msgid "Last known login:"
+msgstr "Last known login:"
+
+msgid "Active geocaches:"
+msgstr "Active geocaches:"
+
+msgid "Total hidden:"
+msgstr "Total hidden:"
+
+msgid "Logentries:"
+msgstr "Log entries:"
+
+msgid "User active:"
+msgstr "User active:"
+
+msgid "Date created:"
+msgstr "Date created:"
+
+msgid "View useraccount details"
+msgstr "View user account details"
+
+msgid "Useraccount details"
+msgstr "User account details"
+
+msgid "E-Mail:"
+msgstr "E-mail:"
+
+msgid "Waypoint download"
+msgstr "Waypoint download"
+
+msgid "News approve"
+msgstr "News entries"
+
+msgid "Do not show"
+msgstr "Hide"
+
+msgid "Terrain"
+msgstr "Terrain"
+
+msgid "Difficulty"
+msgstr "Difficulty"
+
+msgid "Send this waypoint to GPS device:"
+msgstr "Send this waypoint to GPS device:"
+
+msgid "File upload failed!"
+msgstr "File upload failed!"
+
+msgid "XML file could not be loaded!"
+msgstr "XML file could not be loaded!"
+
+msgid "SQL Export"
+msgstr "SQL Export"
+
+msgid "XML Download"
+msgstr "XML Download"
+
+msgid "XML Import"
+msgstr "XML Import"
+
+msgid "XML file containing the translations:"
+msgstr "XML file containing the translations:"
+
+msgid "Check the following languages in the XML file:"
+msgstr "Check the following languages in the XML file:"
+
+msgid "Scan file"
+msgstr "Scan file"
+
+msgid "Source code changed, text no longer used"
+msgstr "Source code changed, text no longer used"
+
+msgid "New translation"
+msgstr "New translation"
+
+msgid "Modified translation"
+msgstr "Modified translation"
+
+msgid "old"
+msgstr "old"
+
+msgid "Toggle all"
+msgstr "Toggle all"
+
+msgid "Current top ratings"
+msgstr "Current top ratings"
+
+msgid "%1 Recommendations in the last 30 days"
+msgstr "%1 recommendations within the last 30 days "
+
+msgid "You can find more recommendations &gt;<a href=\"tops.php\">here</a>&lt;."
+msgstr "You can find more recommendations &gt;<a href=\"tops.php\">here</a>&lt;."
+
+msgid "Caches not found"
+msgstr "Caches not found"
+
+msgid "Last login"
+msgstr "Last login"
+
+msgid "Within the last month"
+msgstr "Within the last month"
+
+msgid "Between 1 and 6 months"
+msgstr "Between 1 and 6 months"
+
+msgid "Between 6 and 12 months"
+msgstr "Between 6 and 12 months"
+
+msgid "More than 12 months ago"
+msgstr "More than 12 months ago"
+
+msgid "The user account has been disabled."
+msgstr "The user account has been disabled."
+
+msgid "A new activation mail has been sent."
+msgstr "A new activation mail has been sent."
+
+msgid "of"
+msgstr "of"
+
+msgid "Show in Google Maps"
+msgstr "Show in Google Maps"
+
+msgid "(in GM)"
+msgstr "(in GM)"
+
+msgid "The user has not hidden any caches yet."
+msgstr "This user has not hidden any caches yet. "
+
+msgid "Geocaching.de"
+msgstr "Geocaching.de"
+
+msgid "Google Maps"
+msgstr "Google Maps"
+
+msgid "Donations"
+msgstr "Donations"
+
+msgid "Logtype"
+msgstr "Logtype"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Recommend this cache?"
+msgstr "Recommend this cache?"
+
+msgid "(only if you have free ratings)"
+msgstr "(only if you have unused ratings)"
+
+msgid "OC-Waypoint"
+msgstr "OC waypoint"
+
+msgid "Terms of use"
+msgstr "Terms of use"
+
+msgid "Our Team"
+msgstr "Our team"
+
+msgid "This cache cannot be done within a single day or a single night. You will have to visit the location for more than one time, our you must stay overnight. Preparation time is not included in this calculation, but only the time on site."
+msgstr "This cache cannot be done within a single day or a single night. You will have to visit the location for more than one time, our you must stay overnight. Preparation time is not included in this calculation, but only the time on site."
+
+msgid "Your HTML code will be changed again by a special filter. This is necessary to avoid dangerous HTML-tags, such as &lt;script&gt;. A list of allowed HTML tags, you can find <a href=\"http://www.opencaching.de/articles.php?page=htmltags\">here</a>"
+msgstr "Your HTML code will be changed again by a special filter. This is nacessary to avoid dangerous HTML-tags, such as &lt;script&gt;. A list of allowed HTML tags can be find <a href=\"http://www.opencaching.de/articles.php?page=htmltags\">here</a>."
+
+msgid "Nature protection area"
+msgstr "Nature reserve"
+
+msgid "Scan complete"
+msgstr "Scan complete"
+
+msgid "Current file:"
+msgstr "Current file:"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "This geocache is probably placed within a nature protection area! See <a href=\"http://cms.opencaching.de/index.php?id=140\">here</a> for further informations, please."
+msgstr "This geocache is probably placed within a nature reserve! Pleas read <a href=\"http://cms.opencaching.de/index.php?id=140\">this</a> for further information."
+
+msgid "Info"
+msgstr "Info"
+
+msgid "INTERNAL_LANG"
+msgstr "EN"
+
+msgid "The compilation of the template faild. This should be a temporary failure. Please try again in some minutes."
+msgstr "The compilation of the template failed. This should be a temporary failure. Please try again in some minutes."
+
+msgid "This geocache is listed at Opencaching only. This attribute will enable users of other geocaching platforms to find interesting OC caches quickly."
+msgstr "This geocache is listed at Opencaching only. This attribute will enable users of other geocaching platforms to find interesting OC caches quickly."
+
+msgid "This geocache is probably placed within the following nature protection areas (<a href=\"http://cms.opencaching.de/index.php?id=140\">Info</a>):"
+msgstr "This geocache is probably placed within the following nature reserves (<a href=\"http://cms.opencaching.de/index.php?id=140\">Info</a>):"
+
+msgid "This cache ist listed at Opencaching and at other geocaching sites. This applies to caches which have been linked by their owners to the corresponding listings at other sites. Please note that descriptions and status of multiple-listed caches have to be equally maintained at all sites including Opencaching, according to our terms of use."
+msgstr "This cache ist listed at Opencaching and at other geocaching sites. This applies to caches which have been linked by their owners to the corresponding listings at other sites. Please note that descriptions and status of multiple-listed caches have to be equally maintained at all sites including Opencaching, according to our terms of use. "
+
+msgid "Scan source codes"
+msgstr "Scan source codes"
+
+msgid "There is a stamp in the cache for stamping your personal logbook, and the cache’s logbook will be stamped with your personal stamp. Take care not to mix up stamps and to leave the cache’s stamp in the cache! Frequently letterboxes can be found without GPS, maybe with a compass and paces from a location - add the \"without GPS\" attribute for those."
+msgstr "There is a stamp in the cache for stamping your personal logbook, and the cache’s logbook will be stamped with your personal stamp. Take care not to mix up stamps and to leave the cache’s stamp in the cache! Frequently letterboxes can be found without GPS, maybe with a compass and paces from a location - add the \"without GPS\" attribute for those."
+
+msgid "Active railway nearby"
+msgstr "Active railway nearby"
+
+msgid "Cliff / Rocks"
+msgstr "Cliff / Rocks"
+
+msgid "Hunting"
+msgstr "Hunting"
+
+msgid "Thorns"
+msgstr "Thorns"
+
+msgid "This cache can be done both at daylight and at night."
+msgstr "This cache can be done both at daylight and at night."
+
+msgid "This cache can be done at certain seasons only - see the cache description for more details. For example, the cache may be placed in a corn labyrinth, which only exists between bloom and harvest season."
+msgstr "This cache can be done at certain seasons only - see the cache description for more details. For example, the cache may be placed in a corn labyrinth, which only exists between bloom and harvest season."
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Chat/IRC"
+msgstr "Chat/IRC"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "This cache shoud be attempted during daylight only. For example, the area may be dangerous and contain cliffs or abysses. Or using flashlights may be unfeasable because it would look suspicious within a residential area."
+msgstr "This cache shoud be attempted during daylight only. For example, the area may be dangerous and contain cliffs or abysses. Or using flashlights may be unfeasable because it would look suspicious within a residential area."
+
+msgid "This cache can be done only at low-tide or only at high-tide."
+msgstr "This cache can be done only at low-tide or only at high-tide."
+
+msgid "GPX (old)"
+msgstr "GPX (old)"
+
+msgid "This cache can be found the whole year round, while difficulty may depend on seasons. Specify difficulty for good conditions."
+msgstr "This cache can be found the whole year round, while difficulty may depend on seasons. Specify difficulty for <i>good</i> conditions."
+
+msgid "Don’t seek this cache during animal breeding season! Please indicate in the cache description which time of year must be avoided. Also, pay attention to the local terms and signs regarding nature protection."
+msgstr "Don’t seek this cache during animal breeding season! Please indicate in the cache description which time of year must be avoided. Also, pay attention to the local terms and signs regarding nature protection."
+
+msgid "This cache can be found even after heavy snowing. All stages and the geocache are hidden in a snow-safe way: they will not be covered by fallen snow an not by snow-piles created by snow-clearing vehicles."
+msgstr "This cache can be found even after heavy snowing. All stages and the geocache are hidden in a snow-safe way: they will not be covered by fallen snow an not by snow-piles created by snow-clearing vehicles."
+
+msgid "Add to favorites..."
+msgstr "Add to favorites..."
+
+msgid "You will need special equipment which is not specified by other attributes, e.g. a laser pointer, walkie-talkies or a car jack."
+msgstr "You will need special equipment which is not specified by other attributes, e.g. a laser pointer, walkie-talkies or a car jack."
+
+msgid "A compass is required."
+msgstr "A compass is required."
+
+msgid "A flashlight is required for finding this cache. Don’t forget spare batteries!"
+msgstr "A flashlight is required for finding this cache. Don’t forget spare batteries!"
+
+msgid "For this cache, you will need climbing equipment and the knowledge how to use it properly. If you are a beginner, don’t do it alone but use the support of a experienced climber or mountaineer."
+msgstr "For this cache, you will need climbing equipment and the knowledge how to use it properly. If you are a beginner, don’t do it alone but use the support of a experienced climber or mountaineer."
+
+msgid "Ticks"
+msgstr "Ticks"
+
+msgid "Abandoned mines"
+msgstr "Abandoned mines"
+
+msgid "Poisonous plants"
+msgstr "Poisonous plants"
+
+msgid "Dangerous animals"
+msgstr "Dangerous animals"
+
+msgid "Parking area nearby"
+msgstr "Parking area nearby"
+
+msgid "Public transportation"
+msgstr "Public transportation"
+
+msgid "Drinking water nearby"
+msgstr "Drinking water nearby"
+
+msgid "Public restrooms nearby"
+msgstr "Public restrooms nearby"
+
+msgid "Public phone nearby"
+msgstr "Public phone nearby"
+
+msgid "First aid available"
+msgstr "First aid available"
+
+msgid "Near the parking area"
+msgstr "Near the parking area"
+
+msgid "Long walk"
+msgstr "Long walk"
+
+msgid "Swamp or marsh"
+msgstr "Swamp or marsh"
+
+msgid "Hilly area"
+msgstr "Hilly area"
+
+msgid "Some climbing (no gear needed)"
+msgstr "Some climbing (no gear needed)"
+
+msgid "Swimming required"
+msgstr "Swimming required"
+
+msgid "Point of interest"
+msgstr "Point of interest"
+
+msgid "Moving target"
+msgstr "Moving target"
+
+msgid "Webcam "
+msgstr "Webcam "
+
+msgid "Wihin enclosed rooms (caves, buildings etc.)"
+msgstr "Wihin enclosed rooms (caves, buildings etc.)"
+
+msgid "Without GPS (letterboxes, cistes, compass juggling ...)"
+msgstr "Without GPS (letterboxes, cistes, compass juggling ...)"
+
+msgid "Access or parking fee"
+msgstr "Access or parking fee"
+
+msgid "Overnight stay necessary"
+msgstr "Overnight stay necessary"
+
+msgid "Available 24 hours"
+msgstr "Available 24 hours"
+
+msgid "Only available at specified times"
+msgstr "Only available at specified times"
+
+msgid "by day only"
+msgstr "by day only"
+
+msgid "Tide"
+msgstr "Tide"
+
+msgid "All seasons"
+msgstr "All seasons"
+
+msgid "Breeding season / protected nature"
+msgstr "Breeding season / protected nature"
+
+msgid "Snow-proof hiding place"
+msgstr "Snow-proof hiding place"
+
+msgid "Special equipment"
+msgstr "Special equipment"
+
+msgid "Compass"
+msgstr "Compass"
+
+msgid "Flashlight"
+msgstr "Flashlight"
+
+msgid "Climbing gear"
+msgstr "Climbing gear"
+
+msgid "Cave equipment"
+msgstr "Cave equipment"
+
+msgid "Diving equipment"
+msgstr "Diving equipment"
+
+msgid "Watercraft"
+msgstr "Watercraft"
+
+msgid "Aircraft"
+msgstr "Aircraft"
+
+msgid "Investigation"
+msgstr "Investigation"
+
+msgid "Puzzle / Mystery"
+msgstr "Puzzle / Mystery"
+
+msgid "This geocache is hidden in a cave, and you should use appropriate equipment to access it. Beware: Even small caves may confront you with unforeseen problems and dangers, like thunder storms (water!) or a sprained ankle. Have advice first from cave-experienced people! Also take care of protected nature; e.g. bat places must not be disturbed."
+msgstr "This geocache is hidden in a cave, and you should use appropriate equipment to access it. Beware: Even small caves may confront you with unforeseen problems and dangers, like thunder storms (water!) or a sprained ankle. Have advice first from cave-experienced people! Also take care of protected nature; e.g. bat places must not be disturbed."
+
+msgid "You will need diving equipment to find this geocache. The water depth of the cache location is specified in the description. Please note that secure diving requires special training. Without diving experience, you may search this cache in company of a diving teacher."
+msgstr "You will need diving equipment to find this geocache. The water depth of the cache location is specified in the description. Please note that secure diving requires special training. Without diving experience, you may search this cache in company of a diving teacher."
+
+msgid "This cache usually can be found only using a watercraft. Swimming is impossible because of the distance or currents. See the cache description for more details."
+msgstr "This cache usually can be found only using a watercraft. Swimming is impossible because of the distance or currents. See the cache description for more details."
+
+msgid "You must investigate additional information before you can seek this cache. This commonly applies to puzzle/mystery caches."
+msgstr "You must investigate additional information before you can seek this cache. This commonly applies to puzzle/mystery caches."
+
+msgid "Puzzles or mysteries have to be solved before or while seeking this cache."
+msgstr "Puzzles or mysteries have to be solved before or while seeking this cache."
+
+msgid "Before or while seeking this cache, arithmetical problems must be solved which go beyond very basic calculations."
+msgstr "Before or while seeking this cache, arithmetical problems must be solved which go beyond very basic calculations."
+
+msgid "A newsentry was created on opencaching"
+msgstr "A newsentry was created on opencaching"
+
+msgid "Runtime: {time} seconds"
+msgstr "Runtime: {time} seconds"
+
+msgid "The called page does not exist!"
+msgstr "The called page does not exist!"
+
+msgid "Search by cachename"
+msgstr "Search by cachename"
+
+msgid "Redirect - opencaching"
+msgstr "Redirect - opencaching"
+
+msgid "Do you really want to delete the saved search?"
+msgstr "Do you really want to delete the saved search?"
+
+msgid "State"
+msgstr "Status"
+
+msgid "Set state"
+msgstr "Set status"
+
+msgid "Country (nodes)"
+msgstr "Countries"
+
+msgid "Not active"
+msgstr "Not active"
+
+msgid "Double listings"
+msgstr "Double listings"
+
+msgid "Rating"
+msgstr "Rating"
+
+msgid "Min. recommendations"
+msgstr "Min. recommendations"
+
+msgid "Drag Zoom"
+msgstr "Drag Zoom"
+
+msgid "Drag a region on the map (click here to reset)"
+msgstr "Drag a region on the map (click here to reset)"
+
+msgid "Drag Zoom Back"
+msgstr "Drag Zoom Back"
+
+msgid "Enter a search text, please!"
+msgstr "Enter a search text, please!"
+
+msgid "Create a logentry"
+msgstr "Create a logentry"
+
+msgid "Waypoint %1 not found!"
+msgstr "Waypoint %1 not found!"
+
+msgid "D/T:"
+msgstr "D/T:"
+
+msgid "Maps &copy; 2009 <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> Contributors"
+msgstr "Maps &copy; 2009 <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> Contributors"
+
+msgid "Error: Unable to download the search result (HTTP error code %1)"
+msgstr "Error: Unable to download the search result (HTTP error code %1)"
+
+msgid "Error: Unable to download the search result. The data was not available on the server."
+msgstr "Error: Unable to download the search result. The data was not available on the server."
+
+msgid "There are %1 Geocaches in the selected area, matching the filter options. Please zoom in to display the caches."
+msgstr "There are %1 Geocaches in the selected area, matching the filter options. Please zoom in to display the caches."
+
+msgid "The filter options have been changed. Click OK to reload the map content."
+msgstr "The filter options have been changed. Click OK to reload the map content."
+
+msgid "Edit logentry"
+msgstr "Edit logentry"
+
+msgid "Remove logentry"
+msgstr "Remove logentry"
+
+msgid "Edit cache"
+msgstr "Edit cache"
+
+msgid "Add description"
+msgstr "Add description"
+
+msgid "Edit description"
+msgstr "Edit description"
+
+msgid "Remove description"
+msgstr "Remove description"
+
+msgid "Select city"
+msgstr "Select city"
+
+msgid "Show search result"
+msgstr "Show search result"
+
+msgid "Result"
+msgstr "Result"
+
+msgid "Description - Create a cache"
+msgstr "Description - Create a cache"
+
+msgid "Add picture"
+msgstr "Add picture"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "There is no google maps key registered for this domain."
+msgstr "There is no google maps key registered for this domain."
+
+msgid "Attention! This Geocache is &quot;<span class=\"errormsg\">%1</span>&quot;!</strong> There is no physical container at the specified (or to be determined) coordinates. In the interest of the place it should not be necessarily to search!"
+msgstr "Attention! This Geocache is &quot;<span class=\"errormsg\">%1</span>&quot;!</strong> There is no physical container at the specified (or to be determined) coordinates. In the interest of the place it should not be necessarily to search!"
+
+msgid "Attention! This Geocache is &quot;<span class=\"errormsg\">%1</span>&quot;!</strong> The geocache itself or parts of it are missing or there are other issues that make a successful search impossible. In the interest of the place it should not be necessarily to search!"
+msgstr "Attention! This Geocache is &quot;<span class=\"errormsg\">%1</span>&quot;!</strong> The geocache itself or parts of it are missing or there are other issues that make a successful search impossible. In the interest of the place it should not be necessarily to search!"
+
+msgid "You have attended this event!"
+msgstr "You have attended this event!"
+
+msgid "You have already found this cache!"
+msgstr "You have already found this cache!"
+
+msgid "<br /><i>Obsolete: This attribute is cannot be assigned to new caches, because it does not fit our current terms of use.</i><br />\n"
+"This cache ist listed at Opencaching and at other geocaching sites. This applies to caches which have been linked by their owners to the corresponding listings at other sites. Please note that descriptions and status of multiple-listed caches have to be equally maintained at all sites including Opencaching, according to our terms of use."
+msgstr "<br /><i>Obsolete: This attribute is cannot be assigned to new caches, because it does not fit our current terms of use.</i><br /> This cache ist listed at Opencaching and at other geocaching sites. This applies to caches which have been linked by their owners to the corresponding listings at other sites. Please note that descriptions and status of multiple-listed caches have to be equally maintained at all sites including Opencaching, according to our terms of use."
+
+msgid "This OC node"
+msgstr "This OC node"
+
+msgid "Other OC nodes"
+msgstr "Other OC nodes"
+
+msgid "The next events in %1"
+msgstr "The next events in %1"
+
+msgid "Geocaches with most ratings in the last 30 days in %1."
+msgstr "Geocaches with most ratings in the last 30 days in %1."
+
+msgid "Newest caches in %1"
+msgstr "Newest caches in %1"
+
+msgid "This cache leads into a (former) mining area. There may be dangers by collapsing adits, or you may need to enter adits. Be careful and use appropriate equipment, especially in the dark. Old mines may be covered by historic preservation."
+msgstr "This cache leads into a (former) mining area. There may be dangers by collapsing adits, or you may need to enter adits. Be careful and use appropriate equipment, especially in the dark. Old mines may be covered by historic preservation."
+
+msgid "There are poisonous plants near the cache. Take care and prevent children and dogs from touching or eating them."
+msgstr "There are poisonous plants near the cache. Take care and prevent children and dogs from touching or eating them."
+
+msgid "The area is inhabited by possibly dangerous animals, e.g. rabies areas, venomous snakes, scorpions or bears."
+msgstr "The area is inhabited by possibly dangerous animals, e.g. rabies areas, venomous snakes, scorpions or bears."
+
+msgid "A nearby parking area is situated as starting point for doing this cache. If no free parking is available, add the \"access or parking fee\" attribute."
+msgstr "A nearby parking area is situated as starting point for doing this cache. If no free parking is available, add the \"access or parking fee\" attribute."
+
+msgid "This cache is located outside of urban areas and has a public transport station nearby. Don’t set this attribute for geocaches in urban areas that are commonly equipped with public transportation."
+msgstr "This cache is located outside of urban areas and has a public transport station nearby. Don’t set this attribute for geocaches in urban areas that are commonly equipped with public transportation."
+
+msgid "There is drinking water along the trail or near the cache. This attribute is useful especially for planning event caches, longer hikes or caches at probably dirty locations like caves."
+msgstr "There is drinking water along the trail or near the cache. This attribute is useful especially for planning event caches, longer hikes or caches at probably dirty locations like caves."
+
+msgid "There are public restrooms along the way or near the cache. This attribute is useful especially for planning event caches or extensive multicaches."
+msgstr "There are public restrooms along the way or near the cache. This attribute is useful especially for planning event caches or extensive multicaches."
+
+msgid "There is a public phone along the way or near the cache. Especially for event caches you should enquire for nearby phones and set this attribute if applicable."
+msgstr "There is a public phone along the way or near the cache. Especially for event caches you should enquire for nearby phones and set this attribute if applicable."
+
+msgid "There is a first aid station, call box, mountain rescue or similar arrangement near the cache. This attribute is useful especially in demanding areas, like climbing caches, cave caches, high mountains or at the water. Check if you can add emergency phone numbers (like a mountain rescue) to your cache listing."
+msgstr "There is a first aid station, call box, mountain rescue or similar arrangement near the cache. This attribute is useful especially in demanding areas, like climbing caches, cave caches, high mountains or at the water. Check if you can add emergency phone numbers (like a mountain rescue) to your cache listing."
+
+msgid "The geocache is located close to a parking area, only a few steps away - it’s a \"cache and dash\"."
+msgstr "The geocache is located close to a parking area, only a few steps away - it’s a \"cache and dash\"."
+
+msgid "This cache requires a long walk - more than 5 km round trip. In the mountains and other steep areas, the distance for a \"long walk\" may be shorter. Walking shoes and appropriate equipment are recommended."
+msgstr "This cache requires a long walk - more than 5 km round trip. In the mountains and other steep areas, the distance for a \"long walk\" may be shorter. Walking shoes and appropriate equipment are recommended."
+
+msgid "This cache requires passing swampy or marshy ground. Wear appropriate clothes. After rainfall, the terrain may be very demanding or not passable at all."
+msgstr "This cache requires passing swampy or marshy ground. Wear appropriate clothes. After rainfall, the terrain may be very demanding or not passable at all."
+
+msgid "One or more ascents lie between you and the cache."
+msgstr "One or more ascents lie between you and the cache."
+
+msgid "This cache requires some climbing and you may have to use your hands, but you won’t need climbing gear. Be very careful during rainy weather or before thunderstorms!"
+msgstr "This cache requires some climbing and you may have to use your hands, but you won’t need climbing gear. Be very careful during rainy weather or before thunderstorms!"
+
+msgid "This cache requires crossing a river or a lake. The water is steep "
+msgstr "This cache requires crossing a river or a lake. The water is steep "
+
+msgid "There is a point of interest at the cache, like a nice scenic overlook or a larger castle ruin. This place is worth visiting it even without a geocache nearby."
+msgstr "There is a point of interest at the cache, like a nice scenic overlook or a larger castle ruin. This place is worth visiting it even without a geocache nearby."
+
+msgid "This geocache is moving around. For example, the owner might regularly move the cache from one place to another, or the finders will do this task and post new coordinates in their log entries. The owner must update coordinates in the cache description after each move."
+msgstr "This geocache is moving around. For example, the owner might regularly move the cache from one place to another, or the finders will do this task and post new coordinates in their log entries. The owner must update coordinates in the cache description after each move."
+
+msgid "There is a webcam at the target location. You must record a webcam picture of your visit and include it in your \"found\" log entry. There may be additional requirements like a geocaching banner on the photo. The webcam’s address is included in the cache description, and it must be publicly accessible, i.e. no user account or similar is required."
+msgstr "There is a webcam at the target location. You must record a webcam picture of your visit and include it in your \"found\" log entry. There may be additional requirements like a geocaching banner on the photo. The webcam’s address is included in the cache description, and it must be publicly accessible, i.e. no user account or similar is required."
+
+msgid "This geocache is not hidden in the open air, but within a building, a cave or similar."
+msgstr "This geocache is not hidden in the open air, but within a building, a cave or similar."
+
+msgid "This cache or one of the stages is placed underwater. You will have to enter the water, swim or dive."
+msgstr "This cache or one of the stages is placed underwater. You will have to enter the water, swim or dive."
+
+msgid "This cache can be found without a GPS device. No additional coordinates are used besides of the starting coordinates."
+msgstr "This cache can be found without a GPS device. No additional coordinates are used besides of the starting coordinates."
+
+msgid "You must pay an access or parking fee to access this cache, e.g. if the cache is located within a theme park. If there are alternative free parking areas nearby, please include them in the cache description. Please note our current terms of use regarding \"commercial geocaches\"."
+msgstr "You must pay an access or parking fee to access this cache, e.g. if the cache is located within a theme park. If there are alternative free parking areas nearby, please include them in the cache description. Please note our current terms of use regarding \"commercial geocaches\"."
+
+msgid "This is none of the standard, pre-defined types of cache. Use this attribute for special, unusual caches."
+msgstr "This is none of the standard, pre-defined types of cache. Use this attribute for special, unusual caches."
+
+msgid "There already exists an account with that username."
+msgstr "An account with that username already exists."
+
+msgid "Problems with login"
+msgstr "Problems with login"
+
+msgid "Terms of use and legal information"
+msgstr "Terms of use and legal information"
+
+msgid "Page performance"
+msgstr "Page performance"
+
+msgid "Page creation"
+msgstr "Page creation"
+
+msgid "The cache is located within a dangerous area. Use this attribute to mark non-obvious dangers, like high-traffic roads, steep ground or falling rocks. Security measures should be taken or the cache be omitted, especially when geocaching with childern, large groups or at unfavourable weather conditions."
+msgstr "The cache is located within a dangerous area. Use this attribute to mark non-obvious dangers, like high-traffic roads, steep ground or falling rocks. Security measures should be taken or the cache be omitted, especially when geocaching with childern, large groups or at unfavourable weather conditions."
+
+msgid "Time to load"
+msgstr "Time to load"
+
+msgid "Arithmetical problem"
+msgstr "Arithmetical problem"
+
+msgid "Other cache type"
+msgstr "Other cache type"
+
+msgid "Ask owner for start conditions"
+msgstr "Ask owner for start conditions"
+
+msgid "Suited for children"
+msgstr "suited for children"
+
+msgid "There are active railroads nearby. Please be careful, keep a safe distance and cross the rails only at level crossings etc.!"
+msgstr "There are active railroads nearby. Please be careful, keep a safe distance and cross the rails only at level crossings etc.!"
+
+msgid "There are cliffs or dangerous rocks nearby. Beware of falling rocks at the lower side, and be careful at the upper side of cliffs - especially with children and while mountain biking. It can be very dangerous to take a steep slope towards a cliff, because you may not notice in time where the former ends and the latter starts."
+msgstr "There are cliffs or dangerous rocks nearby. Beware of falling rocks at the lower side, and be careful at the upper side of cliffs - especially with children and while mountain biking. It can be very dangerous to take a steep slope towards a cliff, because you may not notice in time where the former ends and the latter starts."
+
+msgid "The geocache is placed within a hunting ground. At twilight and in the dark, a flashlight or headlight should always be used for security reasons. Be considerate when meeting hunters."
+msgstr "The geocache is placed within a hunting ground. At twilight and in the dark, a flashlight or headlight should always be used for security reasons. Be considerate when meeting hunters."
+
+msgid "Sec."
+msgstr "Sec."
+
+msgid "Only show Geocaches with the following properties:"
+msgstr "Only show Geocaches with the following properties:"
+
+msgid "Cachetype"
+msgstr "Cachetype"
+
+msgid "Cache container"
+msgstr "Cache container"
+
+msgid "D/T"
+msgstr "D/T"
+
+msgid ".gpx"
+msgstr ".gpx"
+
+msgid "There are thorns near the cache. Wear appropriate clothes."
+msgstr "There are thorns near the cache. Wear appropriate clothes."
+
+msgid "There are seasonably many ticks in this area. It is recommended to wear long trousers and to check yourself for ticks after geocaching. There are risk maps for tick-borne encephalitis in the internet, e.g. for Germany at sites like www.meningitis.de (look for FSME there)."
+msgstr "There are seasonably many ticks in this area. It is recommended to wear long trousers and to check yourself for ticks after geocaching. There are risk maps for <i>tick-borne encephalitis</i> in the internet, e.g. for Germany at sites like www.meningitis.de (look for FSME there)."
+
+msgid "In the water"
+msgstr "In the water"
+
+msgid "Before doing this cache, you must ask the owner for the starting conditions. E.g. the cache may be linked to certain events at varying dates."
+msgstr "Before doing this cache, you must ask the owner for the starting conditions. E.g. the cache may be linked to certain events at varying dates."
+
+msgid "This geocache is created for childs. All challenges can be solved by child in the age of 10 to 12 years and the terrain has no risks (like highways, abysms). There is a large geocache container with trading items inside and the challanges are interesting."
+msgstr "This geocache is created for childs. All challenges can be solved by child in the age of 10 to 12 years and the terrain has no risks (like highways, abysms). There is a large geocache container with trading items inside and the challanges are interesting."
+
+msgid "Cachename"
+msgstr "Cachename"
+
+msgid "Hide"
+msgstr "Hide"
+
+msgid "My owns"
+msgstr "My owns"
+
+msgid "N"
+msgstr "N"
+
+msgid "S"
+msgstr "S"
+
+msgid "E"
+msgstr "E"
+
+msgid "W"
+msgstr "W"
+
+msgid "Kilometer"
+msgstr "Kilometer"
+
+msgid "Some more items found..."
+msgstr "Some more items found..."
+
+msgid "Search for city, cache or waypoint"
+msgstr "Search for city, cache or waypoint"
+
+msgid "Show link to this map"
+msgstr "Show link to this map"
+
+msgid "Wiesbaden"
+msgstr "Wiesbaden"
+
+msgid "Stuttgart"
+msgstr "Stuttgart"
+
+msgid "Schwerin"
+msgstr "Schwerin"
+
+msgid "Saarbrücken"
+msgstr "Saarbrucken"
+
+msgid "Potsdam"
+msgstr "Potsdam"
+
+msgid "München"
+msgstr "Munich"
+
+msgid "Magdeburg"
+msgstr "Magdeburg"
+
+msgid "Mainz"
+msgstr "Mainz"
+
+msgid "km"
+msgstr "km"
+
+msgid "h"
+msgstr "h"
+
+msgid "Seite:"
+msgstr "Page:"
+
+msgid "Kiel"
+msgstr "Keel"
+
+msgid "Hannover"
+msgstr "Hanover"
+
+msgid "Erfurt"
+msgstr "Erfurt"
+
+msgid "Düsseldorf"
+msgstr "Dusseldorf"
+
+msgid "Dresden"
+msgstr "Dresden"
+
+msgid "Berlin"
+msgstr "Berlin"
+
+msgid "Map"
+msgstr "map"
+
+msgid "Switch to full screen"
+msgstr "show fullscreen"
+
+msgid "Main menu"
+msgstr "main menu"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "&lt;html&gt;"
+msgstr "&lt;html&gt;"
+
+msgid "Setting smilies is not supported"
+msgstr "Setting smilies is not supported"
+
+msgid "Only the following picture formats are allowed: BMP, GIF, PNG and JPEG."
+msgstr "Only the following picture formats are allowed: BMP, GIF, PNG and JPEG."
+
+msgid "at (time)"
+msgstr "am"
+
+msgid "The following list is generated automatically by the given recommendations of the users. You can find more informations on regional classification in the <a href=\"http://blog.geocaching.de/?page_id=271\">help</a>.<br /> <br /> The numbers in the list below means:<br /> <img src=\"images/rating-star.gif\" border=\"0\" alt=\"Recommendations\"> Number of users that recommend this cache<br /> <img src=\"resource2/%1/images/log/16x16-found.png\" width=\"16\" height=\"16\" border=\"0\" alt=\"Found\"> Checks = Number of time the cache was found<br /> Index tries to take the number of recommendations and founds in an order to show 'the best' geocache first.<br /> <img src=\"images/tops-formula.png\" border=\"0\" alt=\"Formula\">"
+msgstr "The following list is generated automatically by the given recommendations of the users. You can find more informations on regional classification in the <a href=\"http://blog.geocaching.de/?page_id=271\">help</a>.<br /> <br /> The numbers in the list below means:<br /> <img src=\"images/rating-star.gif\" border=\"0\" alt=\"Recommendations\"> Number of users that recommend this cache<br /> <img src=\"resource2/%1/images/log/16x16-found.png\" width=\"16\" height=\"16\" border=\"0\" alt=\"Found\"> Checks = Number of time the cache was found<br /> Index tries to take the number of recommendations and founds in an order to show 'the best' geocache first.<br /> <img src=\"images/tops-formula.png\" border=\"0\" alt=\"Formula\">"
+
+msgid "Commit"
+msgstr "Commit"
+
+msgid "Log-entry:"
+msgstr "Log-entry:"
+
+msgid "passwort to log:"
+msgstr "Passwort to log:"
+
+msgid "Invalid password!"
+msgstr "Invalid password!"
+
+msgid "(only for found-logs)"
+msgstr "(only for found logs)"
+
+msgid "only listed here!"
+msgstr "Only listed here!"
+
+msgid "New log-entry"
+msgstr "New log-entry"
+
+msgid "Type of log-entry:"
+msgstr "Type of log-entry"
+
+msgid "Recommendations:"
+msgstr "Recommendations:"
+
+msgid "A recommendation can only be made within a \"found\"-log!"
+msgstr "A recommendation can only be made within a \"found\"-log!"
+
+msgid "This cache is one of my recommendations."
+msgstr "This cache is one of my recommendations."
+
+msgid "Alternatively, you can withdraw a <a href=\"mytop5.php\">existing recommendation</a>."
+msgstr "Alternatively, you can withdraw a <a href=\"mytop5.php\">existing recommendation</a>."
+
+msgid "You have given {curr} of {max} possible recommendations."
+msgstr "You have given {curr} of {max} possible recommendations."
+
+msgid "Dangers"
+msgstr "Dangers"
+
+msgid "Infrastructure"
+msgstr "Infrastructure"
+
+msgid "Waypoints"
+msgstr "Waypoints"
+
+msgid "Common"
+msgstr "Common"
+
+msgid "Time"
+msgstr "Time"
+
+msgid "Seasonal"
+msgstr "Seasonal"
+
+msgid "System"
+msgstr "System"
+
+msgid "Tools needed"
+msgstr "Tools needed"
+
+msgid "Preparation needed"
+msgstr "Preparation needed"
+
+msgid "Persons"
+msgstr "Persons"
+
+msgid "Transportation"
+msgstr "Transportation"
+
+msgid "Properties"
+msgstr "Properties"
+
+msgid "Restrictions / Preconditions"
+msgstr "Restrictions / Preconditions"
+
+msgid "Recommendations / Prohibitions"
+msgstr "Recommendations / Prohibitions"
+
+msgid "Only loggable at Opencaching"
+msgstr "Only loggable at Opencaching"
+
+msgid "Time and effort (optional):"
+msgstr "Time and effort (optional):"
+
+msgid "Of course, this effort can only be estimated and can vary depending on enviromental influences. If you cannot make sufficiently detailed information, fill both fields up with a O (zero)."
+msgstr "Of course, this effort can only be estimated and can vary depending on enviromental influences. If you cannot make sufficiently detailed information, fill both fields up with a O (zero)"
+
+msgid "Waypoints (optional):"
+msgstr "Waypoints (optional):"
+
+msgid "This waypoints will be used to show links in the view cache and the log page."
+msgstr "This waypoints will be used to show links in the view cache and the log page."
+
+msgid "No data will be imported automatically from these listing services."
+msgstr "No data will be imported automatically from these listing services."
+
+msgid "Descriptions"
+msgstr "Descriptions"
+
+msgid "Add an additional description"
+msgstr "Add an additional description"
+
+msgid "Your description contains at least one link to a picture hosted on geocaching.com!"
+msgstr "Your description contains at least one link to a picture hosted on geocaching.com!"
+
+msgid "To prevent any problems with geocaching.com we want to please you to upload all linked pictures to opencaching.de as well and link the pictures in the HTML code to these on opencaching.de"
+msgstr "To prevent any problems with geocaching.com we want to please you to upload all linked pictures to opencaching.de as well and link the pictures in the HTML code to these on opencaching.de"
+
+msgid "Upload a picture"
+msgstr "Upload a picture"
+
+msgid "Listed since:"
+msgstr "Listed since:"
+
+msgid "This cache is yours"
+msgstr "This cache is yours"
+
+msgid "You found this cache"
+msgstr "You found this cache"
+
+msgid "You havn't found this cache, yet"
+msgstr "You havn't found this cache, yet"
+
+msgid "This cache stores a GeoKrety"
+msgstr "This cache stores a GeoKrety"
+
+msgid "This cache has %1 recommandations"
+msgstr "This cache has %1 recommandations"
+
+msgid "Edit log entry for the cache <a href=\"viewcache.php?cacheid={cacheid}\">{cachename}</a>"
+msgstr "Edit log entry for the cache <a href=\"viewcache.php?cacheid={cacheid}\">{cachename}</a>"
+
+msgid "Type of log-enrty"
+msgstr "Type of log-enrty"
+
+msgid "JavaScript is disabled in your browser, you can enter text only. To use HTML, or the editor, please enable JavaScript."
+msgstr "JavaScript is disabled in your browser, you can enter text only. To use HTML, or the editor, please enable JavaScript."
+
+msgid "New cache"
+msgstr "New cache"
+
+msgid "Owner:"
+msgstr "Owner:"
+
+msgid "Cachetype:"
+msgstr "Cachetype:"
+
+msgid "Size:"
+msgstr "Size:"
+
+msgid "Coordinates:"
+msgstr "Coordinates:"
+
+msgid "Rating:"
+msgstr "Rating:"
+
+msgid "Difficulty:"
+msgstr "Difficulty:"
+
+msgid "Terrain:"
+msgstr "Terrain:"
+
+msgid "Time effort:"
+msgstr "Time effort:"
+
+msgid "Notice"
+msgstr "Notice"
+
+msgid "Create a new description"
+msgstr "Create a new description"
+
+msgid "Hidden since:"
+msgstr "Hidden since:"
+
+msgid "(leave blank for no password)"
+msgstr "(leave blank for no password)"
+
+msgid "Please note the <a href=\"articles.php?page=cacheinfo#logpw\" target=\"_blank\">description</a>"
+msgstr "Please note the <a href=\"articles.php?page=cacheinfo#logpw\" target=\"_blank\">description</a>"
+
+msgid "Less"
+msgstr "Less"
+
+msgid "Search for caches"
+msgstr "Search for caches"
+
+msgid "JavaScrupt is not activated, you cannot use the following options - basic search is supported nevertheless."
+msgstr "JavaScrupt is not activated, you cannot use the following options - basic search is supported nevertheless."
+
+msgid "Sorting of result:"
+msgstr "Sorting of result:"
+
+msgid "Last log"
+msgstr "Last logs"
+
+msgid "Show recommendation from other users first"
+msgstr "Show recommendation from other users first"
+
+msgid "Distance can only be used if you are signed in and entered your home coordinates.<br />For the search by distance the entered coordinates are used to calculate the distance."
+msgstr "Distance can only be used if you are signed in and entered your home coordinates.<br />For the search by distance the entered coordinates are used to calculate the distance."
+
+msgid "Hide following caches:"
+msgstr "Hide following caches:"
+
+msgid "My owned"
+msgstr "My owned"
+
+msgid "My finds"
+msgstr "My finds"
+
+msgid "My ignored"
+msgstr "My ignored"
+
+msgid "Only usable if signed in."
+msgstr "Only usable if signed in."
+
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Cache attributes:"
+msgstr "Cache attributes:"
+
+msgid "Search by distance"
+msgstr "Search by distance"
+
+msgid "Of coordinates:"
+msgstr "Of coordinates:"
+
+msgid "Maximum distance:"
+msgstr "Maximum distance:"
+
+msgid "Miles"
+msgstr "Miles"
+
+msgid "Seamiles"
+msgstr "Seamiles"
+
+msgid "Search for city"
+msgstr "Search for city"
+
+msgid "Postal code:"
+msgstr "Postal code:"
+
+msgid "City:"
+msgstr "City:"
+
+msgid "Search for text"
+msgstr "Search for text"
+
+msgid "Search for Owner"
+msgstr "Search for owner"
+
+msgid "Search for Logs"
+msgstr "Search for logs"
+
+msgid "Logtype:"
+msgstr "Logtype:"
+
+msgid "error while loading the page"
+msgstr "Error while loading the page"
+
+msgid "In an attempt to create the page, an error has occurred. If you pass through a hyperlink on our side and the problem persists do not hesitate to contact us by email."
+msgstr "In an attempt to create the page, an error has occurred. If you pass through a hyperlink on our side and the problem persists do not hesitate to contact us by email."
+
+msgid "The following error occurred:"
+msgstr "The following error occurred:"
+
+msgid "Page:"
+msgstr "Page:"
+
+msgid "error message:"
+msgstr "Error message:"
+
+msgid "are you sure that this log entry shall be removed?"
+msgstr "Are you sure that this log entry shall be removed?"
+
+msgid "do you want to send {log_user_name} a note?"
+msgstr "do you want to send {log_user_name} a note? "
+
+msgid "Remove log entry"
+msgstr "Remove log entry"
+
+msgid "date is invalid, format: TT-MM-JJJJ"
+msgstr "Date is invalid, format: TT-MM-JJJJ"
+
+msgid "(only for found logs)"
+msgstr "(only for found logs)"
+
+msgid "Submit a new cache"
+msgstr "Submit a new cache"
+
+msgid "If this is your first cache on Opencaching.de, be sure to check out the <a href=\"articles.php?page=cacheinfo\">description</a> of the individual fields."
+msgstr "If this is your first cache on Opencaching.de, be sure to check out the <a href=\"articles.php?page=cacheinfo\">description</a> of the individual fields."
+
+msgid "Distance:"
+msgstr "Distance"
+
+msgid "The effort is of course only be estimated and can vary depending on environmental influences. If you can not make sufficiently detailed information, write 0 (zero) in both fields. (See also: <a href=\"articles.php?page=cacheinfo#time\" target=\"_blank\">description</a>)"
+msgstr "The effort is of course only be estimated and can vary depending on environmental influences. If you can not make sufficiently detailed information, write 0 (zero) in both fields. (See also: <a href=\"articles.php?page=cacheinfo#time\" target=\"_blank\">description</a>)"
+
+msgid "Language:"
+msgstr "Language:"
+
+msgid "You can add more descriptions in other languages publishing the cache."
+msgstr "You can add more descriptions in other languages publishing the cache."
+
+msgid "Short description:"
+msgstr "Short description:"
+
+msgid "Description:"
+msgstr "Description:"
+
+msgid "Didn\\'t find"
+msgstr "Didn't find"
+
+msgid "Hyperlink to another caching portal only"
+msgstr "Hyperlink to another caching portal only"
+
+msgid "Letterbox (needs stamp)"
+msgstr "Letterbox (needs stamp)"
+
+msgid "Dangerous area"
+msgstr "Dangerous area"
+
+msgid "This geocache can be found at night only - it is a so-called night cache. There may be reflectors which have to be flashlighted and will point to the hiding place, or other special night-caching mechanisms."
+msgstr "This geocache can be found at night only - it is a so-called <i>night cache</i>. There may be reflectors which have to be flashlighted and will point to the hiding place, or other special night-caching mechanisms."
+
+msgid "Additional note:"
+msgstr "Additional note:"
+
+msgid "You can add additional pictures after creating the cache."
+msgstr "You can add additional pictures after creating the cache."
+
+msgid "Publication:"
+msgstr "Publication:"
+
+msgid "Publish now"
+msgstr "Publish now"
+
+msgid "Publish on"
+msgstr "Publish on"
+
+msgid "Do not publish now."
+msgstr "Do not publish now."
+
+msgid "I have read and agree to the <a href=\"articles.php?page=impressum#tos\" target=\"_blank\">Opencaching.de Terms of Service</a>"
+msgstr "I have read and agree to the <a href=\"articles.php?page=impressum#tos\" target=\"_blank\">Opencaching.de Terms of Service</a>"
+
+msgid "Info: Your log entry has been removed from the cache owner"
+msgstr "Info: Your log entry has been removed from the cache owner"
+
+msgid "Selection of city"
+msgstr "Selection of city"
+
+msgid "Total of {resultscount} cities matched"
+msgstr "Total of {resultscount} cities matched"
+
+msgid "For the search criterion no clear result was found. Please choose the correct location."
+msgstr "For the search criterion no clear result was found. Please choose the correct location."
+
+msgid "Add log-entry for the cache <a href=\"viewcache.php?cacheid={cacheid}\">{cachename}</a>"
+msgstr "Add log-entry for the cache <a href=\"viewcache.php?cacheid={cacheid}\">{cachename}</a>"
+
+msgid "Cachename is invalid"
+msgstr "Cachename is invalid"
+
+msgid "The used coordinates are invalid."
+msgstr "The used coordinates are invalid."
+
+msgid "The entered time is invalid."
+msgstr "The entered time is invalid."
+
+msgid "The distance you have entered is invalid. Format aa.aaa"
+msgstr "The distance you have entered is invalid. Format aa.aaa"
+
+msgid "The cache-status does not fit to your publishing options"
+msgstr "The cache-status does not fit to your publishing options"
+
+msgid "Choose both valuations!"
+msgstr "Choose both valuations!"
+
+msgid "No pictures available"
+msgstr "No pictures available"
+
+msgid "{results_count} caches matched."
+msgstr "{results_count} caches matched."
+
+msgid "Result {startatp1} to {endat} (as zip):"
+msgstr "Result {startatp1} to {endat} (as zip):"
+
+msgid "this description was created on another Opencaching-webserver and can only be deleted there."
+msgstr "This description was created on another Opencaching-webserver and can only be deleted there."
+
+msgid "the cache description has been deleted"
+msgstr "The cache description has been deleted"
+
+msgid "delete this cache-description"
+msgstr "Delete this cache description"
+
+msgid "Your HTML code will be changed again by a special filter. This is nacessary to avoid dangerous HTML-tags, such as &lt;script&gt;. A list of allowed HTML tags can be find <a href=\"http://www.opencaching.de/articles.php?page=htmltags\">here</a>."
+msgstr "Your HTML code will be changed again by a special filter. This is nacessary to avoid dangerous HTML-tags, such as &lt;script&gt;. A list of allowed HTML tags can be find <a href=\"http://www.opencaching.de/articles.php?page=htmltags\">here</a>."
+
+msgid "Please do not use any images that are hosted on geocaching.com. Upload your fotos instead on our server as well."
+msgstr "Please do not use any images that are hosted on geocaching.com. Upload your fotos instead on our server as well."
+
+msgid "Encrypted note:"
+msgstr "Encrypted note:"
+
+msgid "Do you really want to delete the description of your cache &quot;{cachename}&quot;"
+msgstr "Do you really want to delete the description of your cache &quot;{cachename}&quot;"
+
+msgid "Yes, delete cache description"
+msgstr "Yes, delete cache description"
+
+msgid "Submit cache"
+msgstr "Submit cache"
+
+msgid "Format:&nbsp;DD-MM-YYYY"
+msgstr "Format: DD-MM-YYYY"
+
+msgid "Some errors occured, please check the marked fields."
+msgstr "Some errors occured, please check the marked fields."
+
+msgid "Your chosen coordinated are invalid"
+msgstr "Your entered coordinates are invalid"
+
+msgid "The entered distance is invalid, Format: aa.aaa"
+msgstr "The entered distance is invalid, Format: aa.aaa"
+
+msgid "Invalid date, format:DD-MM-JJJJ"
+msgstr "Invalid date, format:TT-MM-JJJJ"
+
+msgid "The cache can only be adopted if you agree our terms of use."
+msgstr "The cache can only be adopted if you agree our terms of use."
+
+msgid "This HTML-code is invalid. To find out the exact cause of the error, you should use the <a href=\"htmlprev.php\" target=\"_blank\">HTML preview</a>."
+msgstr "This HTML-code is invalid. To find out the exact cause of the error, you should use the <a href=\"htmlprev.php\" target=\"_blank\">HTML preview</a>."
+
+msgid "No cache-type is chosen."
+msgstr "No cache-type is chosen."
+
+msgid "No cache-size is chosen."
+msgstr "No cache-size is chosen."
+
+msgid "This HTML-Code is invalid."
+msgstr "This HTML-Code is invalid."
+
+msgid "Your cache is successfully added to the database. You will be redirected to the cache page, now."
+msgstr "Your cache is successfully added to the database. You will be redirected to the cache page, now."
+
+msgid "Select"
+msgstr "Select"
+
+msgid "(internal error) the description is not available."
+msgstr "(internal error) The description is not available."
+
+msgid "(internal error) it already exists a description for this language."
+msgstr "(internal error) There already exists a description for this language."
+
+msgid "There already exists a description in this language"
+msgstr "There already exists a description in this languag"
+
+msgid "Are you sure to remove your log entry?"
+msgstr "Are you sure to remove your log entry?"
+
+msgid "Login as"
+msgstr "Login as"
+
+msgid "A database command could not be performed."
+msgstr "A database command could not be performed."
+
+msgid "Edit cache <a href=\"viewcache.php?cacheid={cacheid}\">{name}</a>"
+msgstr "Edit cache <a href=\"viewcache.php?cacheid={cacheid}\">{name}</a>"
+
+msgid "offer for adoption"
+msgstr "offer for adoption"
+
+msgid "State:"
+msgstr "Status:"
+
+msgid "Waypoint search:"
+msgstr "Waypoint search"
+
+msgid "Country sites"
+msgstr "Country sites"
+
+msgid "Waypoints:"
+msgstr "Waypoints:"
+
+msgid "#time_suffix_label#"
+msgstr "&nbsp;"
+
+msgid "If your browser does not support automatic forwarding please click here."
+msgstr "If your browser does not support automatic forwarding please click here."
+
+msgid "EN"
+msgstr "EN"
+
+msgid "Password:"
+msgstr "Password"
+
+msgid "Edit cache description for <a href=\"viewcache.php?cacheid={cacheid}\">{cachename}</a>"
+msgstr "edit cache description for <a href=\"viewcache.php?cacheid={cacheid}\";> cache (name) </a;>"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Enter a name, please!"
+msgstr "Enter a name, please!"
+
+msgid "Fill out the text field, please!"
+msgstr "Fill out the text field, please!"
+
+msgid "You have to check at least one field!"
+msgstr "You have to check at least one field!"
+
+msgid "Longitude has to be a number!\\nFormat: hh° mm.mmm"
+msgstr "Longitude has to be a number!\\nFormat: hh° mm.mmm"
+
+msgid "Latitude has to be a number!\\nFormat: hh° mm.mmm"
+msgstr "Latitude has to be a number!\\nFormat: hh° mm.mmm"
+
+msgid "The maximum distance has to be a number!"
+msgstr "The maximum distance has to be a number!"
+
+msgid "The distance has to be between 0 and 9999"
+msgstr "The distance has to be between 0 and 9999"
+
+msgid "Enter the postal code, please!"
+msgstr "Enter the postal code, please!"
+
+msgid "Enter the city, please!"
+msgstr "Enter the city, please!"
+
+msgid "Enter the owner, please!"
+msgstr "Enter the owner, please!"
+
+msgid "Enter the username, please!"
+msgstr "Enter the username, please!"
+
+msgid "Multiple listings (waypoint is also set on gc.com or nc.com)"
+msgstr "multiple listings (waypoint is also set on gc.com or nc.com)"
+
+msgid "The selected output format is unknown!"
+msgstr "The selected output format is unknown!"
+
+msgid "The search operation could not be executed, please reenter the search data."
+msgstr "The search operation could not be executed, please reenter the search data."
+
+msgid "Find"
+msgstr "Find"
+
+msgid "No Rating"
+msgstr "No rating"
+
+msgid "The postal code could not be found"
+msgstr "The postal code could not be found"
+
+msgid "There does no city exist with this name"
+msgstr "There does no city exist with this name"
+
+msgid "There are no Koordinates available for the selected city"
+msgstr "There are no Koordinates available for the selected city"
+
+msgid "The entered city is not valid."
+msgstr "The entered city is not valid."
+
+msgid "The entered text is invalid."
+msgstr "The entered text is invalid."
+
+msgid "The entered text contains more than 50 words."
+msgstr "The entered text contains more than 50 words."
+
+msgid "All countries"
+msgstr "All countries"
+
+msgid "All cachetypes"
+msgstr "All cachetypes"
+
+msgid "Search result"
+msgstr "Search result"
+
+msgid "This cache has been created on another Opencaching website. The cache can only be edited there."
+msgstr "Dieser Cache wurde auf einem anderen Opencaching-Webserver erstellt und kann nur auf diesem bearbeitet werden."
+
+msgid "Save options"
+msgstr "Save options"
+
+msgid "Edit options"
+msgstr "Edit options"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Last logs"
+msgstr "Last logs"
+
+msgid "Downloads"
+msgstr "Downloads"
+
+msgid "Results on this page:"
+msgstr "Results on this page:"
+
+msgid "Download for local application"
+msgstr "Download for local application"
+
+msgid "With the download you accept the <a href=\"articles.php?page=impressum#tos\">terms of use</a> from opencaching.de.&nbsp;&nbsp;"
+msgstr "With the download you accept the <a href=\"articles.php?page=impressum#tos\">terms of use</a> from opencaching.de.&nbsp;&nbsp;"
+
+msgid "This log entry has been created on another Opencaching website. The cache can only be edited there."
+msgstr "Dieser Logeintrag wurde auf einem anderen Opencaching-Webserver erstellt und kann nur auf diesem bearbeitet werden."
+
+msgid "This description has been created on another Opencaching website. The cache can only be edited there."
+msgstr "Diese Beschreibung wurde auf einem anderen Opencaching-Webserver erstellt und kann nur auf diesem bearbeitet werden."
+
+msgid "The owner of the has written you the following comment:"
+msgstr "The owner of the has written you the following comment:"
+
+msgid "For virtual and webcam caches, the cache size has to be -no container-!"
+msgstr "For virtual and webcam caches, the cache size has to be -no container-!"
+

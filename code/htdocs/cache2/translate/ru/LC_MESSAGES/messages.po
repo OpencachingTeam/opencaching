@@ -1,0 +1,1488 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Logged in as"
+msgstr "Вы вошли как"
+
+msgid "Logout"
+msgstr "Выход"
+
+msgid "Privacy statement"
+msgstr "О конфиденциальности"
+
+msgid "Imprint"
+msgstr "О конфиденциальности"
+
+msgid "Contact"
+msgstr "Контакты"
+
+msgid "Sitemap"
+msgstr "Карта сайта"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "New user registered"
+msgstr "Новый пользователь зарегистрирован"
+
+msgid "Username"
+msgstr "Пользователь"
+
+msgid "E-Mail"
+msgstr "Электронный адрес"
+
+msgid "First name"
+msgstr "Имя"
+
+msgid "Last name"
+msgstr "Фамилия"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "Register new user"
+msgstr "Регистрация"
+
+msgid "The username is not valid."
+msgstr "Недопустимое имя пользователя."
+
+msgid "Print last logs"
+msgstr "Печатать последние отчёты"
+
+msgid "Not specified"
+msgstr "Не указана"
+
+msgid "Show all"
+msgstr "Показать все"
+
+msgid "The E-Mail is not valid."
+msgstr "Недопустимый адрес электронной почты."
+
+msgid "Turkish"
+msgstr "Турецкий"
+
+msgid "Your password"
+msgstr "Пароль"
+
+msgid "The passwords did not match."
+msgstr "Пароли не совпадают."
+
+msgid "Please repeat"
+msgstr "Повторите пароль"
+
+msgid "* are required"
+msgstr "Звёздочкой (*) отмечены поля, обязательные для заполнения."
+
+msgid "Swedish"
+msgstr "Шведский"
+
+msgid "Slovenian"
+msgstr "Словенский"
+
+msgid "at least 4 different chars"
+msgstr "Использованы, как минимум, 4 разные символа"
+
+msgid "Russian"
+msgstr "Русский"
+
+msgid "You have to accept the privacy statement and terms of use to register at opencaching.de"
+msgstr "Вы должны принять <a href=\"articles.php?page=dsb\">Положение о конфиденциальности</a> \n"
+"  и <a href=\"articles.php?page=tos\">Условия использования</a> для регистрации."
+
+msgid "Reset"
+msgstr "Очистить форму"
+
+msgid "Recommendations"
+msgstr "Золотые ярлыки"
+
+msgid "Found"
+msgstr "Найден"
+
+msgid "Romanian"
+msgstr "Румынский"
+
+msgid "Step 1"
+msgstr "Шаг 1"
+
+msgid "Step 2"
+msgstr "Шаг 2"
+
+msgid "Portuguese"
+msgstr "Португальский"
+
+msgid "News"
+msgstr "Новости"
+
+msgid "Latest caches"
+msgstr "Новые тайники"
+
+msgid "Latest logs entries"
+msgstr "Новые отчёты"
+
+msgid "Polish"
+msgstr "Польский"
+
+msgid "Norwegian"
+msgstr "Норвежский"
+
+msgid "Latvian"
+msgstr "Латвийский"
+
+msgid "Lithuanian"
+msgstr "Литовский"
+
+msgid "Italian"
+msgstr "Итальянский"
+
+msgid "Icelandic"
+msgstr "Исландский"
+
+msgid "Start"
+msgstr "Начало"
+
+msgid "You can find everything you need to go Geocaching ..."
+msgstr "Всё, что нужно для геокешинга…"
+
+msgid "same type"
+msgstr "того же типа"
+
+msgid "Croatian"
+msgstr "Хорватский"
+
+msgid "Finnish"
+msgstr "Финский"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Estonian"
+msgstr "Эстонский"
+
+msgid "Esperanto"
+msgstr "Эсперанто"
+
+msgid "Greek"
+msgstr "Греческий"
+
+msgid "Danish"
+msgstr "Датский"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Create a cache"
+msgstr "Создать тайник"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Caches"
+msgstr "Тайники"
+
+msgid "My profile"
+msgstr "Профиль"
+
+msgid "New logs"
+msgstr "Новые отчёты"
+
+msgid "New caches"
+msgstr "Новые тайники"
+
+msgid "About Geocaching"
+msgstr "Об игре"
+
+msgid "Search"
+msgstr "Выбор"
+
+msgid "Activation"
+msgstr "Активация"
+
+msgid "Czech"
+msgstr "Чешский"
+
+msgid "Bulgarian"
+msgstr "Болгарский"
+
+msgid "Registered since"
+msgstr "Дата регистрации"
+
+msgid "Japanese"
+msgstr "Японский"
+
+msgid "Spanish"
+msgstr "Испанский"
+
+msgid "French"
+msgstr "Французский"
+
+msgid "English"
+msgstr "Английский"
+
+msgid "German"
+msgstr "Немецкий"
+
+msgid "Zimbabwe"
+msgstr "Зимбабве"
+
+msgid "Zambia"
+msgstr "Замбия"
+
+msgid "South Africa"
+msgstr "ЮАР"
+
+msgid "Mayotte"
+msgstr "Майотта"
+
+msgid "The activation code was sent with an E-Mail to you.<br> Please follow the instructions in the E-Mail."
+msgstr "На ваш адрес выслано письмо с кодом активации. Пожалуйста, следуйте инструкциям в письме."
+
+msgid "To create an account on opencaching.de, you have to enter a vaild E-Mail address and an username. An E-Mail will be sent to the address you supplied with an activation code. Only one account can be created per E-Mail address. First name, last name and country are optional."
+msgstr "Для регистрации вы должны выбрать имя пользователя (псевдоним, под которым вы будете известны на сайте) \n"
+"  и указать действующий адрес электронной почты. \n"
+"  На этот адрес будет выслано письмо с кодом активации.\n"
+"  Вы можете указать также ваши настоящие имя и фамилию, \n"
+"  но это не является обязательным."
+
+msgid "Yemen"
+msgstr "Йемен"
+
+msgid "Samoa"
+msgstr "Самоа"
+
+msgid "I've read and understand the <a target=\"_blank\" href=\"articles.php?page=dsb\">privacy statement</a> and the <a target=\"_blank\" href=\"articles.php?page=tos\">terms of use</a> and accept them."
+msgstr "Я принимаю <a target=\"_blank\" href=\"articles.php?page=dsb\">Положение о конфиденциальности</a> и <a target=\"_blank\" href=\"articles.php?page=tos\">Условия использования</a>."
+
+msgid "Wallis And Futuna Islands"
+msgstr "Уоллис и Футуна"
+
+msgid "Post some news"
+msgstr "Опубликовать новость"
+
+msgid "Vanuatu"
+msgstr "Вануату"
+
+msgid "Viet Nam"
+msgstr "Вьетнам"
+
+msgid "Virgin Islands (U.S.)"
+msgstr "Американские Виргинские острова"
+
+msgid "Virgin Islands (British)"
+msgstr "Британские Виргинские острова"
+
+msgid "Venezuela"
+msgstr "Венесуэла"
+
+msgid "Saint Vincent And The Grenadines"
+msgstr "Сент-Винсент и Гренадины"
+
+msgid "Vatican City State (Holy See)"
+msgstr "Ватикан"
+
+msgid "Uzbekistan"
+msgstr "Узбекистан"
+
+msgid "Languages"
+msgstr "Языки"
+
+msgid "Uruguay"
+msgstr "Уругвай"
+
+msgid "Activation code:"
+msgstr "Код активации:"
+
+msgid "United States"
+msgstr "США"
+
+msgid "United States Minor Outlying Islands"
+msgstr "Внешние малые острова США"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Uganda"
+msgstr "Уганда"
+
+msgid "Ukraine"
+msgstr "Украина"
+
+msgid "Tanzania, United Republic Of"
+msgstr "Танзания"
+
+msgid "Taiwan, Province Of China"
+msgstr "Тайвань"
+
+msgid "Tuvalu"
+msgstr "Тувалу"
+
+msgid "Trinidad And Tobago"
+msgstr "Тринидад и Тобаго"
+
+msgid "Turkey"
+msgstr "Турция"
+
+msgid "Not registered?"
+msgstr "Не зарегистрированы?"
+
+msgid "Forgotten your password?"
+msgstr "Забыли пароль?"
+
+msgid "Forgotten your E-Mail-Address?"
+msgstr "Забыли адрес электронной почты?"
+
+msgid "Print no logs"
+msgstr "Печатать без журнала"
+
+msgid "Tonga"
+msgstr "Тонга"
+
+msgid "Please fill in username and password!"
+msgstr "Укажите ваши имя пользователя и пароль."
+
+msgid "Tunisia"
+msgstr "Тунис"
+
+msgid "To complete the registration, you have to enter your E-Mail and activation code."
+msgstr "Для завершения регистрации введите код активации, который вы получили по электронной почте."
+
+msgid "Turkmenistan"
+msgstr "Туркмения"
+
+msgid "Tokelau"
+msgstr "Токелау"
+
+msgid "Tajikistan"
+msgstr "Таджикистан"
+
+msgid "Thailand"
+msgstr "Таиланд"
+
+msgid "Togo"
+msgstr "Того"
+
+msgid "French Southern Territories"
+msgstr "Французские Южные и Антарктические территории"
+
+msgid "Chad"
+msgstr "Чад"
+
+msgid "Turks And Caicos Islands"
+msgstr "Тёркс и Кайкос"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Swaziland"
+msgstr "Свазиленд"
+
+msgid "Syrian Arab Republic"
+msgstr "Сирия"
+
+msgid "El Salvador"
+msgstr "Сальвадор"
+
+msgid "Sao Tome And Principe"
+msgstr "Сан-Томе и Принсипи"
+
+msgid "Suriname"
+msgstr "Суринам"
+
+msgid "Somalia"
+msgstr "Сомали"
+
+msgid "Senegal"
+msgstr "Сенегал"
+
+msgid "San Marino"
+msgstr "Сан-Марино"
+
+msgid "Sierra Leone"
+msgstr "Сьерра-Леоне"
+
+msgid "Slovakia (Slovak Republic)"
+msgstr "Словакия"
+
+msgid "Svalbard And Jan Mayen Islands"
+msgstr "Шпицберген и Ян-Майен"
+
+msgid "Slovenia"
+msgstr "Словения"
+
+msgid "St. Helena"
+msgstr "Остров Святой Елены"
+
+msgid "Singapore"
+msgstr "Сингапур"
+
+msgid "Sweden"
+msgstr "Швеция"
+
+msgid "Sudan"
+msgstr "Судан"
+
+msgid "Seychelles"
+msgstr "Сейшелы"
+
+msgid "Solomon Islands"
+msgstr "Соломоновы Острова"
+
+msgid "Saudi Arabia"
+msgstr "Саудовская Аравия"
+
+msgid "Rwanda"
+msgstr "Руанда"
+
+msgid "Russian Federation"
+msgstr "Россия"
+
+msgid "Romania"
+msgstr "Румыния"
+
+msgid "Reunion"
+msgstr "Реюньон"
+
+msgid "Qatar"
+msgstr "Катар"
+
+msgid "Paraguay"
+msgstr "Парагвай"
+
+msgid "Palau"
+msgstr "Палау"
+
+msgid "Portugal"
+msgstr "Португалия"
+
+msgid "Puerto Rico"
+msgstr "Пуэрто-Рико"
+
+msgid "Pitcairn"
+msgstr "Питкерн"
+
+msgid "St. Pierre And Miquelon"
+msgstr "Сен-Пьер и Микелон"
+
+msgid "Poland"
+msgstr "Польша"
+
+msgid "Pakistan"
+msgstr "Пакистан"
+
+msgid "Philippines"
+msgstr "Филиппины"
+
+msgid "Papua New Guinea"
+msgstr "Папуа — Новая Гвинея"
+
+msgid "French Polynesia"
+msgstr "Французская Полинезия"
+
+msgid "Peru"
+msgstr "Перу"
+
+msgid "Panama"
+msgstr "Панама"
+
+msgid "Oman"
+msgstr "Оман"
+
+msgid "New Zealand"
+msgstr "Новая Зеландия"
+
+msgid "Niue"
+msgstr "Ниуэ"
+
+msgid "Nauru"
+msgstr "Науру"
+
+msgid "Nepal"
+msgstr "Непал"
+
+msgid "Norway"
+msgstr "Норвегия"
+
+msgid "Netherlands"
+msgstr "Нидерланды"
+
+msgid "Nicaragua"
+msgstr "Никарагуа"
+
+msgid "Nigeria"
+msgstr "Нигерия"
+
+msgid "Norfolk Island"
+msgstr "Норфолк"
+
+msgid "Niger"
+msgstr "Нигер"
+
+msgid "New Caledonia"
+msgstr "Новая Каледония"
+
+msgid "Namibia"
+msgstr "Намибия"
+
+msgid "Mozambique"
+msgstr "Мозамбик"
+
+msgid "Malaysia"
+msgstr "Малайзия"
+
+msgid "Mexico"
+msgstr "Мексика"
+
+msgid "Malawi"
+msgstr "Малави"
+
+msgid "Maldives"
+msgstr "Мальдивы"
+
+msgid "Mauritius"
+msgstr "Маврикий"
+
+msgid "Malta"
+msgstr "Мальта"
+
+msgid "Montserrat"
+msgstr "Монтсеррат"
+
+msgid "Mauritania"
+msgstr "Мавритания"
+
+msgid "Martinique"
+msgstr "Мартиника"
+
+msgid "Northern Mariana Islands"
+msgstr "Северные Марианские острова"
+
+msgid "Macau"
+msgstr "Макао"
+
+msgid "Mongolia"
+msgstr "Монголия"
+
+msgid "Myanmar"
+msgstr "Мьянма"
+
+msgid "Mali"
+msgstr "Мали"
+
+msgid "Macedonia, The Former Yugoslav Republic Of"
+msgstr "Македония"
+
+msgid "Marshall Islands"
+msgstr "Маршалловы Острова"
+
+msgid "Madagascar"
+msgstr "Мадагаскар"
+
+msgid "Moldova, Republic Of"
+msgstr "Молдавия"
+
+msgid "Monaco"
+msgstr "Монако"
+
+msgid "Morocco"
+msgstr "Марокко"
+
+msgid "Libyan Arab Jamahiriya"
+msgstr "Ливия"
+
+msgid "Latvia"
+msgstr "Латвия"
+
+msgid "Luxembourg"
+msgstr "Люксембург"
+
+msgid "Lithuania"
+msgstr "Литва"
+
+msgid "Lesotho"
+msgstr "Лесото"
+
+msgid "Liberia"
+msgstr "Либерия"
+
+msgid "Sri Lanka"
+msgstr "Шри-Ланка"
+
+msgid "Liechtenstein"
+msgstr "Лихтенштейн"
+
+msgid "Saint Lucia"
+msgstr "Сент-Люсия"
+
+msgid "Lebanon"
+msgstr "Ливан"
+
+msgid "Lao People's Democratic Republic"
+msgstr "Лаос"
+
+msgid "Kazakhstan"
+msgstr "Казахстан"
+
+msgid "Cayman Islands"
+msgstr "Каймановы острова"
+
+msgid "Kuwait"
+msgstr "Кувейт"
+
+msgid "Korea, Republic Of"
+msgstr "Южная Корея"
+
+msgid "Korea, Democratic People's Republic Of"
+msgstr "Северная Корея"
+
+msgid "Saint Kitts And Nevis"
+msgstr "Сент-Китс и Невис"
+
+msgid "Comoros"
+msgstr "Коморы"
+
+msgid "Kiribati"
+msgstr "Кирибати"
+
+msgid "Cambodia"
+msgstr "Камбоджа"
+
+msgid "Kyrgyzstan"
+msgstr "Киргизия"
+
+msgid "Kenya"
+msgstr "Кения"
+
+msgid "Japan"
+msgstr "Япония"
+
+msgid "Jordan"
+msgstr "Иордания"
+
+msgid "Jamaica"
+msgstr "Ямайка"
+
+msgid "Italy"
+msgstr "Италия"
+
+msgid "Iceland"
+msgstr "Исландия"
+
+msgid "Iran (Islamic Republic Of)"
+msgstr "Иран"
+
+msgid "Iraq"
+msgstr "Ирак"
+
+msgid "British Indian Ocean Territory"
+msgstr "Британская территория в Индийском океане"
+
+msgid "India"
+msgstr "Индия"
+
+msgid "Israel"
+msgstr "Израиль"
+
+msgid "Ireland"
+msgstr "Ирландия"
+
+msgid "Indonesia"
+msgstr "Индонезия"
+
+msgid "Hungary"
+msgstr "Венгрия"
+
+msgid "Haiti"
+msgstr "Гаити"
+
+msgid "Croatia (local name: Hrvatska)"
+msgstr "Хорватия"
+
+msgid "Honduras"
+msgstr "Гондурас"
+
+msgid "Heard And Mc Donald Islands"
+msgstr "Херд и Макдоналд"
+
+msgid "Hong Kong"
+msgstr "Гонконг"
+
+msgid "Guyana"
+msgstr "Гайана"
+
+msgid "Guinea-Bissau"
+msgstr "Гвинея-Бисау"
+
+msgid "Guam"
+msgstr "Гуам"
+
+msgid "Guatemala"
+msgstr "Гватемала"
+
+msgid "South Georgia And The South Sandwich Islands"
+msgstr "Южная Георгия и Южные Сандвичевы острова"
+
+msgid "Greece"
+msgstr "Греция"
+
+msgid "Guadeloupe"
+msgstr "Гваделупа"
+
+msgid "Guinea"
+msgstr "Гвинея"
+
+msgid "Gambia"
+msgstr "Гамбия"
+
+msgid "Greenland"
+msgstr "Гренландия"
+
+msgid "Gibraltar"
+msgstr "Гибралтар"
+
+msgid "Ghana"
+msgstr "Гана"
+
+msgid "French Guiana"
+msgstr "Французская Гвиана"
+
+msgid "Georgia"
+msgstr "Грузия"
+
+msgid "Grenada"
+msgstr "Гренада"
+
+msgid "United Kingdom (UK)"
+msgstr "Великобритания"
+
+msgid "Gabon"
+msgstr "Габон"
+
+msgid "France"
+msgstr "Франция"
+
+msgid "Faroe Islands"
+msgstr "Фареры"
+
+msgid "Micronesia, Federated States Of"
+msgstr "Микронезия"
+
+msgid "Falkland Islands (Malvinas)"
+msgstr "Фолклендские острова"
+
+msgid "Fiji"
+msgstr "Фиджи"
+
+msgid "Finland"
+msgstr "Финляндия"
+
+msgid "Ethiopia"
+msgstr "Эфиопия"
+
+msgid "Spain"
+msgstr "Испания"
+
+msgid "Eritrea"
+msgstr "Эритрея"
+
+msgid "Western Sahara"
+msgstr "Западная Сахара"
+
+msgid "Egypt"
+msgstr "Египет"
+
+msgid "Estonia"
+msgstr "Эстония"
+
+msgid "Ecuador"
+msgstr "Эквадор"
+
+msgid "Algeria"
+msgstr "Алжир"
+
+msgid "Dominican Republic"
+msgstr "Доминиканская Республика"
+
+msgid "Denmark"
+msgstr "Дания"
+
+msgid "Djibouti"
+msgstr "Джибути"
+
+msgid "Germany"
+msgstr "Германия"
+
+msgid "Czech Republic"
+msgstr "Чехия"
+
+msgid "Cyprus"
+msgstr "Кипр"
+
+msgid "Christmas Island"
+msgstr "Остров Рождества"
+
+msgid "Cape Verde"
+msgstr "Кабо-Верде"
+
+msgid "Cuba"
+msgstr "Куба"
+
+msgid "Costa Rica"
+msgstr "Коста-Рика"
+
+msgid "Colombia"
+msgstr "Колумбия"
+
+msgid "China"
+msgstr "Китай"
+
+msgid "Cameroon"
+msgstr "Камерун"
+
+msgid "Chile"
+msgstr "Чили"
+
+msgid "Cook Islands"
+msgstr "Острова Кука"
+
+msgid "Cote d'Ivoire"
+msgstr "Кот-д’Ивуар"
+
+msgid "Switzerland"
+msgstr "Швейцария"
+
+msgid "Congo"
+msgstr "Конго"
+
+msgid "Central African Republic"
+msgstr "Центрально-Африканская Республика"
+
+msgid "Cocos (Keeling) Islands"
+msgstr "Кокосовые острова"
+
+msgid "Canada"
+msgstr "Канада"
+
+msgid "Belize"
+msgstr "Белиз"
+
+msgid "Belarus"
+msgstr "Белоруссия"
+
+msgid "Botswana"
+msgstr "Ботсвана"
+
+msgid "Bouvet Island"
+msgstr "Буве"
+
+msgid "Bhutan"
+msgstr "Бутан"
+
+msgid "Bahamas"
+msgstr "Багамы"
+
+msgid "Brazil"
+msgstr "Бразилия"
+
+msgid "Bolivia"
+msgstr "Боливия"
+
+msgid "Brunei Darussalam"
+msgstr "Бруней"
+
+msgid "Bermuda"
+msgstr "Бермуды"
+
+msgid "Benin"
+msgstr "Бенин"
+
+msgid "Burundi"
+msgstr "Бурунди"
+
+msgid "Bahrain"
+msgstr "Бахрейн"
+
+msgid "Bulgaria"
+msgstr "Болгария"
+
+msgid "Burkina Faso"
+msgstr "Буркина Фасо"
+
+msgid "Belgium"
+msgstr "Бельгия"
+
+msgid "Bangladesh"
+msgstr "Бангладеш"
+
+msgid "Barbados"
+msgstr "Барбадос"
+
+msgid "Bosnia And Herzegowina"
+msgstr "Босния и Герцеговина"
+
+msgid "Azerbaijan"
+msgstr "Азербайджан"
+
+msgid "Aruba"
+msgstr "Аруба"
+
+msgid "Australia"
+msgstr "Австралия"
+
+msgid "Austria"
+msgstr "Австрия"
+
+msgid "American Samoa"
+msgstr "Американское Самоа"
+
+msgid "Argentina"
+msgstr "Аргентина"
+
+msgid "Angola"
+msgstr "Ангола"
+
+msgid "Netherlands Antilles"
+msgstr "Нидерландские Антильские острова"
+
+msgid "Armenia"
+msgstr "Армения"
+
+msgid "Albania"
+msgstr "Албания"
+
+msgid "Anguilla"
+msgstr "Ангилья"
+
+msgid "Antigua And Barbuda"
+msgstr "Антигуа и Барбуда"
+
+msgid "Afghanistan"
+msgstr "Афганистан"
+
+msgid "United Arab Emirates"
+msgstr "ОАЭ"
+
+msgid "Andorra"
+msgstr "Андорра"
+
+msgid "Submit a newsentry"
+msgstr "Опубликовать новость"
+
+msgid "Submit"
+msgstr "Сохранить"
+
+msgid "And now fill in the code to protect against spammers:"
+msgstr "Антиспамерский код:"
+
+msgid "What does this picture show?"
+msgstr "Что изображено на рисунке?"
+
+msgid "Your E-Mail for further questions:"
+msgstr "Электронный адрес:"
+
+msgid "Please only use HTML tags to format the text - eg. bold, color or hyperlinks. We do not want tables, divs etc."
+msgstr "Используете HTML-разметку только для шрифтового оформления текста \n"
+"  (<b>, <u>, <i>) и ссылок (<a>). Пожалуйста, не используйте таблицы (<table>), разделы (<div>) и т. д."
+
+msgid "The newsentry is written with HTML tags"
+msgstr "В тексте присутствует HTML-разметка."
+
+msgid "Newsentry:"
+msgstr "Текст:"
+
+msgid "Topic:"
+msgstr "Тема:"
+
+msgid "Activate account"
+msgstr "Активация"
+
+msgid "We respect your privacy. Your personal data will be stored in our database, but not shared to third parties. Please note our exact <a href=\"articles.php?page=dsb\">privacy statement</a>. If you have further questions, please <a href=\"mailto:%1\">contact us</a> <b>before</b> you create your account."
+msgstr "Мы уважаем ваше право на неприкосновенность частной жизни. \n"
+"  Ваши персональные данные сохраняются в нашей базе данных, \n"
+"  но мы не передаём их другим лицам и организациям. \n"
+"  Пожалуйста, ознакомьтесь с <a href=\"articles.php?page=dsb\">Положением о конфиденциальности</a>. \n"
+"  Если у вас есть вопросы, <a href=\"mailto:%1\">свяжитесь с нами</a> до регистрации."
+
+msgid "User runtime:"
+msgstr "Пользователь:"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Ignored caches"
+msgstr "Чёрные метки"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Edit profile"
+msgstr "Править профиль"
+
+msgid "The notification radius must be not more than 150 km. To deaktivate notifications, set the radius to 0."
+msgstr "Радиус не может превышать 150 км. Чтобы отменить уведомления, задайте 0."
+
+msgid "Change password"
+msgstr "Сменить пароль"
+
+msgid "E-Mail Address"
+msgstr "Сменить адрес"
+
+msgid "Not found"
+msgstr "Не найден"
+
+msgid "Geocaches found: %1"
+msgstr "Найдено тайников: %1"
+
+msgid "Your latest log entries:"
+msgstr "Ваши последние отчёты:"
+
+msgid "No entries found"
+msgstr "Нет отчётов"
+
+msgid "Geocaches hidden: %1"
+msgstr "Спрятано тайников: %1"
+
+msgid "Your latest Geocaches hidden:"
+msgstr "Ваши последние тайники:"
+
+msgid "No Geocaches hidden"
+msgstr "Нет спрятанных тайников"
+
+msgid "All Geocaches are published"
+msgstr "Все ваши тайники опубликованы"
+
+msgid "E-Mails sent: %1"
+msgstr "Отправлено писем: %1"
+
+msgid "I want to be notified about new Geocaches within an radius of %1 km."
+msgstr "Присылать уведомления о новых тайниках в радиусе %1 км."
+
+msgid "BBCode for webforums:"
+msgstr "BBCode для форумов:"
+
+msgid "HTML-Code:"
+msgstr "HTML:"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "Registered since:"
+msgstr "Дата регистрации:"
+
+msgid "Notifications:"
+msgstr "Уведомления:"
+
+msgid "Home coordinates:"
+msgstr "Координаты:"
+
+msgid "Country:"
+msgstr "Страна:"
+
+msgid "Last name:"
+msgstr "Фамилия:"
+
+msgid "First name:"
+msgstr "Имя:"
+
+msgid "%1 found the Geocache"
+msgstr "%1 нашёл тайник"
+
+msgid "E-Mail-Address:"
+msgstr "Электронный адрес:"
+
+msgid "Logentries for %1"
+msgstr "Журнал"
+
+msgid "My profile data"
+msgstr "Профиль"
+
+msgid "The following informations are stored in your userprofile:"
+msgstr "Эта информация сохранена в вашем профиле:"
+
+msgid "Gray entries will be hidden to other users."
+msgstr "Серым цветом помечена информация, недоступная для других пользователей."
+
+msgid "Username:"
+msgstr "Пользователь:"
+
+msgid "New password"
+msgstr "Новый пароль"
+
+msgid "Change"
+msgstr "Сохранить"
+
+msgid "Request code"
+msgstr "Получить код"
+
+msgid "To change your password, you have to request a security code which will be sent to you via E-Mail."
+msgstr "Для смены пароля вы должны получить защитный код. Код высылается вам по электронной почте, он действителен \n"
+"  в течении трёх суток."
+
+msgid "Please enter your E-Mail-Address, the security code you received and your new password. The security code is only 3 days valid. You have to request a new one after that time."
+msgstr "Введите ваш электронный адрес, защитный код (который вы получили по электронной почте)\n"
+"  и ваш новый пароль."
+
+msgid "Security code:"
+msgstr "Защитный код:"
+
+msgid "Please repeat:"
+msgstr "Повторите пароль:"
+
+msgid "Change E-Mail address"
+msgstr "Сменить адрес электронной почты"
+
+msgid "To change your E-Mail address, you have to request a security code. It will be sent to your new E-Mail-Address."
+msgstr "Для смены пароля вы должны получить защитный код. Код высылается вам по электронной почте и действителен в течении трёх суток."
+
+msgid "New E-Mail address:"
+msgstr "Новый электронный адрес:"
+
+msgid "Please enter the security code you received. The security code is only 3 days valid. You have to request a new one after that time."
+msgstr "Введите защитный код, который вы получили по почте."
+
+msgid "Request security code first."
+msgstr "Сначала получите защитный код."
+
+msgid "My recommendations"
+msgstr "Золотые ярлыки"
+
+msgid "Ignored Geocaches"
+msgstr "Чёрные метки"
+
+msgid "No ignored Geocaches found."
+msgstr "Cписок пуст"
+
+msgid "Show all logentries"
+msgstr "Показать все отчёты"
+
+msgid "When downloading this file, you accept our <a href=\"articles.php?page=impressum#tos\">terms of use</a>."
+msgstr "Загружая файл, вы соглашаетесь с <a href=\"articles.php?page=impressum#tos\">Условиями использования</a>."
+
+msgid "Log this cache"
+msgstr "Отчитаться"
+
+msgid "Watch"
+msgstr "Наблюдать"
+
+msgid "Ignore"
+msgstr "Чёрная метка"
+
+msgid "Print"
+msgstr "Печать"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Time required"
+msgstr "Время на поиск"
+
+msgid "Hidden at"
+msgstr "Спрятан"
+
+msgid "Listed since"
+msgstr "Опубликован"
+
+msgid "Last update"
+msgstr "Обновлён"
+
+msgid "Also listed at"
+msgstr "Также опубликован"
+
+msgid "Notes"
+msgstr "Заметок"
+
+msgid "Watched"
+msgstr "Наблюдают"
+
+msgid "Ignored"
+msgstr "Чёрных меток"
+
+msgid "Page visits"
+msgstr "Просмотров"
+
+msgid "Cache attributes"
+msgstr "Атрибуты"
+
+msgid "Additional hint"
+msgstr "Подсказка"
+
+msgid "Decrypt"
+msgstr "Показать"
+
+msgid "Pictures"
+msgstr "Фотографии"
+
+msgid "Utilities"
+msgstr "Полезности"
+
+msgid "all"
+msgstr "все"
+
+msgid "Download as file:"
+msgstr "Загрузить как:"
+
+msgid "Textfile .txt"
+msgstr "Текстовый файл (.txt)"
+
+msgid "Name:"
+msgstr "Название:"
+
+msgid "Coordinates"
+msgstr "Координаты"
+
+msgid "This rules ensures that your password cannot be guessed by an automated script."
+msgstr "Выполнение этих требований повышает стойкость вашего пароля."
+
+msgid "Not all special characters are allowed. You may only use"
+msgstr "Допустимые символы:"
+
+msgid "Do not use dictionary words like 'master'"
+msgstr "Не используйте распространёные слова."
+
+msgid "Do not use common geocaching words"
+msgstr "Не используйте распространённые геокешерские слова."
+
+msgid "Do not use parts of your username, name or email"
+msgstr "Не используйте части вашего имени пользователя, настоящего имени или электронного адреса."
+
+msgid "Between 6 and 60 chars of length"
+msgstr "Длина от 6 до 60 символов."
+
+msgid "Verify that your password matches the following criteria:"
+msgstr "Введите пароль, который удовлетворяет следующим критериям:"
+
+msgid "Your password did not pass our security check."
+msgstr "Ваш пароль не прошёл проверку."
+
+msgid "Montenegro"
+msgstr "Черногория"
+
+msgid "Serbia"
+msgstr "Сербия"
+
+msgid "Donations"
+msgstr "Помощь сайту"
+
+msgid "Terms of use"
+msgstr "Условия использования"
+
+msgid "Terms of use and legal information"
+msgstr "Условия использования"
+
+msgid "Map"
+msgstr "Карта"
+
+msgid "Main menu"
+msgstr "Меню"
+
+msgid "Infrastructure"
+msgstr "Инфраструктура"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Seasonal"
+msgstr "Сезонность"
+
+msgid "Tools needed"
+msgstr "Снаряжение"
+
+msgid "Preparation needed"
+msgstr "Подготовка"
+
+msgid "Size:"
+msgstr "Размер контейнера:"
+
+msgid "Coordinates:"
+msgstr "Координаты:"
+
+msgid "Search for caches"
+msgstr "Выбор тайников"
+
+msgid "Cache attributes:"
+msgstr "Атрибуты"
+
+msgid "Submit a new cache"
+msgstr "Новый тайник"
+
+msgid "If this is your first cache on Opencaching.de, be sure to check out the <a href=\"articles.php?page=cacheinfo\">description</a> of the individual fields."
+msgstr "Если это ваш первый тайник, прочитайте <a href=\"articles.php?page=cacheinfo\">описание</a> отдельных полей."
+
+msgid "Description:"
+msgstr "Описание:"
+
+msgid "Password:"
+msgstr "Пароль"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Language"
+msgstr "Язык:"
+
+msgid "Only at night"
+msgstr "Ночной"
+
+msgid "Dangerous area"
+msgstr "Опасная зона"
+
+msgid "Active railway nearby"
+msgstr "Железная дорога"
+
+msgid "Hunting"
+msgstr "Охота"
+
+msgid "Thorns"
+msgstr "Колючки"
+
+msgid "Ticks"
+msgstr "Клещи"
+
+msgid "Abandoned mines"
+msgstr "Заброшенные шахты"
+
+msgid "Poisonous plants"
+msgstr "Ядовитые растения"
+
+msgid "Dangerous animals"
+msgstr "Опасные животные"
+
+msgid "Parking area nearby"
+msgstr "Парковка"
+
+msgid "Public transportation"
+msgstr "Общественный транспорт"
+
+msgid "Drinking water nearby"
+msgstr "Питьевая вода"
+
+msgid "Public restrooms nearby"
+msgstr "Туалет"
+
+msgid "Public phone nearby"
+msgstr "Телефон"
+
+msgid "First aid available"
+msgstr "Первая помощь"
+
+msgid "Swamp or marsh"
+msgstr "Болото"
+
+msgid "Hilly area"
+msgstr "Холмистая местность"
+
+msgid "Access or parking fee"
+msgstr "Плата за вход или парковку"
+
+msgid "Available 24 hours"
+msgstr "Круглосуточный"
+
+msgid "by day only"
+msgstr "Дневной"
+
+msgid "All seasons"
+msgstr "Всесезонный"
+
+msgid "Compass"
+msgstr "Компас"
+
+msgid "Flashlight"
+msgstr "Фонарь"
+
+msgid "Climbing gear"
+msgstr "Альпинистское снаряжение"
+
+msgid "Cave equipment"
+msgstr "Пещерное снаряжение"
+
+msgid "Watercraft"
+msgstr "Плавсредство"
+
+msgid "Puzzle / Mystery"
+msgstr "Головоломка"
+
+msgid "Arithmetical problem"
+msgstr "Математическая задача"
+
+msgid "Suited for children"
+msgstr "Детский"
+
+msgid "There are active railroads nearby. Please be careful, keep a safe distance and cross the rails only at level crossings etc.!"
+msgstr "Действующая железная дорога неподалёку. Будьте осторожны, держитесь на безопасной дистанции, будьте внимательны при переходе."
+
+msgid "The geocache is placed within a hunting ground. At twilight and in the dark, a flashlight or headlight should always be used for security reasons. Be considerate when meeting hunters."
+msgstr "Тайник спрятан в охотничьих угодьях. Опасайтесь попасть под выстрел. В сумерках или темноте держите фонарь вклёченным в целях безопасности. "
+
+msgid "There are thorns near the cache. Wear appropriate clothes."
+msgstr "Опасайтесь колючек. Носите подходящую одежду."
+
+msgid "There are seasonably many ticks in this area. It is recommended to wear long trousers and to check yourself for ticks after geocaching. There are risk maps for tick-borne encephalitis in the internet, e.g. for Germany at sites like www.meningitis.de (look for FSME there)."
+msgstr "В летнее время опасайтесь клещей. Носите брюки, одежду с длинными рукавами, периодически осматривайте друг друга. Заранее позаботьтесь о прививках против клещевого энцефалита."
+
+msgid "This cache can be done both at daylight and at night."
+msgstr "Этот тайник можно искать хоть днём, хоть ночью."
+
+msgid "This cache shoud be attempted during daylight only. For example, the area may be dangerous and contain cliffs or abysses. Or using flashlights may be unfeasable because it would look suspicious within a residential area."
+msgstr "Этот тайник можно искать только в светлое время суток. Например, скалистая местность с утёсами и обрывами опасна для посещения ночью, а в жилой местности использование фонарей может выглядеть подозрительно."
+
+msgid "This cache can be found the whole year round, while difficulty may depend on seasons. Specify difficulty for good conditions."
+msgstr "Тайник можно искать круглый год, но сложность может зависетьот сезона. Указывайте сложность для хороших условий."
+
+msgid "A compass is required."
+msgstr "Для поисков нужен компас."
+
+msgid "A flashlight is required for finding this cache. Don’t forget spare batteries!"
+msgstr "Для поисков необходим фонарь. Не забудьте запасной комплект батарей!"
+
+msgid "For this cache, you will need climbing equipment and the knowledge how to use it properly. If you are a beginner, don’t do it alone but use the support of a experienced climber or mountaineer."
+msgstr "Для поисков этого тайника вам потребуется альпинистское снаряжения и навыки его правильного использования. Если вы новичок, не ходите на поиски в одиночку, возьмите с собой опытного альпиниста."
+
+msgid "This geocache is hidden in a cave, and you should use appropriate equipment to access it. Beware: Even small caves may confront you with unforeseen problems and dangers, like thunder storms (water!) or a sprained ankle. Have advice first from cave-experienced people! Also take care of protected nature; e.g. bat places must not be disturbed."
+msgstr "Этот тайник спрятан в пещере, и вам потребуется соответствующее снаряжение. Будьте осторожны, даже маленькие пещеры могут быть таить непредвиденные опасности, такие, как внезапная гроза (берегитесь воды) или вывихнутая лодыжка. Посоветуйтесь с опытными людьми прежде чем лезть в пещеру. Также берегите природу, например, не тревожьте летучих мышей."
+
+msgid "This cache usually can be found only using a watercraft. Swimming is impossible because of the distance or currents. See the cache description for more details."
+msgstr "Тайник может быть найден только с использованием плавредства: лодки, катера, яхты… Добраться до тайника вплавь (без лодки) не представляется возможным из-за расстояния, течения или иных препятствий. Подробности должны быть указаны в описании."
+
+msgid "Before or while seeking this cache, arithmetical problems must be solved which go beyond very basic calculations."
+msgstr "Перед или во время поисков тайника нужно рещить математическую задачу, выходящую за рамки тривиальных арифметических операций."
+
+msgid "This geocache is created for childs. All challenges can be solved by child in the age of 10 to 12 years and the terrain has no risks (like highways, abysms). There is a large geocache container with trading items inside and the challanges are interesting."
+msgstr "Тайник сделан специально для детей. TODO. "
+
+msgid "There are poisonous plants near the cache. Take care and prevent children and dogs from touching or eating them."
+msgstr "Опасайтесь ядовитых растений. Смотрите за детьми и собаками, не давайте им трогать или есть отраву."
+
+msgid "The area is inhabited by possibly dangerous animals, e.g. rabies areas, venomous snakes, scorpions or bears."
+msgstr "Эта местность населена потенциально опасными животными, например, медведями, ядовитыми змеями, скорпионами, или является природным очагом бешенства."
+
+msgid "A nearby parking area is situated as starting point for doing this cache. If no free parking is available, add the \"access or parking fee\" attribute."
+msgstr "Ближняя парковка является хорошей начальной точкой для поисков тайника. Если поблизости нет бесплатных парковок, должен быть установлен атрибут «Плата за вход или парковку»."
+
+msgid "This cache is located outside of urban areas and has a public transport station nearby. Don’t set this attribute for geocaches in urban areas that are commonly equipped with public transportation."
+msgstr "Тайник расположен за городом, но до него можно добраться общественным транспортом. Не устанавливайте этот атрибут для тайников в населённых пунктах."
+
+msgid "There is drinking water along the trail or near the cache. This attribute is useful especially for planning event caches, longer hikes or caches at probably dirty locations like caves."
+msgstr "По пути к тайнику или поблизости от тайника есть источник питьевой воды. Этот атрибут полезен для планирования встреч, длительных пеших прогулок или посещения тайников в потенциально грязных местах, таких, как пещеры."
+
+msgid "This cache requires passing swampy or marshy ground. Wear appropriate clothes. After rainfall, the terrain may be very demanding or not passable at all."
+msgstr "При поисках этого тайника придётся ходить по болоту или преодолевать залитые водой участки местности. Носите подходящую одежду и обувь. После ливня местность может стать непроходимой."
+
+msgid "Country (nodes)"
+msgstr "Другие сайты"
+
+msgid "Route"
+msgstr "Путь"
+
+msgid "Cachesize:"
+msgstr "Размер контейнера"
+
+msgid "Newest caches in %1"
+msgstr "Новые тайники в %1"
+

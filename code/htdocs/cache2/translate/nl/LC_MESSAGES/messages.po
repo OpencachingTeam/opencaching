@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Last name"
+msgstr "Naam"
+
+msgid "Index"
+msgstr "Index"
+
+msgid "Found"
+msgstr "Gevonden"
+
+msgid "by"
+msgstr "door"
+
+msgid "Opencaching.de"
+msgstr "Opencaching.de"
+
+msgid "Hello"
+msgstr "Hoi"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Caches"
+msgstr "Caches"
+
+msgid "Without Germany"
+msgstr "Zonder Duitsland"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "welcome at www.opencaching.de!"
+msgstr "Hartelijk welkom op www.opencaching.de!"
+
+msgid "Dutch"
+msgstr "Nederlands"
+
+msgid "German"
+msgstr "Duits"
+
+msgid "INTERNAL_LANG"
+msgstr "NL"
+

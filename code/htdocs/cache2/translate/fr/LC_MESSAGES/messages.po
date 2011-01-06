@@ -1,0 +1,264 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Logged in as"
+msgstr "Pseudo"
+
+msgid "Logout"
+msgstr "Quite"
+
+msgid "First name"
+msgstr "Prénom"
+
+msgid "Last name"
+msgstr "Nom de famille"
+
+msgid "Country"
+msgstr "Pays"
+
+msgid "Uzbek"
+msgstr "Ouzbek"
+
+msgid "Turkish"
+msgstr "Turc"
+
+msgid "Your password"
+msgstr "Votre mot de passe"
+
+msgid "Swedish"
+msgstr "Suédois"
+
+msgid "Slovenian"
+msgstr "Slovène"
+
+msgid "Slovak"
+msgstr "Slovaque"
+
+msgid "Russian"
+msgstr "Russe"
+
+msgid "Index"
+msgstr "Index"
+
+msgid "Recommendations"
+msgstr "Recommandations"
+
+msgid "Found"
+msgstr "Trouvé"
+
+msgid "by"
+msgstr "par"
+
+msgid "Romanian"
+msgstr "Roumain"
+
+msgid "Next"
+msgstr "Prochain"
+
+msgid "Portuguese"
+msgstr "Portugais"
+
+msgid "Polish"
+msgstr "Polonais"
+
+msgid "Norwegian"
+msgstr "Norvégien"
+
+msgid "Latvian"
+msgstr "Letton"
+
+msgid "Lithuanian"
+msgstr "Litaunien"
+
+msgid "Italian"
+msgstr "Italien"
+
+msgid "Icelandic"
+msgstr "Islandais"
+
+msgid "Start"
+msgstr "Page d'accueil"
+
+msgid "Opencaching.de"
+msgstr "Opencaching.de"
+
+msgid "Hungarian"
+msgstr "Hongrois"
+
+msgid "Croatian"
+msgstr "Croate"
+
+msgid "Finnish"
+msgstr "Finnois"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Hello"
+msgstr "Salut"
+
+msgid "Basque"
+msgstr "Basque"
+
+msgid "Esperanto"
+msgstr "Espéranto"
+
+msgid "Greek"
+msgstr "Grec"
+
+msgid "Danish"
+msgstr "Danois"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Informations"
+msgstr "Information"
+
+msgid "Caches"
+msgstr "Caches"
+
+msgid "Without Germany"
+msgstr "Sans Allemagne"
+
+msgid "Search"
+msgstr "Chercher"
+
+msgid "Translation"
+msgstr "Traduction"
+
+msgid "Activation"
+msgstr "Activation"
+
+msgid "Site"
+msgstr "Page"
+
+msgid "Error message"
+msgstr "Indication d'erreur"
+
+msgid "%2 found %1"
+msgstr "%2 a trouvé %1"
+
+msgid "%2 didn't find %1"
+msgstr "%2 ne pas trouvé %1"
+
+msgid "welcome at www.opencaching.de!"
+msgstr "Bienvenue à www.opencaching.de!"
+
+msgid "Slave"
+msgstr "Slave"
+
+msgid "Czech"
+msgstr "Tchèque"
+
+msgid "Bulgarian"
+msgstr "Bulgare"
+
+msgid "Others"
+msgstr "Divers"
+
+msgid "Dutch"
+msgstr "Néerlandais"
+
+msgid "Japanese"
+msgstr "Japonais"
+
+msgid "Spanish"
+msgstr "Espagnol"
+
+msgid "English"
+msgstr "Anglais"
+
+msgid "German"
+msgstr "Allemand"
+
+msgid "The newsentry is written with HTML tags"
+msgstr "le entre de news est pose de html"
+
+msgid "Execute"
+msgstr "Exécuter"
+
+msgid "Send"
+msgstr "Envoyer"
+
+msgid "E-Mail from"
+msgstr "E-Mail de"
+
+msgid "Subject:"
+msgstr "Objet:"
+
+msgid "Content:"
+msgstr "Contenu:"
+
+msgid "Show Geocache"
+msgstr "Afficher cette Geocache"
+
+msgid "Difficulty: %1 of 5.0"
+msgstr "Difficulté: %1 of 5.0"
+
+msgid "Watch"
+msgstr "Observer"
+
+msgid "Ignore"
+msgstr "Ignorer"
+
+msgid "Print"
+msgstr "Imprimer"
+
+msgid "Convert coordinates"
+msgstr "Convertir les coordonnées"
+
+msgid "Distance"
+msgstr "Distance"
+
+msgid "Waypoint"
+msgstr "Waypoint"
+
+msgid "Ignored"
+msgstr "Ignoré"
+
+msgid "Decrypt"
+msgstr "Déchiffrer"
+
+msgid "Pictures"
+msgstr "Images"
+
+msgid "Utilities"
+msgstr "Utilités"
+
+msgid "Search geocaches nearby:"
+msgstr "Chercher des Geocaches prés:"
+
+msgid "all"
+msgstr "tous"
+
+msgid "searchable"
+msgstr "trouvable"
+
+msgid "Download as file:"
+msgstr "Télécharger en fichier vers l'aval:"
+
+msgid "GPS Exchange Format .gpx"
+msgstr "GPS Exchange Format .gpx"
+
+msgid "Google Earth .kml"
+msgstr "Google Earth .kml"
+
+msgid "C O P Y"
+msgstr "C O P I E"
+
+msgid "INTERNAL_LANG"
+msgstr "FR"
+
+msgid "State"
+msgstr "Statut"
+
