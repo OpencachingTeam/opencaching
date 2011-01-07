@@ -146,6 +146,8 @@ class login
 
 	function try_login($user, $password, $permanent)
 	{
+		global $opt;
+
 		$this->pClear();
 
 		// check the number of logins in the last hour ...
@@ -158,9 +160,13 @@ class login
 		$min_lastlogin_permanent = date('Y-m-d H:i:s', time() - LOGIN_TIME_PERMANENT);
 		sql("DELETE FROM `sys_sessions` WHERE `last_login`<'&1'", $min_lastlogin_permanent);
 
+		$pwmd5 = md5($password);
+		if ($opt['login']['hash'])
+			$pwmd5 = hash('sha512', $pwmd5);
+
 		// compare $user with email and username, if both matches use email
 		$rsUser = sql("SELECT `user_id`, `username`, 2 AS `prio`, `is_active_flag`, `permanent_login_flag`, `admin` FROM `user` WHERE `username`='&1' AND `password`='&2' UNION
-		               SELECT `user_id`, `username`, 1 AS `prio`, `is_active_flag`, `permanent_login_flag`, `admin` FROM `user` WHERE `email`='&1' AND `password`='&2' ORDER BY `prio` ASC LIMIT 1", $user, md5($password));
+		               SELECT `user_id`, `username`, 1 AS `prio`, `is_active_flag`, `permanent_login_flag`, `admin` FROM `user` WHERE `email`='&1' AND `password`='&2' ORDER BY `prio` ASC LIMIT 1", $user, $pwmd5);
 		$rUser = sql_fetch_assoc($rsUser);
 		sql_free_result($rsUser);
 

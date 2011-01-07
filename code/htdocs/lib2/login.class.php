@@ -174,10 +174,16 @@ class login
 
 	function try_login($user, $password, $permanent)
 	{
+		global $opt;
+
 		if ($password == '')
 			return LOGIN_EMPTY_USERPASSWORD;
 
-		return $this->try_login_md5($user, md5($password), $permanent); 
+		$pwmd5 = md5($password);
+		if ($opt['login']['hash'])
+			$pwmd5 = hash('sha512', $pwmd5);
+
+		return $this->try_login_md5($user, $pwmd5, $permanent);
 	}
 
 	function checkLoginsCount()
