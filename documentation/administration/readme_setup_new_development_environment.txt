@@ -32,29 +32,14 @@ If not, open localhost/activation.php and enter the activation code that you can
 Test
 Use another browser (like Firefox and IE at the same time). Use them with different user accounts logged in.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Stored Procedures
+Note! This is the procedure on a development machine. On a public system things must be done a
+bit different due to access restriction (and perhaps security).
+Copy htdocs/lib/settings-dist.inc.php to settings.inc.php
+Modify the database connection variables to match your development environment
+Copy htdocs/util/mysql_root/settings-dist.inc.php to settings.inc.php
+Modify the database connection variables to match your development environment
+Open your browser to
+http://localhost:8080/doc/sql/stored-proc/maintain.php
+and
+http://localhost:8080/doc/sql/stored-proc/distance.php
