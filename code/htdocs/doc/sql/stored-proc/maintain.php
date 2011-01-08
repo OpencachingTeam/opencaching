@@ -84,7 +84,7 @@
 
 	sql_dropProcedure('sp_update_caches_descLanguages');
 	sql("CREATE PROCEDURE sp_update_caches_descLanguages (IN nCacheId INT(10) UNSIGNED)
-	     COMMENT 'set caches.desc_languages of given cacheid and fill cache_desc_prefered'
+	     -- COMMENT 'set caches.desc_languages of given cacheid and fill cache_desc_prefered'
 	     BEGIN
 	       DECLARE dl VARCHAR(60);
 
@@ -94,7 +94,7 @@
 
 	sql_dropProcedure('sp_updateall_caches_descLanguages');
 	sql("CREATE PROCEDURE sp_updateall_caches_descLanguages (OUT nModified INT)
-	     COMMENT 'set caches.desc_languages of all caches, fill cache_desc_prefered and return number of modified rows'
+	     -- COMMENT 'set caches.desc_languages of all caches, fill cache_desc_prefered and return number of modified rows'
 	     BEGIN
 			   SET nModified = 0;
 	       UPDATE `caches`, (SELECT `cache_id`, GROUP_CONCAT(DISTINCT `language` ORDER BY `language` SEPARATOR ',') AS `dl` FROM `cache_desc` GROUP BY `cache_id`) AS `tbl` SET `caches`.`desc_languages`=`tbl`.`dl`, `caches`.`default_desclang`=PREFERED_LANG(`tbl`.`dl`, '&1') WHERE `caches`.`cache_id`=`tbl`.`cache_id`;
@@ -103,7 +103,7 @@
 
 	sql_dropProcedure('sp_update_logstat');
 	sql("CREATE PROCEDURE sp_update_logstat (IN nCacheId INT(10) UNSIGNED, IN nUserId INT(10) UNSIGNED, IN nLogType INT, IN bLogRemoved BOOLEAN)
-	     COMMENT 'update found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user'
+	     -- COMMENT 'update found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user'
 	     BEGIN
 	       DECLARE nFound INT DEFAULT 0;
 	       DECLARE nNotFound INT DEFAULT 0;
@@ -149,7 +149,7 @@
 
 	sql_dropProcedure('sp_updateall_logstat');
 	sql("CREATE PROCEDURE sp_updateall_logstat (OUT nModified INT)
-	     COMMENT 'recalc found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user for all entries'
+	     -- COMMENT 'recalc found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user for all entries'
 	     BEGIN
 	       SET nModified=0;
 
