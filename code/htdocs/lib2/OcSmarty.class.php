@@ -9,6 +9,7 @@
 
 require_once($opt['rootpath'] . 'lib2/smarty/Smarty.class.php');
 require_once($opt['rootpath'] . 'lib2/db.inc.php');
+require_once($opt['rootpath'] . 'lib2/logic/labels.inc.php');
 
 class OcSmarty extends Smarty
 {
