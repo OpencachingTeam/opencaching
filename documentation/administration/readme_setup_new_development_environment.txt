@@ -12,7 +12,7 @@ cat *.sql > create_all.txt
 From phpmyadmin import this into database ocxx.
 
 Apache
-Config httpd.conf to user the documentroot to ht htdocs directory in the source.
+Edit your httpd.conf and set the documentroot to point to the htdocs directory in the source.
 Optional for a development environment install mod_rewrite.
 
 php
@@ -31,4 +31,30 @@ If not, open localhost/activation.php and enter the activation code that you can
 
 Test
 Use another browser (like Firefox and IE at the same time). Use them with different user accounts logged in.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
