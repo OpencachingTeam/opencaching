@@ -29,7 +29,7 @@
 				else if (screen.availWidth)
 					nWindowWidth = screen.availWidth;
 				if (nWindowWidth < 800) {
-					document.writeln('<link rel="stylesheet" type="text/css" media="screen,projection" href="resource2/{$opt.template.style}/css/style_netbook.css">');
+					document.writeln('<link rel="stylesheet" type="text/css" media="screen,projection" href="resource2/{/literal}{$opt.template.style}{literal}/css/style_netbook.css">');
         }
 				else if (nWindowWidth > 970)
 					document.writeln('<link rel="stylesheet" type="text/css" media="screen,projection" href="{/literal}{season winter='resource2/ocstyle/css/seasons/style_winter.css' spring='resource2/ocstyle/css/seasons/style_spring.css' summer='resource2/ocstyle/css/seasons/style_summer.css' autumn='resource2/ocstyle/css/seasons/style_autumn.css'}{literal}">');
