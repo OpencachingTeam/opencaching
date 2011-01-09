@@ -28,7 +28,7 @@
 					nWindowWidth = window.innerWidth;
 				else if (screen.availWidth)
 					nWindowWidth = screen.availWidth;
-				if (nWindowWidth < 800) {
+				if (screen.availHeight < 800) {
 					document.writeln('<link rel="stylesheet" type="text/css" media="screen,projection" href="resource2/{/literal}{$opt.template.style}{literal}/css/style_netbook.css">');
         }
 				else if (nWindowWidth > 970)
