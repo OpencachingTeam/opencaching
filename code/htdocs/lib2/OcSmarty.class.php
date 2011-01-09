@@ -112,6 +112,11 @@ class OcSmarty extends Smarty
 //			if ($login->admin)
 //				$this->caching = false;
 
+    //Give Smarty access to the whole options array.
+    $this->assign('siteSettings', $opt);
+
+    //Should we remove this whole block since we now have
+    //access using the siteSettings above?
 		// assign main template vars
 		// ... and some of the $opt
 		$optn['debug'] = $opt['debug'];

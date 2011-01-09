@@ -377,6 +377,11 @@
 	 */
 	$opt['logic']['cracklib'] = false;
 
+	/* If the user entered HTML in his description do we
+   * display it as HTML or escape it and make it non-functional?
+	 */
+  $opt['logic']['enableHTMLInUserDescription'] = true;
+
 	/* Database charset
 	 *   frontend and php charsets are UTF-8
 	 *   here you can set a different charset for the MySQL-Engine

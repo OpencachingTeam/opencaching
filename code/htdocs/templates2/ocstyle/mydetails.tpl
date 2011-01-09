@@ -80,7 +80,11 @@
 							{t}No{/t}
 						{/if}
 					{else}
-						{$useropt.option_value|escape}
+            {if $siteSettings.logic.enableHTMLInUserDescription == true}
+              {$useropt.option_value}
+            {else}
+              {$useropt.option_value|escape}
+						{/if}
 					{/if}
 				{/if}
 			</td>

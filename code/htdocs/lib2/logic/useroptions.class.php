@@ -109,9 +109,17 @@ class useroptions
 		{
 			sqll("INSERT INTO `user_options` (`user_id`, `option_id`, `option_visible`, `option_value`) 
 			      VALUES ('&1', '&2', '&3', '&4') ON DUPLICATE KEY UPDATE `option_visible`='&3', `option_value`='&4'",
-			      $this->nUserId, $record['id'], $record['option_visible'], $record['option_value']);
+			      $this->nUserId, $record['id'], $record['option_visible'], $this->tidy_html_description($record['option_value']));
 	  }
 		return true;
 	}
+
+  function tidy_html_description($text)
+  {
+    $options = array("input-encoding" => "utf8", "output-encoding" => "utf8", "output-xhtml" => true, "doctype" => "omit", "show-body-only" => true, "char-encoding" => "utf8", "quote-ampersand" => true, "quote-nbsp" => true, "wrap" => 0);
+    $tidy =  tidy_parse_string(html_entity_decode($text, ENT_NOQUOTES, "UTF-8"), $options);
+    tidy_clean_repair($tidy);
+    return $tidy;
+  }
 }
 ?>
