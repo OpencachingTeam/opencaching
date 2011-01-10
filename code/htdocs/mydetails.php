@@ -33,7 +33,7 @@ exit;
 
 function change()
 {
-	global $tpl, $login;
+	global $tpl, $login, $opt;
 
 	if (isset($_REQUEST['cancel']))
 		$tpl->redirect('mydetails.php');
@@ -57,7 +57,7 @@ function change()
 			if ($vis != 1) $vis = 0;
 
 			$useroptions->setOptVisible($id, $vis);
-			if (strlen($value) > 2000)
+			if (strlen($value) > 2000 && $opt['logic']['enableHTMLInUserDescription'] != true)
 			{
 				$errorlen .= $useroptions->getOptName($id);
 				$bErrorlen = true;

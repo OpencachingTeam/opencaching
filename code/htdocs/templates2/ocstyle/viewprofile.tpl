@@ -71,7 +71,11 @@
 	{foreach from=$useroptions item=optionItem}
 		<tr>
 			<td style="vertical-align:top;"><b>{$optionItem.name|escape}:</b></td>
-			<td style="vertical-align:top;">{$optionItem.option_value|escape|nl2br}</td>
+      {if $siteSettings.logic.enableHTMLInUserDescription == true}
+        <td style="vertical-align:top;">{$optionItem.option_value}</td>
+      {else}
+        <td style="vertical-align:top;">{$optionItem.option_value|escape|nl2br}</td>
+      {/if}
 		</tr>
 	{/foreach}
 
