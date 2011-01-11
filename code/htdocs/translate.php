@@ -96,6 +96,13 @@
 	}
 	else
 	{
+		if ($action == 'quicknone')
+			$cookie->un_set('translate_mode');
+		else if ($action == 'quicknew')
+			$cookie->set('translate_mode', 'new');
+		else if ($action == 'quickall')
+			$cookie->set('translate_mode', 'all');
+
 		$action = 'listnew';
 
 		$trans = sql("SELECT DISTINCT `sys_trans`.`id`, `sys_trans`.`text` FROM `sys_trans` LEFT JOIN `sys_trans_text` ON `sys_trans`.`id`=`sys_trans_text`.`trans_id` AND `sys_trans_text`.`lang`='&1' LEFT JOIN `sys_trans_ref` ON `sys_trans`.`id`=`sys_trans_ref`.`trans_id` WHERE (ISNULL(`sys_trans_text`.`trans_id`) OR `sys_trans_text`.`text`='') AND NOT ISNULL(`sys_trans_ref`.`trans_id`) ORDER BY `sys_trans`.`id` DESC", $translang);

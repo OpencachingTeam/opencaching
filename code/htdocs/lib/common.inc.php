@@ -113,6 +113,7 @@
 
 	// load HTML specific includes
 	require_once($rootpath . 'lib/cookie.class.php');
+	require_once($rootpath . 'lib2/translate.class.php');
 
 	//site in service?
 	if ($site_in_service == false)
@@ -1143,13 +1144,9 @@
 	
 	function t($str)
 	{
-		global $opt, $style, $tplname;
-		if ($str == '') return '';
+		global $translate;
 
-		$sTransText = t_prepare_text($str);
-
-		$str = gettext($sTransText);
-
+		$str = $translate->t($str, '', basename(__FILE__), __LINE__);
 		$args = func_get_args();
 		for ($nIndex=count($args)-1; $nIndex>0; $nIndex--)
 			$str = str_replace('%' . $nIndex, $args[$nIndex], $str);
