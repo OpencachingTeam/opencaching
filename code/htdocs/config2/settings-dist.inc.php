@@ -377,6 +377,11 @@
 	 */
 	$opt['logic']['cracklib'] = false;
 
+	/* password authentication method
+	 * (true means extra hash on the digested password)
+	 */
+	$opt['logic']['password_hash'] = false;
+
 	/* If the user entered HTML in his description do we
    * display it as HTML or escape it and make it non-functional?
 	 */
