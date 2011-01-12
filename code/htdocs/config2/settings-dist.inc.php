@@ -190,6 +190,9 @@
 	$opt['template']['locales']['ES']['show'] = true;
 	$opt['template']['locales']['ES']['flag'] = 'images/flag/ES.png';
 	$opt['template']['locales']['ES']['name'] = 'Español';
+	$opt['template']['locales']['SE']['show'] = true;
+	$opt['template']['locales']['SE']['flag'] = 'images/flag/SE.png';
+	$opt['template']['locales']['SE']['name'] = 'Svenska';
 
 	// geokrety language key association
 	$opt['geokrety']['locales']['DE'] = 'de_DE.UTF-8';
@@ -200,6 +203,7 @@
 	$opt['geokrety']['locales']['IT'] = 'en_EN';
 	$opt['geokrety']['locales']['RU'] = 'en_EN';
 	$opt['geokrety']['locales']['ES'] = 'es_ES.UTF-8';
+	$opt['geokrety']['locales']['SE'] = 'se_SV.UTF-8';
 
 	// smiley path
 	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/images/';
@@ -212,6 +216,7 @@
 	$opt['locale']['IT']['locales'] = array('it_IT.utf8', 'it_IT', 'it');
 	$opt['locale']['RU']['locales'] = array('ru_RU.utf8', 'ru_RU', 'ru');
 	$opt['locale']['ES']['locales'] = array('es_ES.utf8', 'es_ES', 'es');
+	$opt['locale']['SE']['locales'] = array('se_SV.utf8', 'se_SV', 'se');
 
 	$opt['locale']['EN']['format']['date'] = '%x';
 	$opt['locale']['EN']['format']['datelong'] = '%d. %B %Y';
@@ -284,6 +289,16 @@
 	$opt['locale']['ES']['country'] = 'ES';
 	$opt['locale']['ES']['page']['subtitle1'] = 'Geocaching con Opencaching';
 	$opt['locale']['ES']['page']['subtitle2'] = '';
+
+	$opt['locale']['SE']['format']['date'] = '%x';
+	$opt['locale']['SE']['format']['datelong'] = '%Y-%B-%d';
+	$opt['locale']['SE']['format']['datetime'] = '%x %H:%M';
+	$opt['locale']['SE']['format']['datetimesec'] = '%x %X';
+	$opt['locale']['SE']['format']['time'] = '%H:%M';
+	$opt['locale']['SE']['format']['timesec'] = '%X';
+	$opt['locale']['SE']['country'] = 'SE';
+	$opt['locale']['SE']['page']['subtitle1'] = 'Opencaching i Sverige';
+	$opt['locale']['SE']['page']['subtitle2'] = '';
 
 	/* other template options
 	 *

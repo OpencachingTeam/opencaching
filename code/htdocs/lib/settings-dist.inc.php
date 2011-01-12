@@ -150,6 +150,9 @@
 	$opt['template']['locales']['RU']['show'] = true;
 	$opt['template']['locales']['RU']['flag'] = 'images/flag/RU.gif';
 	$opt['template']['locales']['RU']['name'] = 'Russian';
+	$opt['template']['locales']['SE']['show'] = true;
+	$opt['template']['locales']['SE']['flag'] = 'images/flag/SE.png';
+	$opt['template']['locales']['SE']['name'] = 'Svenska';
 
 	$opt['locale']['EN']['locales'] = array('en_US.utf8', 'en_US', 'en');
 	$opt['locale']['EN']['format']['date'] = '%x';
@@ -206,6 +209,14 @@
 	$opt['locale']['RU']['format']['datetimesec'] = '%x %X';
 	$opt['locale']['RU']['format']['time'] = '%H:%M';
 	$opt['locale']['RU']['format']['timesec'] = '%X';
+
+	$opt['locale']['SE']['locales'] = array('se_SV.utf8', 'se_SV', 'se');
+	$opt['locale']['SE']['format']['date'] = '%x';
+	$opt['locale']['SE']['format']['datelong'] = '%Y-%B-%d';
+	$opt['locale']['SE']['format']['datetime'] = '%x %H:%M';
+	$opt['locale']['SE']['format']['datetimesec'] = '%x %X';
+	$opt['locale']['SE']['format']['time'] = '%H:%M';
+	$opt['locale']['SE']['format']['timesec'] = '%X';
 
   /* Sponsoring advertisements
    * (plain HTML)
