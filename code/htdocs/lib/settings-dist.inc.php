@@ -210,7 +210,7 @@
 	$opt['locale']['RU']['format']['time'] = '%H:%M';
 	$opt['locale']['RU']['format']['timesec'] = '%X';
 
-	$opt['locale']['SE']['locales'] = array('se_SV.utf8', 'se_SV', 'se');
+	$opt['locale']['SE']['locales'] = array('sv_SE.utf8', 'sv_SE', 'se');
 	$opt['locale']['SE']['format']['date'] = '%x';
 	$opt['locale']['SE']['format']['datelong'] = '%Y-%B-%d';
 	$opt['locale']['SE']['format']['datetime'] = '%x %H:%M';

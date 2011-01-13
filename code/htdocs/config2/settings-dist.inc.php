@@ -203,7 +203,7 @@
 	$opt['geokrety']['locales']['IT'] = 'en_EN';
 	$opt['geokrety']['locales']['RU'] = 'en_EN';
 	$opt['geokrety']['locales']['ES'] = 'es_ES.UTF-8';
-	$opt['geokrety']['locales']['SE'] = 'se_SV.UTF-8';
+	$opt['geokrety']['locales']['SE'] = 'sv_SE.UTF-8';
 
 	// smiley path
 	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/images/';
@@ -216,7 +216,7 @@
 	$opt['locale']['IT']['locales'] = array('it_IT.utf8', 'it_IT', 'it');
 	$opt['locale']['RU']['locales'] = array('ru_RU.utf8', 'ru_RU', 'ru');
 	$opt['locale']['ES']['locales'] = array('es_ES.utf8', 'es_ES', 'es');
-	$opt['locale']['SE']['locales'] = array('se_SV.utf8', 'se_SV', 'se');
+	$opt['locale']['SE']['locales'] = array('sv_SE.utf8', 'sv_SE', 'se');
 
 	$opt['locale']['EN']['format']['date'] = '%x';
 	$opt['locale']['EN']['format']['datelong'] = '%d. %B %Y';
