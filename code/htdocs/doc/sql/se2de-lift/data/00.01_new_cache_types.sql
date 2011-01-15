@@ -64,3 +64,41 @@ INSERT INTO `cache_logtype` (`cache_type_id`, `log_type_id`) VALUES ('14', '2');
 INSERT INTO `cache_logtype` (`cache_type_id`, `log_type_id`) VALUES ('14', '3');
 
 
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES
+(1043, 'Podcache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES
+(1044, 'Educache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES
+(1045, 'Challengecache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES
+(1046, 'Guestcookcache', '2011-01-15 22:00:01');
+
+INSERT INTO `sys_trans_ref` (`trans_id`, `resource_name`, `line`) VALUES
+(1043, './lang/de/ocstyle/search.tpl.php', 336),
+(1043, 'table:cache_type;field=name', 0);
+INSERT INTO `sys_trans_ref` (`trans_id`, `resource_name`, `line`) VALUES
+(1044, './lang/de/ocstyle/search.tpl.php', 336),
+(1044, 'table:cache_type;field=name', 0);
+INSERT INTO `sys_trans_ref` (`trans_id`, `resource_name`, `line`) VALUES
+(1045, './lang/de/ocstyle/search.tpl.php', 336),
+(1045, 'table:cache_type;field=name', 0);
+INSERT INTO `sys_trans_ref` (`trans_id`, `resource_name`, `line`) VALUES
+(1046, './lang/de/ocstyle/search.tpl.php', 336),
+(1046, 'table:cache_type;field=name', 0);
+
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1043, 'EN', 'Podcast Cache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1043, 'SV', 'Podcast Cache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1044, 'EN', 'Educational Cache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1044, 'SV', 'Utbildningscache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1045, 'EN', 'Challenge Cache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1045, 'SV', 'Utmaningscache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1046, 'EN', 'Guest Book Cache', '2011-01-15 22:00:01');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES
+(1046, 'SV', 'Gästbokscache', '2011-01-15 22:00:01');
