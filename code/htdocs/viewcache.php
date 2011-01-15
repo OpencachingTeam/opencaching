@@ -130,6 +130,20 @@
 
 	$rCache['desclanguages'] = explode(',', $rCache['desclanguages']);
 
+	// language icons is not the same as country icons. transform language to country if possible.
+	$rCache['desclanguageCountries'] = array();
+	foreach ($rCache['desclanguages'] as $desclanguage)
+	{
+		$desclanguageCountry = $desclanguage;
+		if (isset($opt['locale'][$desclanguage]['country']))
+		{
+			$flagfile = 'images/flags/'.strtolower($opt['locale'][$desclanguage]['country']).'.gif';
+			if (file_exists($flagfile))
+				$desclanguageCountry = $opt['locale'][$desclanguage]['country'];
+		}
+		$rCache['desclanguageCountries'][$desclanguage] = $desclanguageCountry;
+	}
+
 	$rCache['sizeName'] = labels::getLabelValue('cache_size', $rCache['size']);
 	$rCache['statusName'] = labels::getLabelValue('cache_status', $rCache['status']);
 	$rCache['typeName'] = labels::getLabelValue('cache_type', $rCache['type']);
