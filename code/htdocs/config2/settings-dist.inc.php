@@ -290,8 +290,8 @@
 	$opt['locale']['ES']['page']['subtitle1'] = 'Geocaching con Opencaching';
 	$opt['locale']['ES']['page']['subtitle2'] = '';
 
-	$opt['locale']['SV']['format']['date'] = '%x';
-	$opt['locale']['SV']['format']['datelong'] = '%Y-%B-%d';
+	$opt['locale']['SV']['format']['date'] = '%Y-%m-%d';
+	$opt['locale']['SV']['format']['datelong'] = '%Y-%m-%d';
 	$opt['locale']['SV']['format']['datetime'] = '%x %H:%M';
 	$opt['locale']['SV']['format']['datetimesec'] = '%x %X';
 	$opt['locale']['SV']['format']['time'] = '%H:%M';
