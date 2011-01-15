@@ -65,7 +65,8 @@
 var maAttributes = new Array({jsattributes_array});
 
 function _chkVirtual () {
-  if (document.editcache_form.type.value == "4" || document.editcache_form.type.value == "5") {
+  if (document.editcache_form.type.value == "4" || document.editcache_form.type.value == "5"
+      || document.editcache_form.type.value == "12" || document.editcache_form.type.value == "14") {
     document.editcache_form.size.value = "7";
     document.editcache_form.size.disabled = true;
   }

@@ -84,6 +84,10 @@
 	$gpxType[7] = 'Unknown Cache';
 	$gpxType[8] = 'Unknown Cache';
 	$gpxType[10] = 'Traditional Cache';
+	$gpxType[11] = 'Unknown Cache';
+	$gpxType[12] = 'Unknown Cache';
+	$gpxType[13] = 'Unknown Cache';
+	$gpxType[14] = 'Unknown Cache';
 	
 	//prepare the output
 	$caches_per_page = 20;

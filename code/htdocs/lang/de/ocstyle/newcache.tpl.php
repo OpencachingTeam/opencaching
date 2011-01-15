@@ -70,7 +70,8 @@
 var maAttributes = new Array({jsattributes_array});
 
 function _chkVirtual () {
-  if (document.newcacheform.type.value == "4" || document.newcacheform.type.value == "5") {
+  if (document.newcacheform.type.value == "4" || document.newcacheform.type.value == "5"
+      || document.newcacheform.type.value == "12" || document.newcacheform.type.value == "14") {
     document.newcacheform.size.value = "7";
     document.newcacheform.size.disabled = true;
   }

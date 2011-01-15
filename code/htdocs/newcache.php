@@ -73,7 +73,7 @@
 			$sel_type = isset($_POST['type']) ? $_POST['type'] : 0;
 			if (!isset($_POST['size']))
 			{
-				if ($sel_type == 4 || $sel_type == 5)
+				if ($sel_type == 4 || $sel_type == 5 || $sel_type == 12 || $sel_type == 14)
 				{
 					$sel_size = 7;
 				}

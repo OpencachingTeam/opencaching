@@ -27,7 +27,13 @@
 {elseif $cachetype==10}
 	<img src="resource2/{$opt.template.style}/images/cacheicon/drivein.gif" alt="{t}Drive-In Geocache{/t}" border="0" width="15" height="15" align="left" style="margin-right: 5px; padding-left: 25px;" />
 {elseif $cachetype==11}
-	<img src="resource2/{$opt.template.style}/images/cacheicon/mocache.gif" alt="{t}Motocycle Geocache{/t}" border="0" width="15" height="15" align="left" style="margin-right: 5px; padding-left: 25px;" />
+	<img src="resource2/{$opt.template.style}/images/cacheicon/podcast.png" alt="{t}Podcast Geocache{/t}" border="0" width="15" height="15" align="left" style="margin-right: 5px; padding-left: 25px;" />
+{elseif $cachetype==12}
+	<img src="resource2/{$opt.template.style}/images/cacheicon/edu.png" alt="{t}Educational Geocache{/t}" border="0" width="15" height="15" align="left" style="margin-right: 5px; padding-left: 25px;" />
+{elseif $cachetype==13}
+	<img src="resource2/{$opt.template.style}/images/cacheicon/challenge.png" alt="{t}Challenge Geocache{/t}" border="0" width="15" height="15" align="left" style="margin-right: 5px; padding-left: 25px;" />
+{elseif $cachetype==14}
+	<img src="resource2/{$opt.template.style}/images/cacheicon/guestbook.png" alt="{t}Guest book Geocache{/t}" border="0" width="15" height="15" align="left" style="margin-right: 5px; padding-left: 25px;" />
 {else}
 	&nbsp;
 {/if}

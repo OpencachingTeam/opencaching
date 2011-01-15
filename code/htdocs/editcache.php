@@ -78,7 +78,7 @@
 					$cache_type = isset($_POST['type']) ? $_POST['type'] : $cache_record['type'];
 					if (!isset($_POST['size']))
 					{
-						if ($cache_type == 4 || $cache_type == 5)
+						if ($cache_type == 4 || $cache_type == 5 || $cache_type == 12 || $cache_type == 14)
 						{
 							$sel_size = 7;
 						}
