@@ -7,9 +7,13 @@
  *   set has to be commited with save
  *
  ***************************************************************************/
+global $opt;
+
+require_once($opt['rootpath'] . 'lib2/logic/class.inputfilter.php');
 
 class useroptions
 {
+
 	var $nUserId = 0;
 	var $nOptions;
 
@@ -117,9 +121,9 @@ class useroptions
   function tidy_html_description($text)
   {
     $options = array("input-encoding" => "utf8", "output-encoding" => "utf8", "output-xhtml" => true, "doctype" => "omit", "show-body-only" => true, "char-encoding" => "utf8", "quote-ampersand" => true, "quote-nbsp" => true, "wrap" => 0);
-    $tidy =  tidy_parse_string(html_entity_decode($text, ENT_NOQUOTES, "UTF-8"), $options);
-    tidy_clean_repair($tidy);
-    return $tidy;
+    $myFilter = new InputFilter(InputFilter::$allowedtags, InputFilter::$allowedattr, 0, 0, 1);
+    $the_html = $myFilter->process($text);
+    return $the_html;
   }
 }
 ?>

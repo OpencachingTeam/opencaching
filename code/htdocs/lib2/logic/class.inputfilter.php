@@ -27,7 +27,9 @@ class InputFilter
 	var $xssAuto;           // default = 1
 	var $tagBlacklist = array('applet', 'body', 'bgsound', 'base', 'basefont', 'embed', 'frame', 'frameset', 'head', 'html', 'id', 'iframe', 'ilayer', 'layer', 'link', 'meta', 'name', 'object', 'script', 'style', 'title', 'xml');
 	var $attrBlacklist = array('action', 'codebase', 'dynsrc', 'lowsrc');  // also will strip ALL event handlers
-		
+
+  public static $allowedtags = array(',', 'a,b,i,p,q,s,u,br,dd,dl,dt,em,h1,h2,h3,h4,h5,h6,hr,li,td,th,tr,tt,ol,ul,big,bdo,col,dfn,del,dir,div,ins,img,kbd,map,pre,sub,sup,var,abbr,area,cite,code,font,menu,samp,span,small,thead,tfoot,tbody,table,strong,center,strike,acronym,address,caption,isindex,colgroup,fieldset');
+  public static $allowedattr = array(',', 'id,src,alt,dir,rel,rev,abbr,axis,char,cite,face,href,lang,name,size,span,type,align,class,clear,color,frame,ismap,rules,scope,shape,start,style,title,value,width,border,coords,height,hspace,nowrap,nohref,target,usemap,vspace,valign,bgcolor,charoff,charset,colspan,compact,headers,noshade,rowspan,summary,longdesc,hreflang,datetime,tabindex,accesskey,background,cellspacing,cellpadding');
 	/** 
 	  * Constructor for inputFilter class. Only first parameter is required.
 	  * @access constructor
