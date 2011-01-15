@@ -27,7 +27,7 @@
 {elseif $cachetype==10}
 	<img src="resource2/{$opt.template.style}/images/cacheicon/drivein.gif" alt="{t}Drive-In Geocache{/t}" border="0" width="22" height="22" align="left" style="margin-right: 5px;" />
 {elseif $cachetype==11}
-	<img src="resource2/{$opt.template.style}/images/cacheicon/podcast.png" alt="{t}Podcast Geocache{/t}" border="0" width="22" height="22" align="left" style="margin-right: 5px;" />
+	<img src="resource2/{$opt.template.style}/images/cacheicon/podcache.png" alt="{t}Podcast Geocache{/t}" border="0" width="22" height="22" align="left" style="margin-right: 5px;" />
 {elseif $cachetype==12}
 	<img src="resource2/{$opt.template.style}/images/cacheicon/edu.png" alt="{t}Educational Geocache{/t}" border="0" width="22" height="22" align="left" style="margin-right: 5px;" />
 {elseif $cachetype==13}
