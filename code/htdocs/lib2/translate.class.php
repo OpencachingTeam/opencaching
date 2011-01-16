@@ -5,14 +5,21 @@
  *  Unicode Reminder メモ
  ***************************************************************************/
 
+require_once('./lib2/translateAccess.php');
+
 function createTranslate()
 {
-	global $cookie;
+	$access = new translateAccess();
 
-	$translateMode = $cookie->get('translate_mode');
+	if ($access->hasAccess())
+	{
+		global $cookie;
 
-	if ($translateMode)
-		return new translateEdit($translateMode == 'all');
+		$translateMode = $cookie->get('translate_mode');
+
+		if ($translateMode)
+			return new translateEdit($translateMode == 'all');
+	}
 
 	return new translate();
 }

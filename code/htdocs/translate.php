@@ -21,11 +21,15 @@
 	require('./lib2/web.inc.php');
 	require_once('./lib2/translate.class.php');
 	require_once('./lib2/translate_filescan.class.php');
+	require_once('./lib2/translateAccess.php');
+
 	$tpl->name = 'translate';
 	$tpl->menuitem = MNU_ADMIN_TRANSLATE;
 
 	$login->verify();
-	if (($login->admin & ADMIN_TRANSLATE) != ADMIN_TRANSLATE)
+	$access = new translateAccess();
+
+	if (!$access->hasAccess())
 		$tpl->error(ERROR_NO_ACCESS);
 
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
@@ -61,6 +65,9 @@
 		xmlimport3();
 	else if ($action == 'edit')
 	{
+		if (!$access->mayTranslate($translang))
+			$tpl->error(ERROR_NO_ACCESS);
+
 		edit();
 	}
 	else if ($action == 'listfaults')
@@ -77,6 +84,9 @@
 	}
 	else if ($action == 'remove')
 	{
+		if (!$access->mayTranslate($translang))
+			$tpl->error(ERROR_NO_ACCESS);
+
 		remove();
 	}
 	else if ($action == 'scan')
@@ -112,7 +122,10 @@
 
 	$languages = array();
 	foreach ($opt['locale'] AS $k => $v)
-		$languages[] = $k;
+	{
+		if ($access->mayTranslate($k))
+			$languages[] = $k;
+	}
 	$tpl->assign('languages', $languages);
 
 	$tpl->assign('translang', $translang);

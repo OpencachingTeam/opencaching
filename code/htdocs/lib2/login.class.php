@@ -101,8 +101,6 @@ class login
 
 	function pClear()
 	{
-    global $cookie;
-
 		// set to no valid login
 		$this->userid = 0;
 		$this->username = '';
@@ -111,7 +109,6 @@ class login
 		$this->sessionid = '';
 		$this->admin = 0;
 		$this->verified = true;
-    $cookie->un_set('translate_mode');
 
 		$this->pStoreCookie();
 	}
@@ -300,6 +297,14 @@ class login
 
 		$this->pClear();
 		$this->pStoreCookie();
+	}
+
+	public function hasAdminPriv($privilege = false)
+	{
+		if ($privilege === false)
+			return $this->admin != 0;
+
+		return ($this->admin & $privilege) == $privilege;
 	}
 }
 ?>
