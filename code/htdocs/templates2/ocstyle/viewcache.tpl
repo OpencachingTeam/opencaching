@@ -334,6 +334,32 @@
 {/if}
 <!-- End Bilder -->
 
+<!-- Podcasts -->
+{if $cache.type==11}
+	{if count($podcasts)>0}
+		<div class="content2-container bg-blue02">
+			<p class="content-title-noshade-size2">
+				<img src="resource2/{$opt.template.style}/images/description/22x22-podcast.png" style="align: left; margin-right: 10px;" width="22" height="22" alt="{t}Podcasts{/t}" /> 
+				{t}Podcasts{/t}
+			</p>
+		</div>
+
+		<div class="content2-container">
+			{foreach from=$podcasts item=podcastItem}
+				<div class="viewcache-pictureblock">
+					<div class="img-shadow">
+						<a href="{$podcastItem.url|escape}" target="_blank">
+							<img src="resource2/{$opt.template.style}/images/description/32x32-get-podcast.png" alt="{$podcastItem.title|escape}" title="{t}Download Podcast file{/t}"  />
+						</a>
+					</div>
+					<span class="title">{$podcastItem.title|escape}</span>
+				</div>
+			{/foreach}
+		</div>
+	{/if}
+{/if}
+<!-- End Podcasts -->
+
 <!-- Utilities -->
 <div class="content2-container bg-blue02">
 	<p class="content-title-noshade-size2">
