@@ -120,8 +120,7 @@ class useroptions
 
   function tidy_html_description($text)
   {
-    $options = array("input-encoding" => "utf8", "output-encoding" => "utf8", "output-xhtml" => true, "doctype" => "omit", "show-body-only" => true, "char-encoding" => "utf8", "quote-ampersand" => true, "quote-nbsp" => true, "wrap" => 0);
-    $myFilter = new InputFilter(InputFilter::$allowedtags, InputFilter::$allowedattr, 0, 0, 1);
+    $myFilter = new InputFilter(InputFilter::$allowedTags, InputFilter::$allowedAttr, 0, 0, 1);
     $the_html = $myFilter->process($text);
     return $the_html;
   }
