@@ -1,6 +1,6 @@
 <?php
 
-require_once('./lib2/login.class.php');
+require_once('./lib2/logic/const.inc.php');
 require_once('./lib2/logic/useroptions.class.php');
 
 class translateAccess

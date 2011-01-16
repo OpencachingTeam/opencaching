@@ -113,7 +113,6 @@
 
 	// load HTML specific includes
 	require_once($rootpath . 'lib/cookie.class.php');
-	require_once($rootpath . 'lib2/translate.class.php');
 
 	//site in service?
 	if ($site_in_service == false)
@@ -180,6 +179,9 @@
 	//open a databse connection
 	db_connect();
 
+	require($rootpath . 'lib/auth.inc.php');
+	require_once($rootpath . 'lib2/translate.class.php');
+
 	//load language specific strings
 	require_once($langpath . '/expressions.inc.php');
 
@@ -198,9 +200,6 @@
 	}
 	else
 	{
-		// include the authentication functions
-		require($rootpath . 'lib/auth.inc.php');
-
 		//user authenification from cookie
 		auth_user();
 		if ($usr == false)
