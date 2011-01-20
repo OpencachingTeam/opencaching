@@ -10,6 +10,7 @@
 global $opt;
 
 require_once($opt['rootpath'] . 'lib2/logic/class.inputfilter.php');
+require_once($opt['rootpath'] . 'htmlpurifier-4.2.0/library/HTMLPurifier.auto.php');
 
 class useroptions
 {
@@ -120,9 +121,36 @@ class useroptions
 
   function tidy_html_description($text)
   {
-    $myFilter = new InputFilter(InputFilter::$allowedTags, InputFilter::$allowedAttr, 0, 0, 1);
-    $the_html = $myFilter->process($text);
-    return $the_html;
+    $options = array("input-encoding" => "utf8", "output-encoding" => "utf8", "output-xhtml" => true, "doctype" => "omit", "show-body-only" => true, "char-encoding" => "utf8", "quote-ampersand" => true, "quote-nbsp" => true, "wrap" => 0);
+    $config = HTMLPurifier_Config::createDefault();
+    $cssDefinition = $config->getCSSDefinition();
+
+    $cssDefinition->info['position'] = new
+      HTMLPurifier_AttrDef_Enum(array('absolute', 'fixed', 'relative', 'static', 'inherit'), false);
+
+    $cssDefinition->info['left'] = new HTMLPurifier_AttrDef_CSS_Composite(array(
+      new HTMLPurifier_AttrDef_CSS_Length(),
+      new HTMLPurifier_AttrDef_CSS_Percentage()
+    ));
+
+    $cssDefinition->info['right'] = new HTMLPurifier_AttrDef_CSS_Composite(array(
+      new HTMLPurifier_AttrDef_CSS_Length(),
+      new HTMLPurifier_AttrDef_CSS_Percentage()
+    ));
+
+    $cssDefinition->info['top'] = new HTMLPurifier_AttrDef_CSS_Composite(array(
+      new HTMLPurifier_AttrDef_CSS_Length(),
+      new HTMLPurifier_AttrDef_CSS_Percentage()
+    ));
+
+    $cssDefinition->info['bottom'] = new HTMLPurifier_AttrDef_CSS_Composite(array(
+      new HTMLPurifier_AttrDef_CSS_Length(),
+      new HTMLPurifier_AttrDef_CSS_Percentage()
+    ));
+
+    $purifier = new HTMLPurifier($config);
+    $clean_html = $purifier->purify($text);
+    return $clean_html;
   }
 }
 ?>
