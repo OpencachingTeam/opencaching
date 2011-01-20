@@ -147,13 +147,19 @@ class user
 	}
 	function setPassword($value)
 	{
+		global $opt;
+	
 		if (!mb_ereg_match(REGEX_PASSWORD, $value))
 			return false;
 
 		if (cracklib_checkPW($value, array('open', 'caching', $this->getUsername(), $this->getFirstName(), $this->getLastName())) == false)
 			return false;
 
-		return $this->reUser->setValue('password', md5($value));
+		$pwmd5 = md5($value);
+		if ($opt['logic']['password_hash'])
+			$pwmd5 = hash('sha512', $pwmd5);
+
+		return $this->reUser->setValue('password', $pwmd5);
 	}
 	function getFirstName()
 	{

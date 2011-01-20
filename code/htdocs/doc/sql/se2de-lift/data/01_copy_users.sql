@@ -8,6 +8,7 @@ set @XMLSYNC=1;
 
 /*
 delete from user;
+delete from user_options;
 delete from email_user;
 delete from logentries;
 */
@@ -100,6 +101,76 @@ NULL, -- `first_name`,
 --  `get_bulletin`
 --  `ozi_filips`
 --  `hide_flag`
+from
+ocpl.user
+where user_id>=0;
+
+INSERT INTO `user_options` (
+`user_id`, 
+`option_id`, 
+`option_visible`, 
+`option_value` )
+select
+`user_id`, 
+1,
+0,
+'11'
+from
+ocpl.user
+where user_id>=0;
+
+INSERT INTO `user_options` (
+`user_id`, 
+`option_id`, 
+`option_visible`, 
+`option_value` )
+select
+`user_id`, 
+2,
+0,
+''
+from
+ocpl.user
+where user_id>=0;
+
+INSERT INTO `user_options` (
+`user_id`, 
+`option_id`, 
+`option_visible`, 
+`option_value` )
+select
+`user_id`, 
+3,
+1,
+`description`
+from
+ocpl.user
+where user_id>=0;
+
+INSERT INTO `user_options` (
+`user_id`, 
+`option_id`, 
+`option_visible`, 
+`option_value` )
+select
+`user_id`, 
+4,
+0,
+''
+from
+ocpl.user
+where user_id>=0;
+
+INSERT INTO `user_options` (
+`user_id`, 
+`option_id`, 
+`option_visible`, 
+`option_value` )
+select
+`user_id`, 
+5,
+0,
+'1'
 from
 ocpl.user
 where user_id>=0;

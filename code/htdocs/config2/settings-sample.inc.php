@@ -115,6 +115,11 @@
 	 */
 	$opt['logic']['cachemaps']['wmsurl'] = 'http://www.opencaching.de/cachemaps.php?wp={wp_oc}';
 
+	/* password authentication method
+	 * (true means extra hash on the digested password)
+	 */
+	$opt['logic']['password_hash'] = false;
+
  	/* E-Mail for notification about news (newstopic.php)
  	 */
  	$opt['news']['mail'] = '<admin email>';

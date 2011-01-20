@@ -190,6 +190,9 @@
 	$opt['template']['locales']['ES']['show'] = true;
 	$opt['template']['locales']['ES']['flag'] = 'images/flag/ES.png';
 	$opt['template']['locales']['ES']['name'] = 'Español';
+	$opt['template']['locales']['SV']['show'] = true;
+	$opt['template']['locales']['SV']['flag'] = 'images/flag/SE.png';
+	$opt['template']['locales']['SV']['name'] = 'Svenska';
 
 	// geokrety language key association
 	$opt['geokrety']['locales']['DE'] = 'de_DE.UTF-8';
@@ -200,6 +203,7 @@
 	$opt['geokrety']['locales']['IT'] = 'en_EN';
 	$opt['geokrety']['locales']['RU'] = 'en_EN';
 	$opt['geokrety']['locales']['ES'] = 'es_ES.UTF-8';
+	$opt['geokrety']['locales']['SV'] = 'sv_SE.UTF-8';
 
 	// smiley path
 	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/images/';
@@ -212,6 +216,7 @@
 	$opt['locale']['IT']['locales'] = array('it_IT.utf8', 'it_IT', 'it');
 	$opt['locale']['RU']['locales'] = array('ru_RU.utf8', 'ru_RU', 'ru');
 	$opt['locale']['ES']['locales'] = array('es_ES.utf8', 'es_ES', 'es');
+	$opt['locale']['SV']['locales'] = array('sv_SE.utf8', 'sv_SE', 'se');
 
 	$opt['locale']['EN']['format']['date'] = '%x';
 	$opt['locale']['EN']['format']['datelong'] = '%d. %B %Y';
@@ -284,6 +289,16 @@
 	$opt['locale']['ES']['country'] = 'ES';
 	$opt['locale']['ES']['page']['subtitle1'] = 'Geocaching con Opencaching';
 	$opt['locale']['ES']['page']['subtitle2'] = '';
+
+	$opt['locale']['SV']['format']['date'] = '%Y-%m-%d';
+	$opt['locale']['SV']['format']['datelong'] = '%Y-%m-%d';
+	$opt['locale']['SV']['format']['datetime'] = '%x %H:%M';
+	$opt['locale']['SV']['format']['datetimesec'] = '%x %X';
+	$opt['locale']['SV']['format']['time'] = '%H:%M';
+	$opt['locale']['SV']['format']['timesec'] = '%X';
+	$opt['locale']['SV']['country'] = 'SE';
+	$opt['locale']['SV']['page']['subtitle1'] = 'Opencaching i Sverige';
+	$opt['locale']['SV']['page']['subtitle2'] = '';
 
 	/* other template options
 	 *
@@ -376,6 +391,11 @@
 	 * (requires php extension crack_check)
 	 */
 	$opt['logic']['cracklib'] = false;
+
+	/* password authentication method
+	 * (true means extra hash on the digested password)
+	 */
+	$opt['logic']['password_hash'] = false;
 
 	/* If the user entered HTML in his description do we
    * display it as HTML or escape it and make it non-functional?

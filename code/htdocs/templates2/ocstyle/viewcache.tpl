@@ -257,7 +257,7 @@
 		{foreach from=$cache.desclanguages item=desclanguagesItem name=desclanguagesItem}
 			{strip}
 				{if $smarty.foreach.desclanguagesItem.first==false},&nbsp;{/if}
-				<img src="images/flags/{$desclanguagesItem|lower}.gif" style="vertical-align:middle" />&nbsp;
+				<img src="images/flags/{$cache.desclanguageCountries[$desclanguagesItem]|lower}.gif" style="vertical-align:middle" />&nbsp;
 				<a href="viewcache.php?wp={$cache.wpoc}&desclang={$desclanguagesItem|escape}">
 					{if $cache.desclanguage==$desclanguagesItem}
 						<i>{$desclanguagesItem|escape}</i>
