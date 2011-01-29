@@ -80,11 +80,17 @@
 							{t}No{/t}
 						{/if}
 					{else}
+          {if $useropt.id == 3}
+            </tr></table>
+          {/if}
             {if $siteSettings.logic.enableHTMLInUserDescription == true}
               {$useropt.option_value}
             {else}
               {$useropt.option_value|escape}
 						{/if}
+          {if $useropt.id == 3}
+            <table class="table"><tr>
+          {/if}
 					{/if}
 				{/if}
 			</td>
