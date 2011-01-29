@@ -30,9 +30,14 @@ class useroptions
 		else
 		{
 			$rs = sqll("SELECT `p`.`id`, `p`.`name`, `p`.`default_value`, `p`.`check_regex`, `p`.`option_order`, IFNULL(`u`.`option_visible`, 0) AS `option_visible`, `p`.`internal_use`, IFNULL(`u`.`option_value`, `p`.`default_value`) AS `option_value`
-				           FROM `profile_options` AS `p`
-				      LEFT JOIN `user_options` AS `u` ON `p`.`id`=`u`.`option_id` AND (`u`.`user_id` IS NULL OR `u`.`user_id`='&1')", 
-				                $this->nUserId);
+						FROM `profile_options` AS `p`
+						LEFT JOIN `user_options` AS `u` ON `p`.`id`=`u`.`option_id` AND (`u`.`user_id` IS NULL OR `u`.`user_id`='&1')
+					UNION 
+						SELECT `u`.`option_id` AS `id`, `p`.`name`, `p`.`default_value`, `p`.`check_regex`, `p`.`option_order`, `u`.`option_visible`, `p`.`internal_use`, IFNULL(`u`.`option_value`, `p`.`default_value`) AS `option_value`
+						FROM `user_options` AS `u`
+						LEFT JOIN `profile_options` AS `p` ON `p`.`id`=`u`.`option_id`
+						WHERE `u`.`user_id`='&1'", 
+					$this->nUserId);
 		}
 
 		while($record = sql_fetch_array($rs))
@@ -73,7 +78,10 @@ class useroptions
 	}
 	function getOptValue($pId)
 	{
-		return $this->nOptions[$pId]['option_value'];
+		if (array_key_exists($pId, $this->nOptions))
+			return $this->nOptions[$pId]['option_value'];
+
+		return false;
 	}
 
 	function setOptVisible($pId, $pValue)

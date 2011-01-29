@@ -179,6 +179,9 @@
 	//open a databse connection
 	db_connect();
 
+	require($rootpath . 'lib/auth.inc.php');
+	require_once($rootpath . 'lib2/translate.class.php');
+
 	//load language specific strings
 	require_once($langpath . '/expressions.inc.php');
 
@@ -197,9 +200,6 @@
 	}
 	else
 	{
-		// include the authentication functions
-		require($rootpath . 'lib/auth.inc.php');
-
 		//user authenification from cookie
 		auth_user();
 		if ($usr == false)
@@ -1143,13 +1143,9 @@
 	
 	function t($str)
 	{
-		global $opt, $style, $tplname;
-		if ($str == '') return '';
+		global $translate;
 
-		$sTransText = t_prepare_text($str);
-
-		$str = gettext($sTransText);
-
+		$str = $translate->t($str, '', basename(__FILE__), __LINE__);
 		$args = func_get_args();
 		for ($nIndex=count($args)-1; $nIndex>0; $nIndex--)
 			$str = str_replace('%' . $nIndex, $args[$nIndex], $str);
