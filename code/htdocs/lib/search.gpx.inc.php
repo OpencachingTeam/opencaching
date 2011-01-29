@@ -111,6 +111,10 @@
 	$gpxType[7] = 'Multi';
 	$gpxType[8] = 'Multi';
 	$gpxType[10] = 'Traditional';
+	$gpxType[11] = 'Other';
+	$gpxType[12] = 'Other';
+	$gpxType[13] = 'Other';
+	$gpxType[14] = 'Other';
 	
 	$gpxLogType[0] = 'Other';
 	$gpxLogType[1] = 'Found';

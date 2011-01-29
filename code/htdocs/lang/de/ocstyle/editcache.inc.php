@@ -44,6 +44,10 @@
 	$nopictures = '<tr><td colspan="2">' . t('No pictures available') . '</td></tr>';
 	$pictureline = '<tr><td colspan="2"><a href="{link}">{title}</a> [<a href="picture.php?action=edit&uuid={uuid}">' . t('Edit') . '</a>] [<a href="picture.php?action=delete&uuid={uuid}">' . t('Delete') . '</a>]</td></tr>';
 	$picturelines = '{lines}<tr><td colspan="2">&nbsp;</td></tr>';
+	
+	$nomp3 = '<tr><td colspan="2"><div class="notice">'.t('No Podcast files').'</div></td></tr>';
+	$mp3line = '<tr><td colspan="2"><a href="{link}">{title}</a> [<a href="podcast.php?action=edit&uuid={uuid}">' . t('Edit') . '</a>] [<a href="podcast.php?action=delete&uuid={uuid}">' . t('Delete') . '</a>]</td></tr>';
+	$mp3lines = '{lines}<tr><td colspan="2">&nbsp;</td></tr>';
 
 	$cache_attrib_js = "new Array({id}, {selected}, '{img_undef}', '{img_large}')";
 	$cache_attrib_pic = '<img id="attr{attrib_id}" src="{attrib_pic}" border="0" onmousedown="toggleAttr({attrib_id})" onmouseover="Tip(\'{html_desc}\', TITLE, \'{name}\', TITLEBGCOLOR, \'{color}\', TITLEFONTCOLOR, \'#000000\', BGCOLOR, \'#FFFFFF\', BORDERCOLOR, \'{color}\', CLICKCLOSE, true, DELAY, 0, FADEIN, false, FADEOUT, false, FONTCOLOR, \'#000080\', WIDTH, 500)" onmouseout="UnTip()" />&nbsp;';
