@@ -4,11 +4,13 @@ class ChildWp_Presenter
 {
   private $request;
   private $translator;
+  private $coordinate;
 
   public function __construct($request = false, $translator = false)
   {
     $this->request = $this->initRequest($request);
     $this->translator = $this->initTranslator($translator);
+    $this->coordinate = new Coordinate_Presenter($this->request, $this->translator);
   }
 
   private function initRequest($request)
@@ -29,22 +31,14 @@ class ChildWp_Presenter
 
   public function addWaypoint($childWpHandler)
   {
-    $childWpHandler->add($this->getType(), $this->getLat(), $this->getLon(), $this->getDesc());
+    $coordinate = $this->coordinate->getCoordinate();
+
+    $childWpHandler->add($this->getType(), $coordinate->latitude(), $coordinate->longitude(), $this->getDesc());
   }
 
   private function getType()
   {
     return $this->request->get('wp_type');
-  }
-
-  private function getLat()
-  {
-    return 10.25;
-  }
-
-  private function getLon()
-  {
-    return 20.5;
   }
 
   private function getDesc()
@@ -55,9 +49,8 @@ class ChildWp_Presenter
   public function prepare($template)
   {
     $template->assign('pagetitle', $this->translator->Translate('Add waypoint'));
-    $template->assign('wpLat', 0);
-    $template->assign('wpLon', 0);
     $template->assign('wpDesc', 0);
+    $this->coordinate->prepare($template);
   }
 }
 

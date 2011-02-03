@@ -29,8 +29,12 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter->prepare($template);
 
-    $this->assertEqual(0, $template->get('wpLat'));
-    $this->assertEqual(0, $template->get('wpLon'));
+    $this->assertEqual('N', $template->get(Coordinate_Presenter::lat_hem));
+    $this->assertEqual(0, $template->get(Coordinate_Presenter::lat_deg));
+    $this->assertEqual(0, $template->get(Coordinate_Presenter::lat_min));
+    $this->assertEqual('E', $template->get(Coordinate_Presenter::lon_hem));
+    $this->assertEqual(0, $template->get(Coordinate_Presenter::lon_deg));
+    $this->assertEqual(0, $template->get(Coordinate_Presenter::lon_min));
   }
 
   function testSetEmptyDescription()
@@ -63,12 +67,12 @@ class ChildWp_PresenterTests extends UnitTestCase
     $childWpHandler = new MockChildWp_Handler();
 
     $request->set('wp_type', 1);
-    $request->set('coordNS', 'N');
-    $request->set('coordLat', '10');
-    $request->set('coordLatMin', '15');
-    $request->set('coordEW', 'E');
-    $request->set('coordLon', '20');
-    $request->set('coordLonMin', '30');
+    $request->set(Coordinate_Presenter::lat_hem, 'N');
+    $request->set(Coordinate_Presenter::lat_deg, '10');
+    $request->set(Coordinate_Presenter::lat_min, '15');
+    $request->set(Coordinate_Presenter::lon_hem, 'E');
+    $request->set(Coordinate_Presenter::lon_deg, '20');
+    $request->set(Coordinate_Presenter::lon_min, '30');
     $request->set('desc', 'my waypoint');
     $childWpHandler->expectOnce('add', array(1, 10.25, 20.5, 'my waypoint'));
 
@@ -92,4 +96,5 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->assertTrue($request->get('desc'));
   }*/
 }
+
 ?>
