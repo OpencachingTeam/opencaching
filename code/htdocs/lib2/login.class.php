@@ -296,7 +296,6 @@ class login
 			sqlf("DELETE FROM `sys_sessions` WHERE `uuid`='&1' AND `user_id`='&2'", $this->sessionid, $this->userid);
 
 		$this->pClear();
-		$this->pStoreCookie();
 	}
 
 	public function hasAdminPriv($privilege = false)
