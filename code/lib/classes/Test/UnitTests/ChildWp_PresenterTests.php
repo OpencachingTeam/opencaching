@@ -3,7 +3,6 @@
 require_once('simpletest/autorun.php');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
 
-Mock::generate('Language_Translator');
 Mock::generate('ChildWp_Handler');
 Mock::generate('Cache_Manager');
 
@@ -25,6 +24,13 @@ class MockTemplate
 class ChildWp_PresenterTests extends UnitTestCase
 {
   private $errorCode;
+  private $values;
+  private $translator;
+
+  public function assign($tpl_var, $value)
+  {
+    $this->values[$tpl_var] = $value;
+  }
 
   public function error($errorCode)
   {
@@ -34,6 +40,8 @@ class ChildWp_PresenterTests extends UnitTestCase
   function setUp()
   {
     $this->errorCode = 0;
+    $this->values = array();
+    $this->translator = new Test_Translator();
   }
 
   function testSetZeroCoordinate()
@@ -64,15 +72,12 @@ class ChildWp_PresenterTests extends UnitTestCase
   function testPageTitleIsTranslated()
   {
     $template = new MockTemplate();
-    $translator = new MockLanguage_Translator();
-    $translator->setReturnValue('translate', 'Add new waypoint');
-    $translator->expectOnce('translate', array('Add waypoint'));
 
-    $presenter = new ChildWp_Presenter(null, $translator);
+    $presenter = new ChildWp_Presenter(null, $this->translator);
 
     $presenter->prepare($template);
 
-    $this->assertEqual('Add new waypoint', $template->get('pagetitle'));
+    $this->assertEqual('Add waypoint tr', $template->get('pagetitle'));
   }
 
   function testChildWpIsAdded()
@@ -155,6 +160,41 @@ class ChildWp_PresenterTests extends UnitTestCase
     $presenter->init($this, $cacheManager);
 
     $this->assertEqual(0, $this->errorCode);
+  }
+
+  function testSetWaypointTypeIds()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(2, 'Type 2'));
+    $presenter = new ChildWp_Presenter();
+
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->prepare($this);
+
+    $this->assertTrue(in_array(1, $this->values['wpTypeIds']));
+    $this->assertTrue(in_array(2, $this->values['wpTypeIds']));
+  }
+
+  function testSetWaypointTypeNames()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(2, 'Type 2'));
+    $presenter = new ChildWp_Presenter(null, $this->translator);
+
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->prepare($this);
+
+    $this->assertTrue(in_array('Type 1 tr', $this->values['wpTypeNames']));
+    $this->assertTrue(in_array('Type 2 tr', $this->values['wpTypeNames']));
+  }
+
+  function testNoTypeIsSelected()
+  {
+    $presenter = new ChildWp_Presenter();
+
+    $presenter->prepare($this);
+
+    $this->assertEqual('0', $this->values['wpType']);
   }
 
   /*function testDescriptionIsValidated()

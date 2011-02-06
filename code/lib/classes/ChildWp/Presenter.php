@@ -7,6 +7,7 @@ class ChildWp_Presenter
   private $request;
   private $translator;
   private $coordinate;
+  private $waypointTypes;
 
   public function __construct($request = false, $translator = false)
   {
@@ -65,7 +66,29 @@ class ChildWp_Presenter
   {
     $template->assign('pagetitle', $this->translator->Translate('Add waypoint'));
     $template->assign('wpDesc', 0);
+    $template->assign('wpType', '0');
+    $this->prepareTypes($template);
     $this->coordinate->prepare($template);
+  }
+
+  private function prepareTypes($template)
+  {
+    $wpTypeIds = array();
+    $wpTypeNames = array();
+
+    foreach ($this->waypointTypes as $i => $type)
+    {
+      $wpTypeIds[] = $type->getId();
+      $wpTypeNames[] = $this->translator->translate($type->getName());
+    }
+
+    $template->assign('wpTypeIds', $wpTypeIds);
+    $template->assign('wpTypeNames', $wpTypeNames);
+  }
+
+  public function setTypes($waypointTypes)
+  {
+    $this->waypointTypes = $waypointTypes;
   }
 }
 
