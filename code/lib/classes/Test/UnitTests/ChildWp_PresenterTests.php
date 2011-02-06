@@ -6,25 +6,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
 Mock::generate('ChildWp_Handler');
 Mock::generate('Cache_Manager');
 
-class MockTemplate
-{
-  private $values = array();
-
-  public function assign($tpl_var, $value)
-  {
-    $this->values[$tpl_var] = $value;
-  }
-
-  public function get($tpl_var)
-  {
-    return $this->values[$tpl_var];
-  }
-}
-
 class ChildWp_PresenterTests extends UnitTestCase
 {
   private $errorCode;
   private $values;
+  private $request;
   private $translator;
 
   public function assign($tpl_var, $value)
@@ -41,62 +27,63 @@ class ChildWp_PresenterTests extends UnitTestCase
   {
     $this->errorCode = 0;
     $this->values = array();
+    $this->request = new Http_Request();
     $this->translator = new Test_Translator();
+  }
+
+  private function createPresenter()
+  {
+    return new ChildWp_Presenter($this->request, $this->translator);
   }
 
   function testSetZeroCoordinate()
   {
-    $template = new MockTemplate();
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
-    $presenter->prepare($template);
+    $presenter->prepare($this);
 
-    $this->assertEqual('N', $template->get(Coordinate_Presenter::lat_hem));
-    $this->assertEqual(0, $template->get(Coordinate_Presenter::lat_deg));
-    $this->assertEqual(0, $template->get(Coordinate_Presenter::lat_min));
-    $this->assertEqual('E', $template->get(Coordinate_Presenter::lon_hem));
-    $this->assertEqual(0, $template->get(Coordinate_Presenter::lon_deg));
-    $this->assertEqual(0, $template->get(Coordinate_Presenter::lon_min));
+    $this->assertEqual('N', $this->values[Coordinate_Presenter::lat_hem]);
+    $this->assertEqual(0, $this->values[Coordinate_Presenter::lat_deg]);
+    $this->assertEqual(0, $this->values[Coordinate_Presenter::lat_min]);
+    $this->assertEqual('E', $this->values[Coordinate_Presenter::lon_hem]);
+    $this->assertEqual(0, $this->values[Coordinate_Presenter::lon_deg]);
+    $this->assertEqual(0, $this->values[Coordinate_Presenter::lon_min]);
   }
 
   function testSetEmptyDescription()
   {
-    $template = new MockTemplate();
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
-    $presenter->prepare($template);
+    $presenter->prepare($this);
 
-    $this->assertEqual('', $template->get('wpDesc'));
+    $this->assertEqual('', $this->values['wpDesc']);
   }
 
   function testPageTitleIsTranslated()
   {
-    $template = new MockTemplate();
+    $presenter = $this->createPresenter();
 
-    $presenter = new ChildWp_Presenter(null, $this->translator);
+    $presenter->prepare($this);
 
-    $presenter->prepare($template);
-
-    $this->assertEqual('Add waypoint tr', $template->get('pagetitle'));
+    $this->assertEqual('Add waypoint tr', $this->values['pagetitle']);
   }
 
   function testChildWpIsAdded()
   {
-    $request = new Http_Request();
-    $childWpHandler = new MockChildWp_Handler();
+    $this->request->set('cacheid', 2);
+    $this->request->set('wp_type', 1);
+    $this->request->set(Coordinate_Presenter::lat_hem, 'N');
+    $this->request->set(Coordinate_Presenter::lat_deg, '10');
+    $this->request->set(Coordinate_Presenter::lat_min, '15');
+    $this->request->set(Coordinate_Presenter::lon_hem, 'E');
+    $this->request->set(Coordinate_Presenter::lon_deg, '20');
+    $this->request->set(Coordinate_Presenter::lon_min, '30');
+    $this->request->set('desc', 'my waypoint');
 
-    $request->set('cacheid', 2);
-    $request->set('wp_type', 1);
-    $request->set(Coordinate_Presenter::lat_hem, 'N');
-    $request->set(Coordinate_Presenter::lat_deg, '10');
-    $request->set(Coordinate_Presenter::lat_min, '15');
-    $request->set(Coordinate_Presenter::lon_hem, 'E');
-    $request->set(Coordinate_Presenter::lon_deg, '20');
-    $request->set(Coordinate_Presenter::lon_min, '30');
-    $request->set('desc', 'my waypoint');
+    $childWpHandler = new MockChildWp_Handler();
     $childWpHandler->expectOnce('add', array(2, 1, 10.25, 20.5, 'my waypoint'));
 
-    $presenter = new ChildWp_Presenter($request);
+    $presenter = $this->createPresenter();
 
     $presenter->addWaypoint($childWpHandler);
   }
@@ -104,7 +91,7 @@ class ChildWp_PresenterTests extends UnitTestCase
   function testSetsErrorIfNoCacheId()
   {
     $cacheManager = new MockCache_Manager();
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
     $cacheManager->setReturnValue('exists', false);
 
@@ -116,12 +103,12 @@ class ChildWp_PresenterTests extends UnitTestCase
   function testSetsErrorIfCacheDoesNotExist()
   {
     $cacheManager = new MockCache_Manager();
-    $_GET['cacheid'] = '234';
 
+    $this->request->setForValidation('cacheid', '234');
     $cacheManager->setReturnValue('exists', false);
     $cacheManager->expectOnce('exists', array('234'));
 
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
     $presenter->init($this, $cacheManager);
 
@@ -131,14 +118,14 @@ class ChildWp_PresenterTests extends UnitTestCase
   function testSetsErrorIfUserMayNotModifyCache()
   {
     $cacheManager = new MockCache_Manager();
-    $_GET['cacheid'] = '345';
 
+    $this->request->setForValidation('cacheid', '345');
     $cacheManager->setReturnValue('exists', true);
     $cacheManager->expectOnce('exists', array('345'));
     $cacheManager->setReturnValue('userMayModify', false);
     $cacheManager->expectOnce('userMayModify', array('345'));
 
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
     $presenter->init($this, $cacheManager);
 
@@ -148,14 +135,14 @@ class ChildWp_PresenterTests extends UnitTestCase
   function testDoesNotSetErrorIfCacheExists()
   {
     $cacheManager = new MockCache_Manager();
-    $_GET['cacheid'] = '345';
 
+    $this->request->setForValidation('cacheid', '345');
     $cacheManager->setReturnValue('exists', true);
     $cacheManager->expectOnce('exists', array('345'));
     $cacheManager->setReturnValue('userMayModify', true);
     $cacheManager->expectOnce('userMayModify', array('345'));
 
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
     $presenter->init($this, $cacheManager);
 
@@ -165,7 +152,7 @@ class ChildWp_PresenterTests extends UnitTestCase
   function testSetWaypointTypeIds()
   {
     $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(2, 'Type 2'));
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
     $presenter->setTypes($waypointTypes);
 
@@ -178,7 +165,7 @@ class ChildWp_PresenterTests extends UnitTestCase
   function testSetWaypointTypeNames()
   {
     $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(2, 'Type 2'));
-    $presenter = new ChildWp_Presenter(null, $this->translator);
+    $presenter = $this->createPresenter();
 
     $presenter->setTypes($waypointTypes);
 
@@ -190,7 +177,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testNoTypeIsSelected()
   {
-    $presenter = new ChildWp_Presenter();
+    $presenter = $this->createPresenter();
 
     $presenter->prepare($this);
 

@@ -49,6 +49,11 @@ class Http_Request
   {
     $this->valid_values[$key] = $value;
   }
+
+  public function setForValidation($key, $value)
+  {
+    $this->raw_values[$key] = $value;
+  }
 }
 
 ?>

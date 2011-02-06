@@ -143,6 +143,26 @@ class Http_RequestTests extends UnitTestCase
     $this->assertTrue($request->validate('key7', new Http_RequestTestsSimpleValidator(true)));
     $this->assertFalse($request->validate('key7', new Http_RequestTestsSimpleValidator(false)));
   }
+
+  function testUnvalidatedValueCanBeSet()
+  {
+    $request = new Http_Request();
+
+    $request->setForValidation('key2', '5');
+
+    $this->assertEqual('5', $request->getForValidation('key2'));
+  }
+
+  function testSetForValidationOverridesValue()
+  {
+    $_POST['key2'] = '4';
+
+    $request = new Http_Request();
+
+    $request->setForValidation('key2', '6');
+
+    $this->assertEqual('6', $request->getForValidation('key2'));
+  }
 }
 
 ?>
