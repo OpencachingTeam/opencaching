@@ -1,9 +1,11 @@
 <?php
 
 require_once('simpletest/autorun.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
 
 Mock::generate('Language_Translator');
 Mock::generate('ChildWp_Handler');
+Mock::generate('Cache_Manager');
 
 class MockTemplate
 {
@@ -22,6 +24,18 @@ class MockTemplate
 
 class ChildWp_PresenterTests extends UnitTestCase
 {
+  private $errorCode;
+
+  public function error($errorCode)
+  {
+    $this->errorCode = $errorCode;
+  }
+
+  function setUp()
+  {
+    $this->errorCode = 0;
+  }
+
   function testSetZeroCoordinate()
   {
     $template = new MockTemplate();
@@ -66,6 +80,7 @@ class ChildWp_PresenterTests extends UnitTestCase
     $request = new Http_Request();
     $childWpHandler = new MockChildWp_Handler();
 
+    $request->set('cacheid', 2);
     $request->set('wp_type', 1);
     $request->set(Coordinate_Presenter::lat_hem, 'N');
     $request->set(Coordinate_Presenter::lat_deg, '10');
@@ -74,11 +89,72 @@ class ChildWp_PresenterTests extends UnitTestCase
     $request->set(Coordinate_Presenter::lon_deg, '20');
     $request->set(Coordinate_Presenter::lon_min, '30');
     $request->set('desc', 'my waypoint');
-    $childWpHandler->expectOnce('add', array(1, 10.25, 20.5, 'my waypoint'));
+    $childWpHandler->expectOnce('add', array(2, 1, 10.25, 20.5, 'my waypoint'));
 
     $presenter = new ChildWp_Presenter($request);
 
     $presenter->addWaypoint($childWpHandler);
+  }
+
+  function testSetsErrorIfNoCacheId()
+  {
+    $cacheManager = new MockCache_Manager();
+    $presenter = new ChildWp_Presenter();
+
+    $cacheManager->setReturnValue('exists', false);
+
+    $presenter->init($this, $cacheManager);
+
+    $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
+  }
+
+  function testSetsErrorIfCacheDoesNotExist()
+  {
+    $cacheManager = new MockCache_Manager();
+    $_GET['cacheid'] = '234';
+
+    $cacheManager->setReturnValue('exists', false);
+    $cacheManager->expectOnce('exists', array('234'));
+
+    $presenter = new ChildWp_Presenter();
+
+    $presenter->init($this, $cacheManager);
+
+    $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
+  }
+
+  function testSetsErrorIfUserMayNotModifyCache()
+  {
+    $cacheManager = new MockCache_Manager();
+    $_GET['cacheid'] = '345';
+
+    $cacheManager->setReturnValue('exists', true);
+    $cacheManager->expectOnce('exists', array('345'));
+    $cacheManager->setReturnValue('userMayModify', false);
+    $cacheManager->expectOnce('userMayModify', array('345'));
+
+    $presenter = new ChildWp_Presenter();
+
+    $presenter->init($this, $cacheManager);
+
+    $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
+  }
+
+  function testDoesNotSetErrorIfCacheExists()
+  {
+    $cacheManager = new MockCache_Manager();
+    $_GET['cacheid'] = '345';
+
+    $cacheManager->setReturnValue('exists', true);
+    $cacheManager->expectOnce('exists', array('345'));
+    $cacheManager->setReturnValue('userMayModify', true);
+    $cacheManager->expectOnce('userMayModify', array('345'));
+
+    $presenter = new ChildWp_Presenter();
+
+    $presenter->init($this, $cacheManager);
+
+    $this->assertEqual(0, $this->errorCode);
   }
 
   /*function testDescriptionIsValidated()

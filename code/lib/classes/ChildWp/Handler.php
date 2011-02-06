@@ -2,7 +2,7 @@
 
 class ChildWp_Handler
 {
-  public function add($type, $lat, $lon, $desc)
+  public function add($cacheid, $type, $lat, $lon, $desc)
   {
   }
 }

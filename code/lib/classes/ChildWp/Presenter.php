@@ -1,5 +1,7 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
+
 class ChildWp_Presenter
 {
   private $request;
@@ -33,7 +35,12 @@ class ChildWp_Presenter
   {
     $coordinate = $this->coordinate->getCoordinate();
 
-    $childWpHandler->add($this->getType(), $coordinate->latitude(), $coordinate->longitude(), $this->getDesc());
+    $childWpHandler->add($this->getCacheId(), $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $this->getDesc());
+  }
+
+  private function getCacheId()
+  {
+    return $this->request->get('cacheid');
   }
 
   private function getType()
@@ -44,6 +51,14 @@ class ChildWp_Presenter
   private function getDesc()
   {
     return $this->request->get('desc');
+  }
+
+  public function init($template, $cacheManager)
+  {
+    $cacheid = $this->request->getForValidation('cacheid');
+
+    if (!$cacheManager->exists($cacheid) || !$cacheManager->userMayModify($cacheid))
+      $template->error(ERROR_CACHE_NOT_EXISTS);
   }
 
   public function prepare($template)
