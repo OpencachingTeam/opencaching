@@ -47,7 +47,7 @@ class ChildWp_Presenter
 
   private function getType()
   {
-    return $this->request->get('wp_type');
+    return $this->request->get('wp_type', '0');
   }
 
   private function getDesc()
@@ -66,8 +66,8 @@ class ChildWp_Presenter
   public function prepare($template)
   {
     $template->assign('pagetitle', $this->translator->Translate('Add waypoint'));
-    $template->assign('wpDesc', 0);
-    $template->assign('wpType', '0');
+    $template->assign('wpDesc', $this->getDesc());
+    $template->assign('wpType', $this->getType());
     $this->prepareTypes($template);
     $this->coordinate->prepare($template);
 

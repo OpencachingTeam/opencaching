@@ -324,6 +324,59 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $this->assertFalse($presenter->validate());
   }
+
+  function testValidCoordinateIsShownAfterValidate()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(3, 'Type 3'));
+
+    $this->request->setForValidation(Coordinate_Presenter::lat_hem, 'N');
+    $this->request->setForValidation(Coordinate_Presenter::lat_deg, '10');
+    $this->request->setForValidation(Coordinate_Presenter::lat_min, '15');
+    $this->request->setForValidation(Coordinate_Presenter::lon_hem, 'E');
+    $this->request->setForValidation(Coordinate_Presenter::lon_deg, '20');
+    $this->request->setForValidation(Coordinate_Presenter::lon_min, '30');
+    $this->request->setForValidation('wp_type', '2');
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->validate();
+    $presenter->prepare($this);
+
+    $this->assertEqual('N', $this->values[Coordinate_Presenter::lat_hem]);
+    $this->assertEqual(10, $this->values[Coordinate_Presenter::lat_deg]);
+    $this->assertEqual(15, $this->values[Coordinate_Presenter::lat_min]);
+    $this->assertEqual('E', $this->values[Coordinate_Presenter::lon_hem]);
+    $this->assertEqual(20, $this->values[Coordinate_Presenter::lon_deg]);
+    $this->assertEqual(30, $this->values[Coordinate_Presenter::lon_min]);
+  }
+
+  function testValidDescriptionIsShownAfterValidate()
+  {
+    $this->request->setForValidation('desc', 'description');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->validate();
+    $presenter->prepare($this);
+
+    $this->assertEqual('description', $this->values['wpDesc']);
+  }
+
+  function testValidTypeIsShownAfterValidate()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(3, 'Type 3'));
+
+    $this->request->setForValidation('wp_type', '3');
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->validate();
+    $presenter->prepare($this);
+
+    $this->assertEqual('3', $this->values['wpType']);
+  }
 }
 
 ?>
