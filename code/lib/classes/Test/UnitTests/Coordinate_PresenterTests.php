@@ -44,11 +44,6 @@ class Coordinate_PresenterTests extends UnitTestCase
     $this->tpl_values[$tpl_var] = $value;
   }
 
-  public function setError($error)
-  {
-    $this->tpl_values['coord_error'] = $error;
-  }
-
   function testLatLonCanBeSet()
   {
     $presenter = new Coordinate_Presenter();
@@ -417,7 +412,7 @@ class Coordinate_PresenterTests extends UnitTestCase
   {
     $translator = new MockLanguage_Translator();
     $translator->setReturnValue('translate', 'Coordinate Error');
-    $translator->expectOnce('translate', array('bad_coordinates'));
+    $translator->expectOnce('translate', array('Invalid coordinate'));
 
     $request = $this->createRawRequest('N', '0', '0', 'E', '0', '0');
     $presenter = new Coordinate_Presenter($request, $translator);

@@ -7,7 +7,8 @@ class ChildWp_Presenter
   private $request;
   private $translator;
   private $coordinate;
-  private $waypointTypes;
+  private $waypointTypes = array();
+  private $waypointTypeValid = true;
 
   public function __construct($request = false, $translator = false)
   {
@@ -69,26 +70,36 @@ class ChildWp_Presenter
     $template->assign('wpType', '0');
     $this->prepareTypes($template);
     $this->coordinate->prepare($template);
+
+    if (!$this->waypointTypeValid)
+      $template->assign('wpTypeError', $this->translator->translate('Select waypoint type'));
   }
 
   private function prepareTypes($template)
   {
-    $wpTypeIds = array();
-    $wpTypeNames = array();
-
-    foreach ($this->waypointTypes as $i => $type)
-    {
-      $wpTypeIds[] = $type->getId();
-      $wpTypeNames[] = $this->translator->translate($type->getName());
-    }
-
-    $template->assign('wpTypeIds', $wpTypeIds);
-    $template->assign('wpTypeNames', $wpTypeNames);
+    $template->assign('wpTypeIds', array_keys($this->waypointTypes));
+    $template->assign('wpTypeNames', $this->waypointTypes);
   }
 
   public function setTypes($waypointTypes)
   {
-    $this->waypointTypes = $waypointTypes;
+    $this->waypointTypes = array();
+
+    foreach ($waypointTypes as $type)
+    {
+      $this->waypointTypes[$type->getId()] = $this->translator->translate($type->getName());
+    }
+  }
+
+  public function validate()
+  {
+    $wpTypeValidator = new Validator_Array(array_keys($this->waypointTypes));
+
+    $this->request->validate('desc', new Validator_AlwaysValid());
+    $this->waypointTypeValid = $this->request->validate('wp_type', $wpTypeValidator);
+    $coordinateValid = $this->coordinate->validate();
+
+    return $this->waypointTypeValid && $coordinateValid;
   }
 }
 

@@ -175,6 +175,18 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->assertTrue(in_array('Type 2 tr', $this->values['wpTypeNames']));
   }
 
+  function testNoErrorDuringPrepare()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(2, 'Type 2'));
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->prepare($this);
+
+    $this->assertFalse(isset($this->values['wpTypeError']));
+  }
+
   function testNoTypeIsSelected()
   {
     $presenter = $this->createPresenter();
@@ -184,20 +196,134 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->assertEqual('0', $this->values['wpType']);
   }
 
-  /*function testDescriptionIsValidated()
+  function testDescriptionIsValidated()
   {
-    $request = new Http_Request();
+    $this->request->setForValidation('desc', 'description');
 
-    $_POST['desc'] = 'description';
+    $presenter = $this->createPresenter();
 
-    $presenter = new ChildWp_Presenter($request);
-
-    $this->assertFalse($request->get('desc'));
+    $this->assertFalse($this->request->get('desc'));
 
     $presenter->validate();
 
-    $this->assertTrue($request->get('desc'));
-  }*/
+    $this->assertEqual('description', $this->request->get('desc'));
+  }
+
+  function testCoordinateIsValidated()
+  {
+    $this->request->setForValidation(Coordinate_Presenter::lat_hem, 'N');
+    $this->request->setForValidation(Coordinate_Presenter::lat_deg, '10');
+    $this->request->setForValidation(Coordinate_Presenter::lat_min, '15');
+    $this->request->setForValidation(Coordinate_Presenter::lon_hem, 'E');
+    $this->request->setForValidation(Coordinate_Presenter::lon_deg, '20');
+    $this->request->setForValidation(Coordinate_Presenter::lon_min, '30');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->validate();
+
+    $this->assertEqual('N', $this->request->get(Coordinate_Presenter::lat_hem));
+    $this->assertEqual('10', $this->request->get(Coordinate_Presenter::lat_deg));
+    $this->assertEqual('15', $this->request->get(Coordinate_Presenter::lat_min));
+    $this->assertEqual('E', $this->request->get(Coordinate_Presenter::lon_hem));
+    $this->assertEqual('20', $this->request->get(Coordinate_Presenter::lon_deg));
+    $this->assertEqual('30', $this->request->get(Coordinate_Presenter::lon_min));
+  }
+
+  function testValidateInvalidCoordinateReturnsError()
+  {
+    $presenter = $this->createPresenter();
+
+    $this->assertFalse($presenter->validate());
+  }
+
+  function testSetsErrorIfInvalidCoordinate()
+  {
+    $presenter = $this->createPresenter();
+
+    $presenter->validate();
+    $presenter->prepare($this);
+
+    $this->assertEqual('Invalid coordinate tr', $this->values[Coordinate_Presenter::coord_error]);
+  }
+
+  function testWaypointTypeIsValidated()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(2, 'Type 2'));
+
+    $this->request->setForValidation('wp_type', '1');
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->validate();
+
+    $this->assertEqual('1', $this->request->get('wp_type'));
+  }
+
+  function testSetsErrorIfTypeNotChoosen()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(2, 'Type 2'));
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->validate();
+    $presenter->prepare($this);
+
+    $this->assertEqual('Select waypoint type tr', $this->values['wpTypeError']);
+  }
+
+  function testSetsErrorIfTypeIsInvalid()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(3, 'Type 3'));
+
+    $this->request->setForValidation('wp_type', '2');
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $presenter->validate();
+    $presenter->prepare($this);
+
+    $this->assertEqual('Select waypoint type tr', $this->values['wpTypeError']);
+  }
+
+  function testValidateReturnsTrueIfValid()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(3, 'Type 3'));
+
+    $this->request->setForValidation(Coordinate_Presenter::lat_hem, 'N');
+    $this->request->setForValidation(Coordinate_Presenter::lat_deg, '10');
+    $this->request->setForValidation(Coordinate_Presenter::lat_min, '15');
+    $this->request->setForValidation(Coordinate_Presenter::lon_hem, 'E');
+    $this->request->setForValidation(Coordinate_Presenter::lon_deg, '20');
+    $this->request->setForValidation(Coordinate_Presenter::lon_min, '30');
+    $this->request->setForValidation('wp_type', '3');
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $this->assertTrue($presenter->validate());
+  }
+
+  function testValidateReturnsFalseIfTypeIsInvalid()
+  {
+    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(3, 'Type 3'));
+
+    $this->request->setForValidation(Coordinate_Presenter::lat_hem, 'N');
+    $this->request->setForValidation(Coordinate_Presenter::lat_deg, '10');
+    $this->request->setForValidation(Coordinate_Presenter::lat_min, '15');
+    $this->request->setForValidation(Coordinate_Presenter::lon_hem, 'E');
+    $this->request->setForValidation(Coordinate_Presenter::lon_deg, '20');
+    $this->request->setForValidation(Coordinate_Presenter::lon_min, '30');
+    $this->request->setForValidation('wp_type', '2');
+
+    $presenter = $this->createPresenter();
+    $presenter->setTypes($waypointTypes);
+
+    $this->assertFalse($presenter->validate());
+  }
 }
 
 ?>

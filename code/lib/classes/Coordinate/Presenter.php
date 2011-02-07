@@ -86,7 +86,7 @@ class Coordinate_Presenter
     $template->assign(self::lon_min, $formatter->formatLonMin($coordinate));
 
     if (!$this->valid)
-      $template->assign(self::coord_error, $this->translator->translate('bad_coordinates'));
+      $template->assign(self::coord_error, $this->translator->translate('Invalid coordinate'));
   }
 
   public function getCoordinate()
