@@ -1,7 +1,21 @@
+<?php
+  if (isset($_REQUEST['cacheid'])) {
+    $cacheID = $_REQUEST['cacheid'];
+  }
+  else {
+    $cacheID = 0;
+  }
+  if (isset($_REQUEST['lang'])) {
+    $lang = $_REQUEST['lang'];
+  }
+  else {
+    $lang = 'de';
+  }
+?>
 tinyMCE_GZ.init({
 	plugins : 'advhr,contextmenu,emotions,insertdatetime,paste,table',
 	themes : 'advanced',
-	languages : 'de',
+	languages : '<?php echo $lang; ?>',
 	disk_cache : true,
 	debug : false
 });
@@ -25,7 +39,7 @@ tinyMCE.init({
 	theme_advanced_resize_horizontal : false,
 	theme_advanced_resizing : true,
 	editor_deselector : "mceNoEditor",
-	language : "de",
+	language : "<?php echo $lang; ?>",
 	preformatted : true,
 	remove_linebreaks : false,
 	oninit : "postInit",
@@ -39,7 +53,7 @@ var fileBrowserFieldName;
 
 function imageBrowser(field_name, url, type, win)
 {
-  window.open('../../../../imagebrowser.php?cacheid=<?php echo isset($_REQUEST['cacheid']) ? ($_REQUEST['cacheid']+0) : 0; ?>', '', 'width=450,height=550,menubar=no,scrollbars=yes,status=no,location=no,resizable=yes,status=no,dependent');
+  window.open('../../../../imagebrowser.php?cacheid=<?php echo $cacheID+0; ?>', '', 'width=450,height=550,menubar=no,scrollbars=yes,status=no,location=no,resizable=yes,status=no,dependent');
   fileBrowserWin = win;
   fileBrowserFieldName = field_name;
 }

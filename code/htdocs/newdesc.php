@@ -29,6 +29,7 @@
 
   //prepare the templates and include all neccessary
 	require_once('./lib/common.inc.php');
+  require_once($opt['rootpath'] . '../lib/htmlpurifier-4.2.0/library/HTMLPurifier.auto.php');
 
 	//Preprocessing
 	if ($error == false)
@@ -87,10 +88,10 @@
 
 					if ($descMode != 1)
 					{
-						require_once($rootpath . 'lib/class.inputfilter.php');
-					  
-						$myFilter = new InputFilter($allowedtags, $allowedattr, 0, 0, 1);
-						$desc = $myFilter->process($desc);
+            // Filter Input
+            $purifier = new HTMLPurifier();
+            $desc = $purifier->purify($desc);
+
 					}
 
 					$desc_lang_exists = false;
@@ -224,7 +225,7 @@
 						// TinyMCE
 						$headers = tpl_get_var('htmlheaders') . "\n";
 						$headers .= '<script language="javascript" type="text/javascript" src="resource2/tinymce/tiny_mce_gzip.js"></script>' . "\n";
-						$headers .= '<script language="javascript" type="text/javascript" src="resource2/tinymce/config/desc.js.php?cacheid=' . ($cache_id+0) . '"></script>' . "\n";
+						$headers .= '<script language="javascript" type="text/javascript" src="resource2/tinymce/config/desc.js.php?cacheid=' . ($cache_id+0) . '&lang=' .  strtolower($locale) . '"></script>' . "\n";
 						tpl_set_var('htmlheaders', $headers);
 
 						tpl_set_var('descMode', 3);
