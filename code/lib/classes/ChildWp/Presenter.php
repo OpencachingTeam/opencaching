@@ -36,8 +36,9 @@ class ChildWp_Presenter
   public function addWaypoint($childWpHandler)
   {
     $coordinate = $this->coordinate->getCoordinate();
+    $description = htmlspecialchars($this->getDesc(), ENT_COMPAT, 'UTF-8');
 
-    $childWpHandler->add($this->getCacheId(), $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $this->getDesc());
+    $childWpHandler->add($this->getCacheId(), $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $description);
   }
 
   private function getCacheId()

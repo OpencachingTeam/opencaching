@@ -377,6 +377,26 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $this->assertEqual('3', $this->values['wpType']);
   }
+
+  function testHtmlIsEscapedBeforeAdded()
+  {
+    $this->request->set('cacheid', 2);
+    $this->request->set('wp_type', 1);
+    $this->request->set(Coordinate_Presenter::lat_hem, 'N');
+    $this->request->set(Coordinate_Presenter::lat_deg, '10');
+    $this->request->set(Coordinate_Presenter::lat_min, '15');
+    $this->request->set(Coordinate_Presenter::lon_hem, 'E');
+    $this->request->set(Coordinate_Presenter::lon_deg, '20');
+    $this->request->set(Coordinate_Presenter::lon_min, '30');
+    $this->request->set('desc', 'my & < waypoint');
+
+    $childWpHandler = new MockChildWp_Handler();
+    $childWpHandler->expectOnce('add', array(2, 1, 10.25, 20.5, 'my &amp; &lt; waypoint'));
+
+    $presenter = $this->createPresenter();
+
+    $presenter->addWaypoint($childWpHandler);
+  }
 }
 
 ?>
