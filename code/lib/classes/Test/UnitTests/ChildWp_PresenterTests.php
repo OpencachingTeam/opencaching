@@ -389,6 +389,17 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $this->assertEqual('345', $this->request->get(ChildWp_Presenter::req_cache_id));
   }
+
+  function testSetCacheId()
+  {
+    $this->request->set(ChildWp_Presenter::req_cache_id, '234');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertEqual('234', $this->values[ChildWp_Presenter::tpl_cache_id]);
+  }
 }
 
 ?>

@@ -8,6 +8,7 @@ class ChildWp_Presenter
   const req_wp_type = 'wp_type';
   const req_wp_desc = 'desc';
   const tpl_page_title = 'pagetitle';
+  const tpl_cache_id = 'cacheid';
   const tpl_wp_type = 'wpType';
   const tpl_wp_desc = 'wpDesc';
   const tpl_wp_type_ids = 'wpTypeIds';
@@ -78,6 +79,7 @@ class ChildWp_Presenter
 
   public function prepare($template)
   {
+    $template->assign(self::tpl_cache_id, $this->getCacheId());
     $template->assign(self::tpl_page_title, $this->translator->Translate('Add waypoint'));
     $template->assign(self::tpl_wp_desc, $this->getDesc());
     $template->assign(self::tpl_wp_type, $this->getType());
