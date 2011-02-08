@@ -4,6 +4,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
 
 class ChildWp_Presenter
 {
+  const req_cache_id = 'cacheid';
+  const req_wp_type = 'wp_type';
+  const req_wp_desc = 'desc';
+  const tpl_page_title = 'pagetitle';
+  const tpl_wp_type = 'wpType';
+  const tpl_wp_desc = 'wpDesc';
+  const tpl_wp_type_ids = 'wpTypeIds';
+  const tpl_wp_type_names = 'wpTypeNames';
+  const tpl_wp_type_error = 'wpTypeError';
+
   private $request;
   private $translator;
   private $coordinate;
@@ -43,22 +53,22 @@ class ChildWp_Presenter
 
   private function getCacheId()
   {
-    return $this->request->get('cacheid');
+    return $this->request->get(self::req_cache_id);
   }
 
   private function getType()
   {
-    return $this->request->get('wp_type', '0');
+    return $this->request->get(self::req_wp_type, '0');
   }
 
   private function getDesc()
   {
-    return $this->request->get('desc');
+    return $this->request->get(self::req_wp_desc);
   }
 
   public function init($template, $cacheManager)
   {
-    $cacheid = $this->request->getForValidation('cacheid');
+    $cacheid = $this->request->getForValidation(self::req_cache_id);
 
     if (!$cacheManager->exists($cacheid) || !$cacheManager->userMayModify($cacheid))
       $template->error(ERROR_CACHE_NOT_EXISTS);
@@ -66,20 +76,20 @@ class ChildWp_Presenter
 
   public function prepare($template)
   {
-    $template->assign('pagetitle', $this->translator->Translate('Add waypoint'));
-    $template->assign('wpDesc', $this->getDesc());
-    $template->assign('wpType', $this->getType());
+    $template->assign(self::tpl_page_title, $this->translator->Translate('Add waypoint'));
+    $template->assign(self::tpl_wp_desc, $this->getDesc());
+    $template->assign(self::tpl_wp_type, $this->getType());
     $this->prepareTypes($template);
     $this->coordinate->prepare($template);
 
     if (!$this->waypointTypeValid)
-      $template->assign('wpTypeError', $this->translator->translate('Select waypoint type'));
+      $template->assign(self::tpl_wp_type_error, $this->translator->translate('Select waypoint type'));
   }
 
   private function prepareTypes($template)
   {
-    $template->assign('wpTypeIds', array_keys($this->waypointTypes));
-    $template->assign('wpTypeNames', $this->waypointTypes);
+    $template->assign(self::tpl_wp_type_ids, array_keys($this->waypointTypes));
+    $template->assign(self::tpl_wp_type_names, $this->waypointTypes);
   }
 
   public function setTypes($waypointTypes)
@@ -96,8 +106,8 @@ class ChildWp_Presenter
   {
     $wpTypeValidator = new Validator_Array(array_keys($this->waypointTypes));
 
-    $this->request->validate('desc', new Validator_AlwaysValid());
-    $this->waypointTypeValid = $this->request->validate('wp_type', $wpTypeValidator);
+    $this->request->validate(self::req_wp_desc, new Validator_AlwaysValid());
+    $this->waypointTypeValid = $this->request->validate(self::req_wp_type, $wpTypeValidator);
     $coordinateValid = $this->coordinate->validate();
 
     return $this->waypointTypeValid && $coordinateValid;
