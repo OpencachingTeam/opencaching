@@ -72,6 +72,8 @@ class ChildWp_Presenter
 
     if (!$cacheManager->exists($cacheid) || !$cacheManager->userMayModify($cacheid))
       $template->error(ERROR_CACHE_NOT_EXISTS);
+    else
+      $this->request->validate(self::req_cache_id, new Validator_AlwaysValid());
   }
 
   public function prepare($template)

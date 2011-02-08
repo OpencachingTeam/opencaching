@@ -372,6 +372,23 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter->addWaypoint($childWpHandler);
   }
+
+  function testInitValidatesCacheId()
+  {
+    $cacheManager = new MockCache_Manager();
+
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $cacheManager->setReturnValue('exists', true);
+    $cacheManager->expectOnce('exists', array('345'));
+    $cacheManager->setReturnValue('userMayModify', true);
+    $cacheManager->expectOnce('userMayModify', array('345'));
+
+    $presenter = $this->createPresenter();
+
+    $presenter->init($this, $cacheManager);
+
+    $this->assertEqual('345', $this->request->get(ChildWp_Presenter::req_cache_id));
+  }
 }
 
 ?>
