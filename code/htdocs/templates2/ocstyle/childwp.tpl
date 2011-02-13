@@ -1,5 +1,6 @@
 <form action="childwp.php" method="post" name="fchildwp">
   <input type="hidden" name="cacheid" value="{$cacheid|escape}" />
+  <input type="hidden" name="childid" value="{$childid|escape}" />
 
   <div class="content2-pagetitle">
     <img src="resource2/{$opt.template.style}/images/description/22x22-waypoint.png" style="align: left; margin-right: 10px;" width="22" height="22" alt="{t}Child waypoint{/t}" title="{t}Child waypoint{/t}" />
