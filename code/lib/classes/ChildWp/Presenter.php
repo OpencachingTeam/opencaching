@@ -16,6 +16,7 @@ class ChildWp_Presenter
   const tpl_wp_type_ids = 'wpTypeIds';
   const tpl_wp_type_names = 'wpTypeNames';
   const tpl_wp_type_error = 'wpTypeError';
+  const tpl_submit_button = 'submitButton';
 
   private $request;
   private $translator;
@@ -99,6 +100,7 @@ class ChildWp_Presenter
   public function prepare($template)
   {
     $template->assign(self::tpl_page_title, $this->translator->Translate($this->getTitle()));
+    $template->assign(self::tpl_submit_button, $this->translator->Translate($this->getSubmitButton()));
     $template->assign(self::tpl_cache_id, $this->cacheId);
     $template->assign(self::tpl_child_id, $this->childId);
     $template->assign(self::tpl_wp_desc, $this->getDesc());
@@ -122,6 +124,14 @@ class ChildWp_Presenter
       return 'Edit waypoint';
 
     return 'Add waypoint';
+  }
+
+  private function getSubmitButton()
+  {
+    if ($this->childId)
+      return 'Save';
+
+    return 'Add new';
   }
 
   private function getWaypointTypeIds()

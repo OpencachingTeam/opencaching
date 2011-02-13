@@ -499,6 +499,31 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $this->assertEqual('567', $this->values[ChildWp_Presenter::tpl_child_id]);
   }
+
+  function testSubmitButtonAddIsTranslated()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
+    $presenter->prepare($this);
+
+    $this->assertEqual('Add new tr', $this->values[ChildWp_Presenter::tpl_submit_button]);
+  }
+
+  function testSubmitButtonEditIsTranslated()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
+    $presenter->prepare($this);
+
+    $this->assertEqual('Save tr', $this->values[ChildWp_Presenter::tpl_submit_button]);
+  }
 }
 
 ?>

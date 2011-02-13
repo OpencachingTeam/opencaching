@@ -49,7 +49,7 @@
       <td></td>
       <td>
         <button type="submit" name="back" value="back" style="width:120px">{t}Cancel{/t}</button>&nbsp;&nbsp;
-        <button type="submit" name="submitform" value="submit" style="width:120px">{t}Submit{/t}</button>
+        <button type="submit" name="submitform" value="submit" style="width:120px">{$submitButton}</button>
       </td>
     </tr>
   </table>
