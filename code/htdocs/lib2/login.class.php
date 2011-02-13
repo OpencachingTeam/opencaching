@@ -298,5 +298,13 @@ class login
 		$this->pClear();
 		$this->pStoreCookie();
 	}
+
+	public function hasAdminPriv($privilege = false)
+	{
+		if ($privilege === false)
+			return $this->admin != 0;
+
+		return ($this->admin & $privilege) == $privilege;
+	}
 }
 ?>

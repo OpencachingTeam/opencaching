@@ -94,6 +94,10 @@ function normalize_settings()
 		$opt['logic']['pictures']['url'] .= '/';
 	if (substr($opt['logic']['pictures']['dir'], -1, 1) != '/')
 		$opt['logic']['pictures']['dir'] .= '/';
+	if (substr($opt['logic']['podcasts']['url'], -1, 1) != '/')
+		$opt['logic']['podcasts']['url'] .= '/';
+	if (substr($opt['logic']['podcasts']['dir'], -1, 1) != '/')
+		$opt['logic']['podcasts']['dir'] .= '/';
 }
 
 function configure_php()

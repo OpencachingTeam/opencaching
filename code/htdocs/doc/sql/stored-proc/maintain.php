@@ -79,6 +79,8 @@
 				 UPDATE `cache_logs` SET `last_modified`=NOW() WHERE `cache_id`=nCacheId;
 				 UPDATE `pictures` SET `last_modified`=NOW() WHERE `object_type`=2 AND `object_id`=nCacheId;
 				 UPDATE `pictures`, `cache_logs` SET `pictures`.`last_modified`=NOW() WHERE `pictures`.`object_type`=1 AND `pictures`.`object_id`=`cache_logs`.`id` AND `cache_logs`.`cache_id`=nCacheId;
+				 UPDATE `mp3` SET `last_modified`=NOW() WHERE `object_type`=2 AND `object_id`=nCacheId;
+				 UPDATE `mp3`, `cache_logs` SET `mp3`.`last_modified`=NOW() WHERE `mp3`.`object_type`=1 AND `mp3`.`object_id`=`cache_logs`.`id` AND `cache_logs`.`cache_id`=nCacheId;
 	     END;");
 
 	sql_dropProcedure('sp_update_caches_descLanguages');
@@ -791,6 +793,34 @@
 						ELSEIF OLD.`object_type`=2 THEN
 							CALL sp_update_cache_picturestat(OLD.`object_id`, TRUE);
 						END IF;
+					END;");
+
+	sql_dropTrigger('mp3BeforeInsert');
+	sql("CREATE TRIGGER `mp3BeforeInsert` BEFORE INSERT ON `mp3` 
+				FOR EACH ROW 
+					BEGIN 
+						/* dont overwrite date values while XML client is running */
+						IF ISNULL(@XMLSYNC) OR @XMLSYNC!=1 THEN
+							SET NEW.`date_created`=NOW();
+							SET NEW.`last_modified`=NOW();
+						END IF;
+					END;");
+
+	sql_dropTrigger('mp3BeforeUpdate');
+	sql("CREATE TRIGGER `mp3BeforeUpdate` BEFORE UPDATE ON `mp3` 
+				FOR EACH ROW 
+					BEGIN 
+						/* dont overwrite date values while XML client is running */
+						IF ISNULL(@XMLSYNC) OR @XMLSYNC!=1 THEN
+							SET NEW.`last_modified`=NOW();
+						END IF;
+					END;");
+
+	sql_dropTrigger('mp3AfterDelete');
+	sql("CREATE TRIGGER `mp3AfterDelete` AFTER DELETE ON `mp3` 
+				FOR EACH ROW 
+					BEGIN 
+						INSERT IGNORE INTO `removed_objects` (`localId`, `uuid`, `type`, `node`) VALUES (OLD.`id`, OLD.`uuid`, 8, OLD.`node`);
 					END;");
 
 	sql_dropTrigger('removedObjectsBeforeInsert');

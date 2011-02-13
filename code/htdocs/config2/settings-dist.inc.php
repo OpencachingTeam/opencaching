@@ -372,6 +372,13 @@
 	$opt['logic']['pictures']['thumb_url'] = $opt['logic']['pictures']['url'] . '/thumbs';
 	$opt['logic']['pictures']['thumb_dir'] = $opt['rootpath'] . 'images/uploads/thumbs';
 
+	/* location of uploaded podcasts
+	 */
+	$opt['logic']['podcasts']['dir'] = $opt['rootpath'] . 'podcasts/uploads';
+	$opt['logic']['podcasts']['url'] = 'http://devel.opencaching.de/podcasts/uploads';
+	$opt['logic']['podcasts']['maxsize'] = 1536000;
+	$opt['logic']['podcasts']['extensions'] = 'mp3';
+
 	/* cachemaps
 	 */
 	$opt['logic']['cachemaps']['url'] = 'images/cachemaps/';

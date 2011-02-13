@@ -81,8 +81,9 @@ function getCacheIcon($user_id, $cache_id, $cache_status, $cache_userid, $iconna
 	}
 
 	// cacheicon
+	$iconext = "." . mb_eregi_replace("^.*\.", "", $iconname);
 	$iconname = mb_eregi_replace("\..*", "", $iconname);
-	$iconname .= $cacheicon_searchable . $cacheicon_type . ".gif";
+	$iconname .= $cacheicon_searchable . $cacheicon_type . $iconext;
 
 	return array($iconname, $inactive);
 }

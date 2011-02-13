@@ -29,6 +29,11 @@
 		</div>
 	{/if}
 
+	{t}Quick translation{/t}<br />
+	<a href="translate.php?translang={$translang}&action=quicknone">{t}Disable{/t}</a><br />
+	<a href="translate.php?translang={$translang}&action=quicknew">{t}Enable - new{/t}</a><br />
+	<a href="translate.php?translang={$translang}&action=quickall">{t}Enable - all{/t}</a><br />
+	<br />
 	<a href="translate.php?translang={$translang}&action=scan">{t}Scan source codes{/t}</a><br />
 	<br />
 	<a href="translate.php?translang={$translang}&action=listnew">{t}Show new translations{/t}</a><br />

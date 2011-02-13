@@ -162,7 +162,7 @@ function sync_options(element)
 		tmpattrib_not = tmpattrib_not.substr(0, tmpattrib_not.length-1);
 
 	var tmpcachetype = "";
-	for (i = 1; i <= 10; i++)
+	for (i = 1; i <= 14; i++)
 	{
 		if (document.getElementById('cachetype' + i).checked == true)
 		{
@@ -338,6 +338,11 @@ function switchAttributeCat2()
 					<tr>
 						<td><input type="checkbox" id="cachetype4" name="cachetype4" value="4" onclick="javascript:sync_options(this)" class="checkbox" {cachetype4checked} /> <label for="cachetype4">{t}virtual Cache{/t}</label></td>
 						<td><input type="checkbox" id="cachetype1" name="cachetype1" value="1" onclick="javascript:sync_options(this)" class="checkbox" {cachetype1checked} /> <label for="cachetype1">{t}unknown cachetyp{/t}</label></td>
+						<td><input type="checkbox" id="cachetype11" name="cachetype11" value="11" onclick="javascript:sync_options(this)" class="checkbox" {cachetype11checked} /> <label for="cachetype11">{t}Podcast Cache{/t}</label></td>
+						<td><input type="checkbox" id="cachetype12" name="cachetype12" value="12" onclick="javascript:sync_options(this)" class="checkbox" {cachetype12checked} /> <label for="cachetype12">{t}Educational Cache{/t}</label></td>
+					</tr>
+						<td><input type="checkbox" id="cachetype13" name="cachetype13" value="13" onclick="javascript:sync_options(this)" class="checkbox" {cachetype13checked} /> <label for="cachetype13">{t}Challenge Cache{/t}</label></td>
+						<td><input type="checkbox" id="cachetype14" name="cachetype14" value="14" onclick="javascript:sync_options(this)" class="checkbox" {cachetype14checked} /> <label for="cachetype14">{t}Guest Book Cache{/t}</label></td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 					</tr>

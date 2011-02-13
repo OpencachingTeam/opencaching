@@ -36,4 +36,5 @@
 	// constants for user options (must match values in DB!)
 	define('USR_OPT_GMZOOM', 1);
 	define('USR_OPT_SHOWSTATS', 5);
+	define('USR_OPT_TRANSLANG', 6);
 ?>

@@ -29,6 +29,7 @@
 
   //prepare the templates and include all neccessary
 	require_once('./lib/common.inc.php');
+  require_once($opt['rootpath'] . '../lib/htmlpurifier-4.2.0/library/HTMLPurifier.auto.php');
 
 	$no_tpl_build = false;
 
@@ -73,7 +74,7 @@
 			$sel_type = isset($_POST['type']) ? $_POST['type'] : 0;
 			if (!isset($_POST['size']))
 			{
-				if ($sel_type == 4 || $sel_type == 5)
+				if ($sel_type == 4 || $sel_type == 5 || $sel_type == 12 || $sel_type == 14)
 				{
 					$sel_size = 7;
 				}
@@ -173,7 +174,7 @@
 				// TinyMCE
 				$headers = tpl_get_var('htmlheaders') . "\n";
 				$headers .= '<script language="javascript" type="text/javascript" src="resource2/tinymce/tiny_mce_gzip.js"></script>' . "\n";
-				$headers .= '<script language="javascript" type="text/javascript" src="resource2/tinymce/config/desc.js.php?cacheid=0"></script>' . "\n";
+        $headers .= '<script language="javascript" type="text/javascript" src="resource2/tinymce/config/desc.js.php?cacheid=0&lang='.strtolower($locale).'"></script>' . "\n";
 				tpl_set_var('htmlheaders', $headers);
 
 				tpl_set_var('descMode', 3);
@@ -732,10 +733,10 @@
 				$desc_html_not_ok = false;
 				if ($descMode != 1)
 				{
-					require_once($rootpath . 'lib/class.inputfilter.php');
+          // Filter Input
+          $purifier = new HTMLPurifier();
+          $desc = $purifier->purify($desc);
 
-					$myFilter = new InputFilter($allowedtags, $allowedattr, 0, 0, 1);
-					$desc = $myFilter->process($desc);
 					tpl_set_var('desc', htmlspecialchars($desc, ENT_COMPAT, 'UTF-8'));
 
 				  $desc_html_not_ok = false;

@@ -263,6 +263,22 @@
 				$icon = 'drivein';
 				$typeimgurl = '<img src="http://www.opencaching.de/resource2/ocstyle/images/cacheicon/drivein.gif" alt="Drive-In Cache" title="Event Cache" />';
 				break;
+			case 11:
+				$icon = 'podcache';
+				$typeimgurl = '<img src="http://www.opencaching.de/resource2/ocstyle/images/cacheicon/podcache.png" alt="Podcast Cache" title="Event Cache" />';
+				break;
+			case 12:
+				$icon = 'educache';
+				$typeimgurl = '<img src="http://www.opencaching.de/resource2/ocstyle/images/cacheicon/edu.png" alt="Educational Cache" title="Event Cache" />';
+				break;
+			case 13:
+				$icon = 'challenge';
+				$typeimgurl = '<img src="http://www.opencaching.de/resource2/ocstyle/images/cacheicon/challenge.png" alt="Challenge Cache" title="Event Cache" />';
+				break;
+			case 14:
+				$icon = 'guestbook';
+				$typeimgurl = '<img src="http://www.opencaching.de/resource2/ocstyle/images/cacheicon/guestbook.png" alt="Guest Book Cache" title="Event Cache" />';
+				break;
 			default:
 				$icon = 'other';
 				$typeimgurl = '<img src="http://www.opencaching.de/resource2/ocstyle/images/cacheicon/unknown.gif" alt="unbekannter Cachetyp" title="unbekannter Cachetyp" />';

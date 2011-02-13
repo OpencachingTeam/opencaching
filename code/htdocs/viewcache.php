@@ -158,6 +158,11 @@
 	$coord = new coordinate($rCache['latitude'], $rCache['longitude']);
 	$tpl->assign('coordinates', $coord->getDecimalMinutes());
 
+	// podcasts
+	$rs = sql("SELECT `uuid`, `title`, `url` FROM `mp3` WHERE `object_id`='&1' AND object_type=2 AND display=1 ORDER BY date_created", $cacheid );
+	$tpl->assign_rs('podcasts', $rs);
+	sql_free_result($rs);
+
 	// pictures
 	$rs = sql("SELECT `id`, `uuid`, `url`, `title`, `thumb_url`, `spoiler`, `display` FROM `pictures` WHERE `object_type`=2 AND `object_id`='&1' AND `display`!=0 ORDER BY `date_created`", $cacheid);
 	$tpl->assign_rs('pictures', $rs);

@@ -22,7 +22,7 @@
 	if ($record === false)
 		$tpl->error(ERROR_USER_NOT_EXISTS);
 
-	$rs = sql("SELECT IFNULL(`tt`.`text`, `p`.`name`) AS `name`, `u`.`option_value`
+	$rs = sql("SELECT IFNULL(`tt`.`text`, `p`.`name`) AS `name`, `u`.`option_value`, `u`.`option_id` AS `option_id`
 		           FROM `profile_options` AS `p`
 		      LEFT JOIN `user_options` AS `u` ON `p`.`id`=`u`.`option_id`
 		      LEFT JOIN `sys_trans` AS `st` ON `st`.`id`=`p`.`trans_id` AND `st`.`text`=`p`.`name`
