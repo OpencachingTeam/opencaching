@@ -25,6 +25,8 @@
 		
 	****************************************************************************/
 
+	require_once('./config2/childwp.inc.php');
+
 	global $content, $bUseZip, $sqldebug;
 
 	$gpxHead = 
@@ -34,7 +36,7 @@
      xmlns="http://www.topografix.com/GPX/1/0"
      version="1.0"
      creator="www.opencaching.de">
-  <desc>Geocache</desc>
+  <desc>Geocache (HasChildren)</desc>
   <author>www.opencaching.de</author>
   <url>http://www.opencaching.de</url>
   <urlname>www.opencaching.de</urlname>
@@ -73,6 +75,7 @@
 			</cache>
 		</extensions>
 	</wpt>
+	{cache_waypoints}
 ';
 
 	$gpxLog = '
@@ -82,6 +85,24 @@
 	<type>{type}</type>
 	<text>{text}</text>
 </log>
+';
+
+// 	<name><![CDATA[{waypoint} {wp_stage}]]></name>
+
+$gpxWaypoints = '
+<wpt lat="{wp_lat}" lon="{wp_lon}">
+	<time>{time}</time>
+	<name>{name}</name>
+	<cmt>{wp_type_name}</cmt>
+	<desc>{desc}</desc>
+	<url>http://www.opencaching.de/viewcache.php?cacheid={cacheid}</url>
+	<urlname><![CDATA[{waypoint} {wp_stage}]]></urlname>
+	<sym>{wp_type}</sym>
+	<type>Waypoint|{wp_type}</type>
+	<gsak:wptExtension xmlns:gsak="http://www.gsak.net/xmlv1/4">
+		<gsak:Parent>{parent}</gsak:Parent>
+	</gsak:wptExtension>
+</wpt>
 ';
 
 	$gpxFoot = '</gpx>';
@@ -385,6 +406,38 @@
 			$logentries .= $thislog . "\n";
 		}
 		$thisline = mb_ereg_replace('{logs}', $logentries, $thisline);
+
+		$waypoints = '';
+		$wphandler = new ChildWp_Handler();
+		$rswaypoints = $wphandler->getChildWps($r['cacheid']);
+		$numwaypoints = mysql_num_rows($rswaypoints);
+
+		if ($numwaypoints > 0)
+		{
+			for ($i = 0; $i < $numwaypoints; $i++)
+			{
+				$thiswp = $gpxWaypoints;
+				$wp_record = sql_fetch_array($rswaypoints);
+				$childWpType = $childWpTypes[$wp_record['type']];
+				$lat = sprintf('%01.5f', $wp_record['latitude']);
+				$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
+				$lon = sprintf('%01.5f', $wp_record['longitude']);
+				$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
+				$thiswp = str_replace('{name}', 'W'.$wp_record['childid'].substr($r['waypoint'], 2) , $thiswp);
+				$thiswp = str_replace('{waypoint}', $wp_record['childid'], $thiswp);
+				$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
+				$thiswp = str_replace('{time}', $time, $thiswp);
+				$thiswp = str_replace('{wp_type_name}', $childWpType->getName(), $thiswp);
+				$thiswp = str_replace('{wp_stage}',$childWpType->getName() , $thiswp);
+				$thiswp = str_replace('{desc}', xmlentities($wp_record['description']), $thiswp);
+				if ($childWpType->getId()==1){$thiswp = str_replace('{wp_type}', "Parking Area", $thiswp);}
+				if ($childWpType->getId()==2){$thiswp = str_replace('{wp_type}', "Flag, Green", $thiswp);}
+				$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
+
+				$waypoints .= $thiswp;
+			}
+		}
+		$thisline = str_replace('{cache_waypoints}', $waypoints, $thisline);
 
 		append_output($thisline);
 	}
