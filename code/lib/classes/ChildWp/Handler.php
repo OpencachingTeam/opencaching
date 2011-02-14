@@ -18,6 +18,13 @@ class ChildWp_Handler
 
     return sql_fetch_array($rs);
   }
+
+  public function getChildWps($cacheid)
+  {
+    $rs = sql("SELECT id AS childid, subtype AS type, latitude, longitude, description FROM coordinates WHERE cache_id = &1 AND type = &2", $cacheid, Coordinate_Type::ChildWaypoint);
+
+    return $rs;
+  }
 }
 
 ?>

@@ -300,6 +300,28 @@ function toggleAttr(id)
 	<tr><td class="spacer" colspan="2"></td></tr>
 	{pictures}
 	<tr><td class="spacer" colspan="2"></td></tr>
+
+	<tr>
+		<td class="header-small" colspan="2">
+			<div class="content2-container bg-blue02">
+				<p class="content-title-noshade-size2">
+					<img src="lang/de/ocstyle/images/description/22x22-waypoint.png" width="22" height="22" align="middle" border="0">
+					{t}Additional waypoints{/t}&nbsp;&nbsp;
+					<img src="lang/de/ocstyle/images/action/16x16-addwaypoint.png" width="16" height="16" align="middle" border="0">
+					<span style="font-weight: 400;font-size: small;">[<a href="childwp.php?cacheid={cacheid_urlencode}">{t}Add a waypoint{/t}</a>]</span>
+				</p>
+			</div>
+		</td>
+	</tr>
+	<tr><td class="spacer" colspan="2"></td></tr>
+	{waypoints}
+	<tr>
+		<td class="help" colspan="2">
+			<img src="lang/de/ocstyle/images/misc/hint.gif" border="0" width="15" height="11" alt="{t}Notice{/t}" title="{t}Notice{/t}">
+			{t}Additional waypoints can be entered to make searching easier, for example by pointing to a suitable parkering or start of a path (the waypoint's description may contain more information). Waypints are downloaded in the GPX-file.{/t}
+		</td>
+	</tr>
+	<tr><td class="spacer" colspan="2"></td></tr>
 {hidemp3_start}
 	<tr>
 		<td class="header-small" colspan="2">

@@ -87,6 +87,14 @@ class Coordinate_FormatterTests extends UnitTestCase
     $this->assertIdentical('N 10&deg; 20.000\' E 030&deg; 40.000\'', $formatter->formatHtml(Coordinate_Coordinate::fromHemDegMin(true, 10, 20, true, 30, 40)));
     $this->assertIdentical('S 15&deg; 25.000\' W 035&deg; 45.000\'', $formatter->formatHtml(Coordinate_Coordinate::fromHemDegMin(false, 15, 25, false, 35, 45)));
   }
+
+  function testFormatHtmlSeparator()
+  {
+    $formatter = new Coordinate_Formatter();
+
+    $this->assertIdentical('N 10&deg; 20.000\'&nbsp;E 030&deg; 40.000\'', $formatter->formatHtml(Coordinate_Coordinate::fromHemDegMin(true, 10, 20, true, 30, 40), '&nbsp;'));
+    $this->assertIdentical('S 15&deg; 25.000\'<br/>W 035&deg; 45.000\'', $formatter->formatHtml(Coordinate_Coordinate::fromHemDegMin(false, 15, 25, false, 35, 45), '<br/>'));
+  }
 }
 
 ?>

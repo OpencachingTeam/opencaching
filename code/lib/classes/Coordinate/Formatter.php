@@ -1,4 +1,6 @@
-<?phpclass Coordinate_Formatter
+<?php
+
+class Coordinate_Formatter
 {
   public function formatLatHem($coordinate)
   {
@@ -35,10 +37,10 @@
     return sprintf("%06.3f", $min);
   }
 
-  public function formatHtml($coordinate)
+  public function formatHtml($coordinate, $separator = ' ')
   {
     return $this->formatHtmlHemDegMin($this->formatLatHem($coordinate), $this->formatLatDeg($coordinate), $this->formatLatMin($coordinate))
-           . ' ' .
+           . $separator .
            $this->formatHtmlHemDegMin($this->formatLonHem($coordinate), $this->formatLonDeg($coordinate), $this->formatLonMin($coordinate));
   }
 
@@ -47,4 +49,4 @@
     return $hem . ' ' . $deg . '&deg; ' . $min . '\'';
   }
 }
-?>
+?>

@@ -32,6 +32,48 @@
   //prepare the templates and include all neccessary
 	require_once('./lib/common.inc.php');
 	require_once('./lib2/logic/const.inc.php');
+	require_once('./config2/childwp.inc.php');
+
+function getWaypoints($cacheid)
+{
+  global $waypointline;
+  global $waypointlines;
+  global $nowaypoints;
+  global $childWpTypes;
+
+  $wphandler = new ChildWp_Handler();
+  $rswaypoints = $wphandler->getChildWps($cacheid);
+  $numwaypoints = mysql_num_rows($rswaypoints);
+
+  if ($numwaypoints > 0)
+  {
+    $formatter = new Coordinate_Formatter();
+
+    for ($i = 0; $i < $numwaypoints; $i++)
+    {
+      $tmpline = $waypointline;
+      $wp_record = sql_fetch_array($rswaypoints);
+
+      $childWpType = $childWpTypes[$wp_record['type']];
+      $tmpline = mb_ereg_replace('{wp_image}', htmlspecialchars($childWpType->getImage(), ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{wp_type}', htmlspecialchars($childWpType->getName(), ENT_COMPAT, 'UTF-8'), $tmpline);
+      $htmlcoordinate = $formatter->formatHtml(new Coordinate_Coordinate($wp_record['latitude'], $wp_record['longitude']), '</td></tr><tr><td>');
+      $tmpline = mb_ereg_replace('{wp_coordinate}', $htmlcoordinate, $tmpline);
+      $tmpline = mb_ereg_replace('{wp_description}', htmlspecialchars($wp_record['description'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{cacheid}', htmlspecialchars($cacheid, ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{childid}', htmlspecialchars($wp_record['childid'], ENT_COMPAT, 'UTF-8'), $tmpline);
+
+      $waypoints .= $tmpline;
+    }
+
+    $waypoints = mb_ereg_replace('{lines}', $waypoints, $waypointlines);
+    mysql_free_result($rswaypoints);
+
+    return  $waypoints;
+  }
+
+  return $nowaypoints;
+}
 
 	//Preprocessing
 	if ($error == false)
@@ -772,6 +814,8 @@
 					else
 						tpl_set_var('pictures', $nopictures);
 
+					tpl_set_var('waypoints', getWaypoints($cache_id));
+
 					if ($cache_record['type'] == 11 )
 					{
 						$mp3files = '';
@@ -872,4 +916,5 @@
 
 	//make the template and send it out
 	tpl_BuildTemplate();
+
 ?>

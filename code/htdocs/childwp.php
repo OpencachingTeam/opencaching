@@ -1,6 +1,9 @@
 <?php
 
   require('./lib2/web.inc.php');
+  require_once('./config2/childwp.inc.php');
+
+  global $childWpTypes;
 
   $tpl->name = 'childwp';
   $tpl->menuitem = MNU_CACHES_WAYPOINT;
@@ -19,7 +22,7 @@
   $handler = new ChildWp_Handler();
 
   $presenter->init($tpl, $cacheManager, $handler);
-  $presenter->setTypes(array(new ChildWp_Type(1, 'Parking'), new ChildWp_Type(2, 'Reference point')));
+  $presenter->setTypes($childWpTypes);
 
   if ($isSubmit && $presenter->validate())
   {
