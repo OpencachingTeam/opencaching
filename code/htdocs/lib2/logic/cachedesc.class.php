@@ -109,6 +109,7 @@ class user
 	// return if successfull (with insert)
 	function save()
 	{
+		sql_slave_exclude();
 		return $this->reCacheDesc->save();
 	}
 

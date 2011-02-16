@@ -132,6 +132,10 @@ class cache
 	{
 		return $this->reCache->getValue('status');
 	}
+	function getType()
+	{
+		return $this->reCache->getValue('type');
+	}
 	function getName()
 	{
 		return $this->reCache->getValue('name');
@@ -207,10 +211,28 @@ class cache
 	{
 		if ($this->reCache->save())
 		{
+			sql_slave_exclude();
 			return true;
 		}
 		else
 			return false;
+	}
+
+	function requireLogPW()
+	{
+		return $this->reCache->getValue('logpw') != '';
+	}
+
+	// TODO: use prepared one way hash
+	function validateLogPW($nLogType, $sLogPW)
+	{
+		if ($sLogPW == '')
+			return true;
+
+		if (sql_value("SELECT `require_password` FROM `log_types` WHERE `id`='&1'", 0, $nLogType) == 0)
+			return true;
+
+		return ($sLogPW == $this->reCache->getValue('logpw'));
 	}
 
 	static function visitCounter($nVisitUserId, $sRemoteAddr, $nCacheId)
@@ -389,6 +411,19 @@ class cache
 			return true;
 
 		return (sql_value("SELECT `allow_user_log` FROM `cache_status` WHERE `id`='&1'", 0, $this->getStatus()) == 1);
+	}
+
+	function isRecommendedByUser($nUserId)
+	{
+		return (sql_value("SELECT COUNT(*) FROM `cache_rating` WHERE `cache_id`='&1' AND `user_id`='&2'", 0, $this->nCacheId, $nUserId) > 0);
+	}
+	function addRecommendation($nUserId)
+	{
+		sql("INSERT IGNORE INTO `cache_rating` (`cache_id`, `user_id`) VALUES ('&1', '&2')", $this->nCacheId, $nUserId);
+	}
+	function removeRecommendation($nUserId)
+	{
+		sql("DELETE FROM `cache_rating` WHERE `cache_id`='&1' AND `user_id`='&2'", $this->nCacheId, $nUserId);
 	}
 }
 ?>
