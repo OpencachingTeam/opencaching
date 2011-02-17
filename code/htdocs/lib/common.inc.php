@@ -138,10 +138,12 @@
 		$lang = $_GET['lang'];
 	}
 
-	//are there files for this language?
-	if (!file_exists($rootpath . 'lang/'. $lang . '/'))
+	//lang/de is required by some 'old' code. Eventually this check needs to
+  //be removed when the files inside lang/de/ocstyle are migrated to 
+  //templates/ocstyle
+	if (!file_exists($rootpath . 'lang/de/'))
 	{
-		die('Critical Error: The specified language does not exist!');
+		die('Critical Error: Could not find default DE language directory!');
 	}
 
 	//style changed?
