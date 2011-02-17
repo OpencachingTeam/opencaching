@@ -409,33 +409,27 @@ $gpxWaypoints = '
 
 		$waypoints = '';
 		$wphandler = new ChildWp_Handler();
-		$rswaypoints = $wphandler->getChildWps($r['cacheid']);
-		$numwaypoints = mysql_num_rows($rswaypoints);
+		$childWaypoints = $wphandler->getChildWps($r['cacheid']);
 
-		if ($numwaypoints > 0)
+		foreach ($childWaypoints as $childWaypoint)
 		{
-			for ($i = 0; $i < $numwaypoints; $i++)
-			{
-				$thiswp = $gpxWaypoints;
-				$wp_record = sql_fetch_array($rswaypoints);
-				$childWpType = $childWpTypes[$wp_record['type']];
-				$lat = sprintf('%01.5f', $wp_record['latitude']);
-				$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
-				$lon = sprintf('%01.5f', $wp_record['longitude']);
-				$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
-				$thiswp = str_replace('{name}', 'W'.$wp_record['childid'].substr($r['waypoint'], 2) , $thiswp);
-				$thiswp = str_replace('{waypoint}', $wp_record['childid'], $thiswp);
-				$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
-				$thiswp = str_replace('{time}', $time, $thiswp);
-				$thiswp = str_replace('{wp_type_name}', $childWpType->getName(), $thiswp);
-				$thiswp = str_replace('{wp_stage}',$childWpType->getName() , $thiswp);
-				$thiswp = str_replace('{desc}', xmlentities($wp_record['description']), $thiswp);
-				if ($childWpType->getId()==1){$thiswp = str_replace('{wp_type}', "Parking Area", $thiswp);}
-				if ($childWpType->getId()==2){$thiswp = str_replace('{wp_type}', "Flag, Green", $thiswp);}
-				$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
+			$thiswp = $gpxWaypoints;
+			$lat = sprintf('%01.5f', $childWaypoint['latitude']);
+			$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
+			$lon = sprintf('%01.5f', $childWaypoint['longitude']);
+			$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
+			$thiswp = str_replace('{name}', 'W'.$childWaypoint['childid'].substr($r['waypoint'], 2) , $thiswp);
+			$thiswp = str_replace('{waypoint}', $childWaypoint['childid'], $thiswp);
+			$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
+			$thiswp = str_replace('{time}', $time, $thiswp);
+			$thiswp = str_replace('{wp_type_name}', $childWaypoint['name'], $thiswp);
+			$thiswp = str_replace('{wp_stage}',$childWaypoint['name'], $thiswp);
+			$thiswp = str_replace('{desc}', xmlentities($childWaypoint['description']), $thiswp);
+			if ($childWaypoint['type']==1){$thiswp = str_replace('{wp_type}', "Parking Area", $thiswp);}
+			if ($childWaypoint['type']==2){$thiswp = str_replace('{wp_type}', "Flag, Green", $thiswp);}
+			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
 
-				$waypoints .= $thiswp;
-			}
+			$waypoints .= $thiswp;
 		}
 		$thisline = str_replace('{cache_waypoints}', $waypoints, $thisline);
 

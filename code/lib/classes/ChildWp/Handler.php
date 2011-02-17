@@ -2,6 +2,18 @@
 
 class ChildWp_Handler
 {
+  private $childWpTypes = array();
+
+  public function __construct()
+  {
+    require($_SERVER['DOCUMENT_ROOT'] . '/config2/childwp.inc.php');
+
+    foreach ($childWpTypes as $type)
+    {
+      $this->childWpTypes[$type->getId()] = $type;
+    }
+  }
+
   public function add($cacheid, $type, $lat, $lon, $desc)
   {
     sql("INSERT INTO coordinates(type, subtype, latitude, longitude, cache_id, description) VALUES(&1, &2, &3, &4, &5, '&6')", Coordinate_Type::ChildWaypoint, $type, $lat, $lon, $cacheid, $desc);
@@ -14,16 +26,54 @@ class ChildWp_Handler
 
   public function getChildWp($childid)
   {
-    $rs = sql("SELECT cache_id AS cacheid, subtype AS type, latitude, longitude, description FROM coordinates WHERE id = &1", $childid);
+    $rs = sql("SELECT id, cache_id, subtype, latitude, longitude, description FROM coordinates WHERE id = &1", $childid);
+    $ret = $this->recordToArray(sql_fetch_array($rs));
+    mysql_free_result($rs);
 
-    return sql_fetch_array($rs);
+    return $ret;
   }
 
   public function getChildWps($cacheid)
   {
-    $rs = sql("SELECT id AS childid, subtype AS type, latitude, longitude, description FROM coordinates WHERE cache_id = &1 AND type = &2", $cacheid, Coordinate_Type::ChildWaypoint);
+    $rs = sql("SELECT id, cache_id, subtype, latitude, longitude, description FROM coordinates WHERE cache_id = &1 AND type = &2", $cacheid, Coordinate_Type::ChildWaypoint);
+    $ret = array();
 
-    return $rs;
+    while ($r = sql_fetch_array($rs))
+    {
+      $ret[] = $this->recordToArray($r);
+    }
+
+    mysql_free_result($rs);
+
+    return $ret;
+  }
+
+  public function getChildWpTypes()
+  {
+    return $this->childWpTypes;
+  }
+
+  private function recordToArray($r)
+  {
+    $ret = array();
+
+    $ret['cacheid'] = $r['cache_id'];
+    $ret['childid'] = $r['id'];
+    $ret['type'] = $r['subtype'];
+    $ret['latitude'] = $r['latitude'];
+    $ret['longitude'] = $r['longitude'];
+    $ret['coordinate'] = new Coordinate_Coordinate($ret['latitude'], $ret['longitude']);
+    $ret['description'] = $r['description'];
+
+    $type = $this->childWpTypes[$ret['type']];
+
+    if ($type)
+    {
+      $ret['name'] = $type->getName();
+      $ret['image'] = $type->getImage();
+    }
+
+    return $ret;
   }
 }
 

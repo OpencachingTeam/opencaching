@@ -32,44 +32,38 @@
   //prepare the templates and include all neccessary
 	require_once('./lib/common.inc.php');
 	require_once('./lib2/logic/const.inc.php');
-	require_once('./config2/childwp.inc.php');
 
 function getWaypoints($cacheid)
 {
   global $waypointline;
   global $waypointlines;
   global $nowaypoints;
-  global $childWpTypes;
 
   $wphandler = new ChildWp_Handler();
-  $rswaypoints = $wphandler->getChildWps($cacheid);
-  $numwaypoints = mysql_num_rows($rswaypoints);
+  $waypoints = $wphandler->getChildWps($cacheid);
 
-  if ($numwaypoints > 0)
+  if (!empty($waypoints))
   {
     $formatter = new Coordinate_Formatter();
 
-    for ($i = 0; $i < $numwaypoints; $i++)
+    foreach ($waypoints as $waypoint)
     {
       $tmpline = $waypointline;
-      $wp_record = sql_fetch_array($rswaypoints);
 
-      $childWpType = $childWpTypes[$wp_record['type']];
-      $tmpline = mb_ereg_replace('{wp_image}', htmlspecialchars($childWpType->getImage(), ENT_COMPAT, 'UTF-8'), $tmpline);
-      $tmpline = mb_ereg_replace('{wp_type}', htmlspecialchars($childWpType->getName(), ENT_COMPAT, 'UTF-8'), $tmpline);
-      $htmlcoordinate = $formatter->formatHtml(new Coordinate_Coordinate($wp_record['latitude'], $wp_record['longitude']), '</td></tr><tr><td>');
+      $tmpline = mb_ereg_replace('{wp_image}', htmlspecialchars($waypoint['image'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{wp_type}', htmlspecialchars($waypoint['name'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $htmlcoordinate = $formatter->formatHtml($waypoint['coordinate'], '</td></tr><tr><td>');
       $tmpline = mb_ereg_replace('{wp_coordinate}', $htmlcoordinate, $tmpline);
-      $tmpline = mb_ereg_replace('{wp_description}', htmlspecialchars($wp_record['description'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{wp_description}', $waypoint['description'], $tmpline);
       $tmpline = mb_ereg_replace('{cacheid}', htmlspecialchars($cacheid, ENT_COMPAT, 'UTF-8'), $tmpline);
-      $tmpline = mb_ereg_replace('{childid}', htmlspecialchars($wp_record['childid'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{childid}', htmlspecialchars($waypoint['childid'], ENT_COMPAT, 'UTF-8'), $tmpline);
 
-      $waypoints .= $tmpline;
+      $ret .= $tmpline;
     }
 
-    $waypoints = mb_ereg_replace('{lines}', $waypoints, $waypointlines);
-    mysql_free_result($rswaypoints);
+    $ret = mb_ereg_replace('{lines}', $ret, $waypointlines);
 
-    return  $waypoints;
+    return  $ret;
   }
 
   return $nowaypoints;

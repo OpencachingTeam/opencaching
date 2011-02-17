@@ -1,7 +1,6 @@
 <?php
 
   require('./lib2/web.inc.php');
-  require_once('./config2/childwp.inc.php');
 
   global $childWpTypes;
 
@@ -22,7 +21,6 @@
   $handler = new ChildWp_Handler();
 
   $presenter->init($tpl, $cacheManager, $handler);
-  $presenter->setTypes($childWpTypes);
 
   if ($isSubmit && $presenter->validate())
   {

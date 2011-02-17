@@ -42,14 +42,14 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->childWpHandler = new MockChildWp_Handler();
 
     $this->childWpHandler->setReturnValue('getChildWp', array('cacheid' => '345', 'type' => '3', 'latitude' => 20.5, 'longitude' => 30.75, 'description' => 'Start here.'), array('567'));
+    $this->childWpHandler->setReturnValue('getChildWpTypes', array(1 => new ChildWp_Type(1, 'Type 1'), 3 => new ChildWp_Type(3, 'Type 3')));
   }
 
   private function createPresenter()
   {
     $presenter = new ChildWp_Presenter($this->request, $this->translator);
-    $waypointTypes = array(new ChildWp_Type(1, 'Type 1'), new ChildWp_Type(3, 'Type 3'));
 
-    $presenter->setTypes($waypointTypes);
+    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
 
     return $presenter;
   }
@@ -122,16 +122,12 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
-
     $presenter->doSubmit();
   }
 
   function testSetsErrorIfNoCacheId()
   {
     $presenter = $this->createPresenter();
-
-    $presenter->init($this, $this->cacheManager);
 
     $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
   }
@@ -142,8 +138,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager);
-
     $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
   }
 
@@ -153,8 +147,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager);
-
     $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
   }
 
@@ -163,8 +155,6 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
 
     $presenter = $this->createPresenter();
-
-    $presenter->init($this, $this->cacheManager);
 
     $this->assertEqual(0, $this->errorCode);
   }
@@ -354,8 +344,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
-
     $presenter->doSubmit();
   }
 
@@ -364,8 +352,6 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '234');
 
     $presenter = $this->createPresenter();
-
-    $presenter->init($this, $this->cacheManager);
 
     $presenter->prepare($this);
 
@@ -379,8 +365,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
-
     $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
   }
 
@@ -393,8 +377,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
-
     $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
   }
 
@@ -404,8 +386,6 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
 
     $presenter = $this->createPresenter();
-
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
 
     $this->assertEqual(0, $this->errorCode);
   }
@@ -417,7 +397,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
     $presenter->prepare($this);
 
     $this->assertEqual('3', $this->values[ChildWp_Presenter::tpl_wp_type]);
@@ -437,8 +416,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
-
     $presenter->doSubmit();
   }
 
@@ -454,8 +431,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
-
     $presenter->doSubmit();
   }
 
@@ -468,7 +443,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
     $presenter->prepare($this);
 
     $this->assertEqual('my & < waypoint', $this->values[ChildWp_Presenter::tpl_wp_desc]);
@@ -481,7 +455,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
     $presenter->prepare($this);
 
     $this->assertEqual('Edit waypoint tr', $this->values[ChildWp_Presenter::tpl_page_title]);
@@ -494,7 +467,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
     $presenter->prepare($this);
 
     $this->assertEqual('567', $this->values[ChildWp_Presenter::tpl_child_id]);
@@ -506,7 +478,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
     $presenter->prepare($this);
 
     $this->assertEqual('Add new tr', $this->values[ChildWp_Presenter::tpl_submit_button]);
@@ -519,7 +490,6 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter = $this->createPresenter();
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
     $presenter->prepare($this);
 
     $this->assertEqual('Save tr', $this->values[ChildWp_Presenter::tpl_submit_button]);

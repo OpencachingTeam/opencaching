@@ -73,7 +73,7 @@ class ChildWp_Presenter
     return $this->request->get(self::req_wp_desc, $this->description);
   }
 
-  public function init($template, $cacheManager, $childWpHandler = false)
+  public function init($template, $cacheManager, $childWpHandler)
   {
     $this->childWpHandler = $childWpHandler;
 
@@ -82,6 +82,7 @@ class ChildWp_Presenter
     if (!$cacheManager->exists($this->cacheId) || !$cacheManager->userMayModify($this->cacheId))
       $template->error(ERROR_CACHE_NOT_EXISTS);
 
+    $this->setTypes($childWpHandler->getChildWpTypes());
     $this->childId = $this->request->getForValidation(self::req_child_id);
 
     if ($this->childId)
@@ -139,7 +140,7 @@ class ChildWp_Presenter
     return array_keys($this->waypointTypes);
   }
 
-  public function setTypes($waypointTypes)
+  private function setTypes($waypointTypes)
   {
     $this->waypointTypes = array();
 
