@@ -13,6 +13,26 @@
 	require_once('./lib2/logic/attribute.class.php');
 	require_once('./lib2/logic/coordinate.class.php');
 	require_once($opt['rootpath'] . 'lib2/logic/useroptions.class.php');
+
+function getChildWaypoints($cacheid)
+{
+  $wphandler = new ChildWp_Handler();
+  $waypoints = $wphandler->getChildWps($cacheid);
+  $count = count($waypoints);
+
+  if ($count > 0)
+  {
+    $formatter = new Coordinate_Formatter();
+
+    for ($i = 0; $i < $count; $i++)
+    {
+      $waypoints[$i]['coordinateHtml'] = $formatter->formatHtml($waypoints[$i]['coordinate']);
+    }
+  }
+
+  return $waypoints;
+}
+
 	$tpl->name = 'viewcache';
 	$tpl->menuitem = MNU_CACHES_SEARCH_VIEWCACHE;
 	$tpl->assign('use_tooltiplib', true);
@@ -167,6 +187,8 @@
 	$rs = sql("SELECT `id`, `uuid`, `url`, `title`, `thumb_url`, `spoiler`, `display` FROM `pictures` WHERE `object_type`=2 AND `object_id`='&1' AND `display`!=0 ORDER BY `date_created`", $cacheid);
 	$tpl->assign_rs('pictures', $rs);
 	sql_free_result($rs);
+
+	$tpl->assign('childWaypoints', getChildWaypoints($cacheid));
 
 	/* Logentries */
 

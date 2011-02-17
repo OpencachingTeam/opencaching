@@ -283,6 +283,28 @@
 </div>
 <!-- End Beschreibung -->
 
+{if count($childWaypoints)>0}
+	<div class="content2-container bg-blue02">
+		<p class="content-title-noshade-size2">
+			<img src="resource2/{$opt.template.style}/images/description/22x22-image.png" style="align: left; margin-right: 10px;" width="22" height="22" alt="{t}Additional waypoints{/t}" /> 
+			{t}Additional waypoints{/t}
+		</p>
+	</div>
+
+	<div class="content2-container">
+		<table>
+		{foreach from=$childWaypoints item=childWaypoint}
+			<tr>
+				<td><img src="{$childWaypoint.image}" /></td>
+				<td>{$childWaypoint.name|escape}</td>
+				<td>{$childWaypoint.coordinateHtml}</td>
+				<td>{$childWaypoint.description}</td>
+			</tr>
+		{/foreach}
+		</table>
+	</div>
+{/if}
+
 <!-- Hints -->
 {if $cache.hint!=''}
 	<div class="content2-container bg-blue02">
