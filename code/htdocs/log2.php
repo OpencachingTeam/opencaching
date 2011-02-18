@@ -110,7 +110,7 @@
 		if ($nLogType != 0)
 		{
 			// set and validate log type
-			if ($cachelog->setLogType($nLogType) == false)
+			if ($cachelog->setType($nLogType) == false)
 				$nLogType = 0;
 		}
 	}
