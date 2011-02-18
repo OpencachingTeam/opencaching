@@ -1,6 +1,7 @@
 <form action="childwp.php" method="post" name="fchildwp">
   <input type="hidden" name="cacheid" value="{$cacheid|escape}" />
   <input type="hidden" name="childid" value="{$childid|escape}" />
+  <input type="hidden" name="deleteid" value="{$deleteid|escape}" />
 
   <div class="content2-pagetitle">
     <img src="resource2/{$opt.template.style}/images/description/22x22-waypoint.png" style="align: left; margin-right: 10px;" width="22" height="22" alt="{t}Child waypoint{/t}" title="{t}Child waypoint{/t}" />
@@ -11,7 +12,7 @@
     <tr>
       <td valign="top">{t}Waypoint type:{/t}</td>
       <td>
-        <select name="wp_type">
+        <select name="wp_type" {if $disabled}disabled=""{/if}>
           <option value=0>Please select type</option>
           {html_options values=$wpTypeIds output=$wpTypeNames selected=$wpType}
         </select>
@@ -37,7 +38,7 @@
     <tr>
       <td valign="top">{t}Description:{/t}</td>
       <td>
-        <textarea name="desc" rows="5" cols="60">{$wpDesc}</textarea>
+        <textarea name="desc" rows="5" cols="60" {if $disabled}disabled=""{/if}>{$wpDesc}</textarea>
       </td>
     </tr>
 

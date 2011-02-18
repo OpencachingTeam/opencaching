@@ -75,6 +75,11 @@ class ChildWp_Handler
 
     return $ret;
   }
+
+  public function delete($childid)
+  {
+    sql("DELETE FROM coordinates WHERE id = &1", $childid);
+  }
 }
 
 ?>

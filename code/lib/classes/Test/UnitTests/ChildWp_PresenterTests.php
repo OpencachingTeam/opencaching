@@ -494,6 +494,158 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $this->assertEqual('Save tr', $this->values[ChildWp_Presenter::tpl_submit_button]);
   }
+
+  function testNotDisabledWhenAddWaypoint()
+  {
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertFalse($this->values[ChildWp_Presenter::tpl_disabled]);
+  }
+
+  function testNotDisabledWhenEditWaypoint()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertFalse($this->values[ChildWp_Presenter::tpl_disabled]);
+  }
+
+  function testDisabledWhenDeleteWaypoint()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertTrue($this->values[ChildWp_Presenter::tpl_disabled]);
+  }
+
+  function testSubmitButtonDeleteIsTranslated()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertEqual('Delete tr', $this->values[ChildWp_Presenter::tpl_submit_button]);
+  }
+
+  function testPageTitleDeleteIsTranslated()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertEqual('Delete waypoint tr', $this->values[ChildWp_Presenter::tpl_page_title]);
+  }
+
+  function testChildWpIsDeleted()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, 567);
+    $this->request->set(ChildWp_Presenter::req_wp_type, 1);
+    $this->setCoordinate('N', '10', '15', 'E', '20', '30');
+    $this->request->set(ChildWp_Presenter::req_wp_desc, 'my waypoint');
+
+    $this->childWpHandler->expectOnce('delete', array(567));
+
+    $presenter = $this->createPresenter();
+
+    $presenter->doSubmit();
+  }
+
+  function testSetsErrorIfDeletingWaypointDoesNotExist()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '456');
+
+    $presenter = $this->createPresenter();
+
+    $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
+  }
+
+  function testSetsErrorIfDeletingWaypointDoesNotBelongToCache()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '566');
+
+    $this->childWpHandler->setReturnValue('getChildWp', array('cacheid' => '234', 'type' => '3', 'latitude' => 20.5, 'longitude' => 30.75, 'description' => 'Start here.'), array('566'));
+
+    $presenter = $this->createPresenter();
+
+    $this->assertEqual(ERROR_CACHE_NOT_EXISTS, $this->errorCode);
+  }
+
+  function testNoErrorIfDeletingWaypointBelongsToCache()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $this->assertEqual(0, $this->errorCode);
+  }
+
+  function testDeletingWaypointIsShownAfterPrepare()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertEqual('3', $this->values[ChildWp_Presenter::tpl_wp_type]);
+    $this->assertCoordinate('N', 20, 30, 'E', 30, 45);
+    $this->assertEqual('Start here.', $this->values[ChildWp_Presenter::tpl_wp_desc]);
+  }
+
+  function testSetDeletingWaypointId()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertEqual('567', $this->values[ChildWp_Presenter::tpl_delete_id]);
+  }
+
+  function testSetDeletingWaypointIdNoChildId()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->prepare($this);
+
+    $this->assertNull($this->values[ChildWp_Presenter::tpl_child_id]);
+  }
+
+  function testDeletingWaypointIsValid()
+  {
+    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+
+    $presenter = $this->createPresenter();
+
+    $this->assertTrue($presenter->validate());
+  }
 }
 
 ?>

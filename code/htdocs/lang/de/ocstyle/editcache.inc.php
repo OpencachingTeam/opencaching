@@ -46,7 +46,7 @@
 	$picturelines = '{lines}<tr><td colspan="2">&nbsp;</td></tr>';
 	
 	$nowaypoints = '<tr><td colspan="2">' . t('No waypoints available') . '</td></tr>';
-	$waypointline = '<tr><td><img src="{wp_image}" />&nbsp;{wp_type}</td><td><table><tr><td>{wp_coordinate}</td></tr></table></tp><td>{wp_description}</td><td>[<a href="childwp.php?cacheid={cacheid}&childid={childid}">' . t('Edit') . '</a>] [<a href="todo" onclick="return confirm(\'' . t('Confirm delete waypoint') . '\')">' . t('Delete') . '</a>]</td></tr>';
+	$waypointline = '<tr><td><img src="{wp_image}" />&nbsp;{wp_type}</td><td><table><tr><td>{wp_coordinate}</td></tr></table></tp><td>{wp_description}</td><td>[<a href="childwp.php?cacheid={cacheid}&childid={childid}">' . t('Edit') . '</a>] [<a href="childwp.php?cacheid={cacheid}&deleteid={childid}">' . t('Delete') . '</a>]</td></tr>';
 	$waypointlines = '<tr><td colspan="2"><table>{lines}</table></td></tr><tr><td colspan="2">&nbsp;</td></tr>';
 
 	$nomp3 = '<tr><td colspan="2"><div class="notice">'.t('No Podcast files').'</div></td></tr>';

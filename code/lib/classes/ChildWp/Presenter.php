@@ -6,17 +6,20 @@ class ChildWp_Presenter
 {
   const req_cache_id = 'cacheid';
   const req_child_id = 'childid';
+  const req_delete_id = 'deleteid';
   const req_wp_type = 'wp_type';
   const req_wp_desc = 'desc';
   const tpl_page_title = 'pagetitle';
   const tpl_cache_id = 'cacheid';
   const tpl_child_id = 'childid';
+  const tpl_delete_id = 'deleteid';
   const tpl_wp_type = 'wpType';
   const tpl_wp_desc = 'wpDesc';
   const tpl_wp_type_ids = 'wpTypeIds';
   const tpl_wp_type_names = 'wpTypeNames';
   const tpl_wp_type_error = 'wpTypeError';
   const tpl_submit_button = 'submitButton';
+  const tpl_disabled = 'disabled';
 
   private $request;
   private $translator;
@@ -28,6 +31,7 @@ class ChildWp_Presenter
   private $cacheId;
   private $childId;
   private $childWpHandler;
+  private $isDelete;
 
   public function __construct($request = false, $translator = false)
   {
@@ -58,7 +62,12 @@ class ChildWp_Presenter
     $description = htmlspecialchars($this->getDesc(), ENT_COMPAT, 'UTF-8');
 
     if ($this->childId)
-      $this->childWpHandler->update($this->childId, $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $description);
+    {
+      if ($this->isDelete)
+        $this->childWpHandler->delete($this->childId);
+      else
+        $this->childWpHandler->update($this->childId, $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $description);
+    }
     else
       $this->childWpHandler->add($this->cacheId, $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $description);
   }
@@ -85,6 +94,14 @@ class ChildWp_Presenter
     $this->setTypes($childWpHandler->getChildWpTypes());
     $this->childId = $this->request->getForValidation(self::req_child_id);
 
+    if (!$this->childId)
+    {
+      $this->childId = $this->request->getForValidation(self::req_delete_id);
+
+      if ($this->childId)
+        $this->isDelete = true;
+    }
+
     if ($this->childId)
     {
       $childWp = $this->childWpHandler->getChildWp($this->childId);
@@ -103,11 +120,16 @@ class ChildWp_Presenter
     $template->assign(self::tpl_page_title, $this->translator->Translate($this->getTitle()));
     $template->assign(self::tpl_submit_button, $this->translator->Translate($this->getSubmitButton()));
     $template->assign(self::tpl_cache_id, $this->cacheId);
-    $template->assign(self::tpl_child_id, $this->childId);
     $template->assign(self::tpl_wp_desc, $this->getDesc());
     $template->assign(self::tpl_wp_type, $this->getType());
+    $template->assign(self::tpl_disabled, $this->isDelete);
     $this->prepareTypes($template);
     $this->coordinate->prepare($template);
+
+    if ($this->isDelete)
+      $template->assign(self::tpl_delete_id, $this->childId);
+    else
+      $template->assign(self::tpl_child_id, $this->childId);
 
     if (!$this->waypointTypeValid)
       $template->assign(self::tpl_wp_type_error, $this->translator->translate('Select waypoint type'));
@@ -122,7 +144,12 @@ class ChildWp_Presenter
   private function getTitle()
   {
     if ($this->childId)
+    {
+      if ($this->isDelete)
+        return 'Delete waypoint';
+
       return 'Edit waypoint';
+    }
 
     return 'Add waypoint';
   }
@@ -130,7 +157,12 @@ class ChildWp_Presenter
   private function getSubmitButton()
   {
     if ($this->childId)
+    {
+      if ($this->isDelete)
+        return 'Delete';
+
       return 'Save';
+    }
 
     return 'Add new';
   }
@@ -152,6 +184,9 @@ class ChildWp_Presenter
 
   public function validate()
   {
+    if ($this->isDelete)
+      return true;
+
     $wpTypeValidator = new Validator_Array($this->getWaypointTypeIds());
 
     $this->request->validate(self::req_wp_desc, new Validator_AlwaysValid());
