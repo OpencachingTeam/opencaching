@@ -47,9 +47,9 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   private function createPresenter()
   {
-    $presenter = new ChildWp_Presenter($this->request, $this->translator);
+    $controller = new ChildWp_Controller($this->request, $this->translator);
 
-    $presenter->init($this, $this->cacheManager, $this->childWpHandler);
+    $presenter = $controller->createPresenter($this, $this->cacheManager, $this->childWpHandler);
 
     return $presenter;
   }
@@ -84,6 +84,23 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->request->setForValidation(Coordinate_Presenter::lon_min, $lon_min);
   }
 
+  private function setUpAddRequest($cacheId)
+  {
+    $this->request->setForValidation(ChildWp_Controller::req_cache_id, $cacheId);
+  }
+
+  private function setUpEditRequest($cacheId, $childId)
+  {
+    $this->request->setForValidation(ChildWp_Controller::req_cache_id, $cacheId);
+    $this->request->setForValidation(ChildWp_Controller::req_child_id, $childId);
+  }
+
+  private function setUpDeleteRequest($cacheId, $childId)
+  {
+    $this->request->setForValidation(ChildWp_Controller::req_cache_id, $cacheId);
+    $this->request->setForValidation(ChildWp_Controller::req_delete_id, $childId);
+  }
+
   function testSetZeroCoordinate()
   {
     $presenter = $this->createPresenter();
@@ -113,7 +130,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testChildWpIsAdded()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->setUpAddRequest('345');
     $this->request->set(ChildWp_Presenter::req_wp_type, 1);
     $this->setCoordinate('N', '10', '15', 'E', '20', '30');
     $this->request->set(ChildWp_Presenter::req_wp_desc, 'my waypoint');
@@ -134,7 +151,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetsErrorIfCacheDoesNotExist()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '123');
+    $this->setUpAddRequest('123');
 
     $presenter = $this->createPresenter();
 
@@ -143,7 +160,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetsErrorIfUserMayNotModifyCache()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '234');
+    $this->setUpAddRequest('234');
 
     $presenter = $this->createPresenter();
 
@@ -152,7 +169,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testDoesNotSetErrorIfCacheExists()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->setUpAddRequest('345');
 
     $presenter = $this->createPresenter();
 
@@ -335,7 +352,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testHtmlIsEscapedBeforeAdded()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->setUpAddRequest('345');
     $this->request->set(ChildWp_Presenter::req_wp_type, 1);
     $this->setCoordinate('N', '10', '15', 'E', '20', '30');
     $this->request->set(ChildWp_Presenter::req_wp_desc, 'my & < waypoint');
@@ -349,7 +366,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetCacheId()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '234');
+    $this->setUpAddRequest('234');
 
     $presenter = $this->createPresenter();
 
@@ -360,8 +377,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetsErrorIfWaypointDoesNotExist()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '456');
+    $this->setUpEditRequest('345', '456');
 
     $presenter = $this->createPresenter();
 
@@ -370,8 +386,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetsErrorIfWaypointDoesNotBelongToCache()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '566');
+    $this->setUpEditRequest('345', '566');
 
     $this->childWpHandler->setReturnValue('getChildWp', array('cacheid' => '234', 'type' => '3', 'latitude' => 20.5, 'longitude' => 30.75, 'description' => 'Start here.'), array('566'));
 
@@ -382,8 +397,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testNoErrorIfWaypointBelongsToCache()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+    $this->setUpEditRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -392,8 +406,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testExistingWaypointIsShownAfterPrepare()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+    $this->setUpEditRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -406,8 +419,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testChildWpIsUpdated()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, 567);
+    $this->setUpEditRequest('345', 567);
     $this->request->set(ChildWp_Presenter::req_wp_type, 1);
     $this->setCoordinate('N', '10', '15', 'E', '20', '30');
     $this->request->set(ChildWp_Presenter::req_wp_desc, 'my waypoint');
@@ -421,8 +433,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testHtmlIsEscapedBeforeUpdate()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, 567);
+    $this->setUpEditRequest('345', 567);
     $this->request->set(ChildWp_Presenter::req_wp_type, 1);
     $this->setCoordinate('N', '10', '15', 'E', '20', '30');
     $this->request->set(ChildWp_Presenter::req_wp_desc, 'my & < waypoint');
@@ -436,8 +447,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testEscapedHtmlIsShownProperly()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '568');
+    $this->setUpEditRequest('345', '568');
 
     $this->childWpHandler->setReturnValue('getChildWp', array('cacheid' => '345', 'type' => '3', 'latitude' => 20.5, 'longitude' => 30.75, 'description' => 'my &amp; &lt; waypoint'), array('568'));
 
@@ -450,8 +460,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testPageTitleEditIsTranslated()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+    $this->setUpEditRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -462,8 +471,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetWaypointId()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+    $this->setUpEditRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -474,7 +482,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSubmitButtonAddIsTranslated()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
+    $this->setUpAddRequest('345');
 
     $presenter = $this->createPresenter();
 
@@ -485,8 +493,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSubmitButtonEditIsTranslated()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+    $this->setUpEditRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -506,8 +513,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testNotDisabledWhenEditWaypoint()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_child_id, '567');
+    $this->setUpEditRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -518,8 +524,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testDisabledWhenDeleteWaypoint()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -530,8 +535,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSubmitButtonDeleteIsTranslated()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -542,8 +546,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testPageTitleDeleteIsTranslated()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -554,8 +557,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testChildWpIsDeleted()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, 567);
+    $this->setUpDeleteRequest('345', 567);
     $this->request->set(ChildWp_Presenter::req_wp_type, 1);
     $this->setCoordinate('N', '10', '15', 'E', '20', '30');
     $this->request->set(ChildWp_Presenter::req_wp_desc, 'my waypoint');
@@ -569,8 +571,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetsErrorIfDeletingWaypointDoesNotExist()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '456');
+    $this->setUpDeleteRequest('345', '456');
 
     $presenter = $this->createPresenter();
 
@@ -579,8 +580,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetsErrorIfDeletingWaypointDoesNotBelongToCache()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '566');
+    $this->setUpDeleteRequest('345', '566');
 
     $this->childWpHandler->setReturnValue('getChildWp', array('cacheid' => '234', 'type' => '3', 'latitude' => 20.5, 'longitude' => 30.75, 'description' => 'Start here.'), array('566'));
 
@@ -591,8 +591,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testNoErrorIfDeletingWaypointBelongsToCache()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -601,8 +600,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testDeletingWaypointIsShownAfterPrepare()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -615,8 +613,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
   function testSetDeletingWaypointId()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
@@ -625,26 +622,57 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->assertEqual('567', $this->values[ChildWp_Presenter::tpl_delete_id]);
   }
 
-  function testSetDeletingWaypointIdNoChildId()
+  function testSetDeletingWaypointIdNotChildId()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
     $presenter->prepare($this);
 
-    $this->assertNull($this->values[ChildWp_Presenter::tpl_child_id]);
+    $this->assertTrue(empty($this->values[ChildWp_Presenter::tpl_child_id]));
   }
 
   function testDeletingWaypointIsValid()
   {
-    $this->request->setForValidation(ChildWp_Presenter::req_cache_id, '345');
-    $this->request->setForValidation(ChildWp_Presenter::req_delete_id, '567');
+    $this->setUpDeleteRequest('345', '567');
 
     $presenter = $this->createPresenter();
 
     $this->assertTrue($presenter->validate());
+  }
+
+  function testAddPresenterIsCreated()
+  {
+    $this->setUpAddRequest('345');
+
+    $controller = new ChildWp_Controller($this->request, $this->translator);
+
+    $presenter = $controller->createPresenter($this, $this->cacheManager, $this->childWpHandler);
+
+    $this->assertIsA($presenter, 'ChildWp_AddPresenter');
+  }
+
+  function testEditPresenterIsCreated()
+  {
+    $this->setUpEditRequest('345', '567');
+
+    $controller = new ChildWp_Controller($this->request, $this->translator);
+
+    $presenter = $controller->createPresenter($this, $this->cacheManager, $this->childWpHandler);
+
+    $this->assertIsA($presenter, 'ChildWp_EditPresenter');
+  }
+
+  function testDeletePresenterIsCreated()
+  {
+    $this->setUpDeleteRequest('345', '567');
+
+    $controller = new ChildWp_Controller($this->request, $this->translator);
+
+    $presenter = $controller->createPresenter($this, $this->cacheManager, $this->childWpHandler);
+
+    $this->assertIsA($presenter, 'ChildWp_DeletePresenter');
   }
 }
 

@@ -2,11 +2,8 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
 
-class ChildWp_Presenter
+abstract class ChildWp_Presenter
 {
-  const req_cache_id = 'cacheid';
-  const req_child_id = 'childid';
-  const req_delete_id = 'deleteid';
   const req_wp_type = 'wp_type';
   const req_wp_desc = 'desc';
   const tpl_page_title = 'pagetitle';
@@ -23,37 +20,20 @@ class ChildWp_Presenter
 
   private $request;
   private $translator;
-  private $coordinate;
+  protected $coordinate;
   private $waypointTypes = array();
   private $waypointTypeValid = true;
-  private $type = '0';
-  private $description;
-  private $cacheId;
-  private $childId;
-  private $childWpHandler;
-  private $isDelete;
+  protected $type = '0';
+  protected $description;
+  protected $cacheId;
+  protected $childId;
+  protected $childWpHandler;
 
-  public function __construct($request = false, $translator = false)
+  protected function __construct($request = false, $translator = false)
   {
-    $this->request = $this->initRequest($request);
-    $this->translator = $this->initTranslator($translator);
+    $this->request = $request;
+    $this->translator = $translator;
     $this->coordinate = new Coordinate_Presenter($this->request, $this->translator);
-  }
-
-  private function initRequest($request)
-  {
-    if ($request)
-      return $request;
-
-    return new Http_Request();
-  }
-
-  private function initTranslator($translator)
-  {
-    if ($translator)
-      return $translator;
-
-    return new Language_Translator();
   }
 
   public function doSubmit()
@@ -61,18 +41,12 @@ class ChildWp_Presenter
     $coordinate = $this->coordinate->getCoordinate();
     $description = htmlspecialchars($this->getDesc(), ENT_COMPAT, 'UTF-8');
 
-    if ($this->childId)
-    {
-      if ($this->isDelete)
-        $this->childWpHandler->delete($this->childId);
-      else
-        $this->childWpHandler->update($this->childId, $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $description);
-    }
-    else
-      $this->childWpHandler->add($this->cacheId, $this->getType(), $coordinate->latitude(), $coordinate->longitude(), $description);
+    $this->onDoSubmit($coordinate, $description);
   }
 
-  private function getType()
+  abstract protected function onDoSubmit($coordinate, $description);
+
+  protected function getType()
   {
     return $this->request->get(self::req_wp_type, $this->type);
   }
@@ -82,37 +56,19 @@ class ChildWp_Presenter
     return $this->request->get(self::req_wp_desc, $this->description);
   }
 
-  public function init($template, $cacheManager, $childWpHandler)
+  public function init($childWpHandler, $cacheId)
   {
     $this->childWpHandler = $childWpHandler;
-
-    $this->cacheId = $this->request->getForValidation(self::req_cache_id);
-
-    if (!$cacheManager->exists($this->cacheId) || !$cacheManager->userMayModify($this->cacheId))
-      $template->error(ERROR_CACHE_NOT_EXISTS);
-
+    $this->cacheId = $cacheId;
     $this->setTypes($childWpHandler->getChildWpTypes());
-    $this->childId = $this->request->getForValidation(self::req_child_id);
+  }
 
-    if (!$this->childId)
-    {
-      $this->childId = $this->request->getForValidation(self::req_delete_id);
-
-      if ($this->childId)
-        $this->isDelete = true;
-    }
-
-    if ($this->childId)
-    {
-      $childWp = $this->childWpHandler->getChildWp($this->childId);
-
-      if (empty($childWp) || $this->cacheId != $childWp['cacheid'])
-        $template->error(ERROR_CACHE_NOT_EXISTS);
-
-      $this->type = $childWp['type'];
-      $this->description = htmlspecialchars_decode($childWp['description']);
-      $this->coordinate->init($childWp['latitude'], $childWp['longitude']);
-    }
+  public function initChildWp($childId, $childWp)
+  {
+    $this->childId = $childId;
+    $this->type = $childWp['type'];
+    $this->description = htmlspecialchars_decode($childWp['description']);
+    $this->coordinate->init($childWp['latitude'], $childWp['longitude']);
   }
 
   public function prepare($template)
@@ -122,17 +78,18 @@ class ChildWp_Presenter
     $template->assign(self::tpl_cache_id, $this->cacheId);
     $template->assign(self::tpl_wp_desc, $this->getDesc());
     $template->assign(self::tpl_wp_type, $this->getType());
-    $template->assign(self::tpl_disabled, $this->isDelete);
+    $template->assign(self::tpl_disabled, false);
     $this->prepareTypes($template);
     $this->coordinate->prepare($template);
 
-    if ($this->isDelete)
-      $template->assign(self::tpl_delete_id, $this->childId);
-    else
-      $template->assign(self::tpl_child_id, $this->childId);
-
     if (!$this->waypointTypeValid)
       $template->assign(self::tpl_wp_type_error, $this->translator->translate('Select waypoint type'));
+
+    $this->onPrepare($template);
+  }
+
+  protected function onPrepare($template)
+  {
   }
 
   private function prepareTypes($template)
@@ -141,31 +98,9 @@ class ChildWp_Presenter
     $template->assign(self::tpl_wp_type_names, $this->waypointTypes);
   }
 
-  private function getTitle()
-  {
-    if ($this->childId)
-    {
-      if ($this->isDelete)
-        return 'Delete waypoint';
+  abstract protected function getTitle();
 
-      return 'Edit waypoint';
-    }
-
-    return 'Add waypoint';
-  }
-
-  private function getSubmitButton()
-  {
-    if ($this->childId)
-    {
-      if ($this->isDelete)
-        return 'Delete';
-
-      return 'Save';
-    }
-
-    return 'Add new';
-  }
+  abstract protected function getSubmitButton();
 
   private function getWaypointTypeIds()
   {
@@ -184,9 +119,6 @@ class ChildWp_Presenter
 
   public function validate()
   {
-    if ($this->isDelete)
-      return true;
-
     $wpTypeValidator = new Validator_Array($this->getWaypointTypeIds());
 
     $this->request->validate(self::req_wp_desc, new Validator_AlwaysValid());

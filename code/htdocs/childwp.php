@@ -15,12 +15,10 @@
   $isSubmit = isset($_POST['submitform']);
   $redirect = isset($_POST['back']);
 
-  $request = new Http_Request();
-  $presenter = new ChildWp_Presenter($request);
   $cacheManager = new Cache_Manager();
   $handler = new ChildWp_Handler();
-
-  $presenter->init($tpl, $cacheManager, $handler);
+  $controller = new ChildWp_Controller();
+  $presenter = $controller->createPresenter($tpl, $cacheManager, $handler);
 
   if ($isSubmit && $presenter->validate())
   {
