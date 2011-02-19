@@ -29,9 +29,9 @@
 	
  ****************************************************************************/
  
-  //prepare the templates and include all neccessary
+	//prepare the templates and include all neccessary
 	require_once('./lib/common.inc.php');
-  require_once($opt['rootpath'] . '../lib/htmlpurifier-4.2.0/library/HTMLPurifier.auto.php');
+	require_once($opt['rootpath'] . '../lib/htmlpurifier-4.2.0/library/HTMLPurifier.auto.php');
 	
 	//Preprocessing
 	if ($error == false)
@@ -150,9 +150,9 @@
 								$desc = iconv("ISO-8859-1", "UTF-8", $desc);
 							}
 
-              // Filter Input
-              $purifier = new HTMLPurifier();
-              $desc = $purifier->purify($desc);
+							// Filter Input
+							$purifier = new HTMLPurifier();
+							$desc = $purifier->purify($desc);
 						}
 						else
 						{
