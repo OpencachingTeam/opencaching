@@ -46,7 +46,7 @@ class translate
 
 	/* strip whitespaces
 	 */
-	private function prepare_text($text)
+	protected function prepare_text($text)
 	{
 		$text = mb_ereg_replace("\t", ' ', $text);
 		$text = mb_ereg_replace("\r", ' ', $text);

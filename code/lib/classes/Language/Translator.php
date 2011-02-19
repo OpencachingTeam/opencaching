@@ -6,7 +6,7 @@ class Language_Translator
 {
   public function translate($lang_string)
   {
-    $translate = new translate();
+    $translate = createTranslate();
 
     return $translate->t($lang_string, '', '', '');
   }
