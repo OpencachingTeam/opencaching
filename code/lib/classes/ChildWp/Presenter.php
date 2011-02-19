@@ -60,7 +60,7 @@ abstract class ChildWp_Presenter
   {
     $this->childWpHandler = $childWpHandler;
     $this->cacheId = $cacheId;
-    $this->setTypes($childWpHandler->getChildWpTypes());
+    $this->waypointTypes = $childWpHandler->getChildWpIdAndNames();
   }
 
   public function initChildWp($childId, $childWp)
@@ -105,16 +105,6 @@ abstract class ChildWp_Presenter
   private function getWaypointTypeIds()
   {
     return array_keys($this->waypointTypes);
-  }
-
-  private function setTypes($waypointTypes)
-  {
-    $this->waypointTypes = array();
-
-    foreach ($waypointTypes as $type)
-    {
-      $this->waypointTypes[$type->getId()] = $this->translator->translate($type->getName());
-    }
   }
 
   public function validate()

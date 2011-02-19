@@ -42,7 +42,7 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->childWpHandler = new MockChildWp_Handler();
 
     $this->childWpHandler->setReturnValue('getChildWp', array('cacheid' => '345', 'type' => '3', 'latitude' => 20.5, 'longitude' => 30.75, 'description' => 'Start here.'), array('567'));
-    $this->childWpHandler->setReturnValue('getChildWpTypes', array(1 => new ChildWp_Type(1, 'Type 1'), 3 => new ChildWp_Type(3, 'Type 3')));
+    $this->childWpHandler->setReturnValue('getChildWpIdAndNames', array(1 => 'Type 1 tr', 3 => 'Type 3 tr'));
   }
 
   private function createPresenter()

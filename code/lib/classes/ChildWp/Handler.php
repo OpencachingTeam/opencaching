@@ -3,9 +3,12 @@
 class ChildWp_Handler
 {
   private $childWpTypes = array();
+  private $translator;
 
   public function __construct()
   {
+    $this->translator = new Language_Translator();
+
     require($_SERVER['DOCUMENT_ROOT'] . '/config2/childwp.inc.php');
 
     foreach ($childWpTypes as $type)
@@ -48,9 +51,16 @@ class ChildWp_Handler
     return $ret;
   }
 
-  public function getChildWpTypes()
+  public function getChildWpIdAndNames()
   {
-    return $this->childWpTypes;
+    $idAndNames = array();
+
+    foreach ($this->childWpTypes as $type)
+    {
+      $idAndNames[$type->getId()] = $this->translator->translate($type->getName());
+    }
+
+    return $idAndNames;
   }
 
   private function recordToArray($r)
@@ -69,7 +79,7 @@ class ChildWp_Handler
 
     if ($type)
     {
-      $ret['name'] = $type->getName();
+      $ret['name'] = $this->translator->translate($type->getName());
       $ret['image'] = $type->getImage();
     }
 
