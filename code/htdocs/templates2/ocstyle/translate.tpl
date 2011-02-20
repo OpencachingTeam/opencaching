@@ -46,6 +46,10 @@
 	<a href="translate.php?translang={$translang}&action=xmlexport">{t}XML Download{/t}</a><br />
 	<a href="translate.php?translang={$translang}&action=xmlimport">{t}XML Import{/t}</a><br />
 	<br />
+	<a href="translate.php?translang={$translang}&action=textexportnew">{t}Text Download (new){/t} {$translang}</a><br />
+	<a href="translate.php?translang={$translang}&action=textexportall">{t}Text Download (all){/t} {$translang}</a><br />
+	<a href="translate.php?translang={$translang}&action=textimport">{t}Text Import{/t} {$translang}</a><br />
+	<br />
 
 	{if $action=="listnew" || $action=="listfaults" || $action=="listall"}
 		{if $action=="listnew"}
@@ -136,7 +140,17 @@
 			<br />
 			<input type="submit" name="submitfile" value="{t}Scan file{/t}" />
 		</form>
-	{elseif $action=="xmlimport2"}
+	{elseif $action=="textimport"}
+		<form action="translate.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="action" value="textimport2" />
+			<input type="hidden" name="translang" value="{$translang}" />
+
+			{t}Text file containing the translations:{/t} {$translang}<br />
+			<input name="textfile" type="file" size="50" /><br />
+			<br />
+			<input type="submit" name="submitfile" value="{t}Scan file{/t}" />
+		</form>
+	{elseif $action=="xmlimport2" || $action=="textimport2"}
 		<form action="translate.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="xmlimport3" />
 			<input type="hidden" name="translang" value="{$translang}" />
