@@ -94,6 +94,11 @@ class Coordinate_Presenter
     return Coordinate_Coordinate::fromHemDegMin($this->getLatHem(), $this->getLatDeg(), $this->getLatMin(), $this->getLonHem(), $this->getLonDeg(), $this->getLonMin());
   }
 
+  public function hasCoordinate()
+  {
+    return $this->getCoordinate() != new Coordinate_Coordinate(0, 0);
+  }
+
   public function validate()
   {
     $validators = $this->getValidators();
@@ -105,7 +110,7 @@ class Coordinate_Presenter
         $this->valid = false;
     }
 
-    if ($this->getCoordinate() == new Coordinate_Coordinate(0, 0))
+    if (!$this->hasCoordinate())
       $this->valid = false;
 
     return $this->valid;

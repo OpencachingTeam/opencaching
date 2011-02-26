@@ -190,6 +190,21 @@ function getChildWaypoints($cacheid)
 
 	$tpl->assign('childWaypoints', getChildWaypoints($cacheid));
 
+	if ($login->userid != 0)
+	{
+		$cacheNotePresenter = new CacheNote_Presenter(new Http_Request(), new Language_Translator());
+		$cacheNotePresenter->init(new CacheNote_Handler(), $login->userid, $cacheid);
+
+		if (isset($_POST['submit_cache_note']) && $cacheNotePresenter->validate())
+		{
+			$cacheNotePresenter->doSubmit();
+		}
+
+		$cacheNotePresenter->prepare($tpl);
+	}
+
+	$tpl->assign('enableCacheNote', $login->userid != 0);
+
 	/* Logentries */
 
 	/* begin insertion/change Uwe 20091215 for printing purposes

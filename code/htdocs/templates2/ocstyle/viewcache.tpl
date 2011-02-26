@@ -283,6 +283,21 @@
 </div>
 <!-- End Beschreibung -->
 
+{if $enableCacheNote}
+	<div class="content2-container bg-blue02">
+		<p class="content-title-noshade-size2">
+			<img src="resource2/{$opt.template.style}/images/description/22x22-note.png" style="align: left; margin-right: 10px;" width="22" height="22" alt="{t}Personal cache note{/t}" /> 
+			{t}Personal cache note{/t}
+		</p>
+	</div>
+
+	<div class="content2-container">
+		<form action="viewcache.php" method="post" name="cache_note">
+			{include file='cache_note.tpl'}
+		</form>
+	</div>
+{/if}
+
 {if count($childWaypoints)>0}
 	<div class="content2-container bg-blue02">
 		<p class="content-title-noshade-size2">
