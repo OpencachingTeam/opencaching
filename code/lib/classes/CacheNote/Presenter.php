@@ -53,6 +53,8 @@ class CacheNote_Presenter
 
     if ($this->includeCoordinate())
       return $coordinateValid = $this->coordinate->validate();
+    else
+      $this->coordinate->init(0, 0);
 
     return true;
   }

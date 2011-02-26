@@ -236,6 +236,38 @@ class CacheNote_PresenterTests extends UnitTestCase
 
     $presenter->doSubmit();
   }
+
+  function testUncheckedCoordinateIsNotSaved()
+  {
+    $this->request->setForValidation(CacheNote_Presenter::req_note, 'my note');
+    $this->request->setForValidation(CacheNote_Presenter::req_incl_coord, false);
+    $this->setCoordinateForValidation('N', '10', '15', 'E', '20', '30');
+
+    $this->cacheNoteHandler->expectOnce('save', array(321, 11, 123, 'my note', 0, 0));
+
+    $presenter = $this->createPresenter();
+
+    $presenter->init($this->cacheNoteHandler, 11, 123);
+    $presenter->validate();
+
+    $presenter->doSubmit();
+  }
+
+  function testUncheckedCoordinateIsCleared()
+  {
+    $this->request->setForValidation(CacheNote_Presenter::req_note, 'my note');
+    $this->request->setForValidation(CacheNote_Presenter::req_incl_coord, false);
+    $this->setCoordinateForValidation('N', '10', '15', 'E', '20', '30');
+
+    $presenter = $this->createPresenter();
+
+    $presenter->init($this->cacheNoteHandler, 11, 123);
+    $presenter->validate();
+    $presenter->doSubmit();
+    $presenter->prepare($this);
+
+    $this->assertCoordinate('N', 0, 0, 'E', 0, 0);
+  }
 }
 
 ?>
