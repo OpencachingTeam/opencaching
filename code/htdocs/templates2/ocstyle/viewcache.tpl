@@ -313,7 +313,7 @@
 				<td><img src="{$childWaypoint.image}" /></td>
 				<td>{$childWaypoint.name|escape}</td>
 				<td>{$childWaypoint.coordinateHtml}</td>
-				<td>{$childWaypoint.description}</td>
+				<td>{$childWaypoint.description|escape}</td>
 			</tr>
 		{/foreach}
 		</table>

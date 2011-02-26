@@ -350,14 +350,14 @@ class ChildWp_PresenterTests extends UnitTestCase
     $this->assertEqual('3', $this->values[ChildWp_Presenter::tpl_wp_type]);
   }
 
-  function testHtmlIsEscapedBeforeAdded()
+  function testHtmlIsNotEscapedBeforeAdded()
   {
     $this->setUpAddRequest('345');
     $this->request->set(ChildWp_Presenter::req_wp_type, 1);
     $this->setCoordinate('N', '10', '15', 'E', '20', '30');
     $this->request->set(ChildWp_Presenter::req_wp_desc, 'my & < waypoint');
 
-    $this->childWpHandler->expectOnce('add', array('345', 1, 10.25, 20.5, 'my &amp; &lt; waypoint'));
+    $this->childWpHandler->expectOnce('add', array('345', 1, 10.25, 20.5, 'my & < waypoint'));
 
     $presenter = $this->createPresenter();
 
@@ -431,21 +431,21 @@ class ChildWp_PresenterTests extends UnitTestCase
     $presenter->doSubmit();
   }
 
-  function testHtmlIsEscapedBeforeUpdate()
+  function testHtmlIsNotEscapedBeforeUpdate()
   {
     $this->setUpEditRequest('345', 567);
     $this->request->set(ChildWp_Presenter::req_wp_type, 1);
     $this->setCoordinate('N', '10', '15', 'E', '20', '30');
     $this->request->set(ChildWp_Presenter::req_wp_desc, 'my & < waypoint');
 
-    $this->childWpHandler->expectOnce('update', array(567, 1, 10.25, 20.5, 'my &amp; &lt; waypoint'));
+    $this->childWpHandler->expectOnce('update', array(567, 1, 10.25, 20.5, 'my & < waypoint'));
 
     $presenter = $this->createPresenter();
 
     $presenter->doSubmit();
   }
 
-  function testEscapedHtmlIsShownProperly()
+  function testEscapedHtmlIsShownAsEscaped()
   {
     $this->setUpEditRequest('345', '568');
 
@@ -455,7 +455,7 @@ class ChildWp_PresenterTests extends UnitTestCase
 
     $presenter->prepare($this);
 
-    $this->assertEqual('my & < waypoint', $this->values[ChildWp_Presenter::tpl_wp_desc]);
+    $this->assertEqual('my &amp; &lt; waypoint', $this->values[ChildWp_Presenter::tpl_wp_desc]);
   }
 
   function testPageTitleEditIsTranslated()

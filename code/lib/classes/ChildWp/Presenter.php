@@ -38,10 +38,7 @@ abstract class ChildWp_Presenter
 
   public function doSubmit()
   {
-    $coordinate = $this->coordinate->getCoordinate();
-    $description = htmlspecialchars($this->getDesc(), ENT_COMPAT, 'UTF-8');
-
-    $this->onDoSubmit($coordinate, $description);
+    $this->onDoSubmit($this->coordinate->getCoordinate(), $this->getDesc());
   }
 
   abstract protected function onDoSubmit($coordinate, $description);
@@ -67,7 +64,7 @@ abstract class ChildWp_Presenter
   {
     $this->childId = $childId;
     $this->type = $childWp['type'];
-    $this->description = htmlspecialchars_decode($childWp['description']);
+    $this->description = $childWp['description'];
     $this->coordinate->init($childWp['latitude'], $childWp['longitude']);
   }
 

@@ -424,7 +424,7 @@ $gpxWaypoints = '
 			$thiswp = str_replace('{time}', $time, $thiswp);
 			$thiswp = str_replace('{wp_type_name}', $childWaypoint['name'], $thiswp);
 			$thiswp = str_replace('{wp_stage}',$childWaypoint['name'], $thiswp);
-			$thiswp = str_replace('{desc}', $childWaypoint['description'], $thiswp);
+			$thiswp = str_replace('{desc}', xmlentities($childWaypoint['description']), $thiswp);
 			if ($childWaypoint['type']==1){$thiswp = str_replace('{wp_type}', "Parking Area", $thiswp);}
 			if ($childWaypoint['type']==2){$thiswp = str_replace('{wp_type}', "Flag, Green", $thiswp);}
 			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);

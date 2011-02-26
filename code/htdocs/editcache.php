@@ -54,7 +54,7 @@ function getWaypoints($cacheid)
       $tmpline = mb_ereg_replace('{wp_type}', htmlspecialchars($waypoint['name'], ENT_COMPAT, 'UTF-8'), $tmpline);
       $htmlcoordinate = $formatter->formatHtml($waypoint['coordinate'], '</td></tr><tr><td>');
       $tmpline = mb_ereg_replace('{wp_coordinate}', $htmlcoordinate, $tmpline);
-      $tmpline = mb_ereg_replace('{wp_description}', $waypoint['description'], $tmpline);
+      $tmpline = mb_ereg_replace('{wp_description}', htmlspecialchars($waypoint['description'], ENT_COMPAT, 'UTF-8'), $tmpline);
       $tmpline = mb_ereg_replace('{cacheid}', htmlspecialchars($cacheid, ENT_COMPAT, 'UTF-8'), $tmpline);
       $tmpline = mb_ereg_replace('{childid}', htmlspecialchars($waypoint['childid'], ENT_COMPAT, 'UTF-8'), $tmpline);
 
