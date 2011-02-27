@@ -108,6 +108,9 @@
 	if (!isset($rootpath)) $rootpath = './';
 	require_once($rootpath . 'lib/clicompatbase.inc.php');
 
+	// needed for compatibility with new code
+	if (!isset($opt['rootpath'])) $opt['rootpath'] = $rootpath;
+
 	// load domain specific settings
 	load_domain_settings();
 
