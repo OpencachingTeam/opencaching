@@ -102,7 +102,7 @@
 						<li><strong>{t}Language{/t}</strong></li>
 						{foreach from=$opt.template.locales key=localeKey item=localeItem}
 							{if $localeItem.show}
-								<li><a style="text-decoration: none;" href="index.php?locale={$localeKey}"><img src="{$localeItem.flag}" alt="{$localeItem.name|escape}" width="24px" height="24px" /></a></li>
+								<li><a style="text-decoration: none;" href="index.php?locale={$localeKey}"><img src="{$localeItem.flag}" alt="{$localeItem.name|escape}" width="16px" height="11px" /></a></li>
 							{/if}
 						{/foreach}
 						<li>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{t}Country:{/t}</strong></li>

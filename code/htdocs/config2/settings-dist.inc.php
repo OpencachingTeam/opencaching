@@ -8,6 +8,8 @@
  *  Do not modify this file - use settings.inc.php!
  ***************************************************************************/
 
+	require('locale.inc.php');
+
 	/* PHP settings
 	 *
 	 * PHP_DEBUG_SKIP
@@ -166,139 +168,9 @@
 	$opt['template']['default']['locale'] = 'DE';      // may be overwritten by $opt['domain'][...]['locale']
 	$opt['template']['default']['style'] = 'ocstyle';  // may be overwritten by $opt['domain'][...]['style']
 	$opt['template']['default']['country'] = 'DE';     // may be overwritten by $opt['domain'][...]['country']
-	$opt['template']['locales']['DE']['show'] = true;
-	$opt['template']['locales']['DE']['flag'] = 'images/flag/DE.gif';
-	$opt['template']['locales']['DE']['name'] = 'Deutsch';
-	$opt['template']['locales']['FR']['show'] = true;
-	$opt['template']['locales']['FR']['flag'] = 'images/flag/FR.gif';
-	$opt['template']['locales']['FR']['name'] = 'Français';
-	$opt['template']['locales']['NL']['show'] = true;
-	$opt['template']['locales']['NL']['flag'] = 'images/flag/NL.gif';
-	$opt['template']['locales']['NL']['name'] = 'Nederlands';
-	$opt['template']['locales']['EN']['show'] = true;
-	$opt['template']['locales']['EN']['flag'] = 'images/flag/EN.gif';
-	$opt['template']['locales']['EN']['name'] = 'English';
-	$opt['template']['locales']['PL']['show'] = true;
-	$opt['template']['locales']['PL']['flag'] = 'images/flag/PL.gif';
-	$opt['template']['locales']['PL']['name'] = 'Polski';
-	$opt['template']['locales']['IT']['show'] = true;
-	$opt['template']['locales']['IT']['flag'] = 'images/flag/IT.gif';
-	$opt['template']['locales']['IT']['name'] = 'Italiano';
-	$opt['template']['locales']['RU']['show'] = true;
-	$opt['template']['locales']['RU']['flag'] = 'images/flag/RU.gif';
-	$opt['template']['locales']['RU']['name'] = 'Русский';
-	$opt['template']['locales']['ES']['show'] = true;
-	$opt['template']['locales']['ES']['flag'] = 'images/flag/ES.png';
-	$opt['template']['locales']['ES']['name'] = 'Español';
-	$opt['template']['locales']['SV']['show'] = true;
-	$opt['template']['locales']['SV']['flag'] = 'images/flag/SE.png';
-	$opt['template']['locales']['SV']['name'] = 'Svenska';
-
-	// geokrety language key association
-	$opt['geokrety']['locales']['DE'] = 'de_DE.UTF-8';
-	$opt['geokrety']['locales']['EN'] = 'en_EN';
-	$opt['geokrety']['locales']['FR'] = 'fr_FR.UTF-8';
-	$opt['geokrety']['locales']['NL'] = 'en_EN';
-	$opt['geokrety']['locales']['PL'] = 'pl_PL.UTF-8';
-	$opt['geokrety']['locales']['IT'] = 'en_EN';
-	$opt['geokrety']['locales']['RU'] = 'en_EN';
-	$opt['geokrety']['locales']['ES'] = 'es_ES.UTF-8';
-	$opt['geokrety']['locales']['SV'] = 'sv_SE.UTF-8';
 
 	// smiley path
 	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/images/';
-
-	$opt['locale']['DE']['locales'] = array('de_DE.utf8', 'de_DE@euro', 'de_DE', 'de', 'ge');
-	$opt['locale']['EN']['locales'] = array('en_US.utf8', 'en_US', 'en');
-	$opt['locale']['FR']['locales'] = array('fr_FR.utf8', 'fr_FR@euro', 'fr_FR', 'french', 'fr');
-	$opt['locale']['PL']['locales'] = array('pl_PL.utf8', 'pl_PL', 'pl');
-	$opt['locale']['NL']['locales'] = array('nl_NL.utf8', 'nl_NL', 'nl');
-	$opt['locale']['IT']['locales'] = array('it_IT.utf8', 'it_IT', 'it');
-	$opt['locale']['RU']['locales'] = array('ru_RU.utf8', 'ru_RU', 'ru');
-	$opt['locale']['ES']['locales'] = array('es_ES.utf8', 'es_ES', 'es');
-	$opt['locale']['SV']['locales'] = array('sv_SE.utf8', 'sv_SE', 'se');
-
-	$opt['locale']['EN']['format']['date'] = '%x';
-	$opt['locale']['EN']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['EN']['format']['datetime'] = '%x %I:%M %p';
-	$opt['locale']['EN']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['EN']['format']['time'] = '%I:%M %p';
-	$opt['locale']['EN']['format']['timesec'] = '%X';
-	$opt['locale']['EN']['country'] = 'UK';
-
-	$opt['locale']['DE']['format']['date'] = '%x';
-	$opt['locale']['DE']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['DE']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['DE']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['DE']['format']['time'] = '%H:%M';
-	$opt['locale']['DE']['format']['timesec'] = '%X';
-	$opt['locale']['DE']['country'] = 'DE';
-	$opt['locale']['DE']['page']['subtitle1'] = 'Geocaching in Deutschland,';
-	$opt['locale']['DE']['page']['subtitle2'] = 'Österreich und der Schweiz';
-
-	$opt['locale']['FR']['format']['date'] = '%x';
-	$opt['locale']['FR']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['FR']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['FR']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['FR']['format']['time'] = '%H:%M';
-	$opt['locale']['FR']['format']['timesec'] = '%X';
-	$opt['locale']['FR']['country'] = 'FR';
-
-	$opt['locale']['PL']['format']['date'] = '%x';
-	$opt['locale']['PL']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['PL']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['PL']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['PL']['format']['time'] = '%H:%M';
-	$opt['locale']['PL']['format']['timesec'] = '%X';
-	$opt['locale']['PL']['country'] = 'PL';
-
-	$opt['locale']['NL']['format']['date'] = '%x';
-	$opt['locale']['NL']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['NL']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['NL']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['NL']['format']['time'] = '%H:%M';
-	$opt['locale']['NL']['format']['timesec'] = '%X';
-	$opt['locale']['NL']['page']['subtitle1'] = 'Geocaching met Opencaching';
-	$opt['locale']['NL']['page']['subtitle2'] = '';
-	$opt['locale']['NL']['country'] = 'NL';
-
-	$opt['locale']['IT']['format']['date'] = '%x';
-	$opt['locale']['IT']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['IT']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['IT']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['IT']['format']['time'] = '%H:%M';
-	$opt['locale']['IT']['format']['timesec'] = '%X';
-	$opt['locale']['IT']['country'] = 'IT';
-	$opt['locale']['IT']['page']['subtitle1'] = 'Geocaching con Opencaching';
-	$opt['locale']['IT']['page']['subtitle2'] = '';
-
-	$opt['locale']['RU']['format']['date'] = '%x';
-	$opt['locale']['RU']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['RU']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['RU']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['RU']['format']['time'] = '%H:%M';
-	$opt['locale']['RU']['format']['timesec'] = '%X';
-	$opt['locale']['RU']['country'] = 'RU';
-
-	$opt['locale']['ES']['format']['date'] = '%x';
-	$opt['locale']['ES']['format']['datelong'] = '%d. %B %Y';
-	$opt['locale']['ES']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['ES']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['ES']['format']['time'] = '%H:%M';
-	$opt['locale']['ES']['format']['timesec'] = '%X';
-	$opt['locale']['ES']['country'] = 'ES';
-	$opt['locale']['ES']['page']['subtitle1'] = 'Geocaching con Opencaching';
-	$opt['locale']['ES']['page']['subtitle2'] = '';
-
-	$opt['locale']['SV']['format']['date'] = '%Y-%m-%d';
-	$opt['locale']['SV']['format']['datelong'] = '%Y-%m-%d';
-	$opt['locale']['SV']['format']['datetime'] = '%x %H:%M';
-	$opt['locale']['SV']['format']['datetimesec'] = '%x %X';
-	$opt['locale']['SV']['format']['time'] = '%H:%M';
-	$opt['locale']['SV']['format']['timesec'] = '%X';
-	$opt['locale']['SV']['country'] = 'SE';
-	$opt['locale']['SV']['page']['subtitle1'] = 'Opencaching i Sverige';
-	$opt['locale']['SV']['page']['subtitle2'] = '';
 
 	/* other template options
 	 *
