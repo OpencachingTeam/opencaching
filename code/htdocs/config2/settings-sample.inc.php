@@ -130,4 +130,7 @@
  	 */
  	$opt['lib']['garmin']['key'] = '00112233445566778899AABBCCDDEEFF00';
  	$opt['lib']['garmin']['url'] = 'http://www.site.org/';
+
+	$opt['logic']['node']['id'] = 4;
+
 ?>

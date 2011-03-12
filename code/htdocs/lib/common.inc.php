@@ -108,6 +108,9 @@
 	if (!isset($rootpath)) $rootpath = './';
 	require_once($rootpath . 'lib/clicompatbase.inc.php');
 
+	// needed for compatibility with new code
+	if (!isset($opt['rootpath'])) $opt['rootpath'] = $rootpath;
+
 	// load domain specific settings
 	load_domain_settings();
 
@@ -138,10 +141,12 @@
 		$lang = $_GET['lang'];
 	}
 
-	//are there files for this language?
-	if (!file_exists($rootpath . 'lang/'. $lang . '/'))
+	//lang/de is required by some 'old' code. Eventually this check needs to
+	//be removed when the files inside lang/de/ocstyle are migrated to 
+	//templates/ocstyle
+	if (!file_exists($rootpath . 'lang/de/'))
 	{
-		die('Critical Error: The specified language does not exist!');
+		die('Critical Error: Could not find default DE language directory!');
 	}
 
 	//style changed?

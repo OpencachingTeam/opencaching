@@ -63,6 +63,15 @@
 		xmlimport2();
 	else if ($action == 'xmlimport3')
 		xmlimport3();
+	else if ($action == 'textexportnew')
+		textexport($translang, false);
+	else if ($action == 'textexportall')
+		textexport($translang, true);
+	else if ($action == 'textimport')
+	{
+	}
+	else if ($action == 'textimport2')
+		textimport($translang);
 	else if ($action == 'edit')
 	{
 		if (!$access->mayTranslate($translang))
@@ -650,5 +659,106 @@ function xmlimport3()
 	}
 
 	$tpl->redirect('translate.php?translang=' . $translang);
+}
+
+function textexport($translang, $all)
+{
+	global $opt;
+
+	header('Content-type:application/octet-stream');
+	header('Content-Disposition:attachment;filename="translation.txt"');
+
+	$rs = sql("SELECT `id`, `text` FROM `sys_trans` ORDER BY `id` ASC");
+	while ($r = sql_fetch_assoc($rs))
+	{
+		$translated = sql_value("SELECT `text` FROM `sys_trans_text` WHERE `trans_id`='&1' AND `lang`='&2'", '', $r['id'], $translang);
+		if (($all) || (mb_strlen($translated)==0))
+		{
+			$thisline = $r['text'];
+			$thisline .= "\t";
+			$thisline .= $translated;
+			$thisline .= "\n";
+			echo($thisline);
+		}
+	}
+	sql_free_result($rs);
+
+	exit;
+}
+
+function textimport($lang)
+{
+	global $translate, $tpl, $opt;
+
+	if (!isset($_FILES['textfile']) || ($_FILES['textfile']['error'] != UPLOAD_ERR_OK))
+		$tpl->error($translate->t('File upload failed!', '', '', 0));
+
+	$data = file_get_contents($_FILES['textfile']['tmp_name']);
+	$lines = explode("\n", $data);
+
+	/* $saTexts[code_text]['id']
+	* $saTexts[code_text]['code']
+	* $saTexts[code_text]['de']['old']
+	* $saTexts[code_text]['de']['new']
+	* $saTexts[code_text]['en']['old']
+	* $saTexts[code_text]['en']['new']
+	* $saTexts[code_text]['...']
+	*/
+	$saTexts = array();
+
+	for ($i=0;$i<count($lines);$i++) 
+	{
+		$cols = explode("\t", $lines[$i]); //create array separate by new line
+
+		$sCodeText = $cols[0];
+		if (mb_strlen($sCodeText)>0)
+		{
+			$sLangText = $cols[1];
+			if (mb_strlen($sLangText)>0)
+			{
+				$transId = sql_value("SELECT `id` FROM `sys_trans` WHERE `text`='&1'", 0, $sCodeText);
+				if ($transId == 0)
+				{
+					if ($sLangText != '')
+					{
+						// text not in sys_trans => code changed while translation has been done
+						$saTexts[$sCodeText]['id'] = 0;
+						$saTexts[$sCodeText]['count'] = count($saTexts);
+						$saTexts[$sCodeText]['type'] = 1;
+						$saTexts[$sCodeText]['code'] = $sCodeText;
+						$saTexts[$sCodeText][$lang]['new'] = $sLangText;
+						$saTexts[$sCodeText][$lang]['old'] = '';
+					}
+				}
+				else
+				{
+					$sOldText = sql_value("SELECT `text` FROM `sys_trans_text` WHERE `trans_id`='&1' AND `lang`='&2'", '', $transId, $lang);
+					if (($sOldText == '') && ($sLangText != ''))
+					{
+						// new translation
+						$saTexts[$sCodeText]['id'] = $transId;
+						$saTexts[$sCodeText]['count'] = count($saTexts);
+						$saTexts[$sCodeText]['type'] = 2;
+						$saTexts[$sCodeText]['code'] = $sCodeText;
+						$saTexts[$sCodeText][$lang]['new'] = $sLangText;
+						$saTexts[$sCodeText][$lang]['old'] = $sOldText;
+echo($saTexts[$sCodeText]);
+					}
+					else if ($sOldText != $sLangText)
+					{
+						// translation changed
+						$saTexts[$sCodeText]['id'] = $transId;
+						$saTexts[$sCodeText]['count'] = count($saTexts);
+						$saTexts[$sCodeText]['type'] = 3;
+						$saTexts[$sCodeText]['code'] = $sCodeText;
+						$saTexts[$sCodeText][$lang]['new'] = $sLangText;
+						$saTexts[$sCodeText][$lang]['old'] = $sOldText;
+					}
+				}
+			}
+		}
+	}
+
+	$tpl->assign('texts', $saTexts);
 }
 ?>
