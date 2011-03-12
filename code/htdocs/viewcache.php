@@ -26,7 +26,7 @@ function getChildWaypoints($cacheid)
 
     for ($i = 0; $i < $count; $i++)
     {
-      $waypoints[$i]['coordinateHtml'] = $formatter->formatHtml($waypoints[$i]['coordinate']);
+      $waypoints[$i]['coordinateHtml'] = $formatter->formatHtml($waypoints[$i]['coordinate'], '<br />');
     }
   }
 

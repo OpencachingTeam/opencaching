@@ -286,7 +286,7 @@
 {if $enableCacheNote}
 	<div class="content2-container bg-blue02">
 		<p class="content-title-noshade-size2">
-			<img src="resource2/{$opt.template.style}/images/viewcache/logs.png" style="align: left; margin-right: 10px;" alt="{t}Personal cache note{/t}" /> 
+			<img src="resource2/{$opt.template.style}/images/description/20x20-cache-note.png" style="align: left; margin-right: 10px;" alt="{t}Personal cache note{/t}" /> 
 			{t}Personal cache note{/t}
 		</p>
 	</div>
@@ -306,12 +306,12 @@
 		</p>
 	</div>
 
-	<div class="content2-container">
-		<table style="font-size: 120%" bgcolor="#dddddd" width="95%">
+	<div class="content2-container" style="margin-left:10px;">
+		<table style="font-size: 120%" bgcolor="#dddddd" width="95%" cellpadding="5%">
 		{foreach from=$childWaypoints item=childWaypoint}
 			<tr bgcolor="{cycle values="#ffffff,#eeeeee"}">
 				<td width="25%"><img src="{$childWaypoint.image}" />{$childWaypoint.name|escape}</td>
-				<td align="center" width="30%">{$childWaypoint.coordinateHtml}</td>
+				<td width="20%">{$childWaypoint.coordinateHtml}</td>
 				<td>{$childWaypoint.description|escape}</td>
 			</tr>
 		{/foreach}
