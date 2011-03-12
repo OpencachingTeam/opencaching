@@ -40,9 +40,8 @@
 				$newstext = htmlspecialchars($newstext, ENT_COMPAT, 'UTF-8');
 			else
 			{
-				require_once($opt['rootpath'] . 'lib2/logic/class.inputfilter.php');
-				$myFilter = new InputFilter($allowedtags, $allowedattr, 0, 0, 1);
-				$newstext = $myFilter->process($newstext);
+				$purifier = new HTMLPurifier();
+				$newstext = $purifier->purify($newstext);
 			}
 
 			$sTopic = sql_value("SELECT `name` FROM `news_topics` WHERE `id`='&1'", '', $topicid);

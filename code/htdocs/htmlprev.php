@@ -6,7 +6,6 @@
  ***************************************************************************/
  
 	require('./lib2/web.inc.php');
-	require('./lib2/logic/class.inputfilter.php');
 
 	$tpl->name = 'htmlprev';
 	$tpl->menuitem = MNU_CACHES_HIDE_PREVIEW;
@@ -27,8 +26,8 @@
 	else
 		$tpl->assign('step', 1);
 
-	$myFilter = new InputFilter($allowedtags, $allowedattr, 0, 0, 1);
-	$the_html = $myFilter->process($the_html);
+	$purifier = new HTMLPurifier();
+	$the_html = $purifier->purify($the_html);
 
 	$tpl->assign('thetext', $the_text);
 	$tpl->assign('thehtml', $the_html);

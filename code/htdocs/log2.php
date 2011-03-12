@@ -10,7 +10,6 @@
 	require('./lib2/web.inc.php');
 	require_once('./lib2/logic/cache.class.php');
 	require_once('./lib2/logic/cachelog.class.php');
-	require_once('./lib2/logic/class.inputfilter.php');
 	require_once('./lib2/logic/smileys.class.php');
 	$tpl->name = 'log2';
 	$tpl->menuitem = MNU_CACHES_LOG;
@@ -71,8 +70,8 @@
 	if ($nDescMode != 1)
 	{
 		// check input
-		$myFilter = new InputFilter($allowedtags, $allowedattr, 0, 0, 1);
-		$sLogText = $myFilter->process($sLogText);
+		$purifier = new HTMLPurifier();
+		$sLogText = $purifier->purify($sLogText);
 	}
 	else
 	{

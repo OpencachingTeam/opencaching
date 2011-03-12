@@ -183,9 +183,8 @@
 						}
 
 						// check input
-						require_once($rootpath . 'lib/class.inputfilter.php');
-						$myFilter = new InputFilter($allowedtags, $allowedattr, 0, 0, 1);
-						$log_text = $myFilter->process($log_text);
+						$purifier = new HTMLPurifier();
+						$log_text = $purifier->purify($log_text);
 					}
 					else
 					{
