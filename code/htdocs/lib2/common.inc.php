@@ -200,7 +200,7 @@ function set_usercountry()
 function fix_magic_quotes_gpc()
 {
 	// Disable magic_quotes_runtime
-	set_magic_quotes_runtime(0); 
+	@set_magic_quotes_runtime(0); 
 
 	if (get_magic_quotes_gpc())
 	{
