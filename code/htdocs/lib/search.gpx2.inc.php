@@ -27,6 +27,17 @@
 
 	require_once('./config2/childwp.inc.php');
 
+function getCacheNote($userid, $cacheid)
+{
+  $cacheNoteHandler = new CacheNote_Handler();
+  $cacheNote = $cacheNoteHandler->getCacheNote($userid, $cacheid);
+
+  if (isset($cacheNote['note']) || isset($cacheNote['latitude']) || isset($cacheNote['longitude']))
+    return $cacheNote;
+
+  return null;
+}
+
 	global $content, $bUseZip, $sqldebug;
 
 	$gpxHead = 
@@ -358,9 +369,26 @@ $gpxWaypoints = '
 		}
 
 		$logentries = '';
+		$cache_note = false;
 
 		if ($user_id != 0)
 		{
+			$cacheNote = getCacheNote($user_id, $r['cacheid']);
+
+			if ($cacheNote)
+			{
+				$thislog = $gpxLog;
+				
+				$thislog = mb_ereg_replace('{id}', $r['cacheid'], $thislog);
+				$thislog = mb_ereg_replace('{date}', date($gpxTimeFormat), $thislog);
+				$thislog = mb_ereg_replace('{userid}', xmlentities($user_id), $thislog);
+				$thislog = mb_ereg_replace('{username}', xmlentities('Cache note'), $thislog);
+				$thislog = mb_ereg_replace('{type}', $gpxLogType[3], $thislog);
+				$thislog = mb_ereg_replace('{text}', xmlentities($cacheNote['note']), $thislog);
+
+				$logentries .= $thislog . "\n";
+			}
+
 			// my logs
 			$rsLogs = sql_slave("SELECT `cache_logs`.`id`, `cache_logs`.`type`, `cache_logs`.`date`, `cache_logs`.`text`, `user`.`username`, `user`.`user_id` FROM `cache_logs`, `user` WHERE `cache_logs`.`user_id`=`user`.`user_id` AND `cache_logs`.`cache_id`=&1 AND `user`.`user_id`=&2 ORDER BY `cache_logs`.`date` DESC", $r['cacheid'], $user_id);
 			while ($rLog = sql_fetch_array($rsLogs))
@@ -431,6 +459,27 @@ $gpxWaypoints = '
 
 			$waypoints .= $thiswp;
 		}
+
+		if ($cacheNote && (!empty($cacheNote['latitude']) || !empty($cacheNote['longitude'])))
+		{
+			$thiswp = $gpxWaypoints;
+			$lat = sprintf('%01.5f', $cacheNote['latitude']);
+			$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
+			$lon = sprintf('%01.5f', $cacheNote['longitude']);
+			$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
+			$thiswp = str_replace('{name}', 'NOTE'.substr($r['waypoint'], 2) , $thiswp);
+			$thiswp = str_replace('{waypoint}', $cacheNote['id'], $thiswp);
+			$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
+			$thiswp = str_replace('{time}', $time, $thiswp);
+			$thiswp = str_replace('{wp_type_name}', 'note', $thiswp);
+			$thiswp = str_replace('{wp_stage}','note', $thiswp);
+			$thiswp = str_replace('{desc}', xmlentities($cacheNote['note']), $thiswp);
+			$thiswp = str_replace('{wp_type}', "Flag, Red", $thiswp);
+			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
+
+			$waypoints .= $thiswp;
+		}
+
 		$thisline = str_replace('{cache_waypoints}', $waypoints, $thisline);
 
 		append_output($thisline);
