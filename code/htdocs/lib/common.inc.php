@@ -29,6 +29,12 @@
 
  ****************************************************************************/
 
+function __autoload($class_name)
+{
+  $class_name = str_replace('_', '/', $class_name);
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/../lib/classes/' . $class_name . '.php';
+}
+
 	// we are in HTML-mode ... maybe plain (for CLI scripts)
 	global $interface_output, $bScriptExecution;
 	$interface_output = 'html';

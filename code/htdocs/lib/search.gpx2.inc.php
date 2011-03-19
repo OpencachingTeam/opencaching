@@ -25,6 +25,19 @@
 		
 	****************************************************************************/
 
+	require_once('./config2/childwp.inc.php');
+
+function getCacheNote($userid, $cacheid)
+{
+  $cacheNoteHandler = new CacheNote_Handler();
+  $cacheNote = $cacheNoteHandler->getCacheNote($userid, $cacheid);
+
+  if (isset($cacheNote['note']) || isset($cacheNote['latitude']) || isset($cacheNote['longitude']))
+    return $cacheNote;
+
+  return null;
+}
+
 	global $content, $bUseZip, $sqldebug;
 
 	$gpxHead = 
@@ -34,7 +47,7 @@
      xmlns="http://www.topografix.com/GPX/1/0"
      version="1.0"
      creator="www.opencaching.de">
-  <desc>Geocache</desc>
+  <desc>Geocache (HasChildren)</desc>
   <author>www.opencaching.de</author>
   <url>http://www.opencaching.de</url>
   <urlname>www.opencaching.de</urlname>
@@ -73,6 +86,7 @@
 			</cache>
 		</extensions>
 	</wpt>
+	{cache_waypoints}
 ';
 
 	$gpxLog = '
@@ -82,6 +96,24 @@
 	<type>{type}</type>
 	<text>{text}</text>
 </log>
+';
+
+// 	<name><![CDATA[{waypoint} {wp_stage}]]></name>
+
+$gpxWaypoints = '
+<wpt lat="{wp_lat}" lon="{wp_lon}">
+	<time>{time}</time>
+	<name>{name}</name>
+	<cmt>{wp_type_name} {desc}</cmt>
+	<desc>{desc}</desc>
+	<url>http://www.opencaching.de/viewcache.php?cacheid={cacheid}</url>
+	<urlname><![CDATA[{waypoint} {wp_stage}]]></urlname>
+	<sym>{wp_type}</sym>
+	<type>Waypoint|{wp_type}</type>
+	<gsak:wptExtension xmlns:gsak="http://www.gsak.net/xmlv1/4">
+		<gsak:Parent>{parent}</gsak:Parent>
+	</gsak:wptExtension>
+</wpt>
 ';
 
 	$gpxFoot = '</gpx>';
@@ -337,9 +369,26 @@
 		}
 
 		$logentries = '';
+		$cache_note = false;
 
 		if ($user_id != 0)
 		{
+			$cacheNote = getCacheNote($user_id, $r['cacheid']);
+
+			if ($cacheNote)
+			{
+				$thislog = $gpxLog;
+				
+				$thislog = mb_ereg_replace('{id}', $r['cacheid'], $thislog);
+				$thislog = mb_ereg_replace('{date}', date($gpxTimeFormat), $thislog);
+				$thislog = mb_ereg_replace('{userid}', xmlentities($user_id), $thislog);
+				$thislog = mb_ereg_replace('{username}', xmlentities('Cache note'), $thislog);
+				$thislog = mb_ereg_replace('{type}', $gpxLogType[3], $thislog);
+				$thislog = mb_ereg_replace('{text}', xmlentities($cacheNote['note']), $thislog);
+
+				$logentries .= $thislog . "\n";
+			}
+
 			// my logs
 			$rsLogs = sql_slave("SELECT `cache_logs`.`id`, `cache_logs`.`type`, `cache_logs`.`date`, `cache_logs`.`text`, `user`.`username`, `user`.`user_id` FROM `cache_logs`, `user` WHERE `cache_logs`.`user_id`=`user`.`user_id` AND `cache_logs`.`cache_id`=&1 AND `user`.`user_id`=&2 ORDER BY `cache_logs`.`date` DESC", $r['cacheid'], $user_id);
 			while ($rLog = sql_fetch_array($rsLogs))
@@ -385,6 +434,53 @@
 			$logentries .= $thislog . "\n";
 		}
 		$thisline = mb_ereg_replace('{logs}', $logentries, $thisline);
+
+		$waypoints = '';
+		$wphandler = new ChildWp_Handler();
+		$childWaypoints = $wphandler->getChildWps($r['cacheid']);
+
+		foreach ($childWaypoints as $childWaypoint)
+		{
+			$thiswp = $gpxWaypoints;
+			$lat = sprintf('%01.5f', $childWaypoint['latitude']);
+			$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
+			$lon = sprintf('%01.5f', $childWaypoint['longitude']);
+			$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
+			$thiswp = str_replace('{name}', 'W'.$childWaypoint['childid'].substr($r['waypoint'], 2) , $thiswp);
+			$thiswp = str_replace('{waypoint}', $childWaypoint['childid'], $thiswp);
+			$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
+			$thiswp = str_replace('{time}', $time, $thiswp);
+			$thiswp = str_replace('{wp_type_name}', $childWaypoint['name'], $thiswp);
+			$thiswp = str_replace('{wp_stage}',$childWaypoint['name'], $thiswp);
+			$thiswp = str_replace('{desc}', xmlentities($childWaypoint['description']), $thiswp);
+			if ($childWaypoint['type']==1){$thiswp = str_replace('{wp_type}', "Parking Area", $thiswp);}
+			if ($childWaypoint['type']==2){$thiswp = str_replace('{wp_type}', "Flag, Green", $thiswp);}
+			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
+
+			$waypoints .= $thiswp;
+		}
+
+		if ($cacheNote && (!empty($cacheNote['latitude']) || !empty($cacheNote['longitude'])))
+		{
+			$thiswp = $gpxWaypoints;
+			$lat = sprintf('%01.5f', $cacheNote['latitude']);
+			$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
+			$lon = sprintf('%01.5f', $cacheNote['longitude']);
+			$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
+			$thiswp = str_replace('{name}', 'NOTE'.substr($r['waypoint'], 2) , $thiswp);
+			$thiswp = str_replace('{waypoint}', $cacheNote['id'], $thiswp);
+			$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
+			$thiswp = str_replace('{time}', $time, $thiswp);
+			$thiswp = str_replace('{wp_type_name}', 'note', $thiswp);
+			$thiswp = str_replace('{wp_stage}','note', $thiswp);
+			$thiswp = str_replace('{desc}', xmlentities($cacheNote['note']), $thiswp);
+			$thiswp = str_replace('{wp_type}', "Flag, Red", $thiswp);
+			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
+
+			$waypoints .= $thiswp;
+		}
+
+		$thisline = str_replace('{cache_waypoints}', $waypoints, $thisline);
 
 		append_output($thisline);
 	}

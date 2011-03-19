@@ -20,6 +20,7 @@
 
 	require('./lib2/web.inc.php');
 	require_once('./lib2/translate.class.php');
+	require_once('./lib2/translationHandler.class.php');
 	require_once('./lib2/translate_filescan.class.php');
 	require_once('./lib2/translateAccess.php');
 
@@ -231,7 +232,7 @@ function edit()
 
 function clearCache()
 {
-	global $tpl, $translang, $translate;
+	global $tpl, $translang, $translationHandler;
 
 	unlinkFiles('cache2', 'php');
 
@@ -241,7 +242,7 @@ function clearCache()
 	unlinkFiles('cache2/captcha', 'jpg');
 	unlinkFiles('cache2/captcha', 'txt');
 
-	$translate->createMessageFiles();
+	$translationHandler->createMessageFiles();
 
 	$tpl->redirect('translate.php?translang=' . $translang);
 }
@@ -435,30 +436,30 @@ function scan()
 
 function scanStart()
 {
-	global $translate;
+	global $translationHandler;
 
-	$translate->clearReferences();
+	$translationHandler->clearReferences();
 
-	$translate->importFromTable('countries', 'name', 'trans_id');
-	$translate->importFromTable('languages', 'name', 'trans_id');
-	$translate->importFromTable('cache_size', 'name', 'trans_id');
-	$translate->importFromTable('cache_status', 'name', 'trans_id');
-	$translate->importFromTable('cache_type', 'name', 'trans_id');
-	$translate->importFromTable('log_types', 'name', 'trans_id');
-	$translate->importFromTable('sys_menu', 'title', 'title_trans_id');
-	$translate->importFromTable('sys_menu', 'menustring', 'menustring_trans_id');
-	$translate->importFromTable('cache_report_status', 'name', 'trans_id');
-	$translate->importFromTable('cache_report_reasons', 'name', 'trans_id');
-	$translate->importFromTable('profile_options', 'name', 'trans_id');
-	$translate->importFromTable('attribute_groups', 'name', 'trans_id');
-	$translate->importFromTable('attribute_categories', 'name', 'trans_id');
-	$translate->importFromTable('cache_attrib', 'name', 'trans_id');
-	$translate->importFromTable('cache_attrib', 'html_desc', 'html_desc_trans_id');
+	$translationHandler->importFromTable('countries', 'name', 'trans_id');
+	$translationHandler->importFromTable('languages', 'name', 'trans_id');
+	$translationHandler->importFromTable('cache_size', 'name', 'trans_id');
+	$translationHandler->importFromTable('cache_status', 'name', 'trans_id');
+	$translationHandler->importFromTable('cache_type', 'name', 'trans_id');
+	$translationHandler->importFromTable('log_types', 'name', 'trans_id');
+	$translationHandler->importFromTable('sys_menu', 'title', 'title_trans_id');
+	$translationHandler->importFromTable('sys_menu', 'menustring', 'menustring_trans_id');
+	$translationHandler->importFromTable('cache_report_status', 'name', 'trans_id');
+	$translationHandler->importFromTable('cache_report_reasons', 'name', 'trans_id');
+	$translationHandler->importFromTable('profile_options', 'name', 'trans_id');
+	$translationHandler->importFromTable('attribute_groups', 'name', 'trans_id');
+	$translationHandler->importFromTable('attribute_categories', 'name', 'trans_id');
+	$translationHandler->importFromTable('cache_attrib', 'name', 'trans_id');
+	$translationHandler->importFromTable('cache_attrib', 'html_desc', 'html_desc_trans_id');
 }
 
 function scanFile($filename)
 {
-	global $msDirlist, $translate;
+	global $msDirlist, $translationHandler;
 
 	/* check if supplied filename is within allowed path!
 	 */
@@ -492,7 +493,7 @@ function scanFile($filename)
 
 	foreach ($transFileScan->textlist AS $item)
 	{
-		$translate->addText($item['text'], $filename, $item['line']);
+		$translationHandler->addText($item['text'], $filename, $item['line']);
 	}
 
 	exit;

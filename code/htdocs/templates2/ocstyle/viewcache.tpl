@@ -283,6 +283,44 @@
 </div>
 <!-- End Beschreibung -->
 
+{if $enableCacheNote}
+	<div class="content2-container bg-blue02">
+		<p class="content-title-noshade-size2">
+			<img src="resource2/{$opt.template.style}/images/description/20x20-cache-note.png" style="align: left; margin-right: 10px;" alt="{t}Personal cache note{/t}" /> 
+			{t}Personal cache note{/t}
+		</p>
+	</div>
+
+	<div class="content2-container">
+		<form action="viewcache.php" method="post" name="cache_note">
+			{include file='cache_note.tpl'}
+		</form>
+	</div>
+{/if}
+
+{if count($childWaypoints)>0}
+	<div class="content2-container bg-blue02">
+		<p class="content-title-noshade-size2">
+			<img src="resource2/{$opt.template.style}/images/description/20x20-compass.png" style="align: left; margin-right: 10px;" alt="{t}Additional waypoints{/t}" /> 
+			{t}Additional waypoints{/t}
+		</p>
+	</div>
+
+	<div class="content2-container" style="margin-left:10px;">
+		<table style="font-size: 120%" bgcolor="#dddddd" width="95%" cellpadding="5%">
+		{foreach from=$childWaypoints item=childWaypoint}
+			<tr bgcolor="{cycle values="#ffffff,#eeeeee"}">
+				<td width="25%"><img src="{$childWaypoint.image}" />{$childWaypoint.name|escape}</td>
+				<td width="20%">{$childWaypoint.coordinateHtml}</td>
+				<td>{$childWaypoint.description|escape}</td>
+			</tr>
+		{/foreach}
+		</table>
+		<img src="resource2/{$opt.template.style}/images/viewcache/16x16-info.png" class="icon16" alt="Info" />
+		{t}Additional waypoints can make searching easier, for example by pointing to a suitable parkering or start of a path. The waypoints are downloaded in the GPX-file.{/t}
+	</div>
+{/if}
+
 <!-- Hints -->
 {if $cache.hint!=''}
 	<div class="content2-container bg-blue02">

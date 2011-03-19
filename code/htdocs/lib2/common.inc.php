@@ -10,6 +10,12 @@
  *  TODO: accept-language des Browser auswerten
  ***************************************************************************/
 
+function __autoload($class_name)
+{
+  $class_name = str_replace('_', '/', $class_name);
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/../lib/classes/' . $class_name . '.php';
+}
+
 	// yepp, we will use UTF-8
 	mb_internal_encoding('UTF-8');
 	mb_regex_encoding('UTF-8');

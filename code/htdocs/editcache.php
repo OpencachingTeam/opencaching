@@ -33,6 +33,42 @@
 	require_once('./lib/common.inc.php');
 	require_once('./lib2/logic/const.inc.php');
 
+function getWaypoints($cacheid)
+{
+  global $waypointline;
+  global $waypointlines;
+  global $nowaypoints;
+
+  $wphandler = new ChildWp_Handler();
+  $waypoints = $wphandler->getChildWps($cacheid);
+
+  if (!empty($waypoints))
+  {
+    $formatter = new Coordinate_Formatter();
+
+    foreach ($waypoints as $waypoint)
+    {
+      $tmpline = $waypointline;
+
+      $tmpline = mb_ereg_replace('{wp_image}', htmlspecialchars($waypoint['image'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{wp_type}', htmlspecialchars($waypoint['name'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $htmlcoordinate = $formatter->formatHtml($waypoint['coordinate'], '</td></tr><tr><td>');
+      $tmpline = mb_ereg_replace('{wp_coordinate}', $htmlcoordinate, $tmpline);
+      $tmpline = mb_ereg_replace('{wp_description}', htmlspecialchars($waypoint['description'], ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{cacheid}', htmlspecialchars($cacheid, ENT_COMPAT, 'UTF-8'), $tmpline);
+      $tmpline = mb_ereg_replace('{childid}', htmlspecialchars($waypoint['childid'], ENT_COMPAT, 'UTF-8'), $tmpline);
+
+      $ret .= $tmpline;
+    }
+
+    $ret = mb_ereg_replace('{lines}', $ret, $waypointlines);
+
+    return  $ret;
+  }
+
+  return $nowaypoints;
+}
+
 	//Preprocessing
 	if ($error == false)
 	{
@@ -772,6 +808,8 @@
 					else
 						tpl_set_var('pictures', $nopictures);
 
+					tpl_set_var('waypoints', getWaypoints($cache_id));
+
 					if ($cache_record['type'] == 11 )
 					{
 						$mp3files = '';
@@ -872,4 +910,5 @@
 
 	//make the template and send it out
 	tpl_BuildTemplate();
+
 ?>
