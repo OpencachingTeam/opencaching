@@ -15,6 +15,20 @@ delete from cache_watches;
 delete from cache_logs;
 */
 
+DROP TRIGGER cacheAttributesAfterInsert;
+DROP TRIGGER cacheAttributesAfterUpdate;
+DROP TRIGGER cacheAttributesAfterDelete;
+
+DROP TRIGGER cacheVisitsBeforeInsert;
+DROP TRIGGER cacheVisitsBeforeUpdate;
+DROP TRIGGER cacheLogsAfterInsert;
+
+DROP PROCEDURE sp_notify_new_cache;
+
+CREATE PROCEDURE sp_notify_new_cache (IN nCacheId INT(10) UNSIGNED, IN nLongitude DOUBLE, IN nLatitude DOUBLE)
+BEGIN
+END;
+
 INSERT INTO `caches` (
   `cache_id`,
   `uuid`,
@@ -162,6 +176,10 @@ select
 `last_executed`
 from ocpl.cache_watches;
 
+/*
+automatic archived logs does not have a valid uuid
+if(`uuid`=-1,upper(uuid()),`uuid`),
+*/
 INSERT INTO `cache_logs` (
 `id`,
 `uuid`,
@@ -179,7 +197,7 @@ INSERT INTO `cache_logs` (
 `picture`) 
 select
 `id`,
-`uuid`,
+if(`uuid`=-1,upper(uuid()),`uuid`),
 `node`,
 `date_created`,
 `last_modified`,

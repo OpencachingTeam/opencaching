@@ -175,6 +175,10 @@ from
 ocpl.user
 where user_id>=0;
 
+/* This trigger destroys date so drop it. */
+
+DROP TRIGGER emailUserBeforeInsert;
+
 INSERT INTO `email_user` (
 	`id`,
 	`date_created`,
