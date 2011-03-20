@@ -5,7 +5,7 @@
  *  Unicode Reminder メモ
  ***************************************************************************/
 
-require_once('./lib2/translateAccess.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib2/translateAccess.php');
 
 function createTranslate()
 {
