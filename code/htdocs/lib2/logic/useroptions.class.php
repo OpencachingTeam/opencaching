@@ -9,7 +9,6 @@
  ***************************************************************************/
 global $opt;
 
-require_once($opt['rootpath'] . 'lib2/logic/class.inputfilter.php');
 require_once($opt['rootpath'] . '../lib/htmlpurifier-4.2.0/library/HTMLPurifier.auto.php');
 
 class useroptions
