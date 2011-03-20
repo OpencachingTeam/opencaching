@@ -188,8 +188,8 @@
 
 	if ($nDescMode == 3)
 	{
-		$tpl->add_header_javascript('lib/tinymce/tiny_mce_gzip.php');
-		$tpl->add_header_javascript('lib/tinymce/config/log.js.php?logid=0');
+		$tpl->add_header_javascript('resource2/tinymce/tiny_mce_gzip.js');
+		$tpl->add_header_javascript('resource2/tinymce/config/log.js.php?logid=0&lang=' . strtolower($opt['template']['locale']));
 	}
 	else
 	{
