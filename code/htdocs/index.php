@@ -20,6 +20,8 @@
 	if (!$tpl->is_cached())
 	{
 		// news entries
+		$tpl->assign('news_onstart', $opt['news']['onstart'] );
+
 		if ($opt['news']['include'] == '')
 		{
 			$news = array();

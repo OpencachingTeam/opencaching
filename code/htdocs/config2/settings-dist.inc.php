@@ -361,6 +361,9 @@
  	// E-Mail for notification about news (newstopic.php)
  	$opt['news']['mail'] = 'news@devel.opencaching.de';
 
+	// show news block in start page
+	$opt['news']['onstart'] = true;
+
  	/* 3rd party library options
  	 */
 

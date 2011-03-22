@@ -14,6 +14,7 @@
 	</div> 
 </div>
 
+{if $news_onstart}
 {* news or blog *}
 <div class="content2-container bg-blue02">
 	<p class="content-title-noshade-size3">
@@ -38,6 +39,7 @@
 	</table>
 {else}
 	{$news}
+{/if}
 {/if}
 
 {* next events *}
