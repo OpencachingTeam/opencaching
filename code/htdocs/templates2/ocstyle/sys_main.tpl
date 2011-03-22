@@ -90,7 +90,7 @@
 					<div class="nav1" style="text-align: right;">
 						{nocache}
 							{if ($login.userid==0)}
-								<b><form action="login.php" method="post" enctype="application/x-www-form-urlencoded" name="login" dir="ltr" style="display: inline;">{t}User{/t}:&nbsp;<input name="email" size="10" type="text" class="textboxes" value="" />&nbsp;{t}Password{/t}:&nbsp;<input name="password" size="10" type="password" class="textboxes" value="" />&nbsp;<input type="hidden" name="action" value="login" /><input type="hidden" name="target" value="{$opt.page.target|escape}" /><input name="LogMeIn" value="{t}Login{/t}" class="formbuttons" style="width: 60px;" type="submit"></form></b>	
+								<b><form action="login.php" method="post" enctype="application/x-www-form-urlencoded" name="login" dir="ltr" style="display: inline;">{t}User{/t}:&nbsp;<input name="email" size="10" type="text" class="textboxes" value="" />&nbsp;{t}Password{/t}:&nbsp;<input name="password" size="10" type="password" class="textboxes" value="" />&nbsp;<input type="hidden" name="action" value="login" /><input type="hidden" name="target" value="{$opt.page.target|escape}" /><input name="LogMeIn" value="{t}Login{/t}" class="formbuttons" style="width: 60px;" type="submit"></form></b>&nbsp;<b><a href="register.php">{t}Register{/t}</a></b>
 							{else}
 								<b>{t}Logged in as{/t}:</b> <a href="myhome.php">{$login.username|escape}</a> - <a href="login.php?action=logout">{t}Logout{/t}</a>&nbsp;
 							{/if}
