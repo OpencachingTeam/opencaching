@@ -190,10 +190,18 @@
 <?php 
 						mnu_EchoMainMenu($menu[$pageidx]['siteid']);
 ?>
+<?php
+if ($oc_nodeid==7)
+echo '<!--'
+?>
 <li><a href="http://blog.geocaching.de/" target="_blank">Teamblog</a></li>
 <li><a href="http://www.geoclub.de/viewforum.php?f=52" target="_blank">Forum</a></li>
 <li><a href="http://webchat.freenode.net/?nick=Gast&channels=opencaching.de&prompt=1" target="_blank">Chat/IRC</a></li>
 <li><a href="http://geokrety.org/index.php?lang=de_DE.UTF-8" target="_blank">Geokrety</a></li>
+<?php
+if ($oc_nodeid==7)
+echo '-->'
+?>
 					</ul>
 				</div>
 				<!-- Buffer after header -->
