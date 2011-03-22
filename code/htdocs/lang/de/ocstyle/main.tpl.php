@@ -39,7 +39,7 @@
 	//Menü laden
 	global $mnu_bgcolor, $mnu_selmenuitem, $develwarning, $tpl_subtitle, $opt, $rootpath;
 
-	require_once($stylepath . '/lib/menu.php');
+	require_once($stylepath . '/lib/menu-node-'.$oc_nodeid.'.php');
 	require_once($rootpath . 'lib2/smarty/ocplugins/function.season.php');
 
 	$sUserCountry = getUserCountry();
