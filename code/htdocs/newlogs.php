@@ -19,7 +19,12 @@
 		sql_temp_table_slave('loglist');
 		sql_slave("CREATE TEMPORARY TABLE &loglist (`id` INT(11) PRIMARY KEY) SELECT `cache_logs`.`id` FROM `cache_logs` INNER JOIN `caches` ON `cache_logs`.`cache_id`=`caches`.`cache_id` INNER JOIN `cache_status` ON `caches`.`status`=`cache_status`.`id` WHERE `cache_status`.`allow_user_view`=1 ORDER BY `cache_logs`.`date_created` DESC LIMIT 200");
 
-		$rsLogs = sql_slave("SELECT `countries`.`de` AS `country_name`, `cache_logs`.`id`, `cache_logs`.`date_created`, `caches`.`name` AS `cachename`, `caches`.`wp_oc`, `cache_logs`.`type`, `cacheloguser`.`user_id`, `cacheloguser`.`username` FROM &loglist INNER JOIN `cache_logs` ON &loglist.`id`=`cache_logs`.`id` INNER JOIN `caches` ON `cache_logs`.`cache_id`=`caches`.`cache_id` INNER JOIN `user` AS `cacheloguser` ON `cache_logs`.`user_id`=`cacheloguser`.`user_id` INNER JOIN `countries` ON `caches`.`country`=`countries`.`short` ORDER BY `countries`.`de` ASC, `cache_logs`.`date_created` DESC");
+		if ($opt['logic']['new_logs_per_country'])
+			$sqlOrderBy = '`countries`.`de` ASC, ';
+		else
+			$sqlOrderBy = '';
+		
+		$rsLogs = sql_slave("SELECT `countries`.`de` AS `country_name`, `cache_logs`.`id`, `cache_logs`.`date_created`, `caches`.`name` AS `cachename`, `caches`.`wp_oc`, `cache_logs`.`type`, `cacheloguser`.`user_id`, `cacheloguser`.`username` FROM &loglist INNER JOIN `cache_logs` ON &loglist.`id`=`cache_logs`.`id` INNER JOIN `caches` ON `cache_logs`.`cache_id`=`caches`.`cache_id` INNER JOIN `user` AS `cacheloguser` ON `cache_logs`.`user_id`=`cacheloguser`.`user_id` INNER JOIN `countries` ON `caches`.`country`=`countries`.`short` ORDER BY ".$sqlOrderBy."`cache_logs`.`date_created` DESC");
 		while ($rLog = sql_fetch_assoc($rsLogs))
 		{
 			$newLogs[] = $rLog;
@@ -29,6 +34,8 @@
 		sql_drop_temp_table_slave('loglist');
 
 		$tpl->assign('newLogs', $newLogs);
+
+		$tpl->assign('newLogsPerCountry', $opt['logic']['new_logs_per_country']);
 	}
 
 	$tpl->display();
