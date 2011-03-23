@@ -13,9 +13,11 @@
 	{assign var='lastCountry' value=''}
 
 	{foreach name=newLogs from=$newLogs item=newLog}
-		{if $newLog.country_name!=$lastCountry}
-			<tr><td class="spacer"></td></tr>
-			<tr><td><b>{$newLog.country_name|escape}</b></td><tr>
+		{if $newLogsPerCountry}
+			{if $newLog.country_name!=$lastCountry}
+				<tr><td class="spacer"></td></tr>
+				<tr><td><b>{$newLog.country_name|escape}</b></td><tr>
+			{/if}
 		{/if}
 		<tr>
 			<td>

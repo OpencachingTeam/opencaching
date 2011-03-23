@@ -281,6 +281,10 @@
 	 */
   $opt['logic']['enableHTMLInUserDescription'] = true;
 
+	/* new lows style
+	 */
+	$opt['logic']['new_logs_per_country'] = true;
+
 	/* Database charset
 	 *   frontend and php charsets are UTF-8
 	 *   here you can set a different charset for the MySQL-Engine
