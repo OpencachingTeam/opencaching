@@ -425,9 +425,11 @@
 				$rs = sql("SELECT `countries`.`short`, IFNULL(`sys_trans_text`.`text`, `countries`.`name`) AS `name` FROM `countries` LEFT JOIN `sys_trans` ON `countries`.`trans_id`=`sys_trans`.`id` LEFT JOIN `sys_trans_text` ON `sys_trans`.`id`=`sys_trans_text`.`trans_id` AND `sys_trans_text`.`lang`='&1' ORDER BY `name` ASC", $locale);
 			}
 
+			// $opt['locale'][$locale]['country'] would give country of chosen langugage
+			$sUserCountry = getUserCountry(); // gives country selected at top right corner
 			while ($record = sql_fetch_array($rs))
 			{
-				$sSelected = ($record['short'] == $sel_country) ? ' selected="selected"' : '';
+				$sSelected = ($record['short'] == $sUserCountry) ? ' selected="selected"' : '';
 				$countriesoptions .= '<option value="' . htmlspecialchars($record['short'], ENT_COMPAT, 'UTF-8') . '"' . $sSelected . '>' . htmlspecialchars($record['name'], ENT_COMPAT, 'UTF-8') . '</option>' . "\n";
 			}
 			sql_free_result($rs);
