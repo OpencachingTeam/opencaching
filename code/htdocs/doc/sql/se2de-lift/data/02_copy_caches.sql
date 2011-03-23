@@ -29,6 +29,44 @@ CREATE PROCEDURE sp_notify_new_cache (IN nCacheId INT(10) UNSIGNED, IN nLongitud
 BEGIN
 END;
 
+/* map
+pl-type de-type description
+1       1       Other
+2       2       Trad
+3       3       Multi
+4       4       Virt
+5       5       Webcam
+6       6       Event
+7       7       Quiz
+        8       Math/Physics-Cache
+8       9       Moving
+        10      Drive-In
+9       11      Podcast
+10      12      Educache
+11      13      Challenge
+12      14      Guestbook
+*/
+
+create temporary table type_conversion (
+  pltype tinyint(3) unsigned NOT NULL,
+  detype tinyint(3) unsigned NOT NULL );
+
+insert into type_conversion ( pltype, detype ) values ( 1, 1 );
+insert into type_conversion ( pltype, detype ) values ( 2, 2 );
+insert into type_conversion ( pltype, detype ) values ( 3, 3 );
+insert into type_conversion ( pltype, detype ) values ( 4, 4 );
+insert into type_conversion ( pltype, detype ) values ( 5, 5 );
+insert into type_conversion ( pltype, detype ) values ( 6, 6 );
+insert into type_conversion ( pltype, detype ) values ( 7, 7 );
+insert into type_conversion ( pltype, detype ) values ( 8, 9 );
+insert into type_conversion ( pltype, detype ) values ( 9, 11 );
+insert into type_conversion ( pltype, detype ) values ( 10, 12 );
+insert into type_conversion ( pltype, detype ) values ( 11, 13 );
+insert into type_conversion ( pltype, detype ) values ( 12, 14 );
+
+(select detype from type_conversion where pltype = `type`) as `type`
+*/
+
 INSERT INTO `caches` (
   `cache_id`,
   `uuid`,
@@ -66,7 +104,7 @@ INSERT INTO `caches` (
   `name`,
   `longitude`,
   `latitude`,
-  `type`,
+  (select detype from type_conversion where pltype = `type`) as `type`,
   `status`,
   `country`,
   `date_hidden`,
@@ -99,6 +137,8 @@ INSERT INTO `caches` (
 --  `solved`
 --  `not_solved`
   from ocpl.caches;
+
+DROP TEMPORARY TABLE IF EXISTS type_conversion;
 
 insert into `cache_desc` (
   `id`,
@@ -210,9 +250,42 @@ if(`uuid`=-1,upper(uuid()),`uuid`),
 `text_htmledit`,
 `owner_notified`,
 `picturescount` as `picture`
--- `deleted`
 -- `mp3count`
--- `hidden`
-from ocpl.cache_logs;
+from ocpl.cache_logs
+where `deleted` = 0 and `hidden` = 0;
+
+INSERT INTO `cache_logs_archived` (
+`id`,
+`uuid`,
+`node`,
+`date_created`,
+`last_modified`,
+`cache_id`,
+`user_id`,
+`type`,
+`date`,
+`text`,
+`text_html`,
+`text_htmledit`,
+`owner_notified`,
+`picture`) 
+select
+`id`,
+if(`uuid`=-1,upper(uuid()),`uuid`),
+`node`,
+`date_created`,
+`last_modified`,
+`cache_id`,
+`user_id`,
+`type`,
+`date`,
+`text`,
+`text_html`,
+`text_htmledit`,
+`owner_notified`,
+`picturescount` as `picture`
+-- `mp3count`
+from ocpl.cache_logs
+where `deleted` = 1 or `hidden` = 1;
 
 set @XMLSYNC=0;

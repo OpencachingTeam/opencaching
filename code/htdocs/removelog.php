@@ -128,6 +128,9 @@
 
 					if ($commit == 1)
 					{
+						// move to archive
+						sql("INSERT INTO `cache_logs_archived` SELECT * FROM `cache_logs` WHERE `cache_logs`.`id`='&1' LIMIT 1", $log_id);
+
 						//log entfernen
 						sql("DELETE FROM `cache_logs` WHERE `cache_logs`.`id`='&1' LIMIT 1", $log_id);
 
