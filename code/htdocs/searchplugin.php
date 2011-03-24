@@ -84,7 +84,12 @@
 					{
 						$target = 'nc';
 					}
-					if ((($target == 'oc') || ($target == 'nc') || ($target == 'gc')) && mb_ereg_match('((oc|gc)([a-z0-9]){4,5}|n([a-f0-9]){5,5})$', mb_strtolower($searchfor)))
+					if (mb_strpos($opt['logic']['ocprefixes'], $target) != false)
+					{
+						$target = 'oc';
+					}
+					
+					if ((($target == 'oc') || ($target == 'nc') || ($target == 'gc')) && mb_ereg_match('(('.$opt['logic']['ocprefixes'].'|gc)([a-z0-9]){4,5}|n([a-f0-9]){5,5})$', mb_strtolower($searchfor)))
 					{
 						// get cache_id from DB
 						$rs = sql("SELECT `cache_id` FROM `caches` INNER JOIN `cache_status` ON `caches`.`status`=`cache_status`.`id` WHERE (`cache_status`.`allow_user_view`=1 OR `caches`.`user_id`='&1') AND `wp_" . sql_escape($target) . "`='&2'", $login->userid, $searchfor);

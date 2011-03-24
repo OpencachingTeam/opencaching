@@ -285,6 +285,10 @@
 	 */
 	$opt['logic']['new_logs_per_country'] = true;
 
+	/* opencaching prefixes in database available to search for
+	 */
+	$opt['logic']['ocprefixes'] = 'oc';
+
 	/* Database charset
 	 *   frontend and php charsets are UTF-8
 	 *   here you can set a different charset for the MySQL-Engine
