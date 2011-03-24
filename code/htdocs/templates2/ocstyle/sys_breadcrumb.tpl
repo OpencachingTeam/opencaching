@@ -7,6 +7,6 @@
 {strip}
 	{foreach name=breadcrumb from=$breadcrumb item=menuitem}
 		{if !$smarty.foreach.breadcrumb.first}&nbsp;&gt;&nbsp;{/if}
-		{$menuitem.menustring|escape}
+		<a href="{$menuitem.href}">{$menuitem.menustring|escape}</a>
 	{/foreach}
 {/strip}
