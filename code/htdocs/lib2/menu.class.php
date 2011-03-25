@@ -223,7 +223,7 @@ class Menu
 			{
 				if (($menuitem[$item]['authlevel'] == AUTH_LEVEL_ALL || $menuitem[$item]['authlevel'] == AUTH_LEVEL_USER && $login->userid || $login->admin) && $menuitem[$item]['visible'] == true)
 				{
-					if (empty($menuitem[$item]['only_if_parent']) || isset($menuIds[$menuitem[$item]['only_if_parent']]))
+					if (empty($menuitem[$item]['only_if_parent']) || $menuitem[$item]['only_if_parent'] && isset($menuIds[$menuitem[$item]['parent']]))
 					{
 						$thisitem = $menuitem[$item];
 						$thisitem['selected'] = isset($ids[$item]);

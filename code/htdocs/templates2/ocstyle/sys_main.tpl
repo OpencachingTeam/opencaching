@@ -202,9 +202,9 @@
 					<li class="title">{t}Main menu{/t}</li>
 					{nocache}
 						{include file="sys_submenu.tpl" items="$mainmenu"}
+						{if $my_menu}
 						</ul>
 						<ul>
-						{if $my_menu}
 							<li class="title">{t}My menu{/t}</li>
 							{include file="sys_submenu.tpl" items="$my_menu"}
 						{/if}
