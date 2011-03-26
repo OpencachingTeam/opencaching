@@ -20,6 +20,9 @@
 		<link rel="SHORTCUT ICON" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" media="screen,projection" href="resource2/{$opt.template.style}/css/style_screen.css">
 		<link rel="stylesheet" type="text/css" media="print" href="resource2/{$opt.template.style}/css/style_print.css">
+		{foreach from=$feeds item=feed}
+			<link rel="alternate" title="{$feed.title}" href="{$feed.link}" type="application/rss+xml">
+		{/foreach}
 		{literal}
 			<script type="text/javascript">
 			<!--

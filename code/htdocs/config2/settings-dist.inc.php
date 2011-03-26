@@ -420,4 +420,7 @@
 	$opt['ocnd']['debugtcp'] = true;
 	// do not check openssl version (version check is available in php 5.2+)
 	$opt['ocnd']['noopensslcheck'] = false;
+
+	$opt['feeds']['New caches'] = 'rss/newcaches.xml';
+	$opt['feeds']['New logs'] = 'rss/newlogs.xml';
 ?>

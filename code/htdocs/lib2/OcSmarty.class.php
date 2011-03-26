@@ -217,6 +217,9 @@ class OcSmarty extends Smarty
 		else
 			$this->assign('sys_cached', false);
 
+		$this->assignFeeds();
+
+
 		if (($opt['debug'] & DEBUG_SQLDEBUGGER) == DEBUG_SQLDEBUGGER)
 		{
 			parent::fetch($this->main_template . '.tpl', $this->get_cache_id(), $this->get_compile_id());
@@ -404,6 +407,21 @@ class OcSmarty extends Smarty
 				return $sDefault;
 
 		return $sTarget;
+	}
+
+	private function assignFeeds()
+	{
+		global $opt;
+		global $translate;
+
+		$feeds = '';
+
+		foreach ($opt['feeds'] as $title => $link)
+		{
+			$feeds[] = array('title' => $translate->t($title, '', 0, 0), 'link' => $link);
+		}
+
+		$this->assign('feeds', $feeds);
 	}
 }
 ?>
