@@ -234,16 +234,24 @@ class Menu2
 	function getBreadCrumbHtml()
 	{
 		$breadCrumb = '';
+		$breadCrumbs = $this->GetBreadcrumb();
+		$count = count($breadCrumbs);
 
-		foreach ($this->GetBreadcrumb() as $menuitem)
+		for ($i = 0; $i < $count; $i++)
 		{
-			if ($breadCrumb)
+			if ($i > 0)
 				$breadCrumb .= '&nbsp;&gt;&nbsp;';
 
-			$breadCrumb .= '<a href="' . $menuitem['href'] . '">' . htmlspecialchars($menuitem['menustring'], ENT_COMPAT, 'UTF-8') . '</a>';
+			if ($i < $count - 1)
+				$breadCrumb .= '<a href="' . $breadCrumbs[$i]['href'] . '">';
+
+			$breadCrumb .= htmlspecialchars($breadCrumbs[$i]['menustring'], ENT_COMPAT, 'UTF-8');
+
+			if ($i < $count - 1)
+				$breadCrumb .='</a>';
 		}
 
-		echo $breadCrumb;
+		return $breadCrumb;
 	}
 }
 ?>
