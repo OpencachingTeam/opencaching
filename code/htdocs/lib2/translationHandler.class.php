@@ -73,6 +73,17 @@ class TranslationHandler
 		return $text;
 	}
 
+	private function prepare_text($text)
+	{
+		$text = mb_ereg_replace("\t", ' ', $text);
+		$text = mb_ereg_replace("\r", ' ', $text);
+		$text = mb_ereg_replace("\n", ' ', $text);
+		while (mb_strpos($text, '  ') !== false)
+			$text = mb_ereg_replace('  ', ' ', $text);
+
+		return $text;
+	}
+
 	/* add text to database
 	 */
 	function addText($text, $resource_name, $line)
