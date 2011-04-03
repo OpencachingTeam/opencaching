@@ -4,7 +4,7 @@ $opt['rootpath'] = $_SERVER['DOCUMENT_ROOT'] . '/';
 require_once('../lib2/web.inc.php');
 
 $translator = new Language_Translator();
-$items = new rss_LogItems();
+$items = new Rss_LogItems();
 $title = $translator->translate('New logs with gpx');
 $atomLink = 'newlogs.xml';
 
