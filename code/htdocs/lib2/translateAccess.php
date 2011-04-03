@@ -1,7 +1,7 @@
 <?php
 
-require_once('./lib2/logic/const.inc.php');
-require_once('./lib2/logic/useroptions.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib2/logic/const.inc.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib2/logic/useroptions.class.php');
 
 class translateAccess
 {
