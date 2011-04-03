@@ -6,7 +6,8 @@
  ***************************************************************************/
 
 	define('AUTH_LEVEL_ALL', 0);
-	define('AUTH_LEVEL_ADMIN', '2');
+	define('AUTH_LEVEL_ADMIN', '1');
+	define('AUTH_LEVEL_USER', '2');
 
 	define('MNU_ROOT', 0);
 
@@ -57,15 +58,16 @@ class Menu
 		sql_free_result($rsSubmenu);
 		fwrite($f, "\n");
 
-		$rs = sqlf('SELECT `item`.`id`, `item`.`title`, `item`.`menustring`, `item`.`access`, `item`.`href`, `item`.`visible`, `item`.`parent` AS `parentid`, `item`.`color` AS `color` FROM `sys_menu` AS `item` LEFT JOIN `sys_menu` AS `parentitem` ON `item`.`parent`=`parentitem`.`id`');
+		$rs = sqlf('SELECT `item`.`id`, `item`.`title`, `item`.`menustring`, `item`.`access`, `item`.`href`, `item`.`visible`, `item`.`parent` AS `parentid`, `item`.`color` AS `color`, `item`.`only_if_parent` FROM `sys_menu` AS `item` LEFT JOIN `sys_menu` AS `parentitem` ON `item`.`parent`=`parentitem`.`id`');
 		while ($r = sql_fetch_assoc($rs))
 		{
 			$aMenu[$r['id']]['title'] = $translate->t($r['title'], '', basename(__FILE__), __LINE__);
 			$aMenu[$r['id']]['menustring'] = $translate->t($r['menustring'], '', basename(__FILE__), __LINE__);
-			$aMenu[$r['id']]['authlevel'] = ($r['access']==0) ? AUTH_LEVEL_ALL : AUTH_LEVEL_ADMIN;
+			$aMenu[$r['id']]['authlevel'] = $r['access'];
 			$aMenu[$r['id']]['href'] = $r['href'];
 			$aMenu[$r['id']]['visible'] = ($r['visible'] == 1) ? true : false;
 			$aMenu[$r['id']]['sublevel'] = $this->pGetMenuSublevel($r['id']);
+			$aMenu[$r['id']]['only_if_parent'] = $r['only_if_parent'];
 
 			if ($r['parentid'] != 0)
 				$aMenu[$r['id']]['parent'] = $r['parentid'];
@@ -159,7 +161,7 @@ class Menu
 		$retval = array();
 		foreach ($menuitem[MNU_ROOT]['subitems'] AS $item)
 		{
-			if (($menuitem[$item]['authlevel'] != AUTH_LEVEL_ADMIN || $login->admin != 0) && $menuitem[$item]['visible'] == true)
+			if (($menuitem[$item]['authlevel'] == AUTH_LEVEL_ALL || $menuitem[$item]['authlevel'] == AUTH_LEVEL_USER && $login->userid || $login->admin) && $menuitem[$item]['visible'] == true)
 			{
 				$thisitem = $menuitem[$item];
 				$thisitem['selected'] = isset($ids[$item]);
@@ -190,21 +192,45 @@ class Menu
 		return $retval;
 	}
 
+	function GetSubMenuItems($menuid)
+	{
+		global $menuitem, $login;
+
+		$ids = $this->GetSelectedMenuItemIds($menuid);
+		$topmenu = array_pop($ids);
+		if (isset($menuitem[$topmenu]['parent']) && $menuitem[$topmenu]['parent'] != MNU_ROOT)
+			die('internal error Menu::GetSelectedMenuIds');
+
+		$ids[$topmenu] = $topmenu;
+
+		$retval = array();
+		if ($topmenu != MNU_ROOT)
+		{
+			$this->pAppendSubMenu($topmenu, $ids, $retval);
+		}
+
+		return $retval;
+	}
+
 	function pAppendSubMenu($menuid, $ids, &$items)
 	{
 		global $menuitem, $login;
 
 		if (isset($menuitem[$menuid]['subitems']))
 		{
+			$menuIds = $this->GetSelectedMenuIds();
 			foreach ($menuitem[$menuid]['subitems'] AS $item)
 			{
-				if (($menuitem[$item]['authlevel'] != AUTH_LEVEL_ADMIN || $login->admin != 0) && $menuitem[$item]['visible'] == true)
+				if (($menuitem[$item]['authlevel'] == AUTH_LEVEL_ALL || $menuitem[$item]['authlevel'] == AUTH_LEVEL_USER && $login->userid || $login->admin) && $menuitem[$item]['visible'] == true)
 				{
-					$thisitem = $menuitem[$item];
-					$thisitem['selected'] = isset($ids[$item]);
-					$items[] = $thisitem;
+					if (empty($menuitem[$item]['only_if_parent']) || $menuitem[$item]['only_if_parent'] && isset($menuIds[$menuitem[$item]['parent']]))
+					{
+						$thisitem = $menuitem[$item];
+						$thisitem['selected'] = isset($ids[$item]);
+						$items[] = $thisitem;
 
-					$this->pAppendSubMenu($item, $ids, $items);
+						$this->pAppendSubMenu($item, $ids, $items);
+					}
 				}
 			}
 		}
@@ -212,12 +238,17 @@ class Menu
 
 	function GetSelectedMenuIds()
 	{
+		return $this->GetSelectedMenuItemIds($this->nSelectedItem);
+	}
+
+	function GetSelectedMenuItemIds($menuid)
+	{
 		global $menuitem;
 
 		$retval = array();
-		$retval[$this->nSelectedItem] = $this->nSelectedItem;
+		$retval[$menuid] = $menuid;
 
-		$nCurItem = $this->nSelectedItem;
+		$nCurItem = $menuid;
 
 		while ($nCurItem != MNU_ROOT)
 		{

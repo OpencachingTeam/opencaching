@@ -39,15 +39,17 @@
 	//Menü laden
 	global $mnu_bgcolor, $mnu_selmenuitem, $develwarning, $tpl_subtitle, $opt, $rootpath, $oc_nodeid;
 
-	require_once($stylepath . '/lib/menu-node-'.$oc_nodeid.'.php');
 	require_once($rootpath . 'lib2/smarty/ocplugins/function.season.php');
+	require_once($rootpath . '/lib/menu2.class.php');
 
+	$menu2 = new Menu2();
 	$sUserCountry = getUserCountry();
-	$pageidx = mnu_MainMenuIndexFromPageId($menu, $tplname);
+	$menuitem = $menu2->setSelectedItem($tplname);
+	$menucolor = $menu2->getMenuColor();
 
-	if (isset($menu[$pageidx]['navicolor']))
+	if (isset($menucolor))
 	{
-		$mnu_bgcolor = $menu[$pageidx]['navicolor'];
+		$mnu_bgcolor = $menucolor;
 	}
 	else
 	{
@@ -55,7 +57,7 @@
 	}
 
 	if ($tplname != 'start')
-		$tpl_subtitle .= htmlspecialchars($mnu_selmenuitem['title'] . ' - ', ENT_COMPAT, 'UTF-8');
+		$tpl_subtitle .= htmlspecialchars($menu2->getMenuTitle() . ' - ', ENT_COMPAT, 'UTF-8');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -188,7 +190,7 @@
 				<div class="nav2">
 					<ul>
 <?php 
-						mnu_EchoMainMenu($menu[$pageidx]['siteid']);
+					echo $menu2->getTopMenuHtml();
 ?>
 <?php
 if ($oc_nodeid==7)
@@ -214,14 +216,23 @@ echo '-->'
 				<!-- Navigation Level 3 -->
 				<div class="nav3">
 <?php
-					//SubNavigation
-					if (isset($menu[$pageidx]['submenu']))
-					{
+					$mainmenu = $menu2->getSubMenuItems(MNU_START);
 ?>
 						<ul>
 							<li class="title">{t}Main menu{/t}</li>
 <?php
-							mnu_EchoSubMenu($menu[$pageidx]['submenu'], $tplname, 1, false);
+							echo $menu2->getSubMenuHtml($mainmenu);
+?>
+						</ul>
+<?php
+					$my_menu = $menu2->getSubMenuItems(MNU_MYPROFILE);
+					if ($my_menu)
+					{
+?>
+						<ul>
+							<li class="title">{t}My menu{/t}</li>
+<?php
+							echo $menu2->getSubMenuHtml($my_menu);
 ?>
 						</ul>
 <?php
@@ -272,7 +283,7 @@ echo '-->'
 				<div class="content2">
 					<div id="breadcrumb">
 <?php
-						mnu_EchoBreadCrumb($tplname, $pageidx);
+						echo $menu2->getBreadCrumbHtml();
 ?>
 					</div>
 			

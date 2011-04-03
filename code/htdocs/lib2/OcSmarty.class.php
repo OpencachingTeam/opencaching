@@ -178,7 +178,8 @@ class OcSmarty extends Smarty
 			$menu->SetSelectItem($this->menuitem);
 
 		$this->assign('topmenu', $menu->getTopMenu());
-		$this->assign('submenu', $menu->getSubMenu());
+		$this->assign('mainmenu', $menu->getSubMenuItems(MNU_START));
+		$this->assign('my_menu', $menu->getSubMenuItems(MNU_MYPROFILE));
 		$this->assign('breadcrumb', $menu->getBreadcrumb());
 		$this->assign('menucolor', $menu->getMenuColor());
 
