@@ -6,6 +6,7 @@
  ***************************************************************************/
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib2/translateAccess.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib2/translationHandler.class.php');
 
 function createTranslate($backtrace_level = 0)
 {
