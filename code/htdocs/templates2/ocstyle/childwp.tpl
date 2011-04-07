@@ -4,7 +4,7 @@
   <input type="hidden" name="deleteid" value="{$deleteid|escape}" />
 
   <div class="content2-pagetitle">
-    <img src="resource2/{$opt.template.style}/images/description/22x22-waypoint.png" style="align: left; margin-right: 10px;" width="22" height="22" alt="{t}Child waypoint{/t}" title="{t}Child waypoint{/t}" />
+    <img src="resource2/{$opt.template.style}/images/description/20x20-compass.png" style="align: left; margin-right: 10px;" alt="{t}Child waypoint{/t}" title="{t}Child waypoint{/t}" />
     {$pagetitle|escape}
   </div>
 
@@ -13,7 +13,7 @@
       <td valign="top">{t}Waypoint type:{/t}</td>
       <td>
         <select name="wp_type" {if $disabled}disabled=""{/if}>
-          <option value=0>Please select type</option>
+          <option value=0>{t}Please select type{/t}</option>
           {html_options values=$wpTypeIds output=$wpTypeNames selected=$wpType}
         </select>
       </td>

@@ -5,7 +5,7 @@
   global $childWpTypes;
 
   $tpl->name = 'childwp';
-  $tpl->menuitem = MNU_CACHES_WAYPOINT;
+  $tpl->menuitem = MNU_CACHES_HIDE;
 
   $login->verify();
 
