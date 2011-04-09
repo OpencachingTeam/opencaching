@@ -72,6 +72,9 @@ function _chkFound () {
 							<option value="{$logTypesItem.id|escape}"{if $logType==$logTypesItem.id} selected="selected"{/if}>{$logTypesItem.name|escape}</value>
 						{/foreach}
 					</select>
+					{if $noLogTypeSelected}
+						<span class="errormsg">{t}Log type must be selected{/t}</span>
+					{/if}
 			</td>
 		</tr>
 		<tr><td class="spacer" colspan="2"></td></tr>

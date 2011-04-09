@@ -156,6 +156,8 @@
 		$bAddRecommendation = false;
 	}
 
+	$noLogTypeSelected = false;
+
 	// data submitted?
 	if (isset($_POST['submit']) || isset($_POST['submitform']))
 	{
@@ -181,6 +183,8 @@
 
 			$tpl->redirect('viewcache.php?wp=' . urlencode($cache->getWPOC()));
 		}
+
+		$noLogTypeSelected = $nLogType == 0;
 	}
 
 	/* prepare output
@@ -216,6 +220,7 @@
 	else
 		$tpl->assign('logText', $sLogText);
 
+	$tpl->assign('noLogTypeSelected', $noLogTypeSelected);
 	$tpl->assign('dateFormatInvalid', !$bDateFormatValid);
 	$tpl->assign('requireLogPW', $cache->requireLogPW());
 	$tpl->assign('logPWValid', $bLogPWValid);
