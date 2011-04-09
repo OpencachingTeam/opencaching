@@ -434,4 +434,8 @@
 
 	$opt['feeds']['New caches'] = 'rss/newcaches.xml';
 	$opt['feeds']['New logs'] = 'rss/newlogs.xml';
+
+	$opt['logic']['theme'] = 'seasons';
+	$opt['logic']['lowresfriendly'] = false;
+
 ?>

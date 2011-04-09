@@ -133,4 +133,7 @@
 
 	$opt['logic']['node']['id'] = 4;
 
+	$opt['logic']['theme'] = 'seasons'; // leave blank to disable theme
+	$opt['logic']['lowresfriendly'] = false;
+
 ?>

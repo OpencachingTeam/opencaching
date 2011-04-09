@@ -188,4 +188,8 @@
 	// (e.g. xml-interface and mapserver-results)
 	// you can use -1 to use the master (not recommended, because replicated to slaves)
 	$opt['db']['slave']['primary'] = -1;
+
+	$opt['logic']['theme'] = 'seasons';
+	$opt['logic']['lowresfriendly'] = false;
+
 ?>

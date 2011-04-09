@@ -86,8 +86,15 @@
 						nWindowWidth = window.innerWidth;
 					else if (screen.availWidth)
 						nWindowWidth = screen.availWidth;
-					if (nWindowWidth > 970)
+<?php if((!isset($opt['logic']['lowresfriendly']))or($opt['logic']['lowresfriendly']==false)) echo "/*"; ?>
+					if (screen.availHeight < 800) {
+						document.writeln('<link rel="stylesheet" type="text/css" media="screen,projection" href="resource2/{style}/css/style_netbook.css">');
+					}
+<?php if((!isset($opt['logic']['lowresfriendly']))or($opt['logic']['lowresfriendly']==false)) echo "*/"; ?>
+<?php if(isset($opt['logic']['theme']) and $opt['logic']['theme']=='') echo "/*"; ?>
+						if (nWindowWidth > 970)
 						document.writeln('<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo smarty_function_season($seasons, $smarty_dummy); ?>">');
+<?php if(isset($opt['logic']['theme']) and $opt['logic']['theme']=='') echo "*/"; ?>
 
 					function usercountry_change()
 					{
