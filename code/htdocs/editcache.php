@@ -41,6 +41,7 @@ function getWaypoints($cacheid)
 
   $wphandler = new ChildWp_Handler();
   $waypoints = $wphandler->getChildWps($cacheid);
+  $ret = '';
 
   if (!empty($waypoints))
   {
