@@ -33,7 +33,7 @@
 
 	//common vars
 	$datetimeformat = '%d. %B %Y um %H:%M:%S Uhr';
-	$dateformat = '%d. %B %Y';
+	$dateformat = '%Y-%m-%d';
 	$reset = t('Reset');
 	$yes = t('Yes');
 	$no = t('No');

@@ -353,9 +353,9 @@ function toggleAttr(id)
 	<tr>
 		<td>{t}Hidden since:{/t}</td>
 		<td>
-			<input class="input20" type="text" name="hidden_day" maxlength="2" value="{date_day}"/>.
-			<input class="input20" type="text" name="hidden_month" maxlength="2" value="{date_month}"/>.
-			<input class="input40" type="text" name="hidden_year" maxlength="4" value="{date_year}"/>&nbsp;
+			<input class="input40" type="text" name="hidden_year" maxlength="4" value="{date_year}"/>&nbsp;-
+			<input class="input20" type="text" name="hidden_month" maxlength="2" value="{date_month}"/>&nbsp;-
+			<input class="input20" type="text" name="hidden_day" maxlength="2" value="{date_day}"/>
 			{date_message}
 		</td>
 	</tr>

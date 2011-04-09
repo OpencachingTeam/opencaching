@@ -26,7 +26,7 @@ tinyMCE.init({
 	theme_advanced_toolbar_location : "top",
 	theme_advanced_toolbar_align : "left",
 	theme_advanced_path_location : "bottom",
-	plugin_insertdate_dateFormat : "%d.%m.%Y",
+	plugin_insertdate_dateFormat : "%Y-%m-%d",
 	plugin_insertdate_timeFormat : "%H:%M:%S",
 	file_browser_callback : "imageBrowser",
 
