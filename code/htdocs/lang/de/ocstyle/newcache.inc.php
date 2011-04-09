@@ -29,8 +29,8 @@
  $default_country = t('EN');
  $default_lang = t('EN');
  $show_all = t('Show all');
- $default_NS = t('N');
- $default_EW = t('E');
+ $default_NS = 'N';
+ $default_EW = 'E';
  $date_time_format_message = '&nbsp;' . t('Format:&nbsp;DD-MM-YYYY');
 
  $error_general = "<tr><td class='error' colspan='2'><b>" . t('Some errors occured, please check the marked fields.') . "</b></td></tr>";
