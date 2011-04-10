@@ -36,7 +36,7 @@ class Menu2
 		}
 	}
 
-	function GetBreadcrumb()
+	function getBreadcrumb()
 	{
 		global $menuitem;
 
@@ -234,11 +234,14 @@ class Menu2
 	function getBreadCrumbHtml()
 	{
 		$breadCrumb = '';
-		$breadCrumbs = $this->GetBreadcrumb();
+		$breadCrumbs = $this->getBreadcrumb();
 		$count = count($breadCrumbs);
 
 		for ($i = 0; $i < $count; $i++)
 		{
+			if (!isset($breadCrumbs[$i]['menustring']))
+				continue;
+
 			if ($i > 0)
 				$breadCrumb .= '&nbsp;&gt;&nbsp;';
 

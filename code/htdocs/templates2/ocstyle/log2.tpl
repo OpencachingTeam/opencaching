@@ -72,15 +72,18 @@ function _chkFound () {
 							<option value="{$logTypesItem.id|escape}"{if $logType==$logTypesItem.id} selected="selected"{/if}>{$logTypesItem.name|escape}</value>
 						{/foreach}
 					</select>
+					{if $noLogTypeSelected}
+						<span class="errormsg">{t}Log type must be selected{/t}</span>
+					{/if}
 			</td>
 		</tr>
 		<tr><td class="spacer" colspan="2"></td></tr>
 		<tr>
 			<td width="180px">{t}Date:{/t}</td>
 			<td>
-				<input class="input20" type="text" name="logday" maxlength="2" value="{$logDateDay|sprintf:'%02d'}"/>.
-				<input class="input20" type="text" name="logmonth" maxlength="2" value="{$logDateMonth|sprintf:'%02d'}"/>.
-				<input class="input40" type="text" name="logyear" maxlength="4" value="{$logDateYear|sprintf:'%04d'}"/>
+				<input class="input40" type="text" name="logyear" maxlength="4" value="{$logDateYear|sprintf:'%04d'}"/>&nbsp;-
+				<input class="input20" type="text" name="logmonth" maxlength="2" value="{$logDateMonth|sprintf:'%02d'}"/>&nbsp;-
+				<input class="input20" type="text" name="logday" maxlength="2" value="{$logDateDay|sprintf:'%02d'}"/>
 				{if $dateFormatInvalid==true}
 					<span class="errormsg">{t}date is invalid, format: TT-MM-JJJJ{/t}</span>
 				{/if}

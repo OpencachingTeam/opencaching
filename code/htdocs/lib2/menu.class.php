@@ -129,7 +129,7 @@ class Menu
 		return $this->nSelectedItem;
 	}
 
-	function GetBreadcrumb()
+	function getBreadcrumb()
 	{
 		global $menuitem;
 

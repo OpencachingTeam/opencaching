@@ -71,9 +71,9 @@
 			<td>
 				<input type="radio" class="radio" name="publish" id="publish_now" value="now" {publish_now_checked}>&nbsp;<label for="publish_now">' . t('Publish now') . '</label><br />
 				<input type="radio" class="radio" name="publish" id="publish_later" value="later" {publish_later_checked}>&nbsp;<label for="publish_later">' . t('Publish on') . '</label>
-				<input class="input20" type="text" name="activate_day" maxlength="2" value="{activate_day}"/>.
-				<input class="input20" type="text" name="activate_month" maxlength="2" value="{activate_month}"/>.
-				<input class="input40" type="text" name="activate_year" maxlength="4" value="{activate_year}"/>&nbsp;
+				<input class="input40" type="text" name="activate_year" maxlength="4" value="{activate_year}"/>&nbsp;-
+				<input class="input20" type="text" name="activate_month" maxlength="2" value="{activate_month}"/>&nbsp;-
+				<input class="input20" type="text" name="activate_day" maxlength="2" value="{activate_day}"/>&nbsp;
 				<select name="activate_hour" class="input40">
 					{activation_hours}
 				</select>&nbsp;' . t('#time_suffix_label#') . '&nbsp;{activate_on_message}<br />

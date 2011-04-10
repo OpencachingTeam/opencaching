@@ -105,9 +105,9 @@ function _chkFound () {
 	<tr>
 		<td width="180px">{t}Date:{/t}</td>
 		<td align="left">
-			<input class="input20" type="text" name="logday" maxlength="2" value="{logday}"/>.
-			<input class="input20" type="text" name="logmonth" maxlength="2" value="{logmonth}"/>.
-			<input class="input40" type="text" name="logyear" maxlength="4" value="{logyear}"/>
+			<input class="input40" type="text" name="logyear" maxlength="4" value="{logyear}"/>&nbsp;-
+			<input class="input20" type="text" name="logmonth" maxlength="2" value="{logmonth}"/>&nbsp;-
+			<input class="input20" type="text" name="logday" maxlength="2" value="{logday}"/>
 			{date_message}
 		</td>
 	</tr>

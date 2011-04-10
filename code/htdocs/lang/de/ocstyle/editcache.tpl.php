@@ -305,9 +305,8 @@ function toggleAttr(id)
 		<td class="header-small" colspan="2">
 			<div class="content2-container bg-blue02">
 				<p class="content-title-noshade-size2">
-					<img src="lang/de/ocstyle/images/description/22x22-waypoint.png" width="22" height="22" align="middle" border="0">
+					<img src="resource2/ocstyle/images/description/20x20-compass.png" align="middle" border="0">
 					{t}Additional waypoints{/t}&nbsp;&nbsp;
-					<img src="lang/de/ocstyle/images/action/16x16-addwaypoint.png" width="16" height="16" align="middle" border="0">
 					<span style="font-weight: 400;font-size: small;">[<a href="childwp.php?cacheid={cacheid_urlencode}">{t}Add a waypoint{/t}</a>]</span>
 				</p>
 			</div>
@@ -353,9 +352,9 @@ function toggleAttr(id)
 	<tr>
 		<td>{t}Hidden since:{/t}</td>
 		<td>
-			<input class="input20" type="text" name="hidden_day" maxlength="2" value="{date_day}"/>.
-			<input class="input20" type="text" name="hidden_month" maxlength="2" value="{date_month}"/>.
-			<input class="input40" type="text" name="hidden_year" maxlength="4" value="{date_year}"/>&nbsp;
+			<input class="input40" type="text" name="hidden_year" maxlength="4" value="{date_year}"/>&nbsp;-
+			<input class="input20" type="text" name="hidden_month" maxlength="2" value="{date_month}"/>&nbsp;-
+			<input class="input20" type="text" name="hidden_day" maxlength="2" value="{date_day}"/>
 			{date_message}
 		</td>
 	</tr>

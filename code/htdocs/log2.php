@@ -86,16 +86,16 @@
 	$nLogDateMonth = isset($_POST['logmonth']) ? ($_POST['logmonth']+0) : date('m');
 	$nLogDateYear = isset($_POST['logyear']) ? ($_POST['logyear']+0) : date('Y');
 
-	$bDateFormatInvalid = false;
+	$bDateFormatValid = false;
 	if (is_numeric($nLogDateMonth) && is_numeric($nLogDateDay) && is_numeric($nLogDateYear))
 	{
-		$bDateFormatInvalid = (checkdate($nLogDateMonth, $nLogDateDay, $nLogDateYear) == false);
-		if ($bDateFormatInvalid == false)
+		$bDateFormatValid = checkdate($nLogDateMonth, $nLogDateDay, $nLogDateYear);
+		if ($bDateFormatValid)
 		{
 			$nLogDate = mktime(0, 0, 0, $nLogDateMonth, $nLogDateDay, $nLogDateYear);
-			$bDateFormatInvalid = ($nLogDate > time());
+			$bDateFormatValid = $nLogDate <= time();
 			
-			if ($bDateFormatInvalid == true)
+			if ($bDateFormatValid)
 			{
 				$cachelog->setDate($nLogDate);
 			}
@@ -156,6 +156,8 @@
 		$bAddRecommendation = false;
 	}
 
+	$noLogTypeSelected = false;
+
 	// data submitted?
 	if (isset($_POST['submit']) || isset($_POST['submitform']))
 	{
@@ -165,7 +167,7 @@
 			die('Your client may be outdated!');
 		}
 
-		if (($bLogPWValid == true) && ($nLogType != 0) && ($bDateFormatInvalid == false))
+		if (($bLogPWValid == true) && ($nLogType != 0) && $bDateFormatValid)
 		{
 			// save log entry
 			$cachelog->setType($nLogType);
@@ -181,6 +183,8 @@
 
 			$tpl->redirect('viewcache.php?wp=' . urlencode($cache->getWPOC()));
 		}
+
+		$noLogTypeSelected = $nLogType == 0;
 	}
 
 	/* prepare output
@@ -216,7 +220,8 @@
 	else
 		$tpl->assign('logText', $sLogText);
 
-	$tpl->assign('dateFormatInvalid', $bDateFormatInvalid);
+	$tpl->assign('noLogTypeSelected', $noLogTypeSelected);
+	$tpl->assign('dateFormatInvalid', !$bDateFormatValid);
 	$tpl->assign('requireLogPW', $cache->requireLogPW());
 	$tpl->assign('logPWValid', $bLogPWValid);
 	$tpl->assign('logDateDay', $nLogDateDay);
