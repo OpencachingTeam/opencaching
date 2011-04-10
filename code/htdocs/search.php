@@ -89,7 +89,7 @@
 			{
 				// das Suchformular wird initialisiert (keine Vorbelegungen vorhanden)
 				$_REQUEST['cache_attribs'] = '';
-				$rs = sql('SELECT `id` FROM `cache_attrib` WHERE `default`=1');
+				$rs = sql('SELECT `id` FROM `cache_attrib` WHERE `default`=1 AND NOT IFNULL(`hidden`, 0)=1');
 				while ($r = sql_fetch_assoc($rs))
 				{
 					if ($_REQUEST['cache_attribs'] != '') $_REQUEST['cache_attribs'] .= ';';
@@ -98,7 +98,7 @@
 				mysql_free_result($rs);
 
 				$_REQUEST['cache_attribs_not'] = '';
-				$rs = sql('SELECT `id` FROM `cache_attrib` WHERE `default`=2');
+				$rs = sql('SELECT `id` FROM `cache_attrib` WHERE `default`=2 AND NOT IFNULL(`hidden`, 0)=1');
 				while ($r = sql_fetch_assoc($rs))
 				{
 					if ($_REQUEST['cache_attribs_not'] != '') $_REQUEST['cache_attribs_not'] .= ';';
@@ -1324,6 +1324,7 @@ function outputSearchForm($options)
 		        LEFT JOIN `sys_trans` AS `tdesc` ON `cache_attrib`.`html_desc_trans_id`=`tdesc`.`id` AND `cache_attrib`.`html_desc`=`tdesc`.`text`
 		        LEFT JOIN `sys_trans_text` AS `ttdesc` ON `tdesc`.`id`=`ttdesc`.`trans_id` AND `ttdesc`.`lang`='&1'
 		            WHERE `cache_attrib`.`group_id`='&2'
+					  AND NOT IFNULL(`cache_attrib`.`hidden`, 0)=1
 		         ORDER BY `cache_attrib`.`id`", $locale, $rAttrGroup['id']);
 		while ($record = sql_fetch_array($rs))
 		{
@@ -1421,6 +1422,7 @@ function outputSearchForm($options)
 		        LEFT JOIN `sys_trans_text` AS `ttdesc` ON `tdesc`.`id`=`ttdesc`.`trans_id` AND `ttdesc`.`lang`='&1'
 		            WHERE `cache_attrib`.`group_id`='&2'
 		              AND `cache_attrib`.`search_default`=1
+					  AND NOT IFNULL(`cache_attrib`.`hidden`, 0)=1
 		         ORDER BY `cache_attrib`.`id`", $locale, $rAttrGroup['id']);
 		while ($record = sql_fetch_array($rs))
 		{
