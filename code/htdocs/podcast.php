@@ -12,7 +12,6 @@
  *  Only one of the ids has to be set
  *  uuid      = id of the podcast (to edit or delete)
  *  cacheuuid = id of the cache (only for new podcasts)
- *  loguuid   = id of the logentry (only for new podcasts)
  *
  ***************************************************************************/
 
@@ -46,26 +45,9 @@
 			if ($cache->allowEdit() == false)
 				$tpl->error(ERROR_NO_ACCESS);
 
-			$podcast->setObjectId($cache->getCacheId());
-			$podcast->setObjectType(OBJECT_CACHE);
+			$podcast->setCacheId($cache->getCacheId());
 
 			$cache = null;
-		}
-		else if (isset($_REQUEST['loguuid']))
-		{
-			$cachelog = cachelog::fromUUID($_REQUEST['loguuid']);
-			if ($cachelog === null)
-				$tpl->error(ERROR_CACHELOG_NOT_EXISTS);
-
-			if ($cachelog->allowView() == false)
-				$tpl->error(ERROR_NO_ACCESS);
-			else if ($cachelog->allowEdit() == false)
-				$tpl->error(ERROR_NO_ACCESS);
-
-			$podcast->setObjectId($cachelog->getLogId());
-			$podcast->setObjectType(OBJECT_CACHELOG);
-
-			$cachelog = null;
 		}
 		else
 			$tpl->error(ERROR_INVALID_OPERATION);
@@ -74,8 +56,6 @@
 		if (isset($_REQUEST['ok']))
 		{
 			$bError = false;
-
-			$podcast->setDisplay((isset($_REQUEST['notdisplay']) && $_REQUEST['notdisplay']=='1') == false);
 
 			$title = isset($_REQUEST['title']) ? $_REQUEST['title'] : '';
 			if ($title == '')
@@ -161,8 +141,6 @@
 			if (isset($_REQUEST['ok']))
 			{
 				// overwrite values
-				$podcast->setDisplay((isset($_REQUEST['notdisplay']) && $_REQUEST['notdisplay']=='1') == false);
-
 				$title = isset($_REQUEST['title']) ? $_REQUEST['title'] : $podcast->getTitle();
 				if ($title == '')
 					$tpl->assign('errortitle', true);
@@ -190,14 +168,10 @@
 
 	// prepare output
 	$tpl->assign('uuid', $podcast->getUUID());
-	$tpl->assign('objecttype', $podcast->getObjectType());
 
 	if ($action == 'add')
 	{
-		if ($podcast->getObjectType() == OBJECT_CACHE)
-			$tpl->assign('cacheuuid', $_REQUEST['cacheuuid']);
-		else if ($podcast->getObjectType() == OBJECT_CACHELOG)
-			$tpl->assign('loguuid', $_REQUEST['loguuid']);
+		$tpl->assign('cacheuuid', $_REQUEST['cacheuuid']);
 	}
 
 	$rsCache = sql("SELECT `wp_oc`, `name` FROM `caches` WHERE `cache_id`='&1'", $podcast->getCacheId());
@@ -208,7 +182,6 @@
 	$tpl->assign('cachename', $rCache['name']);
 
 	$tpl->assign('title', $podcast->getTitle());
-	$tpl->assign('displaychecked', $podcast->getDisplay());
 
 	$tpl->display();
 ?>

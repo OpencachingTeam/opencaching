@@ -79,8 +79,7 @@
 				 UPDATE `cache_logs` SET `last_modified`=NOW() WHERE `cache_id`=nCacheId;
 				 UPDATE `pictures` SET `last_modified`=NOW() WHERE `object_type`=2 AND `object_id`=nCacheId;
 				 UPDATE `pictures`, `cache_logs` SET `pictures`.`last_modified`=NOW() WHERE `pictures`.`object_type`=1 AND `pictures`.`object_id`=`cache_logs`.`id` AND `cache_logs`.`cache_id`=nCacheId;
-				 UPDATE `mp3` SET `last_modified`=NOW() WHERE `object_type`=2 AND `object_id`=nCacheId;
-				 UPDATE `mp3`, `cache_logs` SET `mp3`.`last_modified`=NOW() WHERE `mp3`.`object_type`=1 AND `mp3`.`object_id`=`cache_logs`.`id` AND `cache_logs`.`cache_id`=nCacheId;
+				 UPDATE `mp3` SET `last_modified`=NOW() WHERE `object_id`=nCacheId;
 	     END;");
 
 	sql_dropProcedure('sp_update_caches_descLanguages');

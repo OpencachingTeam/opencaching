@@ -47,10 +47,8 @@ class podcast
 		$this->rePodcast->addString('title', '', false);
 		$this->rePodcast->addDate('last_url_check', 0, true);
 		$this->rePodcast->addInt('object_id', null, false);
-		$this->rePodcast->addInt('object_type', null, false);
 		$this->rePodcast->addInt('local', 0, false);
 		$this->rePodcast->addInt('unknown_format', 0, false);
-		$this->rePodcast->addInt('display', 1, false);
 
 		$this->nPodcastId = $nNewPodcastId+0;
 
@@ -157,14 +155,6 @@ class podcast
 	{
 		return $this->rePodcast->setValue('local', $value ? 1 : 0);
 	}
-	function getDisplay()
-	{
-		return $this->rePodcast->getValue('display')!=0;
-	}
-	function setDisplay($value)
-	{
-		return $this->rePodcast->setValue('display', $value ? 1 : 0);
-	}
 	function getFilename()
 	{
 		global $opt;
@@ -179,46 +169,17 @@ class podcast
 		
 		return $opt['logic']['podcasts']['dir'] . $uuid . '.' . $extension;
 	}
-	function getLogId()
-	{
-		if ($this->getObjectType() == OBJECT_CACHELOG)
-			return $this->getObjectId();
-		else
-			return false;
-	}
 	function getCacheId()
-	{
-		if ($this->getObjectType() == OBJECT_CACHELOG)
-			return sql_value("SELECT `cache_id` FROM `cache_logs` WHERE `id`='&1'", false, $this->getObjectId());
-		else if ($this->getObjectType() == OBJECT_CACHE)
-			return $this->getObjectId();
-		else
-			return false;
-	}
-	function getObjectId()
 	{
 		return $this->rePodcast->getValue('object_id');
 	}
-	function setObjectId($value)
+	function setCacheId($value)
 	{
 		return $this->rePodcast->setValue('object_id', $value+0);
 	}
-	function getObjectType()
-	{
-		return $this->rePodcast->getValue('object_type');
-	}
-	function setObjectType($value)
-	{
-		return $this->rePodcast->setValue('object_type', $value+0);
-	}
 	function getUserId()
 	{
-		if ($this->getObjectType() == OBJECT_CACHE)
-			return sql_value("SELECT `caches`.`user_id` FROM `caches` WHERE `caches`.`cache_id`='&1'", false, $this->getObjectId());
-		else if ($this->getObjectType() == OBJECT_CACHELOG)
-			return sql_value("SELECT `cache_logs`.`user_id` FROM `cache_logs` WHERE `cache_logs`.`id`='&1'", false, $this->getObjectId());
-		else
-			return false;
+		return sql_value("SELECT `caches`.`user_id` FROM `caches` WHERE `caches`.`cache_id`='&1'", false, $this->getCacheId());
 	}
 
 	function getNode()

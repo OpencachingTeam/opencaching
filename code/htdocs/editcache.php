@@ -814,7 +814,7 @@ function getWaypoints($cacheid)
 					if ($cache_record['type'] == 11 )
 					{
 						$mp3files = '';
-						$rsmp3 = sql("SELECT `url`, `title`, `uuid` FROM `mp3` WHERE `object_id`='&1' AND `object_type`=2", $cache_id);
+						$rsmp3 = sql("SELECT `url`, `title`, `uuid` FROM `mp3` WHERE `object_id`='&1'", $cache_id);
 
 						if (mysql_num_rows($rsmp3) > 0)
 						{

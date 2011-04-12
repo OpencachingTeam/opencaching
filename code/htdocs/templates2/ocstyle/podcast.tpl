@@ -11,7 +11,7 @@
 	{
 		if (document.fpodcast.title.value == "")
 		{
-			alert('{/literal}{t escape=js}Please give the podcast a name!{/t}{literal}');
+			alert('{/literal}{t escape=js}Give the podcast a name!{/t}{literal}');
 			return false;
 		}
 		return true;
@@ -23,11 +23,7 @@
 <form action="podcast.php" method="post" enctype="multipart/form-data" name="fpodcast" dir="ltr" onsubmit="return checkForm();">
 	<input type="hidden" name="action" value="{$action|escape}" />
 	{if $action=='add'}
-		{if $objecttype==OBJECT_CACHE}
-			<input type="hidden" name="cacheuuid" value="{$cacheuuid|escape}" />
-		{elseif $objecttype==OBJECT_CACHELOG}
-			<input type="hidden" name="loguuid" value="{$loguuid|escape}" />
-		{/if}
+		<input type="hidden" name="cacheuuid" value="{$cacheuuid|escape}" />
 	{else}
 		<input type="hidden" name="uuid" value="{$uuid|escape}" />
 	{/if}
@@ -39,17 +35,9 @@
 		{/capture}
 
 		{if $action=='add'}
-			{if $objecttype==OBJECT_CACHE}
-				{t 1=$smarty.capture.name}Add podcast for Geocaches %1{/t}
-			{else if $objecttype==OBJECT_CACHELOG}
-				{t 1=$smarty.capture.name}Add podcast for Logentry %1{/t}
-			{/if}
+			{t 1=$smarty.capture.name}Add podcast for Geocaches %1{/t}
 		{else}
-			{if $objecttype==OBJECT_CACHE}
-				{t 1=$smarty.capture.name}Edit podcast for Geocaches %1{/t}
-			{else if $objecttype==OBJECT_CACHELOG}
-				{t 1=$smarty.capture.name}Edit podcast for Logentry %1{/t}
-			{/if}
+			{t 1=$smarty.capture.name}Edit podcast for Geocaches %1{/t}
 		{/if}
 	</div>
 
@@ -82,12 +70,6 @@
 			{/if}
 		{/if}
 
-		{if $objecttype==OBJECT_CACHE}
-			<tr>
-				<td align="right"><input class="checkbox" type="checkbox" name="notdisplay" value="1" {if $displaychecked==false}checked="checked"{/if}></td>
-				<td>{t}Do not display this podcast (only used in HTML description){/t}</td>
-			</tr>
-		{/if}
 		{if $action=='add'}
 			<tr>
 				<td class="help" colspan="2">
