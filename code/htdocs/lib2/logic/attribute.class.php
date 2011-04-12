@@ -58,6 +58,7 @@ class attribute
 										LEFT JOIN `sys_trans` AS `t2` ON `cache_attrib`.`html_desc_trans_id`=`t2`.`id` 
 										LEFT JOIN `sys_trans_text` AS `tt2` ON `t2`.`id`=`tt2`.`trans_id` AND `tt2`.`lang`='&1' 
 												WHERE `cache_attrib`.`group_id`='&2'
+												AND NOT IFNULL(`cache_attrib`.`hidden`, 0)=1
 										 ORDER BY `cache_attrib`.`group_id` ASC", $opt['template']['locale'], $rAttrGroup['id']);
 			}
 			else
@@ -71,6 +72,7 @@ class attribute
 										LEFT JOIN `sys_trans` AS `t2` ON `cache_attrib`.`html_desc_trans_id`=`t2`.`id` 
 										LEFT JOIN `sys_trans_text` AS `tt2` ON `t2`.`id`=`tt2`.`trans_id` AND `tt2`.`lang`='&2' 
 												WHERE `caches_attributes`.`cache_id`='&1' AND `cache_attrib`.`group_id`='&3'
+												AND NOT IFNULL(`cache_attrib`.`hidden`, 0)=1
 										 ORDER BY `cache_attrib`.`group_id` ASC", $cacheId, $opt['template']['locale'], $rAttrGroup['id']);
 			}
 			while ($rAttr = sql_fetch_assoc($rsAttr))

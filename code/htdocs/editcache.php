@@ -550,7 +550,8 @@ function getWaypoints($cacheid)
 		                LEFT JOIN `sys_trans_text` AS `ttname` ON `tname`.`id`=`ttname`.`trans_id` AND `ttname`.`lang`='&1'
 		                LEFT JOIN `sys_trans` AS `tdesc` ON `cache_attrib`.`html_desc_trans_id`=`tdesc`.`id` AND `cache_attrib`.`html_desc`=`tdesc`.`text`
 		                LEFT JOIN `sys_trans_text` AS `ttdesc` ON `tdesc`.`id`=`ttdesc`.`trans_id` AND `ttdesc`.`lang`='&1'
-						            WHERE `cache_attrib`.`group_id`='&3' AND 
+						            WHERE `cache_attrib`.`group_id`='&3' AND
+										  NOT IFNULL(`cache_attrib`.`hidden`, 0)=1 AND 
 						                  (`cache_attrib`.`selectable`!=0 OR `caches_attributes`.`cache_id`='&2') 
 						         ORDER BY `cache_attrib`.`group_id` ASC, `cache_attrib`.`id` ASC", $locale, $cache_id, $rAttrGroup['id']);
 						while($record = sql_fetch_array($rs))

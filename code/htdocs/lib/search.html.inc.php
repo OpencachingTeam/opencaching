@@ -84,6 +84,9 @@
 			mysql_free_result($rs_coords);
 		}
 	}
+
+	$oconlyhidden = sql_value_slave('select IFNULL(hidden, 0) from cache_attrib where id=6', 0);
+	
 	$sAddJoin = '';
 	$sAddGroupBy = '';
 	$sAddField = '';
@@ -180,10 +183,18 @@
 		$tmpline = mb_ereg_replace('{terrpic}', icon_difficulty("terr", $caches_record['terrain']), $tmpline);
 		$tmpline = mb_ereg_replace('{ratpic}', icon_rating($caches_record['founds'], $caches_record['topratings']), $tmpline);
 
-		if ($caches_record['oconly'] == 1)
-			$tmpline = mb_ereg_replace('{oconly}', $caches_oconlystring, $tmpline);
-		else
-			$tmpline = mb_ereg_replace('{oconly}', '', $tmpline);
+		// default
+		$tmp_caches_oconlystring = $caches_oconlystring;;
+
+		// clear if not oconly
+		if ($caches_record['oconly'] != 1)
+			$tmp_caches_oconlystring = '';
+
+		// clear if oconly attribute is hidden
+		if ($oconlyhidden == 1)
+			$tmp_caches_oconlystring = '';
+
+		$tmpline = mb_ereg_replace('{oconly}', $tmp_caches_oconlystring, $tmpline);
 
 		// das letzte found suchen
 		$sql = 'SELECT `cache_logs`.`id` `id`, `cache_logs`.`type` `type`, `cache_logs`.`date` `date`, `log_types`.`icon_small` `icon_small`
