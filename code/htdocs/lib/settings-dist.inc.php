@@ -191,5 +191,6 @@
 
 	$opt['logic']['theme'] = 'seasons';
 	$opt['logic']['lowresfriendly'] = false;
+	$opt['logic']['ocprefix'] = 'OC';
 
 ?>

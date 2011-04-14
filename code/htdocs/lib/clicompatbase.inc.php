@@ -89,10 +89,16 @@
 		// falls mal was nicht so funktioniert wie es soll ...
 		$nMaxLoop = 10;
 		$nLoop = 0;
+		
+		global $opt;
+		
+		$ocprefix = 'OC';
+		if (isset($opt['logic']['ocprefix']))
+			$ocprefix = $opt['logic']['ocprefix'];
 
 		while (($bLoop == true) && ($nLoop < $nMaxLoop))
 		{
-			$rs = sql('SELECT MAX(`wp_oc`) `maxwp` FROM `caches`');
+			$rs = sql("SELECT `wp_oc` `maxwp` FROM `caches` WHERE `wp_oc` is not null AND left(`wp_oc`,2)='&1' ORDER BY `wp_oc` DESC LIMIT 1", $ocprefix);
 			$r = sql_fetch_assoc($rs);
 			mysql_free_result($rs);
 
@@ -106,7 +112,7 @@
 			while (mb_strlen($nNext) < 4)
 				$nNext = '0' . $nNext;
 
-			$sWP = 'OC' . mb_strtoupper($nNext);
+			$sWP = $ocprefix . mb_strtoupper($nNext);
 
 			$bLoop = false;
 			$nLoop++;
