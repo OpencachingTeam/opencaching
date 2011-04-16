@@ -140,9 +140,15 @@
 				<div id="bg1">&nbsp;</div>
 				<div id="bg2">&nbsp;</div>
 
-				{* <!-- HEADER --> *}
-				{* <!-- OC-Logo --> *}
-				<div><img src="resource2/{$opt.template.style}/images/oc_logo.png" alt="" style="margin-top: 5px; margin-left: 3px;" /></div>
+
+
+				{* <!-- Header banner --> *}						    		 						
+				<div class="header" style="height:81px;">
+					<div style="width: 970px; padding-top: 1px;">
+						<img src="resource2/{$opt.template.style}/images/oc_logo.png" alt="" style="margin-top: 5px; margin-left: 3px;" />
+						<img src="resource2/{$opt.template.style}/images/head/se/rotator.php?" width="896" height="80" alt="" style="border: 0px none ;" />
+					</div>
+				</div>
 
 				{* <!-- Sitename --> *}
 				<div class="site-name">
@@ -152,6 +158,12 @@
 						<p class="subtitle2">{$opt.page.subtitle2|escape}</p>
 					</a>
 				</div>
+
+				<div id="suchbox"><form action="searchplugin.php" method="post" style="display:inline;">
+					<b>{t}Waypoint-Search{/t}:</b><br />
+					<input type="hidden" name="source" value="waypoint-suche" />
+					<input type="text" name="userinput" size="10" /><input type="submit" style="width:70px" value="{t}Go{/t}" />
+				</form></div>
 
 				{* <!-- Site slogan --> *}
 				<div class="site-slogan-container">
@@ -171,16 +183,7 @@
 				<div id="debugoc"><font size="6" face="arial" color="red"><center>{t}Developer system - only testing{/t}</center></font></div>
 			{elseif ($opt.debug & DEBUG_TESTING) == DEBUG_TESTING}
 				<div id="debugoc"><font size="6" face="arial" color="red"><center>{t}Testing - do not login, please{/t}</center></font></div>
-			{/if}
-
-
-			{* <!-- Header banner --> *}						    		 						
-			<div class="header" style="height:81px;">
-				<div style="width: 970px; padding-top: 1px;">
-					<img src="resource2/{$opt.template.style}/images/head/rotator.php" width="970" height="80" alt="" style="border: 0px none ;" />
-				</div>
-			</div>
-
+			{/if}
 			{* <!-- Navigation Level 2 --> *}
 			<div class="nav2">
 				<ul>
@@ -193,10 +196,8 @@
 			{* <!-- Buffer after header --> *}
 			<div class="buffer" style="height: 30px;"></div>
 
-			{* <!-- Suchbox --> *}
 			{if !$opt.page.nowpsearch}
 				<div id="breadcrumb">{include file="sys_breadcrumb.tpl" items="$breadcrumb"}</div>
-				<div id="suchbox"><form action="searchplugin.php" method="post" style="display:inline;"><b>{t}Waypoint-Search{/t}:</b><input type="hidden" name="source" value="waypoint-suche" /> <input type="text" name="userinput" size="10" /> <input type="submit" value="{t}Go{/t}" /></form></div>
 			{else}
 				<div id="breadcrumb_fullsize">{include file="sys_breadcrumb.tpl" items="$breadcrumb"}</div>
 			{/if}
