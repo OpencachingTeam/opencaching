@@ -111,6 +111,10 @@
 	$opt['logic']['pictures']['url'] = 'http://<domain>/images/uploads';
 	$opt['logic']['pictures']['thumb_url'] = $opt['logic']['pictures']['url'] . '/thumbs';
 
+	/* location of uploaded mp3
+	 */
+	$opt['logic']['podcasts']['url'] = 'http://<domain>/podcasts/uploads';
+
 	/* cachemaps
 	 */
 	$opt['logic']['cachemaps']['wmsurl'] = 'http://www.opencaching.de/cachemaps.php?wp={wp_oc}';
