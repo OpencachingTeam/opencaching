@@ -171,15 +171,26 @@
 
   			<!-- HEADER -->
 				<!-- OC-Logo -->
-				<div><img src="resource2/{style}/images/oc_logo.png" alt="" style="margin-top: 5px; margin-left: 3px;" /></div>
-				<!-- Sitename -->
+				<div class="header" style="height:81px;">
+					<div style="width: 970px; padding-top: 1px;">
+						<img src="resource2/{style}/images/oc_logo.png" alt="" style="margin-top: 5px; margin-left: 3px;" />
+						<img src="resource2/{style}/images/head/se/rotator.php?" width="896" height="80" alt="" style="border: 0px none ;" />
+					</div>
+				</div>
+
 				<div class="site-name">
 					<a href="index.php">
 						<p class="title">OPENCACHING.de</p>
-						<p class="subtitle1">Geocaching in Deutschland,</p>
-						<p class="subtitle2">Österreich und der Schweiz</p>
+						<p class="subtitle1">Geocaching med Opencaching</p>
+						<p class="subtitle2"></p>
 					</a>
 				</div>
+
+				<div id="suchbox"><form action="searchplugin.php" method="post" style="display:inline;">
+					<b>{t}Waypoint-Search{/t}:</b><br />
+					<input type="hidden" name="source" value="waypoint-suche" />
+					<input type="text" name="userinput" size="10" /><input type="submit" style="width:70px" value="{t}Go{/t}" />
+				</form></div>
 
 				<!-- Site slogan -->
 				<div class="site-slogan-container">
@@ -187,11 +198,6 @@
 				</div>	
 		
 				<?php echo isset($develwarning) ? $develwarning : '' ?>
-
-				<!-- Header banner -->
-				<div class="header" style="height:81px;">
-					<div style="width: 970px; padding-top: 1px;"><img src="resource2/{style}/images/head/rotator.php" width="970" height="80" alt="" style="border: 0px none ;" /></div>
-				</div>	
 
 				<!-- Navigation Level 2 -->
 				<div class="nav2">
@@ -216,9 +222,6 @@ echo '-->'
 				<!-- Buffer after header -->
 				<div class="buffer" style="height: 30px;"></div>
 
-				<!-- Suchbox -->
-				<div id="suchbox"><form action="searchplugin.php" method="post" style="display:inline;"><b>{t}Waypoint search:{/t}</b><input type="hidden" name="source" value="waypoint-suche" /> <input type="text" name="userinput" size="10" /> <input type="submit" value="Go" /></form></div>
-			
 				<!-- NAVIGATION -->
 				<!-- Navigation Level 3 -->
 				<div class="nav3">

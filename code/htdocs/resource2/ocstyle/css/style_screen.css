@@ -106,14 +106,21 @@ div#bg2 {display: none;}
 }
 
 .site-name {
-	width: 300px;
+	width: 280px;
 	height: 60px;
-	top: 4px;
+	top: 9px;
+	left: 84px;
+	border: solid 2px black;
 	position: absolute;
 	z-index: 4;
 	overflow: hidden;
 	margin: 0px;
 	padding-left: 80px;
+	background-color: white;
+	opacity: 0.6; 
+	-moz-opacity: 0.6; 
+	-khtml-opacity: 0.6; 
+	filter: alpha(opacity=60);
 }
 
 .site-name p.title  {margin: 0px; padding: 0px; font-family: "trebuchet ms", arial, sans serif; font-weight: bold; font-size: 24px;}
@@ -824,7 +831,7 @@ a.info:hover span{ /*the span will display just on :hover state*/
 #breadcrumb
 {
 	position: absolute; 
-	top:180px; 
+	top:106px; 
 	right: 250px;
 	left: 180px;
 	color:#505050;
@@ -840,7 +847,7 @@ a.info:hover span{ /*the span will display just on :hover state*/
 #breadcrumb_fullsize
 {
 	position: absolute; 
-	top:180px; 
+	top:108px; 
 	right: 20px;
 	left: 180px;
 
@@ -869,8 +876,16 @@ ul.nodot li {
 
 #suchbox {
 	position: absolute; 
-	top:182px; 
+	top:18px; 
 	right: 5px;
+	padding: 5px;
+	border: solid 1px black;
+	z-index: 4;
+	background-color: #dbe6f1;
+	opacity: 0.8; 
+	-moz-opacity: 0.8; 
+	-khtml-opacity: 0.8; 
+	filter: alpha(opacity=80);
 }
 
 /* external links in Maindiv, decorated with ext-icon */
