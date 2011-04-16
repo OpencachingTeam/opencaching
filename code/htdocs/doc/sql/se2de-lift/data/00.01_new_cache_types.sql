@@ -32,7 +32,7 @@ INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES
 (1045, 'Challengecache', '2011-01-15 22:00:01');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES
-(1046, 'Guestcookcache', '2011-01-15 22:00:01');
+(1046, 'Guestbookcache', '2011-01-15 22:00:01');
 
 INSERT INTO `sys_trans_ref` (`trans_id`, `resource_name`, `line`) VALUES
 (1043, './lang/de/ocstyle/search.tpl.php', 336),
