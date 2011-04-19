@@ -47,10 +47,18 @@ class TranslationHandler
 		fwrite($f, "\n");
 
 		$rs = sqlf("SELECT `sys_trans`.`text` AS `text`, `sys_trans_text`.`text` AS `trans` FROM `sys_trans` INNER JOIN `sys_trans_text` ON `sys_trans`.`id`=`sys_trans_text`.`trans_id` AND `sys_trans_text`.`lang`='&1' WHERE `sys_trans`.`text`!=''", $language_upper);
+
+		$variables = array();
+		$this->loadNodeTextFile($variables, $opt['logic']['node']['id'].'.txt', $language_lower);
+		$this->loadNodeTextFile($variables, $opt['logic']['node']['id'].'-'.$language_lower.'.txt', $language_lower);
+
 		while ($r = sql_fetch_assoc($rs))
 		{
+			$trans = $r['trans'];
+			$trans = $this->substitueVariables($variables, $language_lower, $trans);
+
 			fwrite($f, 'msgid "' . $this->escape_text($r['text']) . '"' . "\n");
-			fwrite($f, 'msgstr "' . $this->escape_text($r['trans']) . '"' . "\n");
+			fwrite($f, 'msgstr "' . $this->escape_text($trans) . '"' . "\n");
 			fwrite($f, "\n");
 		}
 		sql_free_result($rs);
@@ -135,5 +143,66 @@ class TranslationHandler
 		sqlf("UPDATE `&1` SET `&2`=0", $table, $fid);
 		sqlf("UPDATE `&1`, `sys_trans` SET `&1`.`&3`=`sys_trans`.`id` WHERE `&1`.`&2`=`sys_trans`.`text`", $table, $fname, $fid);
 	}
+
+	/* import variables for substition from config2/nodetext/
+	 */
+	function loadNodeTextFile(&$variables, $file, $language)
+	{
+		// generic load
+		global $opt;
+
+		$filename = $opt['rootpath'] . '/config2/nodetext/' . $file;
+		if (file_exists($filename))
+		{
+			$fhandle = fopen($filename, 'r');
+
+			if ($fhandle)
+			{
+				while ($line = fgets($fhandle, 4096))
+				{
+					$pos = strpos($line, ' ');
+					$variable = substr($line, 0, $pos);
+					$substitution =substr($line, $pos+1, -1);
+					$substitution = rtrim($substitution, '\r\n');
+					$variables[$language][$variable]=$substitution;
+				}
+				fclose($fhandle);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	function substitueVariables(&$variables, $lang, $str)
+	{
+		$langstr = $str;
+
+		// replace variables in string
+		if (mb_ereg_search_init($langstr))
+		{
+			while (false != $vars = mb_ereg_search_regs( "%[^%]*%" ))
+			{
+				foreach ($vars as $curly_pattern)
+				{
+					// $curly_pattern contatins %pattern% in replacement string
+					$pattern = mb_substr($curly_pattern,1,mb_strlen($curly_pattern)-2);
+					
+					// avoid recursive loop
+					if ($pattern != $str)
+					{
+						if ($variables[$lang][$pattern])
+						{
+							$pattern_replacement = $variables[$lang][$pattern];
+
+							$langstr = mb_ereg_replace($curly_pattern, $pattern_replacement, $langstr);
+						}
+					}
+				}
+			}
+		}
+
+		return $langstr;
+	}
+
 }
 ?>

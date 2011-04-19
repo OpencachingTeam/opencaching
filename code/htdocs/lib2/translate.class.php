@@ -96,8 +96,22 @@ class translateEdit extends translate
 		$rs = sql("SELECT `sys_trans`.`id` , `sys_trans_text`.`text` FROM `sys_trans` LEFT JOIN `sys_trans_text` ON `sys_trans`.`id` = `sys_trans_text`.`trans_id` AND `sys_trans_text`.`lang` = '&1' WHERE `sys_trans`.`text` = '&2'", $language, $search);
 		$r = sql_fetch_assoc($rs);
 
-		if ($r['text'] && !$this->editAll)
-			 return $r['text'];
+		$trans = $r['text'];
+		if ($trans)
+		{
+			global $translationHandler;
+
+			$variables = array();
+			$language_lower = mb_strtolower($language);
+			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'.txt', $language_lower);
+			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'-'.$language_lower.'.txt', $language_lower);
+			$trans = $translationHandler->substitueVariables($variables, $language_lower, $trans);
+		}
+
+		if ($trans && !$this->editAll)
+		{
+			return $trans;
+		}
 
 		if (empty($r['id']))
 		{
@@ -116,7 +130,7 @@ class translateEdit extends translate
 			return $this->t($message, $style, $resource_name, $line, $plural, $count);
 		}
 
-		$text = $r['text'] ? $r['text'] : gettext($search);
+		$text = $trans ? $trans : gettext($search);
 
 		return $text . ' <a href= translate.php?action=edit&id=' . $r['id'] . '>Edit</a>';
 	}
