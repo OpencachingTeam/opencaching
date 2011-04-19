@@ -190,7 +190,7 @@ class TranslationHandler
 					// avoid recursive loop
 					if ($pattern != $str)
 					{
-						if ($variables[$lang][$pattern])
+						if (isset($variables[$lang][$pattern]))
 						{
 							$pattern_replacement = $variables[$lang][$pattern];
 
