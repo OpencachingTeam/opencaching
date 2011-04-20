@@ -22,7 +22,9 @@ class Rss_FeedGenerator
 
     mysql_free_result($rs);
 
-    $content .= '</channel>\n</rss>\n';
+    $content .= "
+  </channel>
+</rss>";
 
     echo $content;
   }
