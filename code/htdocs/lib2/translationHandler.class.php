@@ -160,10 +160,10 @@ class TranslationHandler
 			{
 				while ($line = fgets($fhandle, 4096))
 				{
-					$pos = strpos($line, ' ');
-					$variable = substr($line, 0, $pos);
-					$substitution =substr($line, $pos+1, -1);
-					$substitution = rtrim($substitution, '\r\n');
+					$pos = mb_strpos($line, ' ');
+					$variable = mb_substr($line, 0, $pos);
+					$substitution = mb_substr($line, $pos+1, mb_strlen($line));
+					$substitution = rtrim($substitution);
 					$variables[$language][$variable]=$substitution;
 				}
 				fclose($fhandle);
