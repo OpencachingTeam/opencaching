@@ -145,7 +145,7 @@
 				{* <!-- Header banner --> *}						    		 						
 				<div class="header" style="height:81px;">
 					<div style="width: 970px; padding-top: 1px;">
-						<img src="resource2/{$opt.template.style}/images/oc_logo.png" alt="" style="margin-top: 5px; margin-left: 3px;" />
+						<img src="resource2/{$opt.template.style}/images/oc_logo.png" alt="" style="margin-top: 5px; margin-left: 3px; float: left;" />
 						<img src="resource2/{$opt.template.style}/images/head/se/rotator.php?" alt="" style="border: 0px none; float: right;" />
 					</div>
 				</div>
