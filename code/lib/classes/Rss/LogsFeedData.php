@@ -20,9 +20,9 @@ class Rss_LogsFeedData extends Rss_FeedData
 
   public function getItemTitle($r)
   {
-    $r['rss_log_type'] = $this->getLogType($r['log_type']);
+    $itemTitle = $this->getTitleByLogType($r['log_type']);
 
-    return $this->translator->translateArgs('{rss_username} {rss_log_type} {rss_cache_name}', $r);
+    return $this->translator->translateArgs($itemTitle, $r);
   }
 
   public function getItemDescription($r)
@@ -50,33 +50,33 @@ class Rss_LogsFeedData extends Rss_FeedData
     return '<enclosure url="' . 'http://www.opencaching.de/' . 'rss/'.$r['cache_id'].'.gpx" length="4096" type="application/gpx" />';
   }
 
-  function getLogType($log_type)
+  function getTitleByLogType($log_type)
   {
     switch($log_type)
     {
       case Log_Type::Found:
-        return $this->translator->translate('found');
+        return '{rss_username} found {rss_cache_name}';
 
       case Log_Type::NotFound:
-        return $this->translator->translate('did not find');
+        return '{rss_username} did not find {rss_cache_name}';
 
       case Log_Type::Comment:
-        return $this->translator->translate('wrote a comment on');
+        return '{rss_username} wrote a comment on {rss_cache_name}';
 
       case Log_Type::Attended:
-        return $this->translator->translate('attended');
+        return '{rss_username} attended {rss_cache_name}';
 
       case Log_Type::WillAttend:
-        return $this->translator->translate('will attend');
+        return '{rss_username} will attend {rss_cache_name}';
 
       case Log_Type::Solved:
-        return $this->translator->translate('solved');
+        return '{rss_username} solved {rss_cache_name}';
 
       case Log_Type::NotSolved:
-        return $this->translator->translate('did not solve');
+        return '{rss_username} did not solve {rss_cache_name}';
     }
 
-    return $this->translator->translate('log_type_unknown') . $log_type;
+    return '{rss_username} unknown log type ' . $log_type . ' {rss_cache_name}';
   }
 }
 
