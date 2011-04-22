@@ -22,7 +22,7 @@ class Rss_LogItems
                 AND `caches`.`status` != 5
                 AND `caches`.`status` != 6" 
                 .$this->getAdditionalWhere().
-            " ORDER BY cache_logs.last_modified DESC
+            " ORDER BY cache_logs.date_created DESC
               LIMIT 20");
 
     return $rs;
