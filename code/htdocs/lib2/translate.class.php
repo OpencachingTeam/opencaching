@@ -42,7 +42,22 @@ class translate
 			$message = $plural;
 		$search = $this->prepare_text($message);
 
-		return gettext($search);
+		$trans = gettext($search);
+
+		// safe to use non-mb since asc('%')<127
+		if (strpos($trans, "%") > 0)
+		{
+			// try to substitue variables after translation
+			global $translationHandler;
+
+			$variables = array();
+			$language_lower = mb_strtolower($language);
+			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'.txt', $language_lower);
+			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'-'.$language_lower.'.txt', $language_lower);
+			$trans = $translationHandler->substitueVariables($variables, $language_lower, $trans);
+		}
+
+		return $trans;
 	}
 
 	/* strip whitespaces
