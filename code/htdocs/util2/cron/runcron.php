@@ -12,6 +12,7 @@
  ***************************************************************************/
 
 	$opt['rootpath'] = '../../';
+	$_SERVER['DOCUMENT_ROOT'] = $opt['rootpath'];
 
 	// chdir to proper directory (needed for cronjobs)
 	chdir(substr(realpath($_SERVER['PHP_SELF']), 0, strrpos(realpath($_SERVER['PHP_SELF']), '/')));
@@ -19,10 +20,10 @@
 	require($opt['rootpath'] . 'lib2/cli.inc.php');
 
 	// use posix pid-files to lock process 
-	if (!CreatePidFile($opt['cron']['pidfile']))
+//	if (!CreatePidFile($opt['cron']['pidfile']))
 	{
-      CleanupAndExit($opt['cron']['pidfile'], "Another instance is running!"); 
-      exit;
+//      CleanupAndExit($opt['cron']['pidfile'], "Another instance is running!"); 
+//      exit;
 	}
 
 	$modules_dir = $opt['rootpath'] . 'util2/cron/modules/';
@@ -32,7 +33,7 @@
 		if (substr($file, -10) == '.class.php')
 			require($modules_dir . $file);
 
-  CleanupAndExit($opt['cron']['pidfile']); 
+//  CleanupAndExit($opt['cron']['pidfile']); 
 
 function checkJob(&$job)
 {
