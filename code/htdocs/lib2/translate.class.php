@@ -42,25 +42,6 @@ class translate
 			$message = $plural;
 		$search = $this->prepare_text($message);
 
-		// safe to use non-mb since asc('%')<127
-		if (strpos($search, "%") > 0)
-		{
-			// try to substitue variables instead of gettext
-
-			global $translationHandler;
-
-			$trans = $search;
-
-			$variables = array();
-			$language_lower = mb_strtolower($language);
-			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'.txt', $language_lower);
-			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'-'.$language_lower.'.txt', $language_lower);
-			$trans = $translationHandler->substitueVariables($variables, $language_lower, $trans);
-			
-			if ($trans != $search)
-				return $trans;
-		}
-
 		return gettext($search);
 	}
 
