@@ -1,8 +1,8 @@
 Hello {username},
 
-A new cache has been placed within your search radius:
+A new cache has been placed within your search radius.
 ---
-{user} have at {date} hidden the cache "{cachename}".
+{user} has hidden the cache "{cachename}" ({date}).
 Distance: {distance} {unit} Direction {bearing}
 Type: {cachetype}
 Size: {cachesize}

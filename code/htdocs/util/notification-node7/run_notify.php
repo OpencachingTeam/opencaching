@@ -99,7 +99,7 @@ function process_new_cache($notify)
 	if(!$fehler)
 	{
 		$mailbody = mb_ereg_replace('{username}', $notify['recpname'], $mailbody);
-		$mailbody = mb_ereg_replace('{date}', date('d.m.Y', strtotime($notify['date_hidden'])), $mailbody);
+		$mailbody = mb_ereg_replace('{date}', date('Y-m-d', strtotime($notify['date_hidden'])), $mailbody);
 		$mailbody = mb_ereg_replace('{cacheid}', $notify['cache_id'], $mailbody);
 		$mailbody = mb_ereg_replace('{wp_oc}', $notify['wp_oc'], $mailbody);
 		$mailbody = mb_ereg_replace('{user}', $notify['username'], $mailbody);

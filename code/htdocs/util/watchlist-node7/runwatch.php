@@ -207,7 +207,7 @@ function process_owner_log($user_id, $log_id)
 
 //	echo "process_owner_log($user_id, $log_id)\n";
 	
-	$rsLog = sql("SELECT cache_logs.cache_id cache_id, cache_logs.text text, cache_logs.text_html text_html, cache_logs.date logdate, user.username username, caches.name cachename FROM `cache_logs`, `user`, `caches` WHERE (cache_logs.user_id = user.user_id) AND (cache_logs.cache_id = caches.cache_id) AND (cache_logs.id ='&1')", $log_id);
+	$rsLog = sql("SELECT cache_logs.cache_id cache_id, cache_logs.text text, cache_logs.text_html text_html, cache_logs.date logdate, user.username username, caches.name cachename, sys_trans_text.text logtype FROM `cache_logs`, `user`, `caches`, `log_types`, `sys_trans_text` WHERE (cache_logs.user_id = user.user_id) AND (cache_logs.cache_id = caches.cache_id) AND (cache_logs.id ='&1') AND (cache_logs.type = log_types.id) AND (log_types.trans_id = sys_trans_text.trans_id) AND (`sys_trans_text`.`lang` = '&2')", $log_id, "EN" );
 	$rLog = sql_fetch_array($rsLog);
 	mysql_free_result($rsLog);
 	
@@ -229,11 +229,12 @@ function process_owner_log($user_id, $log_id)
 */
 	}
 	
-	$watchtext = mb_ereg_replace('{date}', date('d.m.Y', strtotime($rLog['logdate'])), $watchtext);
+	$watchtext = mb_ereg_replace('{date}', date('Y-m-d', strtotime($rLog['logdate'])), $watchtext);
 	$watchtext = mb_ereg_replace('{cacheid}', $rLog['cache_id'], $watchtext);
 	$watchtext = mb_ereg_replace('{text}', $logtext, $watchtext);
 	$watchtext = mb_ereg_replace('{user}', $rLog['username'], $watchtext);
 	$watchtext = mb_ereg_replace('{cachename}', $rLog['cachename'], $watchtext);
+	$watchtext = mb_ereg_replace('{logtype}', $rLog['logtype'], $watchtext);
 	
 	sql("INSERT IGNORE INTO watches_waiting (`user_id`, `object_id`, `object_type`, `date_created`, `watchtext`, `watchtype`) VALUES (
 																		'&1', '&2', 1, NOW(), '&3', 1)", $user_id, $log_id, $watchtext);
@@ -248,7 +249,7 @@ function process_log_watch($user_id, $log_id)
 
 //	echo "process_log_watch($user_id, $log_id)\n";
 	
-	$rsLog = sql("SELECT cache_logs.cache_id cache_id, cache_logs.text text, cache_logs.text_html text_html, cache_logs.date logdate, user.username username, caches.name cachename FROM `cache_logs`, `user`, `caches` WHERE (cache_logs.user_id = user.user_id) AND (cache_logs.cache_id = caches.cache_id) AND (cache_logs.id = '&1')", $log_id);
+	$rsLog = sql("SELECT cache_logs.cache_id cache_id, cache_logs.text text, cache_logs.text_html text_html, cache_logs.date logdate, user.username username, caches.name cachename, sys_trans_text.text logtype FROM `cache_logs`, `user`, `caches`, `log_types`, `sys_trans_text` WHERE (cache_logs.user_id = user.user_id) AND (cache_logs.cache_id = caches.cache_id) AND (cache_logs.id = '&1') AND (cache_logs.type = log_types.id) AND (log_types.trans_id = sys_trans_text.trans_id) AND (`sys_trans_text`.`lang` = '&2')", $log_id, "EN");
 	$rLog = sql_fetch_array($rsLog);
 	mysql_free_result($rsLog);
 	
@@ -270,11 +271,12 @@ function process_log_watch($user_id, $log_id)
 */
 	}
 	
-	$watchtext = mb_ereg_replace('{date}', date('d.m.Y', strtotime($rLog['logdate'])), $watchtext);
+	$watchtext = mb_ereg_replace('{date}', date('Y-m-d', strtotime($rLog['logdate'])), $watchtext);
 	$watchtext = mb_ereg_replace('{cacheid}', $rLog['cache_id'], $watchtext);
 	$watchtext = mb_ereg_replace('{text}', $logtext, $watchtext);
 	$watchtext = mb_ereg_replace('{user}', $rLog['username'], $watchtext);
 	$watchtext = mb_ereg_replace('{cachename}', $rLog['cachename'], $watchtext);
+	$watchtext = mb_ereg_replace('{logtype}', $rLog['logtype'], $watchtext);
 	
 	sql("INSERT IGNORE INTO watches_waiting (`user_id`, `object_id`, `object_type`, `date_created`, `watchtext`, `watchtype`) VALUES (
 																		'&1', '&2', 1, NOW(), '&3', 2)", $user_id, $log_id, $watchtext);
