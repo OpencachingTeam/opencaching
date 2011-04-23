@@ -1,0 +1,23 @@
+Hello {username},
+
+A new cache has been placed within your search radius:
+---
+{user} have at {date} hidden the cache "{cachename}".
+Distance: {distance} {unit} Direction {bearing}
+Type: {cachetype}
+Size: {cachesize}
+
+Link: http://www.opencaching.se/viewcache.php?wp={wp_oc}
+---
+
+
+The settings of your notifications of new caches can be changed at
+http://www.opencaching.se/myprofile.php
+
+Happy Caching,
+The Opencaching-Team
+
+---
+This e-mail is automatically generated - please don't reply to it.
+If you need to contact us see http://opencaching.wikispaces.com/Kontakt
+for contact option or send an e-mail to oc_team@opencaching.se.
