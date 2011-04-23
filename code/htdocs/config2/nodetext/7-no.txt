@@ -1,3 +1,4 @@
+site_contact http://opencachingno.wikispaces.com/Kontakt
 faq_login http://opencachingno.wikispaces.com/Sp%C3%B8rsm%C3%A5l+og+svar
 faq_npa http://opencachingno.wikispaces.com
 faq_htmltag http://opencachingno.wikispaces.com
