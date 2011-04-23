@@ -42,7 +42,13 @@ class translate
 			$message = $plural;
 		$search = $this->prepare_text($message);
 
-		return gettext($search);
+		$trans = gettext($search);
+		
+		// safe w/o mb because asc(%) < 128
+		if (strpos($trans, "%")>0)
+			$trans = v($trans);
+		
+		return $trans;
 	}
 
 	/* strip whitespaces
@@ -56,6 +62,30 @@ class translate
 			$text = mb_ereg_replace('  ', ' ', $text);
 
 		return $text;
+	}
+	
+	function v($message)
+	{
+		if ($message)
+		{
+			global $translationHandler;
+			global $opt;
+
+			if (!isset($language))
+			{
+				global $locale;
+
+				$language = $locale;
+			}
+
+			$variables = array();
+			$language_lower = mb_strtolower($language);
+			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'.txt', $language_lower);
+			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'-'.$language_lower.'.txt', $language_lower);
+			$message = $translationHandler->substitueVariables($variables, $language_lower, $message);
+		}
+
+		return $message;
 	}
 }
 
@@ -97,16 +127,7 @@ class translateEdit extends translate
 		$r = sql_fetch_assoc($rs);
 
 		$trans = $r['text'];
-		if ($trans)
-		{
-			global $translationHandler;
-
-			$variables = array();
-			$language_lower = mb_strtolower($language);
-			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'.txt', $language_lower);
-			$translationHandler->loadNodeTextFile($variables, $opt['logic']['node']['id'].'-'.$language_lower.'.txt', $language_lower);
-			$trans = $translationHandler->substitueVariables($variables, $language_lower, $trans);
-		}
+		$trans = v($trans};
 
 		if ($trans && !$this->editAll)
 		{
