@@ -1,4 +1,5 @@
 site_title Opencaching.de
+site_contact http://opencaching.wikispaces.com/Kontakt
 faq_login http://cms.opencaching.de/index.php?id=login
 faq_npa http://cms.opencaching.de/index.php?id=140
 faq_htmltag http://www.opencaching.de/articles.php?page=htmltags

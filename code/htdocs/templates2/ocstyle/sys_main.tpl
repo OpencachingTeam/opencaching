@@ -284,7 +284,7 @@
 
 			{* <!-- FOOTER --> *}
 			<div class="footer">
-				<p><a href="articles.php?page=dsb">{t}Privacy statement{/t}</a> | <a href="articles.php?page=impressum">{t}Terms of use and legal information{/t}</a> | <a href="articles.php?page=contact">{t}Contact{/t}</a> | <a href="sitemap.php">{t}Sitemap{/t}</a></p>
+				<p><a href="{t}articles.php?page=dsb{/t}">{t}Privacy statement{/t}</a> | <a href="{t}articles.php?page=impressum{/t}">{t}Terms of use and legal information{/t}</a> | <a href="{t}articles.php?page=contact{/t}">{t}Contact{/t}</a> | <a href="sitemap.php">{t}Sitemap{/t}</a></p>
 				<p><strong>{$opt.page.sponsor.bottom}</strong></p>
 			</div>
 		</div>
