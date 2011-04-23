@@ -1,4 +1,5 @@
 site_title OPENCACHING.no/se
+site_url http://www.opencaching.se
 site_contact http://opencaching.wikispaces.com/Kontakt
 faq_login http://opencaching.wikispaces.com/FAQ
 faq_npa http://opencaching.wikispaces.com

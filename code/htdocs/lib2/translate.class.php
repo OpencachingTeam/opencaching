@@ -45,8 +45,8 @@ class translate
 		$trans = gettext($search);
 		
 		// safe w/o mb because asc(%) < 128
-		if (strpos($trans, "%")>0)
-			$trans = v($trans);
+		if (strpos($trans, "%")>=0)
+			$trans = $this->v($trans);
 		
 		return $trans;
 	}
@@ -127,7 +127,7 @@ class translateEdit extends translate
 		$r = sql_fetch_assoc($rs);
 
 		$trans = $r['text'];
-		$trans = v($trans};
+		$trans = v($trans);
 
 		if ($trans && !$this->editAll)
 		{
