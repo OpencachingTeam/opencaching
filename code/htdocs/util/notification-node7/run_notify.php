@@ -123,7 +123,7 @@ function process_new_cache($notify)
 
 		if ($mailadr != '')
 		{
-			if (is_existent_maildomain(getToMailDomain($mailadr)))
+//			if (is_existent_maildomain(getToMailDomain($mailadr)))
 				mb_send_mail($mailadr, $subject, $mailbody, $email_headers);
 		}
 	}

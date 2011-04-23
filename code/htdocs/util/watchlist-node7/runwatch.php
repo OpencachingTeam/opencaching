@@ -160,7 +160,7 @@
 
 					if ($mailadr != '')
 					{
-						if (is_existent_maildomain(getToMailDomain($mailadr)))
+//						if (is_existent_maildomain(getToMailDomain($mailadr)))
 						{
 							mb_send_mail($mailadr, $mailsubject, $mailbody, $email_headers);
 					
