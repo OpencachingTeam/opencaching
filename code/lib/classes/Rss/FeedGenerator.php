@@ -2,9 +2,13 @@
 
 class Rss_FeedGenerator
 {
-  public function __construct($feed_data)
+  private $feed_data;
+  private $translator;
+
+  public function __construct($feed_data, $translator)
   {
     $this->feed_data = $feed_data;
+    $this->translator = $translator;
   }
 
   public function outputFeed()
@@ -31,13 +35,13 @@ class Rss_FeedGenerator
 
   function getRssHeader()
   {
-    $content = "<?xml version=\"1.0\"?>
-<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">
+    $content = $this->translator->substitute('<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Opencaching.de - {title}</title>
+    <title>%site_title% - {title}</title>
     <description>{description}</description>
-    <link>http://opencaching.de</link>
-    <atom:link href=\"http://www.opencaching.de/rss/{atom_link}\" rel=\"self\" type=\"application/rss+xml\" />";
+    <link>%site_url%</link>
+    <atom:link href="%site_url%/rss/{atom_link}" rel="self" type="application/rss+xml" />');
 
     $content = str_replace('{title}', htmlspecialchars($this->feed_data->title), $content);
     $content = str_replace('{description}', htmlspecialchars($this->feed_data->description), $content);

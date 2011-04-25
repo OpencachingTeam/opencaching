@@ -4,6 +4,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib2/translate.class.php');
 
 class Language_Translator
 {
+  public function substitute($message)
+  {
+    $translate = createTranslate(1);
+
+    return $translate->v($message);
+  }
+
   public function translate($lang_string)
   {
     $translate = createTranslate(1);

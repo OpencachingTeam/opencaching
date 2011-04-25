@@ -46,7 +46,7 @@ class Rss_CachesFeedData extends Rss_FeedData
 
   public function getItemLink($r)
   {
-    return 'http://www.opencaching.de/' . 'viewcache.php?cacheid=' . $r['cache_id'];
+    return $this->translator->substitute('%site_url%') . '/viewcache.php?cacheid=' . $r['cache_id'];
   }
 
   public function getItemDate($r)
@@ -61,7 +61,7 @@ class Rss_CachesFeedData extends Rss_FeedData
 
   public function getItemEnclosure($r)
   {
-    return '<enclosure url="' . 'http://www.opencaching.de/' . 'rss/' . $r['cache_id'] . '.gpx" length="4096" type="application/gpx" />';
+    return $this->translator->substitute('<enclosure url="%site_url%/rss/') . $r['cache_id'] . '.gpx" length="4096" type="application/gpx" />';
   }
 }
 

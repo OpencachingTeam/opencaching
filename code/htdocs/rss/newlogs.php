@@ -8,7 +8,7 @@ $items = new Rss_LogItems();
 $title = $translator->translate('New logs with gpx');
 $atomLink = 'newlogs.xml';
 
-$generator = new Rss_FeedGenerator(new Rss_LogsFeedData($translator, $items, $title, $atomLink));
+$generator = new Rss_FeedGenerator(new Rss_LogsFeedData($translator, $items, $title, $atomLink), $translator);
 
 $generator->outputFeed();
 
