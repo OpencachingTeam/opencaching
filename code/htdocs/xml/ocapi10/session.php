@@ -53,7 +53,7 @@
 	$opt['rootpath'] = '../../';
 	require_once($opt['rootpath'] . 'lib2/nusoap.inc.php');
 
-	initSoapRequest('OCAPI10_Session', 'http://www.opencaching.de/xml/ocapi10');
+	initSoapRequest('OCAPI10_Session', $opt['page']['absolute_url'] . 'xml/ocapi10');
 
 	$nuserver->register('Login', array('user' => 'xsd:string', 
 	                                   'pwmd5' => 'xsd:string'), 

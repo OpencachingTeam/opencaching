@@ -38,7 +38,7 @@ function getCacheNote($userid, $cacheid)
   return null;
 }
 
-	global $content, $bUseZip, $sqldebug;
+	global $content, $bUseZip, $sqldebug, $opt;
 
 	$gpxHead = 
 '<?xml version="1.0" encoding="utf-8"?>
@@ -61,7 +61,7 @@ function getCacheNote($userid, $cacheid)
 		<name>{waypoint}</name>
 		<desc>{cachename}</desc>
 		<src>www.opencaching.de</src>
-		<url>http://www.opencaching.de/viewcache.php?cacheid={cacheid}</url>
+		<url>' . $opt['page']['absolute_url'] . 'viewcache.php?cacheid={cacheid}</url>
 		<urlname>{cachename}</urlname>
 		<sym>Geocache</sym>
 		<type>Geocache|{type}</type>
@@ -106,7 +106,7 @@ $gpxWaypoints = '
 	<name>{name}</name>
 	<cmt>{wp_type_name} {desc}</cmt>
 	<desc>{desc}</desc>
-	<url>http://www.opencaching.de/viewcache.php?cacheid={cacheid}</url>
+	<url>' . $opt['page']['absolute_url'] . 'viewcache.php?cacheid={cacheid}</url>
 	<urlname><![CDATA[{waypoint} {wp_stage}]]></urlname>
 	<sym>{wp_type}</sym>
 	<type>Waypoint|{wp_type}</type>

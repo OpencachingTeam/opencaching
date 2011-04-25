@@ -127,7 +127,7 @@ class translateEdit extends translate
 		$r = sql_fetch_assoc($rs);
 
 		$trans = $r['text'];
-		$trans = v($trans);
+		$trans = $this->v($trans);
 
 		if ($trans && !$this->editAll)
 		{

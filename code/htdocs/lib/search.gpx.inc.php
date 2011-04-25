@@ -25,7 +25,7 @@
 		
 	****************************************************************************/
 
-	global $content, $bUseZip, $sqldebug;
+	global $content, $bUseZip, $sqldebug, $opt;
 
 	$gpxHead = 
 '<?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@
 	<name>{waypoint}</name>
 	<desc>{cachename}</desc>
 	<src>www.opencaching.de</src>
-	<url>http://www.opencaching.de/viewcache.php?cacheid={cacheid}</url>
+	<url>' . $opt['page']['absolute_url'] . 'viewcache.php?cacheid={cacheid}</url>
 	<urlname>{cachename}</urlname>
 	<sym>Geocache</sym>
 	<type>Geocache</type>

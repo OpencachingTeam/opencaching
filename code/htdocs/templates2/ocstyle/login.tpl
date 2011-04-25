@@ -18,15 +18,15 @@
 				{if $error==LOGIN_BADUSERPW}
 					{t}The login was not successfull.{/t}<br />
 					{t}The entered username/e-mail or the specified password did not match.{/t}<br />
-          {t}Here you can find more troubleshooting:{/t} <a href="http://cms.opencaching.de/index.php?id=login">{t}Problems with login{/t}</a>
+          {t}Here you can find more troubleshooting:{/t} <a href="{t}%faq_login%{/t}">{t}Problems with login{/t}</a>
 				{elseif $error==LOGIN_TOOMUCHLOGINS}
 					{t}The login was not successfull.{/t}<br />
 					{t 1=$opt.page.max_logins_per_hour}Your tried to login more than %1 times in the last hour. The next login will not be allowed before one hour since the first try has passed.{/t}<br />
-          {t}Here you can find more troubleshooting:{/t} <a href="http://cms.opencaching.de/index.php?id=login">{t}Problems with login{/t}</a>
+          {t}Here you can find more troubleshooting:{/t} <a href="{t}%faq_login%{/t}">{t}Problems with login{/t}</a>
 				{elseif $error==LOGIN_USERNOTACTIVE}
 					{t}Your account is not acivated.{/t}<br />
 					{t}&gt;<a href="activation.php">Here</a>&lt; you can activate your account.{/t}<br />
-          {t}Here you can find more troubleshooting:{/t} <a href="http://cms.opencaching.de/index.php?id=login">{t}Problems with login{/t}</a>
+          {t}Here you can find more troubleshooting:{/t} <a href="{t}%faq_login%{/t}">{t}Problems with login{/t}</a>
 				{elseif $error==LOGIN_EMPTY_USERPASSWORD}
 					{t}Please fill in username and password!{/t}
 				{elseif $error==LOGIN_LOGOUT_OK}
@@ -34,7 +34,7 @@
 				{else}
 					{t}The login was not successfull.{/t}<br />
 					{t 1=$opt.mail.contact}If this problem persists over a longer time, please contact us at <a href="mailto:%1">%1</a>.{/t}<br />
-          {t}Here you can find more troubleshooting:{/t} <a href="http://cms.opencaching.de/index.php?id=login">{t}Problems with login{/t}</a>
+          {t}Here you can find more troubleshooting:{/t} <a href="{t}%faq_login%{/t}">{t}Problems with login{/t}</a>
 				{/if}
 			</p>
 			<div class="buffer" style="width: 500px;">&nbsp;</div>

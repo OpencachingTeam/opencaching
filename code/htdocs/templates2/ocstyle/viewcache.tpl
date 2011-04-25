@@ -230,7 +230,7 @@
 		</div>
 
 		<b>Maps:</b> 
-		<a href="http://www.opencaching.de/map2.php?wp={$cache.wpoc}" target="_blank">{t}Opencaching.de{/t}</a>, <a href="http://www.mapquest.com/maps/map.adp?latlongtype=decimal&latitude={$cache.latitude}&longitude={$cache.longitude}" target="_blank">Mapquest</a>,<br />
+		<a href="{$opt.page.absolute_url}map2.php?wp={$cache.wpoc}" target="_blank">{t}Opencaching.de{/t}</a>, <a href="http://www.mapquest.com/maps/map.adp?latlongtype=decimal&latitude={$cache.latitude}&longitude={$cache.longitude}" target="_blank">Mapquest</a>,<br />
 		<a href="http://maps.google.de/?ll={$cache.latitude},{$cache.longitude}&z=11" target="_blank">{t}Google Maps{/t}</a>			
 	</div>
 </div>

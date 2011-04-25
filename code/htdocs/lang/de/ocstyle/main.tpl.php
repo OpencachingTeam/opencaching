@@ -181,7 +181,7 @@
 				<div class="site-name">
 					<a href="index.php">
 						<p class="title">{t}Opencaching.de{/t}</p>
-						<p class="subtitle1">Geocaching med Opencaching</p>
+						<p class="subtitle1">{t}Geocaching with Opencaching[/t}</p>
 						<p class="subtitle2"></p>
 					</a>
 				</div>

@@ -25,7 +25,7 @@
 		
 	****************************************************************************/
 
-	global $content, $bUseZip, $sqldebug;
+	global $content, $bUseZip, $sqldebug, $opt;
 
 	$txtLine = "Name: {cachename} von {owner}
 Koordinaten: {lon} {lat}
@@ -37,7 +37,7 @@ Land: {country}
 Cacheart: {type}
 Behälter: {container}
 D/T: {difficulty}/{terrain}
-Online: http://www.opencaching.de/viewcache.php?wp={waypoint}
+Online: ' . $opt['page']['absolute_url'] . '/viewcache.php?wp={waypoint}
 
 Kurzbeschreibung: {shortdesc}
 
