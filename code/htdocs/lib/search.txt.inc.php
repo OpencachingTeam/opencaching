@@ -25,7 +25,7 @@
 		
 	****************************************************************************/
 
-	global $content, $bUseZip, $sqldebug, $opt;
+	global $content, $bUseZip, $sqldebug;
 
 	$txtLine = "Name: {cachename} von {owner}
 Koordinaten: {lon} {lat}
@@ -37,7 +37,7 @@ Land: {country}
 Cacheart: {type}
 Behälter: {container}
 D/T: {difficulty}/{terrain}
-Online: ' . $opt['page']['absolute_url'] . '/viewcache.php?wp={waypoint}
+Online: ' . $absolute_server_URI . '/viewcache.php?wp={waypoint}
 
 Kurzbeschreibung: {shortdesc}
 

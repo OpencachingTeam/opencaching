@@ -25,7 +25,7 @@
 		
 	****************************************************************************/
 
-	global $content, $bUseZip, $sqldebug, $opt;
+	global $content, $bUseZip, $sqldebug;
 
 	$locHead = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><loc version="1.0" src="opencaching.de">' . "\n";
 	
@@ -35,7 +35,7 @@
 	<name id="{waypoint}"><![CDATA[{archivedflag}{name} by {username}]]></name>
 	<coord lat="{lat}" lon="{lon}"/>
 	<type>Geocache</type>
-	<link text="Beschreibung">' . $opt['page']['absolute_url'] . 'viewcache.php?cacheid={cacheid}</link>
+	<link text="Beschreibung">' . $absolute_server_URI . 'viewcache.php?cacheid={cacheid}</link>
 </waypoint>
 ';
 
