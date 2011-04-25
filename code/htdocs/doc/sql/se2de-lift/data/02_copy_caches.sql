@@ -175,7 +175,7 @@ INSERT INTO `caches_attributes` (
 `attrib_id`)
 select
 `cache_id`, 
-`attrib_id`
+if(`attrib_id`=60, 63, `attrib_id`) `attrib_id`
 from ocpl.caches_attributes;
 
 INSERT INTO `cache_visits` (
