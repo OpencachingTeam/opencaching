@@ -47,7 +47,7 @@ pl-type de-type description
 12      14      Guestbook
 */
 
-create temporary table type_conversion (
+create table type_conversion (
   pltype tinyint(3) unsigned NOT NULL,
   detype tinyint(3) unsigned NOT NULL );
 
@@ -138,7 +138,7 @@ INSERT INTO `caches` (
 --  `not_solved`
   from ocpl.caches;
 
-DROP TEMPORARY TABLE IF EXISTS type_conversion;
+DROP TABLE IF EXISTS type_conversion;
 
 insert into `cache_desc` (
   `id`,
