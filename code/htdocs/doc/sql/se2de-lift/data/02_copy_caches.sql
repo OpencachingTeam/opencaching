@@ -64,6 +64,7 @@ insert into type_conversion ( pltype, detype ) values ( 10, 12 );
 insert into type_conversion ( pltype, detype ) values ( 11, 13 );
 insert into type_conversion ( pltype, detype ) values ( 12, 14 );
 
+/*
 (select detype from type_conversion where pltype = `type`) as `type`
 */
 
