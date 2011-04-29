@@ -14,6 +14,7 @@ CREATE TABLE `sys_menu` (
   `position` tinyint(3) unsigned NOT NULL,
   `color` varchar(7) NOT NULL,
   `sitemap` tinyint(1) NOT NULL,
+  `only_if_parent` tinyint(1) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id_string` (`id_string`),
   KEY `parent` (`parent`,`position`),
