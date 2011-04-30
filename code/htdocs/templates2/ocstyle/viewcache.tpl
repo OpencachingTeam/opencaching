@@ -361,11 +361,11 @@
 		{foreach from=$pictures item=pictureItem}
 			<div class="viewcache-pictureblock">
 				<div class="img-shadow">
-					<a href="{$pictureItem.url|escape}" target="_blank">
-						<img src="thumbs.php?uuid={$pictureItem.uuid|urlencode}" alt="{$pictureItem.title|escape}" title="{$pictureItem.title|escape}" border="0" align="bottom" onclick="enlarge(this)" class="viewcache-thumbimg"  />
+					<a href="{$pictureItem.url|escape}" title="{$pictureItem.title|escape}" onclick="return false;">
+						<img src="thumbs.php?uuid={$pictureItem.uuid|urlencode}" alt="{$pictureItem.title|escape}" title="{$pictureItem.title|escape}" border="0" align="bottom" onclick="enlarge(this)" class="viewcache-thumbimg" longdesc="{$pictureItem.url}" />
 					</a>
 				</div>
-				<span class="title">{$pictureItem.title|escape}</span>
+				<span class="title"><a href="{$pictureItem.url|escape}">{$pictureItem.title|escape}</a></span>
 			</div>
 		{/foreach}
 	</div>
