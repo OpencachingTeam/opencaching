@@ -255,6 +255,12 @@ if(`uuid`=-1,upper(uuid()),`uuid`),
 from ocpl.cache_logs
 where `deleted` = 0 and `hidden` = 0;
 
+update cache_logs
+set text = replace(text, 'lib/tinymce/plugins/emotions/images/', 'resource2/tinymce/plugins/emotions/img/')
+
+update cache_logs
+set text = replace(text, 'lib/tinymce/plugins/emotions/img/', 'resource2/tinymce/plugins/emotions/img/')
+
 INSERT INTO `cache_logs_archived` (
 `id`,
 `uuid`,
