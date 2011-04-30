@@ -134,16 +134,27 @@
 			$imheight = imagesy($im);
 			$imwidth = imagesx($im);
 
-			if (($imheight > $opt['logic']['pictures']['thumb_max_height']) || ($imwidth > $opt['logic']['pictures']['thumb_max_width']))
+			if ($r['object_type'] == 1)
+			{
+				$thumb_max_height = $opt['logic']['pictures']['thumb_max_height']/3;
+				$thumb_max_width = $opt['logic']['pictures']['thumb_max_width']/3;
+			}
+			else
+			{
+				$thumb_max_height = $opt['logic']['pictures']['thumb_max_height'];
+				$thumb_max_width = $opt['logic']['pictures']['thumb_max_width'];
+			}
+			
+			if (($imheight > $thumb_max_height) || ($imwidth > $thumb_max_width))
 			{
 				if ($imheight > $imwidth)
 				{
-					$thumbheight = $opt['logic']['pictures']['thumb_max_height'];
+					$thumbheight = $thumb_max_height;
 					$thumbwidth = $imwidth * ($thumbheight / $imheight);
 				}
 				else
 				{
-					$thumbwidth = $opt['logic']['pictures']['thumb_max_width'];
+					$thumbwidth = $thumb_max_width;
 					$thumbheight = $imheight * ($thumbwidth / $imwidth);
 				}
 			}

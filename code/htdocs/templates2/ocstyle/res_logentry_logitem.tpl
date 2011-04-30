@@ -59,14 +59,28 @@
 
 		{foreach from=$logItem.pictures item=pictureItem name=pictures}
 			{if $smarty.foreach.pictures.first}
-				<b>{t}Pictures for this logentry:{/t}</b><br />
+				<div class="viewlogs-logpictures">
+					<span class="info">{t}Pictures for this logentry:{/t}</span>
+					<div class="allimages">
 			{/if}
-
-			<a href="{$pictureItem.url}">{$pictureItem.title|escape}</a>
+			<div class="logimage">
+				<div class="img-shadow"><a href="{$pictureItem.url}" title="{$pictureItem.title|escape}" onclick="return false;">
+				<img src="thumbs.php?uuid={$pictureItem.uuid}"
+					alt="{$pictureItem.title|escape}"
+					onclick="enlarge(this)"
+					class="viewlogs-thumbimg"
+					longdesc="{$pictureItem.url}" /></a>
+				</div><span class="desc"><a href="{$pictureItem.url}">{$pictureItem.title|escape}</a>
 			{if $logItem.userid==$login.userid || $cache.userid==$login.userid}
 				[<a href="picture.php?action=delete&uuid={$pictureItem.uuid|escape}">{t}Delete{/t}</a>]
 			{/if}
-			<br />
+			</span>
+			</div>
+			{if $smarty.foreach.pictures.last}
+				</div>
+				<br style="clear: both;">&nbsp;
+				</div>
+			{/if}
 		{/foreach}
 	</div>
 	</div>
