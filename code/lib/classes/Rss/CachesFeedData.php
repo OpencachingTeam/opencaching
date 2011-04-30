@@ -22,14 +22,13 @@ class Rss_CachesFeedData extends Rss_FeedData
                 `user`.`username` `rss_username`,
                 `cache_desc`.`short_desc` `short_desc`,
                 `cache_desc`.`desc` `long_desc`,
-                `caches`.`date_hidden` `date`
+                `caches`.`date_created` date
               FROM `user`, `caches`, `cache_desc`
               WHERE ' . Cache_Where::active() .
                 'AND `caches`.`user_id`=`user`.`user_id`
                 AND `caches`.`cache_id` = `cache_desc`.`cache_id`
                 AND `cache_desc`.`language` = \'' . $this->lang . '\'
-              ORDER BY `caches`.`last_modified` DESC,
-                `caches`.`cache_id` DESC
+              ORDER BY `caches`.`date_created` DESC
               LIMIT 20');
 
     return $rs;
