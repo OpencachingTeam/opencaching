@@ -28,7 +28,8 @@ class Rss_CachesFeedData extends Rss_FeedData
                 'AND `caches`.`user_id`=`user`.`user_id`
                 AND `caches`.`cache_id` = `cache_desc`.`cache_id`
                 AND `cache_desc`.`language` = \'' . $this->lang . '\'
-              ORDER BY `caches`.`last_modified` DESC
+              ORDER BY `caches`.`last_modified` DESC,
+                `caches`.`cache_id` DESC
               LIMIT 20');
 
     return $rs;
