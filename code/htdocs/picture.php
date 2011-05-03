@@ -107,11 +107,6 @@
 				$tpl->assign('errorfile', ERROR_UPLOAD_UNKNOWN);
 				$bError = true;
 			}
-			else if ($_FILES['file']['size'] > $opt['logic']['pictures']['maxsize'])
-			{
-				$tpl->assign('errorfile', ERROR_UPLOAD_ERR_SIZE);
-				$bError = true;
-			}
 			else if ($picture->allowedExtension($_FILES['file']['name']) == false)
 			{
 				$tpl->assign('errorfile', ERROR_UPLOAD_ERR_TYPE);
@@ -122,7 +117,22 @@
 			{
 				$picture->setFilenames($_FILES['file']['name']);
 				$picture->setLocal(1);
+			}
+			
+			if ($bError == false)
+			{
+				if ($_FILES['file']['size'] > $opt['logic']['pictures']['maxsize'])
+				{
+					if (!$picture->resize($_FILES['file']['tmp_name']))
+					{
+						$tpl->assign('errorfile', ERROR_UPLOAD_ERR_SIZE);
+						$bError = true;
+					}
+				}
+			}
 
+			if ($bError == false)
+			{
 				// try saving file and record
 				if (!move_uploaded_file($_FILES['file']['tmp_name'], $picture->getFilename()))
 				{

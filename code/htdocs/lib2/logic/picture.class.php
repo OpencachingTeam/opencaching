@@ -311,5 +311,90 @@ class picture
 
 		return false;
 	}
+
+	function resize($sTempFilename)
+	{
+		global $opt;
+		
+		$extension = $this->sFileExtension;
+		if ($extension == 'jpeg') $extension = 'jpg';
+		switch ($extension)
+		{
+			case 'jpg':
+				$im = imagecreatefromjpeg($sTempFilename);
+				break;
+
+			case 'gif':
+				$im = imagecreatefromgif($sTempFilename);
+				break;
+
+			case 'png':
+				$im = imagecreatefrompng($sTempFilename);
+				break;
+
+			case 'bmp':
+				require($opt['rootpath'] . 'lib2/imagebmp.inc.php');
+				$im = imagecreatefrombmp($sTempFilename);
+				break;
+		}
+
+		if ($im == '')
+		{
+			return false;
+		}
+
+		$imheight = imagesy($im);
+		$imwidth = imagesx($im);
+
+		$max_height = $opt['logic']['pictures']['max_height'];
+		$max_width = $opt['logic']['pictures']['max_width'];
+
+		if (($imheight > $max_height) || ($imwidth > $max_width))
+		{
+			if ($imheight > $imwidth)
+			{
+				$theight = $max_height;
+				$twidth = $imwidth * ($theight / $imheight);
+			}
+			else
+			{
+				$twidth = $max_width;
+				$theight = $imheight * ($twidth / $imwidth);
+			}
+		}
+		else
+		{
+			$twidth = $imwidth;
+			$theight = $imheight;
+		}
+
+		$timage = imagecreatetruecolor($twidth, $theight);
+		imagecopyresampled($timage, $im, 0, 0, 0, 0, $twidth, $theight, $imwidth, $imheight);
+
+		switch ($extension)
+		{
+			case 'jpg':
+				imagejpeg($timage, $sTempFilename);
+				return true;
+				break;
+
+			case 'gif':
+				imagegif($timage, $sTempFilename);
+				return true;
+				break;
+
+			case 'png':
+				imagepng($timage, $sTempFilename);
+				return true;
+				break;
+
+			case 'bmp':
+				imagebmp($timage, $sTempFilename);
+				return true;
+				break;
+		}
+
+		return false;
+	}
 }
 ?>
