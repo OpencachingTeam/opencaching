@@ -7,9 +7,11 @@ class ChildWp_Handler
 
   public function __construct()
   {
+    global $opt;
+
     $this->translator = new Language_Translator();
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/config2/childwp.inc.php');
+    require($opt['rootpath'] . 'config2/childwp.inc.php');
 
     foreach ($childWpTypes as $type)
     {

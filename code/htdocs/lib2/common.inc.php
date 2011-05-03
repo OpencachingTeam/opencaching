@@ -12,8 +12,11 @@
 
 function __autoload($class_name)
 {
+  global $opt;
+
   $class_name = str_replace('_', '/', $class_name);
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/../lib/classes/' . $class_name . '.php';
+
+  require_once $opt['rootpath'] . '../lib/classes/' . $class_name . '.php';
 }
 
 	// yepp, we will use UTF-8
@@ -200,7 +203,7 @@ function set_usercountry()
 function fix_magic_quotes_gpc()
 {
 	// Disable magic_quotes_runtime
-	@set_magic_quotes_runtime(0); 
+	@set_magic_quotes_runtime(0);
 
 	if (get_magic_quotes_gpc())
 	{

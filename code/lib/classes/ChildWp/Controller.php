@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
+require_once($opt['rootpath'] . 'lib2/error.inc.php');
 
 class ChildWp_Controller
 {

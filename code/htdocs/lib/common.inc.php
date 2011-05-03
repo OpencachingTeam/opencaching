@@ -31,8 +31,11 @@
 
 function __autoload($class_name)
 {
+  global $opt;
+
   $class_name = str_replace('_', '/', $class_name);
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/../lib/classes/' . $class_name . '.php';
+
+  require_once $opt['rootpath'] . '../lib/classes/' . $class_name . '.php';
 }
 
 	// we are in HTML-mode ... maybe plain (for CLI scripts)
@@ -46,7 +49,7 @@ function __autoload($class_name)
 	$error = false;
 
 	//no slashes in variables! originally from phpBB2 copied
-	set_magic_quotes_runtime(0); // Disable magic_quotes_runtime
+	@set_magic_quotes_runtime(0); // Disable magic_quotes_runtime
 
 	if (get_magic_quotes_gpc())
 	{

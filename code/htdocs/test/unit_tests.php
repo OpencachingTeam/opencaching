@@ -1,13 +1,18 @@
 <?php
 
+$opt['rootpath'] = dirname(__FILE__) . '/../';
+
 function __autoload($class_name)
 {
+  global $opt;
+
   $class_name = str_replace('_', '/', $class_name);
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/../lib/classes/' . $class_name . '.php';
+
+  require_once('classes/' . $class_name . '.php');
 }
 
-set_include_path($_SERVER['DOCUMENT_ROOT'] . '/../lib/');
+set_include_path($opt['rootpath'] . '../lib/');
 
- Test_UnitTests::init();
+Test_UnitTests::init();
 
 ?>
