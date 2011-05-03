@@ -236,6 +236,8 @@
 	$opt['logic']['pictures']['url'] = 'http://devel.opencaching.de/images/uploads';
 	$opt['logic']['pictures']['maxsize'] = 153600;
 	$opt['logic']['pictures']['extensions'] = 'jpg;jpeg;gif;png;bmp';
+	$opt['logic']['pictures']['max_height'] = 500;
+	$opt['logic']['pictures']['max_width'] = 500;
 
 	/* Thumbnail sizes
 	 */
