@@ -26,7 +26,7 @@
 
 	****************************************************************************/
 
-	require($rootpath . 'lib/login.class.php');
+	require($opt['rootpath'] . 'lib/login.class.php');
 
 	$autherr = 0;
 	define('AUTHERR_NOERROR', 0);

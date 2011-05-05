@@ -939,7 +939,7 @@
 					if($publish == 'now2' || ($publish == 'later' && mktime($activate_hour, 0, 0, $activate_month, $activate_day, $activate_year) <= $today))
 					{
 						//do event handling
-						include_once($rootpath . '/lib/eventhandler.inc.php');
+						include_once($opt['rootpath'] . '/lib/eventhandler.inc.php');
 
 						event_notify_new_cache($cache_id + 0);
 						event_new_cache($usr['userid']+0);

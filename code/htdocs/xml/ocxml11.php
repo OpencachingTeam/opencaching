@@ -12,8 +12,8 @@
 
 /* begin configuration */
 	
-	$rootpath = '../';
-  require($rootpath . 'lib/common.inc.php');
+	$opt['rootpath'] = '../';
+  require($opt['rootpath'] . 'lib/common.inc.php');
   if ($error == true)
 	{
 		echo 'Unable to connect to database';
@@ -621,7 +621,7 @@ function outputXmlFile($sessionid, $filenr, $bXmlDecl, $bOcXmlTag, $bDocType, $z
 
 function startXmlSession($sModifiedSince, $bCache, $bCachedesc, $bCachelog, $bUser, $bPicture, $bRemovedObject, $bPictureFromCachelog, $selection, $sAgent)
 {
-	global $rootpath;
+	global $opt;
 
 	// session anlegen
 	sql("INSERT INTO `xmlsession` (`last_use`, `modified_since`, `date_created`, `agent`) VALUES (NOW(), '&1', NOW(), '&2')", date('Y-m-d H:i:s', strtotime($sModifiedSince)), $sAgent);
@@ -714,7 +714,7 @@ function startXmlSession($sModifiedSince, $bCache, $bCachedesc, $bCachelog, $bUs
 		}
 		else if ($selection['type'] == 2)
 		{
-			require_once($rootpath . 'lib/search.inc.php');
+			require_once($opt['rootpath'] . 'lib/search.inc.php');
 
 			$sql = 'CREATE TEMPORARY TABLE `tmpxmlSesssionCaches` (`cache_id` int(11), `distance` double, KEY (`cache_id`)) ENGINE=MEMORY ';
 			$sql .= 'SELECT `cache_coordinates`.`cache_id`, ';

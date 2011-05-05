@@ -9,14 +9,14 @@
  ****************************************************************************/
 
   //prepare the templates and include all neccessary
-  $rootpath = '../../';
+  $opt['rootpath'] = '../../';
   $pidfile = '/var/www/www.opencaching.de/html/cache/search.pid';
 
 	// chdir to proper directory (needed for cronjobs)
 	chdir(substr(realpath($_SERVER['PHP_SELF']), 0, strrpos(realpath($_SERVER['PHP_SELF']), '/')));
 
-	require_once($rootpath . 'lib/clicompatbase.inc.php');
-	require_once($rootpath . 'lib/ftsearch.inc.php');
+	require_once($opt['rootpath'] . 'lib/clicompatbase.inc.php');
+	require_once($opt['rootpath'] . 'lib/ftsearch.inc.php');
 
 
 	// use posix pid-files to lock process 

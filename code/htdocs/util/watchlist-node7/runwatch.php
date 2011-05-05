@@ -20,15 +20,15 @@
 		
 	***************************************************************************/
 
-	$rootpath = '../../';
+	$opt['rootpath'] = '../../';
 
 	// chdir to proper directory (needed for cronjobs)
 	chdir(substr(realpath($_SERVER['PHP_SELF']), 0, strrpos(realpath($_SERVER['PHP_SELF']), '/')));
 
-	require_once($rootpath . 'lib/clicompatbase.inc.php');
+	require_once($opt['rootpath'] . 'lib/clicompatbase.inc.php');
 	require_once('settings.inc.php');
-	require_once($rootpath . 'lib/consts.inc.php');
-	require_once($rootpath . 'lib2/html2text.class.php');
+	require_once($opt['rootpath'] . 'lib/consts.inc.php');
+	require_once($opt['rootpath'] . 'lib2/html2text.class.php');
 
 	// use posix pid-files to lock process 
 //	if (!CreatePidFile($watchpid))
@@ -106,7 +106,7 @@
 				if ($r['count'] > 0)
 				{
 					// ok, eine mail ist fäig
-					$mailbody = read_file($rootpath . 'util/watchlist-node7/watchlist.email');
+					$mailbody = read_file($opt['rootpath'] . 'util/watchlist-node7/watchlist.email');
 					$mailbody = mb_ereg_replace('{username}', $rUser['username'], $mailbody);
 
 					$rsWatchesOwner = sql("SELECT id, watchtext FROM watches_waiting WHERE user_id='&1' AND watchtype=1 ORDER BY id DESC", $rUser['user_id']);

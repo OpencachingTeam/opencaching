@@ -13,10 +13,10 @@ class Menu2
 
 	function Menu2()
 	{
-		global $rootpath;
+		global $opt;
 		global $locale;
 
-		$this->sMenuFilename = $rootpath . 'cache2/menu-' . $locale . '.inc.php';
+		$this->sMenuFilename = $opt['rootpath'] . 'cache2/menu-' . $locale . '.inc.php';
 
 		require_once($this->sMenuFilename);
 	}

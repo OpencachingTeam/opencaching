@@ -116,7 +116,7 @@
 					break;
 
 				case 'bmp':
-					require($rootpath . 'lib2/imagebmp.inc.php');
+					require($opt['rootpath'] . 'lib2/imagebmp.inc.php');
 					$im = imagecreatefrombmp($opt['logic']['pictures']['dir'] . '/' . $filename);
 					break;
 			}

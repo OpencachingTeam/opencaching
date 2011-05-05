@@ -9,8 +9,8 @@
 		
 	***************************************************************************/
 
-  require_once($rootpath . 'lib/clicompatbase.inc.php');
-  require_once($rootpath . 'util/mysql_root/settings.inc.php');
+  require_once($opt['rootpath'] . 'lib/clicompatbase.inc.php');
+  require_once($opt['rootpath'] . 'util/mysql_root/settings.inc.php');
 
 function db_root_connect()
 {

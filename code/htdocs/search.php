@@ -549,7 +549,7 @@
 					{
 						if ($locid == 0)
 						{
-							require_once($rootpath . 'lib/search.inc.php');
+							require_once($opt['rootpath'] . 'lib/search.inc.php');
 
 							$ort = $options['ort'];
 							$simpletexts = search_text2sort($ort);
@@ -805,7 +805,7 @@
 				}
 				elseif ($options['searchtype'] == 'byfulltext')
 				{
-					require_once($rootpath . 'lib/ftsearch.inc.php');
+					require_once($opt['rootpath'] . 'lib/ftsearch.inc.php');
 
 					$fulltext = $options['fulltext'];
 					$hashes = ftsearch_hash($fulltext);
@@ -1001,7 +1001,7 @@
 			}
 
 			//go to final output preparation
-			if (!file_exists($rootpath . 'lib/search.' . mb_strtolower($options['output']) . '.inc.php'))
+			if (!file_exists($opt['rootpath'] . 'lib/search.' . mb_strtolower($options['output']) . '.inc.php'))
 			{
 				tpl_set_var('tplname', $tplname);
 				$tplname = 'error';
@@ -1010,7 +1010,7 @@
 			else
 			{
 				//process and output the search result
-				require($rootpath . 'lib/search.' . mb_strtolower($options['output']) . '.inc.php');
+				require($opt['rootpath'] . 'lib/search.' . mb_strtolower($options['output']) . '.inc.php');
 				exit;
 			}
 		}

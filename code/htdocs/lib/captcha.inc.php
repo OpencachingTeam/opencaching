@@ -87,11 +87,11 @@ $case_sensitive = FALSE;
 //
 
 //$folder_root = substr(__FILE__,0,(strpos(__FILE__,'.php')));
-$folder_root = $rootpath;
+$folder_root = $opt['rootpath'];
 
 $CAPTCHA_CONFIG = array('tempfolder'=>$folder_root.$tempfolder,'TTF_folder'=>$folder_root.$TTF_folder,'minchars'=>$minchars,'maxchars'=>$maxchars,'minsize'=>$minsize,'maxsize'=>$maxsize,'maxrotation'=>$maxrotation,'noise'=>$noise,'websafecolors'=>$websafecolors,'debug'=>$debug,'counter_filename'=>$counter_filename,'filename_prefix'=>$filename_prefix,'collect_garbage_after'=>$collect_garbage_after,'maxlifetime'=>maxlifetime,'case_sensitive'=>$case_sensitive);
 
-require_once($rootpath . 'lib/b2evo-captcha/b2evo_captcha.class.php');
+require_once($opt['rootpath'] . 'lib/b2evo-captcha/b2evo_captcha.class.php');
 
 // return true/false
 function checkCaptcha($id, $string)

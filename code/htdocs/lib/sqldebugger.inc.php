@@ -19,7 +19,7 @@
 	*
 	***************************************************************************/
 
-require_once($rootpath . 'lib/bench.inc.php');
+require_once($opt['rootpath'] . 'lib/bench.inc.php');
 
 $sqldbg_cmdNo = 0;
 $sqldbg_sumTimes = 0;

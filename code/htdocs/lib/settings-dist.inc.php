@@ -26,9 +26,9 @@
  ****************************************************************************/
  
  	//relative path to the root directory
-	if (!isset($rootpath)) $rootpath = './';
+	if (!isset($opt['rootpath'])) $opt['rootpath'] = './';
 
-	require($rootpath.'config2/locale.inc.php');
+	require($opt['rootpath'].'config2/locale.inc.php');
 
 	//default used language
 	if (!isset($lang)) $lang = 'de';
@@ -62,7 +62,7 @@
 	if (!isset($emailaddr)) $emailaddr = 'contact@mail.opencaching.de';
 	
 	// location of cache images
-	if (!isset($picdir)) $picdir = $rootpath . 'images/uploads';
+	if (!isset($picdir)) $picdir = $opt['rootpath'] . 'images/uploads';
 	if (!isset($picurl)) $picurl = 'http://www.opencaching.de/images/uploads';
 
 	// Thumbsize
@@ -123,7 +123,7 @@
   $cachemap_pixel_x = 200;
   $cachemap_pixel_y = 200;
   $cachemap_url = 'images/cachemaps/';
-  $cachemap_dir = $rootpath . $cachemap_url;
+  $cachemap_dir = $opt['rootpath'] . $cachemap_url;
 
 	$opt['translate']['debug'] = false;
 

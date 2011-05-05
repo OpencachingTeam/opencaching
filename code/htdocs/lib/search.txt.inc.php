@@ -186,7 +186,7 @@ Logeinträge:
 	if ($bUseZip == true)
 	{
 		$content = '';
-		require_once($rootpath . 'lib/phpzip/ss_zip.class.php');
+		require_once($opt['rootpath'] . 'lib/phpzip/ss_zip.class.php');
 		$phpzip = new ss_zip('',6);
 	}
 
