@@ -31,7 +31,7 @@ class translate
 {
 	/* translate the given string
 	 */
-	function t($message, $style, $resource_name, $line, $plural='', $count=1)
+	function t($message, $style, $resource_name, $line, $plural='', $count=1, $lang=null)
 	{
 		global $opt;
 
@@ -42,8 +42,14 @@ class translate
 			$message = $plural;
 		$search = $this->prepare_text($message);
 
-		$trans = gettext($search);
-		
+		if (($lang === null) || ($lang == $opt['template']['locale']))
+			$trans = gettext($search);
+		else
+			$trans = sql_value("SELECT IFNULL(`sys_trans_text`.`text`, '&3')
+			                      FROM `sys_trans` 
+			                 LEFT JOIN `sys_trans_text` ON `sys_trans`.`id`=`sys_trans_text`.`trans_id` AND `sys_trans_text`.`lang`='&1'
+											     WHERE `sys_trans`.`text`='&2' LIMIT 1", '', $lang, $search, $message);
+
 		// safe w/o mb because asc(%) < 128
 		if (strpos($trans, "%")>=0)
 			$trans = $this->v($trans);

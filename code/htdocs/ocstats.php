@@ -15,9 +15,15 @@
 
 	// get userid and style from URL
 	$userid = isset($_REQUEST['userid']) ? $_REQUEST['userid']+0 : 0;
+	$lang = isset($_REQUEST['lang']) ? mb_strtoupper($_REQUEST['lang']) : $opt['template']['locale'];
 
-	if (!file_exists($opt['rootpath'] . 'images/statpics/statpic'.$userid.'.jpg') ||
-	    sql_value("SELECT COUNT(*) FROM `user_statpic` WHERE `user_id`='&1'", 0, $userid) == 0)
+	if (!isset($opt['locale'][$lang]))
+		$lang = $opt['template']['locale'];
+
+  $filename = GetFilename($userid, $lang);
+
+	if (!file_exists($filename) ||
+	    sql_value("SELECT COUNT(*) FROM `user_statpic` WHERE `user_id`='&1' AND `lang`='&2'", 0, $userid, $lang) == 0)
 	{
 		// get detailed info from DB
 		$rs = sql("SELECT `user`.`username`, `stat_user`.`hidden`, `stat_user`.`found`, `user`.`statpic_logo`, `user`.`statpic_text` FROM `user` LEFT JOIN `stat_user` ON `user`.`user_id`=`stat_user`.`user_id` WHERE `user`.`user_id`='&1'", $userid);
@@ -29,22 +35,23 @@
 			$hidden = isset($record['hidden']) ? $record['hidden'] : 0;
 			$logo = isset($record['statpic_logo']) ? $record['statpic_logo'] : 0;
 			$logotext = isset($record['statpic_text']) ? $record['statpic_text'] : 'Opencaching';
+
+			$text_counterstat = $translate->t('Finds: %1  Hidden: %2', '', '', 0, '', 0, $lang);
+			$text_counterstat = str_replace('%1', $found, $text_counterstat);
+			$text_counterstat = str_replace('%2', $hidden, $text_counterstat);
 		}
 		else
 		{
 			$userid = 0;
-			$username = "<User not known>";
+			$username = $translate->t('<User not known>', '', '', 0, '', 0, $lang);
 			$found = 0;
 			$hidden = 0;
 			$logo = 0;
 			$logotext = 'Opencaching';
-
 		}
 		sql_free_result($rs);
 
-		if ($userid == 0)
-			if (file_exists($opt['rootpath'] . 'images/statpics/statpic'.$userid.'.jpg'))
-				$tpl->redirect('images/statpics/statpic'.$userid.'.jpg');
+	  $filename = GetFilename($userid, $lang);
 
 		// Bild existiert nicht => neu erstellen
 		$rs = sql("SELECT `tplpath`, `maxtextwidth` FROM `statpics` WHERE `id`='&1'", $logo);
@@ -68,6 +75,7 @@
 		$clrBorder = ImageColorAllocate($im, 70, 70, 70);
 		$clrBlack = ImageColorAllocate($im, 0, 0, 0);
 		$clrBlue = ImageColorAllocate($im, 0, 0, 255);
+		$drawRectangle = true;
 
 		switch ($logo)
 		{
@@ -79,7 +87,7 @@
 			$textsize = imagettfbbox($fontsize, 0, $fontfile, $text);
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 15, $clrBlack, $fontfile, $text);
 			$fontsize = 7.5;
-			$text = "Gefunden: $found  Versteckt: $hidden";
+			$text = $text_counterstat;
 			$textsize = imagettfbbox($fontsize, 0, $fontfile, $text);
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 32, $clrBlack, $fontfile, $text);
 			break;
@@ -93,7 +101,7 @@
 			$textsize = imagettfbbox($fontsize, 0, $fontfile, $logotext);
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 29, $clrBlack, $fontfile, $logotext);
 			$fontsize = 7.5;
-			$text = "Gefunden: $found  Versteckt: $hidden";
+			$text = $text_counterstat;
 			$textsize = imagettfbbox($fontsize, 0, $fontfile, $text);
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 45, $clrBlack, $fontfile, $text);
 			break;
@@ -108,6 +116,20 @@
 			$textsize = imagettfbbox($fontsize, 0, $fontfile, $logotext);
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 32, $clrBlack, $fontfile, $logotext);
 			break;
+		case 8:
+			// write text
+			$fontsize = 10;
+			$text = $username;
+			$textsize = imagettfbbox($fontsize, 0, $fontfile, $text);
+			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-8 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-8 : $maxtextwidth, 20, $clrBlack, $fontfile, $text);
+			$fontsize = 8;
+			$text = $text_counterstat;
+			$textsize = imagettfbbox($fontsize, 0, $fontfile, $text);
+			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-12 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-12 : $maxtextwidth, 39, $clrBlack, $fontfile, $text);
+
+			$drawRectangle = false;
+
+			break;
 		case 1:
 		default:
 			// write text
@@ -116,7 +138,7 @@
 			$textsize = imagettfbbox($fontsize, 0, $fontfile, $text);
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 15, $clrBlack, $fontfile, $text);
 			$fontsize = 7;
-			$text = "Gefunden: $found  Versteckt: $hidden";
+			$text = $text_counterstat;
 			$textsize = imagettfbbox($fontsize, 0, $fontfile, $text);
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 29, $clrBlack, $fontfile, $text);
 			$fontsize = 8;
@@ -124,15 +146,24 @@
 			ImageTTFText($im, $fontsize, 0, (imagesx($im)-($textsize[2]-$textsize[0])-5 > $maxtextwidth) ? imagesx($im)-($textsize[2]-$textsize[0])-5 : $maxtextwidth, 45, $clrBlack, $fontfile, $logotext);
 		}
 
-		// draw border
-		ImageRectangle($im, 0, 0, imagesx($im)-1, imagesy($im)-1, $clrBorder);
+		if ($drawRectangle == true)
+		{
+			// draw border
+			ImageRectangle($im, 0, 0, imagesx($im)-1, imagesy($im)-1, $clrBorder);
+		}
 		// write output
-		Imagejpeg($im, $opt['rootpath'] . 'images/statpics/statpic'.$userid.'.jpg', $jpeg_qualitaet);
+		Imagejpeg($im, $filename, $jpeg_qualitaet);
 		ImageDestroy($im);
 
-		sql("INSERT INTO `user_statpic` (`user_id`) VALUES ('&1') ON DUPLICATE KEY UPDATE `date_created`=NOW()", $userid);
+		sql("INSERT INTO `user_statpic` (`user_id`, `lang`) VALUES ('&1', '&2') ON DUPLICATE KEY UPDATE `date_created`=NOW()", $userid, $lang);
 	}
 
 	// Redirect auf das gespeicherte Bild
-	$tpl->redirect('images/statpics/statpic'.$userid.'.jpg');
+	$tpl->redirect('images/statpics/statpic' . $userid . $lang . '.jpg');
+
+function GetFilename($userid, $lang)
+{
+	global $opt;
+	return $opt['rootpath'] . 'images/statpics/statpic' . $userid . $lang . '.jpg';
+}
 ?>
