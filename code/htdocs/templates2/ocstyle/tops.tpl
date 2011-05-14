@@ -25,58 +25,91 @@
 	<tr>
 		<td style="padding-left:32px; padding-bottom:32px;">
 			<table width="100%">
-				{foreach name=adm1 from=$tops item=adm1item}
-					<tr>
-						<td valign="top" width="150px">{$adm1item.name|escape}</td>
-						<td>
-							{foreach name=adm3 from=$adm1item.adm3 item=adm3item}
-								{if $adm3item.name==null}
-									<a href="#{$adm1item.name|urlencode}null"><i>(ohne geogr. Bezug)</i><br /></a>
-								{else}
-									<a href="#{$adm1item.name|urlencode}{$adm3item.name|urlencode}">{$adm3item.name|escape}</a><br />
+				{assign var='lastadm1' value=''}
+				{assign var='lastadm3' value=''}
+
+				{foreach name=tops from=$tops item=topItem}
+					{if ($lastadm1!=$topItem.adm1 || ($lastadm3!=$topItem.adm3))}
+						<tr>
+							<td valign="top" width="150px">
+								{if $lastadm1!=$topItem.adm1}
+									{$topItem.adm1|escape}
 								{/if}
-							{/foreach}
-						</td>
-					</tr>
+							</td>
+							<td>
+								{if $topItem.adm3==null}
+									<a href="#{$topItem.adm1|urlencode}null"><i>(ohne geogr. Bezug)</i><br /></a>
+								{else}
+									<a href="#{$topItem.adm1|urlencode}{$topItem.adm3|urlencode}">{$topItem.adm3|escape}</a><br />
+								{/if}
+							</td>
+						</tr>
+					{/if}
+
+					{assign var='lastadm1' value=$topItem.adm1}
+					{assign var='lastadm3' value=$topItem.adm3}
 				{/foreach}
 			</table>
 		</td>
 	</tr>
 </table>
 
-{foreach name=adm1 from=$tops item=adm1item}
-	{foreach name=adm3 from=$adm1item.adm3 item=adm3item}
-			<p class="content-title-noshade-size3"><a name="{$adm1item.name|urlencode}{if $adm3item.name==null}null{else}{$adm3item.name|urlencode}{/if}"></a> {$adm1item.name|escape}
-								 &gt; 
+{assign var='lastItem' value=false}
+{assign var='makehead' value=true}
+{assign var='makefoot' value=false}
 
-								{if $adm3item.name==null}
-									(ohne geogr. Bezug)
-								{else}
-									{$adm3item.name|escape}
-								{/if}</p>
-			<table class="table">
-				<tr>
-					<td align="right"><b>{t}Index{/t}</b></td>
-					<td align="center"><img src="images/rating-star.gif" border="0" alt="{t}Recommendations{/t}"></td>
-					<td align="center"><img src="resource2/{$opt.template.style}/images/log/16x16-found.png" width="16" height="16" border="0" alt="{t}Found{/t}"></td>
-					<td>&nbsp;</td>
-				</tr>
-				{foreach name=cache from=$adm3item.items item=cacheItem}
-					<tr>
-						<td width="40px" align="right">
-							{$cacheItem.idx}
-						</td>
-						<td width="40px" align="center">
-							{$cacheItem.ratings}
-						</td>
-						<td width="60px" align="center">
-							{$cacheItem.founds}
-						</td>
-						<td>
-							<a href="viewcache.php?wp={$cacheItem.wpoc}">{$cacheItem.name|escape}</a> {t}by{/t} <a href="viewprofile.php?userid={$cacheItem.userid}">{$cacheItem.username|escape}</a>
-						</td>
-					</tr>
-				{/foreach}
-			</table>
-	{/foreach}
+{foreach name=tops from=$tops item=topItem}
+	{if $smarty.foreach.tops.first}
+		{assign var='makehead' value=true}
+	{elseif ($topItem.adm1!=$lastItem.adm1) || ($topItem.adm3!=$lastItem.adm3)}
+		{assign var='makehead' value=true}
+		</table>
+	{/if}
+
+	{if $makehead}
+		<p class="content-title-noshade-size3">
+			<a name="{$topItem.adm1|urlencode}{if $topItem.adm3==null}null{else}{$topItem.adm3|urlencode}{/if}"></a> 
+			{$topItem.adm1|escape}
+			&gt;
+			{if $topItem.adm3==null}
+				(ohne geogr. Bezug)
+			{else}
+				{$topItem.adm3|escape}
+			{/if}
+		</p>
+
+		<table class="table">
+			<tr>
+				<td align="right"><b>{t}Index{/t}</b></td>
+				<td align="center"><img src="images/rating-star.gif" border="0" alt="{t}Recommendations{/t}"></td>
+				<td align="center"><img src="resource2/{$opt.template.style}/images/log/16x16-found.png" width="16" height="16" border="0" alt="{t}Found{/t}"></td>
+				<td>&nbsp;</td>
+			</tr>
+	{/if}
+
+	<tr>
+		<td width="40px" align="right">
+			{$topItem.idx}
+		</td>
+		<td width="40px" align="center">
+			{$topItem.ratings}
+		</td>
+		<td width="60px" align="center">
+			{$topItem.founds}
+		</td>
+		<td>
+			<a href="viewcache.php?wp={$topItem.wpoc}">{$topItem.name|escape}</a> {t}by{/t} <a href="viewprofile.php?userid={$topItem.userid}">{$topItem.username|escape}</a>
+		</td>
+	</tr>
+
+	{if $smarty.foreach.tops.last}
+		{assign var='makefoot' value=true}
+	{/if}
+	{if $makefoot}
+		</table>
+	{/if}
+
+	{assign var='lastItem' value=$topItem}
+	{assign var='makehead' value=false}
+	{assign var='makefoot' value=false}
 {/foreach}
