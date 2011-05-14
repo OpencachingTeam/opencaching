@@ -16,6 +16,7 @@
   $dbname = 'oc';
   $dbuser = 'ocroot';
   $dbpassword = 'ocroot-pw';
+  die("not configured");
   // end configuration
 
 	$dblink = @mysql_connect($dbserver, $dbuser, $dbpassword);
