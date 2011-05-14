@@ -46,7 +46,7 @@ function __autoload($class_name)
 	$error = false;
 
 	//no slashes in variables! originally from phpBB2 copied
-	set_magic_quotes_runtime(0); // Disable magic_quotes_runtime
+	@set_magic_quotes_runtime(0); // Disable magic_quotes_runtime
 
 	if (get_magic_quotes_gpc())
 	{
