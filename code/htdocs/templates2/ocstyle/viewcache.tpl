@@ -223,10 +223,14 @@
 			</p>
 		</div>
 		<div id="viewcache-map" class="content2-container-2col-right">
-			<div class="img-shadow">
-				<iframe src="http://maps.geocaching.de/gm/oc-mini-mitcaches.php?lat={$cache.latitude}&lon={$cache.longitude}&zoom={$userzoom}" width="200px" height="200px" frameborder="0">
-				</iframe>
-			</div>
+			{if $cachemap.iframe}
+				<div class="img-shadow">
+					<iframe src="{$cachemap.url}" width="200px" height="200px" frameborder="0">
+					</iframe>
+				</div>
+			{else}
+				<img src="{$cachemap.url}" height="200px" width="200px" />
+			{/if}
 		</div>
 
 		<b>Maps:</b> 

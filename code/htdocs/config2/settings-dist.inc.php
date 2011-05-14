@@ -261,6 +261,20 @@
 	$opt['logic']['cachemaps']['pixel']['y'] = 200;
 	$opt['logic']['cachemaps']['pixel']['x'] = 200;
  
+	/* cachemaps (new)
+	 * how to display the cache map on viewcache.php (200x200 pixel)
+	 *
+	 * option 1) via <img> tag (e.g. google maps)
+	 *        2) via <iframe> tag (e.g. own mapserver)
+	 *
+	 * placeholders:
+	 * {userzoom} = user zoomlevel (see myprofile.php)
+	 * {latitude} = latitude of the cache
+	 * {longitude} = longitude of the cache
+	 */
+	$opt['logic']['cachemaps']['url'] = 'http://maps.google.com/maps/api/staticmap?center={latitude},{longitude}&zoom={userzoom}&size=200x200&maptype=hybrid&markers=color:blue|label:|{latitude},{longitude}&sensor=false';
+	$opt['logic']['cachemaps']['iframe'] = false;
+ 
 	/* target vars
 	 * all _REQUEST-vars that identifiy the current page for target redirection after login
 	 */
