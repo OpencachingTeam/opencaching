@@ -48,9 +48,11 @@
 						<a href="#" onclick="javascript:showPermlinkBox_click()">
 							<img src="resource2/{$opt.template.style}/images/map/35x35-star.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Show link to this map{/t}" />
 						</a>
-						<a href="#" onclick="javascript:fullscreen_click()">
-							<img src="resource2/{$opt.template.style}/images/map/35x35-fullscreen.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Switch to full screen{/t}" />
-						</a>
+						{if !$bDisableFullscreen}
+							<a href="#" onclick="javascript:fullscreen_click()">
+								<img src="resource2/{$opt.template.style}/images/map/35x35-fullscreen.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Switch to full screen{/t}" />
+							</a>
+						{/if}
 					</td>
 				</tr>
 			</table>

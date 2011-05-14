@@ -408,7 +408,11 @@
 	// max number of caches displayed in google maps
 	$opt['map']['maxrecords'] = 180;
 
- 	/* external binaries
+	// the full screen mode requires a GIS server at the moment
+	// has to be migrated to map2.php
+	$opt['map']['disablefullscreen'] = true;
+
+	/* external binaries
  	 */
  	$opt['bin']['cs2cs'] = 'cs2cs';
 
