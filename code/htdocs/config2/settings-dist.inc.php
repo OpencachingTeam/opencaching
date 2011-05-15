@@ -170,7 +170,7 @@
 	$opt['template']['default']['country'] = 'DE';     // may be overwritten by $opt['domain'][...]['country']
 
 	// smiley path
-	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/images/';
+	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/img/';
 
 	/* other template options
 	 *
