@@ -42,6 +42,9 @@
 	require_once($rootpath . 'lib2/smarty/ocplugins/function.season.php');
 	require_once($rootpath . '/lib/menu2.class.php');
 
+	if (function_exists('post_config'))
+		post_config();
+
 	$menu2 = new Menu2();
 	$sUserCountry = getUserCountry();
 	$menuitem = $menu2->setSelectedItem($tplname);
