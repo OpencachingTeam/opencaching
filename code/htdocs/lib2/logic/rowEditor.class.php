@@ -317,6 +317,9 @@ class rowEditor
 
 	function getValue($sField)
 	{
+		if (isset($this->pk[$sField]))
+			return $this->pk[$sField]['value'];
+
 		return $this->fields[$sField]['value'];
 	}
 
