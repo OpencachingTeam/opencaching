@@ -456,4 +456,16 @@
 	$opt['logic']['theme'] = 'seasons';
 	$opt['logic']['lowresfriendly'] = false;
 
+  /* commands to start and stop apache process
+   * required to clear the webcache
+   */
+  $opt['httpd']['stop'] = '/etc/rc.d/init.d/httpd stop';
+  $opt['httpd']['start'] = '/etc/rc.d/init.d/httpd start';
+
+  /* owner and group of files created by apache daemon
+   * (used to change ownership in shell scripts)
+   */
+  $opt['httpd']['user'] = 'apache';
+  $opt['httpd']['group'] = 'apache';
+
 ?>
