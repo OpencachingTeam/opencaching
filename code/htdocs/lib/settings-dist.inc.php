@@ -193,4 +193,19 @@
 	$opt['logic']['lowresfriendly'] = false;
 	$opt['logic']['ocprefix'] = 'OC';
 
+
+/* post_config() is invoked directly before the first HTML line of the main.tpl.php is sent to the client.
+ */
+function post_config()
+{
+	global $menu;
+
+	$menu[] = array(
+		'title' => t('Geokrety'),
+		'menustring' => t('Geokrety'),
+		'siteid' => 'geokrety',
+		'visible' => true,
+		'filename' => 'http://geokrety.org/index.php?lang=de_DE.UTF-8'
+	);
+}
 ?>
