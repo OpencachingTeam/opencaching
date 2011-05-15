@@ -177,7 +177,7 @@
 	 */
 	$opt['page']['subtitle1'] = 'Geocaching with Opencaching';
 	$opt['page']['subtitle2'] = '';
-	$opt['page']['title'] = 'OPENCACHING.de';
+	$opt['page']['title'] = 'OPENCACHING';
 	$opt['page']['absolute_url'] = 'http://devel.opencaching.de/'; // may be overwritten by $opt['domain'][...]['uri']
 	$opt['page']['max_logins_per_hour'] = 25;
  	$opt['page']['showdonations'] = false; // Show donations button
@@ -251,7 +251,7 @@
 	$opt['logic']['podcasts']['maxsize'] = 1536000;
 	$opt['logic']['podcasts']['extensions'] = 'mp3';
 
-	/* cachemaps
+	/* cachemaps (old, see cachemaps.php)
 	 */
 	$opt['logic']['cachemaps']['url'] = 'images/cachemaps/';
 	$opt['logic']['cachemaps']['dir'] = $opt['rootpath'] . $opt['logic']['cachemaps']['url'];
