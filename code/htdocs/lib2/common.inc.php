@@ -12,8 +12,16 @@
 
 function __autoload($class_name)
 {
-  $class_name = str_replace('_', '/', $class_name);
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/../lib/classes/' . $class_name . '.php';
+	global $opt;
+
+	if (!preg_match('/^[\w]{1,}$/', $class_name))
+		return;
+	
+	$class_name = str_replace('_', '/', $class_name);
+	
+	$file = $opt['rootpath'] . '../lib/classes/' . $class_name . '.php';
+	if (file_exists($file))
+	  require_once($file);
 }
 
 	// yepp, we will use UTF-8
