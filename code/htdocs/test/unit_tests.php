@@ -1,7 +1,4 @@
 <?php
-
-$opt['rootpath'] = dirname(__FILE__) . '/../';
-
 function __autoload($class_name)
 {
   global $opt;

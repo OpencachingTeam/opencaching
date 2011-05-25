@@ -24,12 +24,11 @@
 						<tr>
 							<td bgcolor="{$bgcolor}"><a href="search.php?queryid={$queriesItem.id}">{$queriesItem.name|escape}</a></td>
 							<td bgcolor="{$bgcolor}">
-								<a href="search.php?queryid={$queriesItem.id}&output=gpx2&count=max&zip=1">GPX</a> 
+								<a href="search.php?queryid={$queriesItem.id}&output=gpx&count=max&zip=1">GPX</a> 
 								<a href="search.php?queryid={$queriesItem.id}&output=loc&count=max&zip=1">LOC</a> 
 								<a href="search.php?queryid={$queriesItem.id}&output=kml&count=max&zip=1">KML</a> 
 								<a href="search.php?queryid={$queriesItem.id}&output=ov2&count=max&zip=1">OV2</a> 
 								<a href="search.php?queryid={$queriesItem.id}&output=ovl&count=max&zip=1">OVL</a>
-								<a href="search.php?queryid={$queriesItem.id}&output=gpx&count=max&zip=1"><font size="1"><i>{t}GPX (old){/t}</i></font></a> 
 							</td>
 							<td bgcolor="{$bgcolor}">[<a href="search.php?queryid={$queriesItem.id}&showresult=0">{t}Edit{/t}</a>]</td>
 						</tr>

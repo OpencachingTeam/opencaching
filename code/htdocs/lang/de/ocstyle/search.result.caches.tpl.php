@@ -51,25 +51,23 @@
 						<td style="width:120px">
 							<select name="wpdownload-page" class="wpdownload" onChange="location.href=this.options[this.selectedIndex].value"> 
 								<option value="#">{t}Results on this page{/t}</option>
-								<option value="search.php?queryid={queryid}&output=gpx2&startat={startat}">GPX</option>
+								<option value="search.php?queryid={queryid}&output=gpx&startat={startat}">GPX</option>
 								<option value="search.php?queryid={queryid}&output=loc&startat={startat}">LOC</option>
 								<option value="search.php?queryid={queryid}&output=kml&startat={startat}">KML</option>
 								<option value="search.php?queryid={queryid}&output=ov2&startat={startat}">OV2</option>
 								<option value="search.php?queryid={queryid}&output=ovl&startat={startat}">OVL</option>
 								<option value="search.php?queryid={queryid}&output=txt&startat={startat}">TXT</option>
-								<option value="search.php?queryid={queryid}&output=gpx&startat={startat}">{t}GPX (old){/t}</option>
 							</select>
 						</td>
 						<td style="width:120px">
 							<select name="wpdownload-all" class="wpdownload" onChange="location.href=this.options[this.selectedIndex].value"> 
 								<option value="#">{t}Result {startatp1} to {endat} (as zip){/t}</option>
-								<option value="search.php?queryid={queryid}&output=gpx2&startat={startat}&count=max&zip=1">GPX</option>
+								<option value="search.php?queryid={queryid}&output=gpx&startat={startat}&count=max&zip=1">GPX</option>
 								<option value="search.php?queryid={queryid}&output=loc&startat={startat}&count=max&zip=1">LOC</option>
 								<option value="search.php?queryid={queryid}&output=kml&startat={startat}&count=max&zip=1">KML</option>
 								<option value="search.php?queryid={queryid}&output=ov2&startat={startat}&count=max&zip=1">OV2</option>
 								<option value="search.php?queryid={queryid}&output=ovl&startat={startat}&count=max&zip=1">OVL</option>
 								<option value="search.php?queryid={queryid}&output=txt&startat={startat}&count=max&zip=1">TXT</option>
-								<option value="search.php?queryid={queryid}&output=gpx&startat={startat}&count=max&zip=1">{t}GPX (old){/t}</option>
 							</select>
 						</td>
 					</tr>
@@ -104,14 +102,13 @@
 			<td><b>{t}Downloads{/t}</b></td>
 			<td align="right" style="padding-right:20px;">
 				{t}Results on this page:{/t}
-				<a href="search.php?queryid={queryid}&output=gpx2&startat={startat}" title="{t}GPS Exchange Format .gpx{/t}">GPX</a>
+				<a href="search.php?queryid={queryid}&output=gpx&startat={startat}" title="{t}GPS Exchange Format .gpx{/t}">GPX</a>
 				<a href="search.php?queryid={queryid}&output=loc&startat={startat}" title="{t}Waypointfile .loc{/t}">LOC</a>
 				<a href="search.php?queryid={queryid}&output=kml&startat={startat}" title="{t}Google Earth .kml{/t}">KML</a>
 				<a href="http://maps.google.de/maps?f=q&hl=de&q=<?php echo urlencode("http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']."&output=kml"); ?>" title="{t}Show in Google Maps{/t}">{t}(in GM){/t}</a>
 				<a href="search.php?queryid={queryid}&output=ov2&startat={startat}" title="{t}TomTom POI .ov2{/t}">OV2</a>
 				<a href="search.php?queryid={queryid}&output=ovl&startat={startat}" title="{t}TOP50-Overlay .ovl{/t}">OVL</a>
 				<a href="search.php?queryid={queryid}&output=txt&startat={startat}" title="{t}Textfile .txt{/t}">TXT*</a>
-				<a href="search.php?queryid={queryid}&output=gpx&startat={startat}" title="{t}.gpx{/t}"><font size="1"><i>{t}GPX (old){/t}</i></font></a>
 			</td>
 		</tr>
 		<tr>
@@ -120,14 +117,13 @@
 			</td>
 			<td align="right" style="padding-right:20px;">
 				{t}Result {startatp1} to {endat} (as zip):{/t}
-				<a href="search.php?queryid={queryid}&output=gpx2&startat={startat}&count=max&zip=1" title="{t}GPS Exchange Format .gpx{/t}">GPX</a>
+				<a href="search.php?queryid={queryid}&output=gpx&startat={startat}&count=max&zip=1" title="{t}GPS Exchange Format .gpx{/t}">GPX</a>
 				<a href="search.php?queryid={queryid}&output=loc&startat={startat}&count=max&zip=1" title="{t}Waypointfile .loc{/t}">LOC</a>
 				<a href="search.php?queryid={queryid}&output=kml&startat={startat}&count=max&zip=1" title="{t}Google Earth .kml{/t}">KML</a>
 				<a href="http://maps.google.de/maps?f=q&hl=de&q=<?php echo urlencode("http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']."&output=kml&zip=1&count=max"); ?>" title="{t}Show in Google Maps{/t}">{t}(in GM){/t}</a>
 				<a href="search.php?queryid={queryid}&output=ov2&startat={startat}&count=max&zip=1" title="{t}TomTom POI .ov2{/t}">OV2</a>
 				<a href="search.php?queryid={queryid}&output=ovl&startat={startat}&count=max&zip=1" title="{t}TOP50-Overlay .ovl{/t}">OVL</a>
 				<a href="search.php?queryid={queryid}&output=txt&startat={startat}&count=max&zip=1" title="{t}Textfile .txt{/t}">TXT</a>
-				<a href="search.php?queryid={queryid}&output=gpx&startat={startat}&count=max&zip=1" title="{t}GPS Exchange Format .gpx{/t}"><font size="1"><i>{t}GPX (old){/t}</i></font></a>
 			</td>
 		</tr>
 		<tr>
