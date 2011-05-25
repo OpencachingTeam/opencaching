@@ -140,4 +140,24 @@
 	$opt['logic']['theme'] = 'seasons'; // leave blank to disable theme
 	$opt['logic']['lowresfriendly'] = false;
 
+function post_config()
+{
+	global $opt, $menuitem, $tpl;
+
+	$domain = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '';
+	if ($domain == '')
+		return;
+
+	switch (mb_strtolower($domain))
+	{
+		case 'www.opencaching.it':
+			config_domain_www_opencaching_it();
+			break;
+		case 'www.opencachingspain.es':
+			config_domain_www_opencachingspain_es();
+			break;
+		default:
+			$tpl->redirect($opt['page']['absolute_url'] . 'index.php');
+	}
+}
 ?>

@@ -58,13 +58,10 @@ class statpic
 		return $retval;
 	}
 
-	// unlink stored picture to force regeneration
+	// force regeneration of image on next call of ocstats.php
 	function invalidate()
 	{
-		global $opt;
-
-		if (file_exists($opt['rootpath'] . 'images/statpics/statpic' . ($this->nUserId+0) . '.jpg'))
-			unlink($opt['rootpath'] . 'images/statpics/statpic' . ($this->nUserId+0) . '.jpg');
+		sql("DELETE FROM `user_statpic` WHERE `user_id`='&1'", $this->nUserId);
 	}
 }
 ?>

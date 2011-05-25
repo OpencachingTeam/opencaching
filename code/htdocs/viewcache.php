@@ -285,15 +285,24 @@ function getChildWaypoints($cacheid)
 		$tpl->assign('log', $_REQUEST['log']);
 	}
 
+	/* process the cachmap options
+	 */
+	$userzoom = 11;
 	if ($login->userid > 0)
 	{
 		$useropt = new useroptions($login->userid);
-		$tpl->assign('userzoom', $useropt->getOptValue(USR_OPT_GMZOOM));
+		$userzoom = $useropt->getOptValue(USR_OPT_GMZOOM);
 	}
-	else
-	{
-		$tpl->assign('userzoom', 11);
-	}
+	$tpl->assign('userzoom', $userzoom);
 
+	$cachemap['iframe'] = $opt['logic']['cachemaps']['iframe'];
+	$url = $opt['logic']['cachemaps']['url'];
+	$url = str_replace('{userzoom}', $userzoom, $url);
+	$url = str_replace('{latitude}', $rCache['latitude'], $url);
+	$url = str_replace('{longitude}', $rCache['longitude'], $url);
+	$cachemap['url'] = $url;
+	$tpl->assign('cachemap', $cachemap);
+
+	// display the page
 	$tpl->display();
 ?>

@@ -43,7 +43,7 @@ class Menu
 
 		$rsDefines = sqlf("SELECT `id`, `id_string` FROM `sys_menu`");
 		while ($rDefine = sql_fetch_assoc($rsDefines))
-			fwrite($f, 'define(\'' . addslashes($rDefine['id_string']) . '\', ' . $rDefine['id'] . ");\n");
+			fwrite($f, 'if (!defined(\'' . addslashes($rDefine['id_string']) . '\')) define(\'' . addslashes($rDefine['id_string']) . '\', ' . $rDefine['id'] . ");\n");
 		sql_free_result($rsDefines);
 		fwrite($f, "\n");
 

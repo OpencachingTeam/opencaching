@@ -67,13 +67,13 @@
 
 					<td valign="top"><a href="translate.php?translang={$translang}&action=remove&id={$transItem.id}">X</a></td>
 
-					<td>{$transItem.text}</td>
+					<td>{$transItem.text|escape}</td>
 				</tr>
 				{if $action=="listall"}
 					<tr>
 						<td valign="top">{$translang}</td>
 						<td>&nbsp;</td>
-						<td>{$transItem.trans}</td>
+						<td>{$transItem.trans|escape}</td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>

@@ -206,13 +206,6 @@ $menu = array(
 		'filename' => 'map2.php'
 	),
 	array(
-		'title' => t('Informations'),
-		'menustring' => t('Informations'),
-		'siteid' => 'articles/info',
-		'visible' => true,
-		'filename' => 'http://blog.geocaching.de/?page_id=265'
-	),
-	array(
 		'title' => t('Add picture'),
 		'visible' => false,
 		'filename' => 'newpic.php',

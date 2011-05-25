@@ -336,6 +336,7 @@ function setId($oldId, $newId)
 	sql("UPDATE `attribute_groups` SET `trans_id`='&1' WHERE `trans_id`='&2'", $newId, $oldId);
 	sql("UPDATE `cache_attrib` SET `trans_id`='&1' WHERE `trans_id`='&2'", $newId, $oldId);
 	sql("UPDATE `cache_attrib` SET `html_desc_trans_id`='&1' WHERE `html_desc_trans_id`='&2'", $newId, $oldId);
+	sql("UPDATE `statpics` SET `trans_id`='&1' WHERE `trans_id`='&2'", $newId, $oldId);
 }
 
 function export()
@@ -455,6 +456,7 @@ function scanStart()
 	$translationHandler->importFromTable('attribute_categories', 'name', 'trans_id');
 	$translationHandler->importFromTable('cache_attrib', 'name', 'trans_id');
 	$translationHandler->importFromTable('cache_attrib', 'html_desc', 'html_desc_trans_id');
+	$translationHandler->importFromTable('statpics', 'description', 'trans_id');
 }
 
 function scanFile($filename)

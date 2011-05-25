@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /***************************************************************************
  * You can find the license in the docs directory
  *
@@ -49,7 +49,7 @@
  * Find all {t}...{/t} and translate its input with gettext
  *
  */
-function smarty_prefilter_t($source, &$smarty, $resource_name)
+function smarty_prefilter_t($source, &$smarty)
 {
 	$output = '';
 	$output_start = 0;
@@ -61,7 +61,7 @@ function smarty_prefilter_t($source, &$smarty, $resource_name)
 		$block_t = mb_substr($source, $start, $end - $start);
 
 		$messgage_start = mb_strrpos($block_t, '}') + 1;
-		$block_t = smarty_prefilter_t_process_block(mb_substr($block_t, 0, $messgage_start), mb_substr($block_t, $messgage_start), $smarty, $resource_name, 0);
+		$block_t = smarty_prefilter_t_process_block(mb_substr($block_t, 0, $messgage_start), mb_substr($block_t, $messgage_start), $smarty, 0);
 
 		$output .= mb_substr($source, $output_start, $start - $output_start);
 		$output_start = $end + mb_strlen($smarty->left_delimiter . $smarty->right_delimiter) + 2;
@@ -76,7 +76,7 @@ function smarty_prefilter_t($source, &$smarty, $resource_name)
 /* $block ... {t[ a=$a|nbsp b="a" ...]}
  *
  */
-function smarty_prefilter_t_process_block($block, $message, &$smarty, $resource_name, $line)
+function smarty_prefilter_t_process_block($block, $message, &$smarty, $line)
 {
 	if ($message != '')
 	{
@@ -92,11 +92,11 @@ function smarty_prefilter_t_process_block($block, $message, &$smarty, $resource_
 
 			if (isset($attrs['plural']) && isset($attrs['count']))
 			{
-				$message = smarty_prefilter_t_gettext($message, array(), $smarty, $resource_name, $line);
+				$message = smarty_prefilter_t_gettext($message, array(), $smarty, $line);
 
 				if ((mb_substr($attrs['plural'], 0, 1) == '"') && mb_substr($attrs['plural'], -1, 1) == '"')
 					$attrs['plural'] = mb_substr($attrs['plural'], 1, mb_strlen($attrs['plural'])-2);
-				$attrs['plural'] = smarty_prefilter_t_gettext($attrs['plural'], array(), $smarty, $resource_name, $line);
+				$attrs['plural'] = smarty_prefilter_t_gettext($attrs['plural'], array(), $smarty, $line);
 
 				// rebuild block with replaced plural
 				$block = '';
@@ -112,11 +112,11 @@ function smarty_prefilter_t_process_block($block, $message, &$smarty, $resource_
 			unset($attrs['plural']);
 			unset($attrs['count']);
 
-			$message = smarty_prefilter_t_gettext($message, $attrs, $smarty, $resource_name, $line);
+			$message = smarty_prefilter_t_gettext($message, $attrs, $smarty, $line);
 		}
 		else
 		{
-			$message = smarty_prefilter_t_gettext($message, array(), $smarty, $resource_name, $line);
+			$message = smarty_prefilter_t_gettext($message, array(), $smarty, $line);
 		}
 	}
 
@@ -231,14 +231,14 @@ function smarty_prefilter_t_strpos_multi($haystack, $needles)
 	return $start;
 }
 
-function smarty_prefilter_t_gettext($message, $attrs, &$smarty, $resource_name, $line)
+function smarty_prefilter_t_gettext($message, $attrs, &$smarty, $line)
 {
 	global $opt, $translate;
 
 	if (!isset($translate))
 		return $message;
 
-	$trans = $translate->t($message, $opt['template']['style'], $resource_name, $line);
+	$trans = $translate->t($message, $opt['template']['style'], '', 0);
 
 	// TODO concept escapement
 	if (isset($attrs['escape'])) unset($attrs['escape']);

@@ -102,6 +102,39 @@ class OcSmarty extends Smarty
 		}
 	}
 
+	/* ATTENTION: copied from internal implementation!
+	 */
+	function compile($resource_name, $compile_id = null)
+	{
+    if (!isset($compile_id)) {
+        $compile_id = $this->compile_id;
+    }
+
+    $this->_compile_id = $compile_id;
+
+    // load filters that are marked as autoload
+    if (count($this->autoload_filters)) {
+        foreach ($this->autoload_filters as $_filter_type => $_filters) {
+            foreach ($_filters as $_filter) {
+                $this->load_filter($_filter_type, $_filter);
+            }
+        }
+    }
+ 
+		$_smarty_compile_path = $this->_get_compile_path($resource_name);
+		
+		// if we just need to display the results, don't perform output
+		// buffering - for speed
+		$_cache_including = $this->_cache_including;
+		$this->_cache_including = false;
+
+		// compile the resource
+		if (!$this->_is_compiled($resource_name, $_smarty_compile_path))
+			$this->_compile_resource($resource_name, $_smarty_compile_path);
+
+		$this->_cache_including = $_cache_including;
+	}
+
 	function display()
 	{
 		global $opt, $db, $cookie, $login, $menu, $sqldebugger, $translate;
