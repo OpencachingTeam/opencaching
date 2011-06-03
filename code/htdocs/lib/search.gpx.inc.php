@@ -146,6 +146,8 @@
 		$gpxAttribID[24] = '53';
 		$gpxAttribName[24] = 'Park and grab';
 		// facilities
+		$gpxAttribID[63] = '24';
+		$gpxAttribName[63] = 'Wheelchair accessible';
 		$gpxAttribID[18] = '25';
 		$gpxAttribName[18] = 'Parking available';
 		$gpxAttribID[19] = '26';
@@ -468,7 +470,7 @@
 
 		// clear logs, notes, attributes, waypoints and geokrety
 		$logentries = '';
-		$cache_note = false;
+		$cacheNote = false;
 		$attribentries = '';
 		$waypoints = '';
 		$gkentries = '';
