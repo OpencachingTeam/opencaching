@@ -33,7 +33,9 @@
 
 	global $interface_output, $dblink_slave;
 	if (!isset($interface_output)) $interface_output = 'plain';
-	if (!isset($rootpath)) $rootpath = './';
+
+	if (!isset($opt['rootpath']))
+		$opt['rootpath'] = './';
 
 	// yepp, we will use UTF-8
 	mb_internal_encoding('UTF-8');
@@ -48,9 +50,9 @@
 	define('regex_statpic_text', '^[a-zA-Z0-9\.\-_ @äüöÄÜÖß=)(\/\\\&*\$+~#!§%;,-?:\[\]{}¹²³\'\"`\|µ°]{0,29}$');
 
 	//load default webserver-settings and common includes
-	require_once($rootpath . 'lib/settings.inc.php');
-	require_once($rootpath . 'lib/calculation.inc.php');
-	require_once($rootpath . 'lib/consts.inc.php');
+	require_once($opt['rootpath'] . 'lib/settings.inc.php');
+	require_once($opt['rootpath'] . 'lib/calculation.inc.php');
+	require_once($opt['rootpath'] . 'lib/consts.inc.php');
 
 	$dblink_slave = false;
 
@@ -308,7 +310,7 @@
 
 	function sql_internal($_dblink, $sql, $bSlave)
 	{
-		global $rootpath;
+		global $opt;
 		global $sql_debug, $sql_warntime;
 		global $sql_replacements;
 		global $sqlcommands;
@@ -459,14 +461,14 @@
 
 		if (isset($sql_debug) && ($sql_debug == true))
 		{
-			require_once($rootpath . 'lib/sqldebugger.inc.php');
+			require_once($opt['rootpath'] . 'lib/sqldebugger.inc.php');
 			$result = sqldbg_execute($filtered_sql, $bSlave);
 			if ($result === false) sql_error();
 		}
 		else
 		{
 			// Zeitmessung für die Ausführung
-			require_once($rootpath . 'lib/bench.inc.php');
+			require_once($opt['rootpath'] . 'lib/bench.inc.php');
 			$cSqlExecution = new Cbench;
 			$cSqlExecution->start();
 

@@ -141,7 +141,7 @@
 						db_slave_exclude();
 
 						//call eventhandler
-						require_once($rootpath . 'lib/eventhandler.inc.php');
+						require_once($opt['rootpath'] . 'lib/eventhandler.inc.php');
 						event_remove_log($cacheid, $usr['userid']+0);
 
 						//cache anzeigen

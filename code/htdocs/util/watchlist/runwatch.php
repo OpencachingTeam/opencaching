@@ -20,11 +20,11 @@
 		
 	***************************************************************************/
 
-  $rootpath = '/mnt/opencaching/www.opencaching.de/html/';
+  $opt['rootpath'] = '/mnt/opencaching/www.opencaching.de/html/';
 	require_once('/mnt/opencaching/www.opencaching.de/html/lib/clicompatbase.inc.php');
   require_once('settings.inc.php');
 	require_once('/mnt/opencaching/www.opencaching.de/html/lib/consts.inc.php');
-	require_once($rootpath . 'lib2/html2text.class.php');
+	require_once($opt['rootpath'] . 'lib2/html2text.class.php');
 
 	// use posix pid-files to lock process 
 	if (!CreatePidFile($watchpid))

@@ -1,96 +1,99 @@
 <?php
-	/***************************************************************************
-															./lib/search.gpx.inc.php
-																-------------------
-			begin                : November 1 2005 
-			copyright            : (C) 2005 The OpenCaching Group
-			forum contact at     : http://www.opencaching.com/phpBB2
-
-		***************************************************************************/
-
-	/***************************************************************************
-		*                                         				                                
-		*   This program is free software; you can redistribute it and/or modify  	
-		*   it under the terms of the GNU General Public License as published by  
-		*   the Free Software Foundation; either version 2 of the License, or	    	
-		*   (at your option) any later version.
-		*
-		***************************************************************************/
 
 	/****************************************************************************
-		    
+
 		Unicode Reminder メモ
                                      				                                
 		GPX search output
-		
+
 	****************************************************************************/
 
 	global $content, $bUseZip, $sqldebug;
+	require_once('./config2/childwp.inc.php');
 
 	$gpxHead = 
 '<?xml version="1.0" encoding="utf-8"?>
-<gpx xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd http://geocaching.com.au/geocache/1 http://geocaching.com.au/geocache/1/geocache.xsd"
-     xmlns="http://www.topografix.com/GPX/1/0"
-     version="1.0"
-     creator="www.opencaching.de">
-  <desc>Geocache</desc>
-  <author>Geocaching Australia</author>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" creator="Opencaching.de - http://www.opencaching.de" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd http://www.groundspeak.com/cache/1/0/1 http://www.groundspeak.com/cache/1/0/1/cache.xsd" xmlns="http://www.topografix.com/GPX/1/0">
+  <name>Cache Listing Generated from Opencaching.de</name>
+  <desc>This is a waypoint file generated from Opencaching.de (HasChildren)</desc>
+  <author>Opencaching.de</author>
+  <email>info@opencaching.de</email>
   <url>http://www.opencaching.de</url>
-  <urlname>www.opencaching.de</urlname>
+  <urlname>Geocaching in Deutschland, Oesterreich und der Schweiz</urlname>
   <time>{time}</time>
-';
+  <keywords>cache, geocache, opencaching, waypoint, opencachingnetwork</keywords>';
 	
-	$gpxLine = 
-'
-	<wpt lat="{lat}" lon="{lon}">
+	$gpxLine = '
+  <wpt lat="{lat}" lon="{lon}">
 	<time>{time}</time>
 	<name>{waypoint}</name>
 	<desc>{cachename}</desc>
 	<src>www.opencaching.de</src>
-	<url>' . $absolute_server_URI . 'viewcache.php?cacheid={cacheid}</url>
+	<url>http://www.opencaching.de/viewcache.php?cacheid={cacheid}</url>
 	<urlname>{cachename}</urlname>
-	<sym>Geocache</sym>
-	<type>Geocache</type>
-	<geocache status="{status}" xmlns="http://geocaching.com.au/geocache/1">
-			<name>{cachename}</name>
-			<owner>{owner}</owner>
-			<locale></locale>
-			<state>{state}</state>
-			<country>{country}</country>
-			<type>{type}</type>
-			<container>{container}</container>
-			<difficulty>{difficulty}</difficulty>
-			<terrain>{terrain}</terrain>
-			<summary html="false">{shortdesc}</summary>
-			<description html="true">{desc}</description>
-			{hints}
-			<licence></licence>
-			<logs>
-				{logs}
-			</logs>
-		</geocache>
-	</wpt>
+	<sym>{sym}</sym>
+	<type>Geocache|{type}</type>
+	<groundspeak:cache  id="{cacheid}" {status} xmlns:groundspeak="http://www.groundspeak.com/cache/1/0">
+	  <groundspeak:name>{cachename}</groundspeak:name>
+	  <groundspeak:placed_by>{owner}</groundspeak:placed_by>
+	  <groundspeak:owner id="{userid}">{owner}</groundspeak:owner>
+	  <groundspeak:type>{type}</groundspeak:type>
+	  <groundspeak:container>{container}</groundspeak:container>
+	  <groundspeak:attributes>
+{attributes}	  </groundspeak:attributes>
+	  <groundspeak:difficulty>{difficulty}</groundspeak:difficulty>
+	  <groundspeak:terrain>{terrain}</groundspeak:terrain>
+	  <groundspeak:country>{country}</groundspeak:country>
+	  <groundspeak:state>{state}</groundspeak:state>
+	  <groundspeak:short_description html="True">{shortdesc}</groundspeak:short_description>
+	  <groundspeak:long_description html="True">{desc}</groundspeak:long_description>
+	  {hints}
+	  <groundspeak:logs>
+{logs}	  </groundspeak:logs>
+	  <groundspeak:travelbugs>
+{geokrety}	  </groundspeak:travelbugs>
+	</groundspeak:cache>
+  </wpt>
+{cache_waypoints}
+{personal_note_wp}
 ';
 
-	$gpxLog = '
-<log id="{id}">
-	<time>{date}</time>
-	<geocacher>{username}</geocacher>
-	<type>{type}</type>
-	<text>{text}</text>
-</log>
-';
+	$gpxAttributes = '		  <groundspeak:attribute id="{attrib_id}" inc="1">{attrib_name}</groundspeak:attribute>';
+
+	$gpxLog = '		<groundspeak:log id="{id}">
+		  <groundspeak:date>{date}</groundspeak:date>
+		  <groundspeak:type>{type}</groundspeak:type>
+		  <groundspeak:finder id="{userid}">{username}</groundspeak:finder>
+		  <groundspeak:text encoded="False">{text}</groundspeak:text>
+		</groundspeak:log>';
+
+	$gpxGeokrety = '		<groundspeak:travelbug id="{gkid}" ref="{gkref}">
+		  <groundspeak:name>{gkname}</groundspeak:name>
+		</groundspeak:travelbug>';
+
+	$gpxWaypoints = '		<wpt lat="{wp_lat}" lon="{wp_lon}">
+			<time>{time}</time>
+			<name>{name}</name>
+			<cmt>{wp_type_name} {desc}</cmt>
+			<desc>{desc}</desc>
+			<url>' . $absolute_server_URI . 'viewcache.php?cacheid={cacheid}</url>
+			<urlname><![CDATA[{waypoint} {wp_stage}]]></urlname>
+			<sym>{wp_type}</sym>
+			<type>Waypoint|{wp_type}</type>
+				<gsak:wptExtension xmlns:gsak="http://www.gsak.net/xmlv1/4">
+					<gsak:Parent>{parent}</gsak:Parent>
+				</gsak:wptExtension>
+		</wpt>';
 
 	$gpxFoot = '</gpx>';
 
 	$gpxTimeFormat = 'Y-m-d\TH:i:s\Z';
 
-	$gpxStatus[0] = 'Unavailable'; // andere
-	$gpxStatus[1] = 'Available';
-	$gpxStatus[2] = 'Unavailable';
-	$gpxStatus[3] = 'Archived';
-	
+	$gpxStatus[0] = 'available="False" archived="False"'; // other (unavailable, not archived)
+	$gpxStatus[1] = 'available="True" archived="False"'; //available, not archived
+	$gpxStatus[2] = 'available="False" archived="False"'; //unavailable, not archived
+	$gpxStatus[3] = 'available="False" archived="True"'; //unavailable, archived
+
 	$gpxContainer[0] = 'Other';
 	$gpxContainer[2] = 'Micro';
 	$gpxContainer[3] = 'Small';
@@ -99,27 +102,144 @@
 	$gpxContainer[6] = 'Large';
 	$gpxContainer[7] = 'Virtual';
 
-	// known by gpx
-	$gpxType[0] = 'Other';
-	$gpxType[2] = 'Traditional';
-	$gpxType[3] = 'Multi';
-	$gpxType[4] = 'Virtual';
-	$gpxType[5] = 'Webcam';
-	$gpxType[6] = 'Event';
+	// cache types known by gpx
+	$gpxType[0] = 'Unknown Cache';
+	$gpxType[2] = 'Traditional Cache';
+	$gpxType[3] = 'Multi-cache';
+	$gpxType[4] = 'Virtual Cache';
+	$gpxType[5] = 'Webcam Cache';
+	$gpxType[6] = 'Event Cache';
 
 	// unknown ... converted
-	$gpxType[7] = 'Multi';
-	$gpxType[8] = 'Multi';
-	$gpxType[10] = 'Traditional';
-	$gpxType[11] = 'Other';
-	$gpxType[12] = 'Other';
-	$gpxType[13] = 'Other';
-	$gpxType[14] = 'Other';
+	$gpxType[7] = 'Unknown Cache';
+	$gpxType[8] = 'Unknown Cache';
+	$gpxType[10] = 'Traditional Cache';
 	
 	$gpxLogType[0] = 'Other';
-	$gpxLogType[1] = 'Found';
-	$gpxLogType[2] = 'Not Found';
-	$gpxLogType[3] = 'Note';
+	$gpxLogType[1] = 'Found it';
+	$gpxLogType[2] = 'Didn\'t find it';
+	$gpxLogType[3] = 'Write note';
+	$gpxLogType[7] = 'Attended';
+	$gpxLogType[8] = 'Will attend';
+
+	$gpxSymNormal = 'Geocache';
+	$gpxSymFound = 'Geocache Found';
+
+	// 1st set of attributes - attributes that correlate to GC attributes
+		// conditions
+		$gpxAttribID[59] = '6';
+		$gpxAttribName[59] = 'Recommended for kids';
+		$gpxAttribID[28] = '10';
+		$gpxAttribName[28] = 'Difficult climbing';
+		$gpxAttribID[26] = '11';
+		$gpxAttribName[26] = 'May require wading';
+		$gpxAttribID[29] = '12';
+		$gpxAttribName[29] = 'May require swimming';
+		$gpxAttribID[38] = '13';
+		$gpxAttribName[38] = 'Available at all times';
+		$gpxAttribID[1] = '14';
+		$gpxAttribName[1] = 'Recommended at night';
+		$gpxAttribID[44] = '15';
+		$gpxAttribName[44] = 'Available during winter';
+		$gpxAttribID[55] = '47';
+		$gpxAttribName[55] = 'Field puzzle';
+		$gpxAttribID[24] = '53';
+		$gpxAttribName[24] = 'Park and grab';
+		// facilities
+		$gpxAttribID[18] = '25';
+		$gpxAttribName[18] = 'Parking available';
+		$gpxAttribID[19] = '26';
+		$gpxAttribName[19] = 'Public transportation';
+		$gpxAttribID[20] = '27';
+		$gpxAttribName[20] = 'Drinking water nearby';
+		$gpxAttribID[21] = '28';
+		$gpxAttribName[21] = 'Public restrooms nearby';
+		$gpxAttribID[22] = '29';
+		$gpxAttribName[22] = 'Telephone nearby';
+		// hazards
+		$gpxAttribID[11] = '21';
+		$gpxAttribName[11] = 'Cliff / falling rocks';
+		$gpxAttribID[12] = '12';
+		$gpxAttribName[12] = 'Hunting';
+		$gpxAttribID[9] = '23';
+		$gpxAttribName[9] = 'Dangerous area';
+		$gpxAttribID[16] = '17';
+		$gpxAttribName[16] = 'Poisonous plants';
+		$gpxAttribID[13] = '39';
+		$gpxAttribName[13] = 'Thorns';
+		$gpxAttribID[17] = '18';
+		$gpxAttribName[17] = 'Dangerous animals';
+		$gpxAttribID[14] = '19';
+		$gpxAttribName[14] = 'Ticks';
+		$gpxAttribID[15] = '20';
+		$gpxAttribName[15] = 'Abandoned mines';
+		// equipment
+		$gpxAttribID[36] = '2';
+		$gpxAttribName[36] = 'Access or parking fee';
+		$gpxAttribID[49] = '3';
+		$gpxAttribName[49] = 'Climbing gear';
+		$gpxAttribID[48] = '44';
+		$gpxAttribName[48] = 'Flashlight required';
+		$gpxAttribID[52] = '4';
+		$gpxAttribName[52] = 'Boat';
+		$gpxAttribID[51] = '5';
+		$gpxAttribName[51] = 'Scuba gear';
+		$gpxAttribID[46] = '51';
+		$gpxAttribName[46] = 'Special tool required';
+
+	// 2nd set of attributes - OC only attributes, changed ID (+100) to be save in oc-gc-mixed environments
+		$gpxAttribID[6] = '106';
+		$gpxAttribName[6] = 'Only loggable at Opencaching';
+		$gpxAttribID[7] = '107';
+		$gpxAttribName[7] = 'Hyperlink to another caching portal only';
+		$gpxAttribID[8] = '108';
+		$gpxAttribName[8] = 'Letterbox (needs stamp)';
+		$gpxAttribID[10] = '110';
+		$gpxAttribName[10] = 'Active railway nearby';
+		$gpxAttribID[23] = '123';
+		$gpxAttribName[23] = 'First aid available';
+		$gpxAttribID[25] = '125';
+		$gpxAttribName[25] = 'Long walk';
+		$gpxAttribID[27] = '127';
+		$gpxAttribName[27] = 'Hilly area';
+		$gpxAttribID[30] = '130';
+		$gpxAttribName[30] = 'Point of interest';
+		$gpxAttribID[31] = '131';
+		$gpxAttribName[31] = 'Moving target';
+		$gpxAttribID[32] = '132';
+		$gpxAttribName[32] = 'Webcam';
+		$gpxAttribID[33] = '133';
+		$gpxAttribName[33] = 'Within enclosed rooms (caves, buildings etc.)';
+		$gpxAttribID[34] = '134';
+		$gpxAttribName[34] = 'In the water';
+		$gpxAttribID[35] = '135';
+		$gpxAttribName[35] = 'Without GPS (letterboxes, cistes, compass juggling ...)';
+		$gpxAttribID[37] = '137';
+		$gpxAttribName[37] = 'Overnight stay necessary';
+		$gpxAttribID[39] = '139';
+		$gpxAttribName[39] = 'Only available at specified times';
+		$gpxAttribID[40] = '140';
+		$gpxAttribName[40] = 'by day only';
+		$gpxAttribID[41] = '141';
+		$gpxAttribName[41] = 'Tide';
+		$gpxAttribID[42] = '142';
+		$gpxAttribName[42] = 'All seasons';
+		$gpxAttribID[43] = '143';
+		$gpxAttribName[43] = 'Breeding season / protected nature';
+		$gpxAttribID[47] = '147';
+		$gpxAttribName[47] = 'Compass';
+		$gpxAttribID[50] = '150';
+		$gpxAttribName[50] = 'Cave equipment';
+		$gpxAttribID[53] = '153';
+		$gpxAttribName[53] = 'Aircraft';
+		$gpxAttribID[54] = '154';
+		$gpxAttribName[54] = 'Investigation';
+		$gpxAttribID[56] = '156';
+		$gpxAttribName[56] = 'Arithmetical problem';
+		$gpxAttribID[57] = '157';
+		$gpxAttribName[57] = 'Other cache type';
+		$gpxAttribID[58] = '158';
+		$gpxAttribName[58] = 'Ask owner for start conditions';
 
 	//prepare the output
 	$caches_per_page = 20;
@@ -220,7 +340,7 @@
 
 	$sqlLimit = ' LIMIT ' . $startat . ', ' . $count;
 
-	// temporäre tabelle erstellen
+	// create temporary table
 	sql_slave('CREATE TEMPORARY TABLE `gpxcontent` ' . $sql . $sqlLimit);
 
 	$rsCount = sql_slave('SELECT COUNT(*) `count` FROM `gpxcontent`');
@@ -244,11 +364,11 @@
 	if ($bUseZip == true)
 	{
 		$content = '';
-		require_once($rootpath . 'lib/phpzip/ss_zip.class.php');
+		require_once($opt['rootpath'] . 'lib/phpzip/ss_zip.class.php');
 		$phpzip = new ss_zip('',6);
 	}
 
-	// ok, ausgabe starten
+	// ok, let's start
 	
 	if ($sqldebug == false)
 	{
@@ -267,9 +387,26 @@
 	$gpxHead = mb_ereg_replace('{time}', date($gpxTimeFormat, time()), $gpxHead);
 	append_output($gpxHead);
 
-	// ok, ausgabe ...
+	// ok, output ...
+
+	if ($usr === false)
+		$user_id = 0;
+	else
+		$user_id = $usr['userid'];
 	
-	$rs = sql_slave('SELECT SQL_BUFFER_RESULT `gpxcontent`.`cache_id` `cacheid`, `gpxcontent`.`longitude` `longitude`, `gpxcontent`.`latitude` `latitude`, `gpxcontent`.`state` `state`, `caches`.`wp_oc` `waypoint`, `caches`.`date_hidden` `date_hidden`, `caches`.`name` `name`, `caches`.`country` `country`, `caches`.`terrain` `terrain`, `caches`.`difficulty` `difficulty`, `caches`.`desc_languages` `desc_languages`, `caches`.`size` `size`, `caches`.`type` `type`, `caches`.`status` `status`, `user`.`username` `username`, `cache_desc`.`desc` `desc`, `cache_desc`.`short_desc` `short_desc`, `cache_desc`.`hint` `hint` FROM `gpxcontent`, `caches`, `user`, `cache_desc` WHERE `gpxcontent`.`cache_id`=`caches`.`cache_id` AND `caches`.`cache_id`=`cache_desc`.`cache_id` AND `caches`.`default_desclang`=`cache_desc`.`language` AND `gpxcontent`.`user_id`=`user`.`user_id`');
+	$rs = sql_slave("SELECT SQL_BUFFER_RESULT `gpxcontent`.`cache_id` `cacheid`, `gpxcontent`.`longitude` `longitude`, `gpxcontent`.`latitude` `latitude`, 
+							`gpxcontent`.`state` `state`, `caches`.`wp_oc` `waypoint`, `caches`.`date_hidden` `date_hidden`, `caches`.`name` `name`, 
+							`caches`.`country` `country`, `countries`.`name` AS `country_name`, `caches`.`terrain` `terrain`, `caches`.`difficulty` `difficulty`, `caches`.`desc_languages` `desc_languages`, 
+							`caches`.`size` `size`, `caches`.`type` `type`, `caches`.`status` `status`, `user`.`username` `username`, `caches`.`user_id` `userid`, 
+							`cache_desc`.`desc` `desc`, `cache_desc`.`short_desc` `short_desc`, `cache_desc`.`hint` `hint`,
+							IFNULL(`stat_cache_logs`.`found`, 0) AS `found`
+						FROM `gpxcontent` 
+							INNER JOIN `caches` ON `gpxcontent`.`cache_id`=`caches`.`cache_id`
+							INNER JOIN `countries` ON `caches`.`country`=`countries`.`short`
+							INNER JOIN `user` ON `gpxcontent`.`user_id`=`user`.`user_id`
+							INNER JOIN `cache_desc` ON `caches`.`cache_id`=`cache_desc`.`cache_id` 
+								AND `caches`.`default_desclang`=`cache_desc`.`language`
+								LEFT JOIN `stat_cache_logs` ON `gpxcontent`.`cache_id`=`stat_cache_logs`.`cache_id` AND `stat_cache_logs`.`user_id`='&1'", $user_id);
 	while($r = sql_fetch_array($rs))
 	{
 		$thisline = $gpxLine;
@@ -285,13 +422,13 @@
 		$thisline = mb_ereg_replace('{waypoint}', $r['waypoint'], $thisline);
 		$thisline = mb_ereg_replace('{cacheid}', $r['cacheid'], $thisline);
 		$thisline = mb_ereg_replace('{cachename}', xmlentities($r['name']), $thisline);
-		$thisline = mb_ereg_replace('{country}', $r['country'], $thisline);
+		$thisline = mb_ereg_replace('{country}', $r['country_name'], $thisline);
 		$thisline = mb_ereg_replace('{state}', xmlentities($r['state']), $thisline);
 		
 		if ($r['hint'] == '')
 			$thisline = mb_ereg_replace('{hints}', '', $thisline);
 		else
-			$thisline = mb_ereg_replace('{hints}', '<hints>' . xmlentities(strip_tags($r['hint'])) . '</hints>', $thisline);
+			$thisline = mb_ereg_replace('{hints}', '<groundspeak:encoded_hints>' . xmlentities(strip_tags($r['hint'])) . '</groundspeak:encoded_hints>', $thisline);
 
 		$thisline = mb_ereg_replace('{shortdesc}', xmlentities($r['short_desc']), $thisline);
 		$thisline = mb_ereg_replace('{desc}', xmlentities($r['desc']), $thisline);
@@ -311,36 +448,60 @@
 		else
 		$thisline = mb_ereg_replace('{status}', $gpxStatus[0], $thisline);
 
-		$difficulty = sprintf('%01.1f', $r['difficulty'] / 2);
-		$thisline = mb_ereg_replace('{difficulty}', $difficulty, $thisline);
+		$sDiffDecimals = '';
+		if ($r['difficulty'] % 2) $sDiffDecimals = '.5';
+		$r['difficulty'] -= $r['difficulty'] % 2;
+		$thisline = mb_ereg_replace('{difficulty}', ($r['difficulty']/2) . $sDiffDecimals, $thisline);
 
-		$terrain = sprintf('%01.1f', $r['terrain'] / 2);
-		$thisline = mb_ereg_replace('{terrain}', $terrain, $thisline);
+		$sTerrDecimals = '';
+		if ($r['terrain'] % 2) $sTerrDecimals = '.5';
+		$r['terrain'] -= $r['terrain'] % 2;
+		$thisline = mb_ereg_replace('{terrain}', ($r['terrain']/2) . $sTerrDecimals, $thisline);
 
 		$thisline = mb_ereg_replace('{owner}', xmlentities($r['username']), $thisline);
+		$thisline = mb_ereg_replace('{userid}', xmlentities($r['userid']), $thisline);
 
-		// logs ermitteln
-		if ($usr === false)
-		{
-			$user_id = 0;
-		}
+		if ($r['found'] > 0)
+			$thisline = mb_ereg_replace('{sym}', xmlentities($gpxSymFound), $thisline);
 		else
-		{
-			$user_id = $usr['userid'];
-		}
+			$thisline = mb_ereg_replace('{sym}', xmlentities($gpxSymNormal), $thisline);
 
+		// clear logs, notes, attributes, waypoints and geokrety
 		$logentries = '';
+		$cache_note = false;
+		$attribentries = '';
+		$waypoints = '';
+		$gkentries = '';
+
+		// fetch logs
 
 		if ($user_id != 0)
 		{
-			// my logs
-			$rsLogs = sql_slave("SELECT `cache_logs`.`id`, `cache_logs`.`type`, `cache_logs`.`date`, `cache_logs`.`text`, `user`.`username` FROM `cache_logs`, `user` WHERE `cache_logs`.`user_id`=`user`.`user_id` AND `cache_logs`.`cache_id`=&1 AND `user`.`user_id`=&2 ORDER BY `cache_logs`.`date` DESC", $r['cacheid'], $user_id);
-			while ($rLog = sql_fetch_array($rsLogs))
+			$cacheNote = getCacheNote($user_id, $r['cacheid']);
+
+			if ($cacheNote)
 			{
 				$thislog = $gpxLog;
 				
+				$thislog = mb_ereg_replace('{id}', $r['cacheid'], $thislog);
+				$thislog = mb_ereg_replace('{date}', date($gpxTimeFormat), $thislog);
+				$thislog = mb_ereg_replace('{userid}', xmlentities($user_id), $thislog);
+				$thislog = mb_ereg_replace('{username}', xmlentities('Cache note'), $thislog);
+				$thislog = mb_ereg_replace('{type}', $gpxLogType[3], $thislog);
+				$thislog = mb_ereg_replace('{text}', xmlentities($cacheNote['note']), $thislog);
+
+				$logentries .= $thislog . "\n";
+			}
+
+			// current users logs
+			$rsLogs = sql_slave("SELECT `cache_logs`.`id`, `cache_logs`.`type`, `cache_logs`.`date`, `cache_logs`.`text`, `user`.`username`, `user`.`user_id` FROM `cache_logs`, `user` WHERE `cache_logs`.`user_id`=`user`.`user_id` AND `cache_logs`.`cache_id`=&1 AND `user`.`user_id`=&2 ORDER BY `cache_logs`.`date` DESC", $r['cacheid'], $user_id);
+			while ($rLog = sql_fetch_array($rsLogs))
+			{
+				$thislog = $gpxLog;
+
 				$thislog = mb_ereg_replace('{id}', $rLog['id'], $thislog);
 				$thislog = mb_ereg_replace('{date}', date($gpxTimeFormat, strtotime($rLog['date'])), $thislog);
+				$thislog = mb_ereg_replace('{userid}', xmlentities($rLog['user_id']), $thislog);
 				$thislog = mb_ereg_replace('{username}', xmlentities($rLog['username']), $thislog);
 				
 				if (isset($gpxLogType[$rLog['type']]))
@@ -353,16 +514,18 @@
 				
 				$logentries .= $thislog . "\n";
 			}
+			mysql_free_result($rsLogs);
 		}
 
-		// first 20 logs (except mine)
-		$rsLogs = sql_slave("SELECT `cache_logs`.`id`, `cache_logs`.`type`, `cache_logs`.`date`, `cache_logs`.`text`, `user`.`username` FROM `cache_logs`, `user` WHERE `cache_logs`.`user_id`=`user`.`user_id` AND `cache_logs`.`cache_id`=&1 AND `user`.`user_id`!=&2 ORDER BY `cache_logs`.`date` DESC LIMIT 20", $r['cacheid'], $user_id);
+		// first 20 logs (except current users)
+		$rsLogs = sql_slave("SELECT `cache_logs`.`id`, `cache_logs`.`type`, `cache_logs`.`date`, `cache_logs`.`text`, `user`.`username`, `user`.`user_id` FROM `cache_logs`, `user` WHERE `cache_logs`.`user_id`=`user`.`user_id` AND `cache_logs`.`cache_id`=&1 AND `user`.`user_id`!=&2 ORDER BY `cache_logs`.`date` DESC LIMIT 20", $r['cacheid'], $user_id);
 		while ($rLog = sql_fetch_array($rsLogs))
 		{
 			$thislog = $gpxLog;
 			
 			$thislog = mb_ereg_replace('{id}', $rLog['id'], $thislog);
 			$thislog = mb_ereg_replace('{date}', date($gpxTimeFormat, strtotime($rLog['date'])), $thislog);
+			$thislog = mb_ereg_replace('{userid}', xmlentities($rLog['user_id']), $thislog);
 			$thislog = mb_ereg_replace('{username}', xmlentities($rLog['username']), $thislog);
 			
 			if (isset($gpxLogType[$rLog['type']]))
@@ -375,9 +538,90 @@
 			
 			$logentries .= $thislog . "\n";
 		}
+		mysql_free_result($rsLogs);
 		$thisline = mb_ereg_replace('{logs}', $logentries, $thisline);
 
+		// attributes
+		$rsAttributes = sql_slave("SELECT `caches_attributes`.`attrib_id` FROM `caches_attributes` WHERE `caches_attributes`.`cache_id`=&1", $r['cacheid']);
+		while ($rAttrib = sql_fetch_array($rsAttributes))
+		{
+			$thisattribute = $gpxAttributes;
+
+			$thisattribute_id = $gpxAttribID[$rAttrib['attrib_id']];
+			$thisattribute_name = $gpxAttribName[$rAttrib['attrib_id']];
+			
+			$thisattribute = mb_ereg_replace('{attrib_id}', $thisattribute_id, $thisattribute);
+			$thisattribute = mb_ereg_replace('{attrib_name}', $thisattribute_name, $thisattribute);
+			
+			$attribentries .= $thisattribute . "\n";
+		}
+		$thisline = mb_ereg_replace('{attributes}', $attribentries, $thisline);
+
+		// geokrety
+		$rsGeokrety = sql_slave("SELECT `gk_item`.`id`, `gk_item`.`name`,  `caches`.`wp_oc` FROM `gk_item` INNER JOIN `gk_item_waypoint` ON `gk_item`.`id`=`gk_item_waypoint`.`id` INNER JOIN `caches` ON `gk_item_waypoint`.`wp`=`caches`.`wp_oc` WHERE `caches`.`cache_id`=&1", $r['cacheid']);
+		while ($rGK = sql_fetch_array($rsGeokrety))
+		{
+			$thiskrety = $gpxGeokrety;
+
+			$thiskrety = mb_ereg_replace('{gkid}', $rGK['id'], $thiskrety);
+			$thiskrety = mb_ereg_replace('{gkref}', sprintf("GK%04X",$rGK['id']), $thiskrety);
+			$thiskrety = mb_ereg_replace('{gkname}', restore_umlauts($rGK['name']), $thiskrety);
+			
+			$gkentries .= $thiskrety . "\n";
+		}
+		$thisline = mb_ereg_replace('{geokrety}', $gkentries, $thisline);
+
+		// additional waypoints and personal cache note
+		$wphandler = new ChildWp_Handler();
+		$childWaypoints = $wphandler->getChildWps($r['cacheid']);
+
+		foreach ($childWaypoints as $childWaypoint)
+		{
+			$thiswp = $gpxWaypoints;
+			$lat = sprintf('%01.5f', $childWaypoint['latitude']);
+			$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
+			$lon = sprintf('%01.5f', $childWaypoint['longitude']);
+			$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
+			$thiswp = str_replace('{name}', 'W'.$childWaypoint['childid'].substr($r['waypoint'], 2) , $thiswp);
+			$thiswp = str_replace('{waypoint}', $childWaypoint['childid'], $thiswp);
+			$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
+			$thiswp = str_replace('{time}', $time, $thiswp);
+			$thiswp = str_replace('{wp_type_name}', $childWaypoint['name'], $thiswp);
+			$thiswp = str_replace('{wp_stage}',$childWaypoint['name'], $thiswp);
+			$thiswp = str_replace('{desc}', xmlentities($childWaypoint['description']), $thiswp);
+				if ($childWaypoint['type']==1){$thiswp = str_replace('{wp_type}', "Parking Area", $thiswp);}
+				if ($childWaypoint['type']==2){$thiswp = str_replace('{wp_type}', "Flag, Green", $thiswp);}
+			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
+			$waypoints .= $thiswp;
+		}
+
+		$thisline = mb_ereg_replace('{cache_waypoints}', $waypoints, $thisline);
+
+		if ($cacheNote && (!empty($cacheNote['latitude']) || !empty($cacheNote['longitude'])))
+		{
+			$thiswp = $gpxWaypoints;
+			$lat = sprintf('%01.5f', $cacheNote['latitude']);
+			$thiswp = str_replace('{wp_lat}', $lat, $thiswp);
+			$lon = sprintf('%01.5f', $cacheNote['longitude']);
+			$thiswp = str_replace('{wp_lon}', $lon, $thiswp);
+			$thiswp = str_replace('{name}', 'NOTE'.substr($r['waypoint'], 2) , $thiswp);
+			$thiswp = str_replace('{waypoint}', $cacheNote['id'], $thiswp);
+			$thiswp = str_replace('{cacheid}', $r['cacheid'], $thiswp);
+			$thiswp = str_replace('{time}', $time, $thiswp);
+			$thiswp = str_replace('{wp_type_name}', 'note', $thiswp);
+			$thiswp = str_replace('{wp_stage}','note', $thiswp);
+			$thiswp = str_replace('{desc}', xmlentities($cacheNote['note']), $thiswp);
+			$thiswp = str_replace('{wp_type}', "Flag, Red", $thiswp);
+			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
+			$waypoints .= $thiswp;
+		}
+
+		$thisline = mb_ereg_replace('{personal_note_wp}', $waypoints, $thisline);
+
 		append_output($thisline);
+
+		// clear additional waypoints, because they would imported from an external class
+		$thiswp = '';
 	}
 	mysql_free_result($rs);
 	
@@ -385,7 +629,7 @@
 
 	if ($sqldebug == true) sqldbg_end();
 	
-	// phpzip versenden
+	// send using phpzip
 	if ($bUseZip == true)
 	{
 		$phpzip->add_data($sFilebasename . '.gpx', $content);
@@ -396,14 +640,51 @@
 	
 	function xmlentities($str)
 	{
-		$from[0] = '&'; $to[0] = '&amp;';
+		$from[0] = '&szlig;'; $to[0] = 'ß';
 		$from[1] = '<'; $to[1] = '&lt;';
 		$from[2] = '>'; $to[2] = '&gt;';
 		$from[3] = '"'; $to[3] = '&quot;';
 		$from[4] = '\''; $to[4] = '&apos;';
 		$from[5] = ']]>'; $to[5] = ']] >';
+		$from[6] = '&auml;'; $to[6] = 'ä';
+		$from[7] = '&Auml;'; $to[7] = 'Ä';
+		$from[8] = '&ouml;'; $to[8] = 'ö';
+		$from[9] = '&Ouml;'; $to[9] = 'Ö';
+		$from[10] = '&uuml;'; $to[10] = 'ü';
+		$from[11] = '&Uuml;'; $to[11] = 'Ü';
+		$from[12] = '&euro;'; $to[12] = '€';
+		$from[13] = '&nbsp;'; $to[13] = ' ';
+		$from[14] = '&ndash;'; $to[14] = '-';
+		$from[15] = '&bdquo;'; $to[15] = '"';
+		$from[16] = '&ldquo;'; $to[16] = '"';
+		$from[17] = '&quot;'; $to[17] = '"';
+		$from[18] = '&deg;'; $to[18] = '°';
+		$from[19] = '&reg;'; $to[19] = '®';
+		$from[20] = '&trade;'; $to[20] = '™';
+		$from[21] = '&amp;'; $to[21] = '&';
 
-		for ($i = 0; $i <= 4; $i++)
+		for ($i = 0; $i <= 21; $i++)
+			$str = mb_ereg_replace($from[$i], $to[$i], $str);
+
+		return filterevilchars($str);
+	}
+	
+	function restore_umlauts($str)
+	{
+		$from[0] = '&auml;'; $to[0] = 'ä';
+		$from[1] = '&auml;'; $to[1] = 'ä';
+		$from[2] = '&Auml;'; $to[2] = 'Ä';
+		$from[3] = '&ouml;'; $to[3] = 'ö';
+		$from[4] = '&Ouml;'; $to[4] = 'Ö';
+		$from[5] = '&uuml;'; $to[5] = 'ü';
+		$from[6] = '&Uuml;'; $to[6] = 'Ü';
+		$from[7] = '&szlig;'; $to[7] = 'ß';
+		$from[8] = '&euro;'; $to[8] = '€';
+		$from[9] = '&reg;'; $to[9] = '®';
+		$from[10] = '&trade;'; $to[10] = '™';
+		$from[11] = '&amp;'; $to[11] = '&';
+
+		for ($i = 0; $i <= 11; $i++)
 			$str = mb_ereg_replace($from[$i], $to[$i], $str);
 
 		return filterevilchars($str);
@@ -424,4 +705,17 @@
 		else
 			echo $str;
 	}
+
+	function getCacheNote($userid, $cacheid)
+	{
+		$cacheNoteHandler = new CacheNote_Handler();
+		$cacheNote = $cacheNoteHandler->getCacheNote($userid, $cacheid);
+
+		if (isset($cacheNote['note']) || isset($cacheNote['latitude']) || isset($cacheNote['longitude']))
+			return $cacheNote;
+
+		return null;
+	}
+
 ?>
+

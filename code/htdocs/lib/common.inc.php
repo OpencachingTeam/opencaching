@@ -119,23 +119,22 @@ function __autoload($class_name)
 		}
 	}
 
-	if (!isset($rootpath)) $rootpath = './';
-	require_once($rootpath . 'lib/clicompatbase.inc.php');
+	if (!isset($opt['rootpath']))
+		$opt['rootpath'] = './';
 
-	// needed for compatibility with new code
-	if (!isset($opt['rootpath'])) $opt['rootpath'] = $rootpath;
+	require_once($opt['rootpath'] . 'lib/clicompatbase.inc.php');
 
 	// load domain specific settings
 	load_domain_settings();
 
 	// load HTML specific includes
-	require_once($rootpath . 'lib/cookie.class.php');
+	require_once($opt['rootpath'] . 'lib/cookie.class.php');
 
 	//site in service?
 	if ($site_in_service == false)
 	{
 		header('Content-type: text/html; charset=utf-8');
-		$page_content = read_file($rootpath . 'html/outofservice.tpl.php');
+		$page_content = read_file($opt['rootpath'] . 'html/outofservice.tpl.php');
 		die($page_content);
 	}
 
@@ -158,7 +157,7 @@ function __autoload($class_name)
 	//lang/de is required by some 'old' code. Eventually this check needs to
 	//be removed when the files inside lang/de/ocstyle are migrated to 
 	//templates/ocstyle
-	if (!file_exists($rootpath . 'lang/de/'))
+	if (!file_exists($opt['rootpath'] . 'lang/de/'))
 	{
 		die('Critical Error: Could not find default DE language directory!');
 	}
@@ -174,16 +173,16 @@ function __autoload($class_name)
 	}
 
 	//does the style exist?
-	if (!file_exists($rootpath . 'lang/'. $lang . '/' . $style . '/'))
+	if (!file_exists($opt['rootpath'] . 'lang/'. $lang . '/' . $style . '/'))
 		$style = 'ocstyle';
 
-	if (!file_exists($rootpath . 'lang/'. $lang . '/' . $style . '/'))
+	if (!file_exists($opt['rootpath'] . 'lang/'. $lang . '/' . $style . '/'))
 	{
 		die('Critical Error: The specified style does not exist!');
 	}
 
 	//set up the language path
-	if (!isset($langpath)) $langpath = $rootpath . 'lang/' . $lang;
+	if (!isset($langpath)) $langpath = $opt['rootpath'] . 'lang/' . $lang;
 
 	//set up the style path
 	if (!isset($stylepath)) $stylepath = $langpath . '/' . $style;
@@ -198,8 +197,8 @@ function __autoload($class_name)
 	//open a databse connection
 	db_connect();
 
-	require($rootpath . 'lib/auth.inc.php');
-	require_once($rootpath . 'lib2/translate.class.php');
+	require($opt['rootpath'] . 'lib/auth.inc.php');
+	require_once($opt['rootpath'] . 'lib2/translate.class.php');
 
 	//load language specific strings
 	require_once($langpath . '/expressions.inc.php');
@@ -253,7 +252,7 @@ function __autoload($class_name)
 	}
 
 	// zeitmessung
-	require_once($rootpath . 'lib/bench.inc.php');
+	require_once($opt['rootpath'] . 'lib/bench.inc.php');
 	$bScriptExecution = new Cbench;
 	$bScriptExecution->start();
 
@@ -1077,13 +1076,13 @@ function __autoload($class_name)
 	
 	function load_gettext()
 	{
-		global $cookie, $opt, $rootpath, $locale;
+		global $cookie, $opt, $locale;
 
 		$locale = $cookie->get('locale');
 		if (!isset($opt['locale'][$locale]))
 			$locale = $opt['template']['default']['locale'];
 
-		bindtextdomain('messages', $rootpath . '/cache2/translate');
+		bindtextdomain('messages', $opt['rootpath'] . '/cache2/translate');
 
 		// setup the PHP locale
 		setlocale(LC_MONETARY, $opt['locale'][$locale]['locales']);

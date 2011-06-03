@@ -20,14 +20,14 @@
 
 	***************************************************************************/
 
-	$rootpath = '../../';
+	$opt['rootpath'] = '../../';
 
 	// chdir to proper directory (needed for cronjobs)
 	chdir(substr(realpath($_SERVER['PHP_SELF']), 0, strrpos(realpath($_SERVER['PHP_SELF']), '/')));
 
-	require_once($rootpath . 'lib/clicompatbase.inc.php');
+	require_once($opt['rootpath'] . 'lib/clicompatbase.inc.php');
 	require_once('settings.inc.php');
-	require_once($rootpath . 'lib/consts.inc.php');
+	require_once($opt['rootpath'] . 'lib/consts.inc.php');
 
 	// use posix pid-files to lock process 
 	if (!CreatePidFile($notifypid))
@@ -79,7 +79,7 @@
 
 function process_new_cache($notify)
 {
-	global $notify_text, $mailfrom, $mailsubject, $debug, $debug_mailto, $rootpath;
+	global $notify_text, $mailfrom, $mailsubject, $debug, $debug_mailto, $opt;
 
 	//echo "process_new_cache(".$notify['id'].")\n";
 	$fehler = false;
@@ -88,7 +88,7 @@ function process_new_cache($notify)
 	switch($notify['type'])
 	{
 		case notify_new_cache: // Type: new cache
-			$mailbody = read_file($rootpath . 'util/notification/notify_newcache.email');
+			$mailbody = read_file($opt['rootpath'] . 'util/notification/notify_newcache.email');
 			break;
 		default:
 			$fehler = true;

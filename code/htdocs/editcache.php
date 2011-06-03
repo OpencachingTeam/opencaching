@@ -475,7 +475,7 @@ function getWaypoints($cacheid)
 							}
 
 							//call eventhandler
-							require_once($rootpath . 'lib/eventhandler.inc.php');
+							require_once($opt['rootpath'] . 'lib/eventhandler.inc.php');
 							event_edit_cache($cache_id, $usr['userid']+0);
 
 							// if old status is not yet published and new status is published => notify-event

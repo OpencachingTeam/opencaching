@@ -295,7 +295,7 @@
 						if ($log_record['logtype'] != $log_type)
 						{
 							//call eventhandler
-							require_once($rootpath . 'lib/eventhandler.inc.php');
+							require_once($opt['rootpath'] . 'lib/eventhandler.inc.php');
 							event_change_log_type($log_record['cache_id'], $usr['userid']+0);
 						}
 

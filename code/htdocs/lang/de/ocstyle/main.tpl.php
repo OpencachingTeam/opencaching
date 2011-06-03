@@ -37,10 +37,10 @@
  ****************************************************************************/
 
 	//Menü laden
-	global $mnu_bgcolor, $mnu_selmenuitem, $develwarning, $tpl_subtitle, $opt, $rootpath, $oc_nodeid;
+	global $mnu_bgcolor, $mnu_selmenuitem, $develwarning, $tpl_subtitle, $opt, $oc_nodeid;
 
-	require_once($rootpath . 'lib2/smarty/ocplugins/function.season.php');
-	require_once($rootpath . '/lib/menu2.class.php');
+	require_once($opt['rootpath'] . 'lib2/smarty/ocplugins/function.season.php');
+	require_once($opt['rootpath'] . '/lib/menu2.class.php');
 
 	if (function_exists('post_config'))
 		post_config();

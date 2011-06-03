@@ -1,7 +1,9 @@
 <?php
 
+global $opt;
+
 require_once('simpletest/autorun.php');
-require_once $_SERVER['DOCUMENT_ROOT'] . '/lib2/error.inc.php';
+require_once($opt['rootpath'] . 'lib2/error.inc.php');
 
 Mock::generate('ChildWp_Handler');
 Mock::generate('Cache_Manager');
