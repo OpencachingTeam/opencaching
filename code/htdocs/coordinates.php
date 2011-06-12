@@ -26,6 +26,7 @@
 	$tpl->assign('coordDegMinSec', $coord->getDecimalMinutesSeconds());
 	$tpl->assign('coordUTM', $coord->getUTM());
 	$tpl->assign('coordGK', $coord->getGK());
+	$tpl->assign('coordRD', $coord->getRD());
 	$tpl->assign('coordQTH', $coord->getQTH());
 	$tpl->assign('coordSwissGrid', $coord->getSwissGrid());
 
