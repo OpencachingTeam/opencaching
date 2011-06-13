@@ -12,6 +12,8 @@
 	$tpl->name = 'viewlogs';
 	$tpl->menuitem = MNU_CACHES_VIEWLOGS;
 
+	$login->verify();
+
 	$cache_id = 0;
 	if (isset($_REQUEST['cacheid']))
 	{

@@ -11,6 +11,8 @@
 	$tpl->name = 'imagebrowser';
 	$tpl->popup = true;
 
+	$login->verify();
+
 	$cacheid = isset($_REQUEST['cacheid']) ? $_REQUEST['cacheid']+0 : 0;
 
 	$rs = sql("SELECT `caches`.`name` FROM `caches` INNER JOIN `cache_status` ON `caches`.`status`=`cache_status`.`id` WHERE `caches`.`user_id`='&1' AND `cache_id`='&2'", $login->userid, $cacheid);

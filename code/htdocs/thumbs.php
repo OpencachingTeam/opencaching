@@ -14,6 +14,8 @@
 
 	require('./lib2/web.inc.php');
 
+	$login->verify();
+
 	$uuid = isset($_REQUEST['uuid']) ? $_REQUEST['uuid'] : '';
 	$debug = isset($_REQUEST['debug']) ? $_REQUEST['debug']+0 : 0;
 	$showspoiler = isset($_REQUEST['showspoiler']) ? $_REQUEST['showspoiler']+0 : 0;

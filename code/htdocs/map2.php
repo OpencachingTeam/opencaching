@@ -9,6 +9,11 @@
 	require_once('./lib2/logic/cache.class.php');
 	require_once('./lib2/logic/attribute.class.php');
 
+	/* because the map does access some private info like
+	 * ignored caches, we need to verify the login data
+	 */
+	$login->verify();
+
 	$sMode = isset($_REQUEST['mode']) ? $_REQUEST['mode'] : '';
 	if ($sMode == 'locate')
 	{
