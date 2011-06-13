@@ -54,7 +54,6 @@
 {geokrety}	  </groundspeak:travelbugs>
 	</groundspeak:cache>
   </wpt>
-{cache_waypoints}
 {personal_note_wp}
 ';
 
@@ -594,8 +593,6 @@
 			$thiswp = str_replace('{parent}', $r['waypoint'], $thiswp);
 			$waypoints .= $thiswp;
 		}
-
-		$thisline = mb_ereg_replace('{cache_waypoints}', $waypoints, $thisline);
 
 		if ($cacheNote && (!empty($cacheNote['latitude']) || !empty($cacheNote['longitude'])))
 		{

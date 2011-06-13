@@ -24,7 +24,8 @@
 						<tr>
 							<td bgcolor="{$bgcolor}"><a href="search.php?queryid={$queriesItem.id}">{$queriesItem.name|escape}</a></td>
 							<td bgcolor="{$bgcolor}">
-								<a href="search.php?queryid={$queriesItem.id}&output=gpx&count=max&zip=1">GPX</a> 
+								<a href="search.php?queryid={$queriesItem.id}&output=gpxv1&count=max&zip=1">GPX v1</a> 
+								<a href="search.php?queryid={$queriesItem.id}&output=gpxv2&count=max&zip=1">GPX v2</a> 
 								<a href="search.php?queryid={$queriesItem.id}&output=loc&count=max&zip=1">LOC</a> 
 								<a href="search.php?queryid={$queriesItem.id}&output=kml&count=max&zip=1">KML</a> 
 								<a href="search.php?queryid={$queriesItem.id}&output=ov2&count=max&zip=1">OV2</a> 
