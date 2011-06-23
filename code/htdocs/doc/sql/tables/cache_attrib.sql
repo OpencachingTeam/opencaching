@@ -15,7 +15,7 @@ CREATE TABLE `cache_attrib` (
   `icon_undef` varchar(80) NOT NULL COMMENT 'obsolete',
   `html_desc` text NOT NULL,
   `html_desc_trans_id` int(10) unsigned NOT NULL,
-  `hidden` tinyint(1) default NULL,
+  `hidden` tinyint(1) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `category` (`category`,`id`),
   KEY `default` (`default`),

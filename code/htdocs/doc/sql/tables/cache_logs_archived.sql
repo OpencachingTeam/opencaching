@@ -14,5 +14,7 @@ CREATE TABLE `cache_logs_archived` (
   `text_html` tinyint(1) NOT NULL,
   `text_htmledit` tinyint(1) NOT NULL,
   `owner_notified` tinyint(1) NOT NULL,
-  `picture` smallint(5) unsigned NOT NULL
+  `picture` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `cache_id` (`cache_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;

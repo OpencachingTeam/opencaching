@@ -33,7 +33,7 @@
 		getWriteData: function()
 		{
 			var xmlReq = createXMLHttp();
-			var params = 'searchto=searchbycacheid&showresult=1&f_inactive=0&startat=0&cacheid=' + id + '&output=garmin';
+			var params = 'searchto=searchbycacheid&showresult=1&f_inactive=0&startat=0&cacheid=' + id + '&output=gpx';
 			if (!xmlReq) return;
 
 			xmlReq.open('POST', 'search.php', false);
