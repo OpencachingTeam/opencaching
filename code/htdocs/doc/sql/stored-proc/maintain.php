@@ -1,3 +1,4 @@
+#!/usr/local/bin/php -q
 <?php
  /***************************************************************************
 		
@@ -67,9 +68,9 @@
 	/* Stored procedures containing database logic
 	 */
 
+	// update all last_modified dates of related records
 	sql_dropProcedure('sp_touch_cache');
 	sql("CREATE PROCEDURE sp_touch_cache (IN nCacheId INT(10) UNSIGNED, IN bUpdateCacheRecord BOOL)
-	     COMMENT 'update all last_modified dates of related records'
 	     BEGIN
 				 IF bUpdateCacheRecord = TRUE THEN
 					 UPDATE `caches` SET `last_modified`=NOW() WHERE `cache_id`=nCacheId;
@@ -82,9 +83,9 @@
 				 UPDATE `mp3` SET `last_modified`=NOW() WHERE `object_id`=nCacheId;
 	     END;");
 
+	// set caches.desc_languages of given cacheid and fill cache_desc_prefered
 	sql_dropProcedure('sp_update_caches_descLanguages');
 	sql("CREATE PROCEDURE sp_update_caches_descLanguages (IN nCacheId INT(10) UNSIGNED)
-	     -- COMMENT 'set caches.desc_languages of given cacheid and fill cache_desc_prefered'
 	     BEGIN
 	       DECLARE dl VARCHAR(60);
 
@@ -92,18 +93,18 @@
 	       UPDATE `caches` SET `desc_languages`=dl, default_desclang=PREFERED_LANG(dl, '&1') WHERE `cache_id`=nCacheId LIMIT 1;
 	     END;", strtoupper($lang . ',EN'));
 
+	// set caches.desc_languages of all caches, fill cache_desc_prefered and return number of modified rows
 	sql_dropProcedure('sp_updateall_caches_descLanguages');
 	sql("CREATE PROCEDURE sp_updateall_caches_descLanguages (OUT nModified INT)
-	     -- COMMENT 'set caches.desc_languages of all caches, fill cache_desc_prefered and return number of modified rows'
 	     BEGIN
 			   SET nModified = 0;
 	       UPDATE `caches`, (SELECT `cache_id`, GROUP_CONCAT(DISTINCT `language` ORDER BY `language` SEPARATOR ',') AS `dl` FROM `cache_desc` GROUP BY `cache_id`) AS `tbl` SET `caches`.`desc_languages`=`tbl`.`dl`, `caches`.`default_desclang`=PREFERED_LANG(`tbl`.`dl`, '&1') WHERE `caches`.`cache_id`=`tbl`.`cache_id`;
 	       SET nModified = nModified + ROW_COUNT() ;
 	     END;", strtoupper($lang . ',EN'));
 
+	// update found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user
 	sql_dropProcedure('sp_update_logstat');
 	sql("CREATE PROCEDURE sp_update_logstat (IN nCacheId INT(10) UNSIGNED, IN nUserId INT(10) UNSIGNED, IN nLogType INT, IN bLogRemoved BOOLEAN)
-	     -- COMMENT 'update found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user'
 	     BEGIN
 	       DECLARE nFound INT DEFAULT 0;
 	       DECLARE nNotFound INT DEFAULT 0;
@@ -147,9 +148,9 @@
 	       CALL sp_refresh_statpic(nUserId);
 	     END;");
 
+	// recalc found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user for all entries
 	sql_dropProcedure('sp_updateall_logstat');
 	sql("CREATE PROCEDURE sp_updateall_logstat (OUT nModified INT)
-	     -- COMMENT 'recalc found, last_found, notfound and note of stat_cache_logs, stat_caches and stat_user for all entries'
 	     BEGIN
 	       SET nModified=0;
 
@@ -208,9 +209,9 @@
 	       CALL sp_refreshall_statpic();
 	     END;");
 
+	// increment/decrement stat_user.hidden
 	sql_dropProcedure('sp_update_hiddenstat');
 	sql("CREATE PROCEDURE sp_update_hiddenstat (IN nUserId INT, IN bRemoved BOOLEAN)
-	     COMMENT 'increment/decrement stat_user.hidden'
 	     BEGIN
 			   DECLARE nHidden INT DEFAULT 1;
 			   IF bRemoved = TRUE THEN SET nHidden = -1; END IF;
@@ -222,9 +223,9 @@
 	       CALL sp_refresh_statpic(nUserId);
 	     END;");
 
+	// recalc hidden of stat_user for all entries
 	sql_dropProcedure('sp_updateall_hiddenstat');
 	sql("CREATE PROCEDURE sp_updateall_hiddenstat (OUT nModified INT)
-	     COMMENT 'recalc hidden of stat_user for all entries'
 	     BEGIN
 	       SET nModified=0;
 
@@ -237,9 +238,9 @@
 	       CALL sp_refreshall_statpic();
 	     END;");
 
+	// increment/decrement stat_caches.watch
 	sql_dropProcedure('sp_update_watchstat');
 	sql("CREATE PROCEDURE sp_update_watchstat (IN nCacheId INT, IN bRemoved BOOLEAN)
-	     COMMENT 'increment/decrement stat_caches.watch'
 	     BEGIN
 			   DECLARE nWatch INT DEFAULT 1;
 			   IF bRemoved = TRUE THEN SET nWatch = -1; END IF;
@@ -249,9 +250,9 @@
 			   END IF;
 	     END;");
 
+	// recalc watch of stat_caches for all entries
 	sql_dropProcedure('sp_updateall_watchstat');
 	sql("CREATE PROCEDURE sp_updateall_watchstat (OUT nModified INT)
-	     COMMENT 'recalc watch of stat_caches for all entries'
 	     BEGIN
 	       SET nModified=0;
 
@@ -262,9 +263,9 @@
 	       SET nModified=nModified+ROW_COUNT();
 	     END;");
 
+	// increment/decrement stat_caches.ignore
 	sql_dropProcedure('sp_update_ignorestat');
 	sql("CREATE PROCEDURE sp_update_ignorestat (IN nCacheId INT, IN bRemoved BOOLEAN)
-	     COMMENT 'increment/decrement stat_caches.ignore'
 	     BEGIN
 			   DECLARE nIgnore INT DEFAULT 1;
 			   IF bRemoved = TRUE THEN SET nIgnore = -1; END IF;
@@ -274,9 +275,9 @@
 			   END IF;
 	     END;");
 
+	// recalc ignore of stat_caches for all entries
 	sql_dropProcedure('sp_updateall_ignorestat');
 	sql("CREATE PROCEDURE sp_updateall_ignorestat (OUT nModified INT)
-	     COMMENT 'recalc ignore of stat_caches for all entries'
 	     BEGIN
 	       SET nModified=0;
 
@@ -287,9 +288,9 @@
 	       SET nModified=nModified+ROW_COUNT();
 	     END;");
 
+	// increment/decrement stat_caches.toprating
 	sql_dropProcedure('sp_update_topratingstat');
 	sql("CREATE PROCEDURE sp_update_topratingstat (IN nCacheId INT, IN bRemoved BOOLEAN)
-	     COMMENT 'increment/decrement stat_caches.toprating'
 	     BEGIN
 			   DECLARE nTopRating INT DEFAULT 1;
 			   IF bRemoved = TRUE THEN SET nTopRating = -1; END IF;
@@ -299,9 +300,9 @@
 			   END IF;
 	     END;");
 
+	// recalc toprating of stat_caches for all entries
 	sql_dropProcedure('sp_updateall_topratingstat');
 	sql("CREATE PROCEDURE sp_updateall_topratingstat (OUT nModified INT)
-	     COMMENT 'recalc toprating of stat_caches for all entries'
 	     BEGIN
 	       SET nModified=0;
 
@@ -313,9 +314,9 @@
 	       SET nModified=nModified+ROW_COUNT();
 	     END;");
 
+	// increment/decrement stat_caches.picture
 	sql_dropProcedure('sp_update_cache_picturestat');
 	sql("CREATE PROCEDURE sp_update_cache_picturestat (IN nCacheId INT, IN bRemoved BOOLEAN)
-	     COMMENT 'increment/decrement stat_caches.picture'
 	     BEGIN
 			   DECLARE nPicture INT DEFAULT 1;
 			   IF bRemoved = TRUE THEN SET nPicture = -1; END IF;
@@ -325,9 +326,9 @@
 			   END IF;
 	     END;");
 
+	// recalc picture of stat_caches for all entries
 	sql_dropProcedure('sp_updateall_cache_picturestat');
 	sql("CREATE PROCEDURE sp_updateall_cache_picturestat (OUT nModified INT)
-	     COMMENT 'recalc picture of stat_caches for all entries'
 	     BEGIN
 	       SET nModified=0;
 
@@ -338,18 +339,18 @@
 	       SET nModified=nModified+ROW_COUNT();
 	     END;");
 
+	// increment/decrement cache_logs.picture
 	sql_dropProcedure('sp_update_cachelog_picturestat');
 	sql("CREATE PROCEDURE sp_update_cachelog_picturestat (IN nLogId INT, IN bRemoved BOOLEAN)
-	     COMMENT 'increment/decrement cache_logs.picture'
 	     BEGIN
 			   DECLARE nPicture INT DEFAULT 1;
 			   IF bRemoved = TRUE THEN SET nPicture = -1; END IF;
 			   UPDATE `cache_logs` SET `cache_logs`.`picture`=IF(`cache_logs`.`picture`+nPicture>0, `cache_logs`.`picture`+nPicture, 0) WHERE `cache_logs`.`id`=nLogId;
 	     END;");
 
+	// recalc picture of cache_logs for all entries
 	sql_dropProcedure('sp_updateall_cachelog_picturestat');
 	sql("CREATE PROCEDURE sp_updateall_cachelog_picturestat (OUT nModified INT)
-	     COMMENT 'recalc picture of cache_logs for all entries'
 	     BEGIN
 	       SET nModified=0;
 
@@ -358,9 +359,9 @@
 	       SET nModified=nModified+ROW_COUNT();
 	     END;");
 
+	// notify users with matching watch radius about this cache
 	sql_dropProcedure('sp_notify_new_cache');
 	sql("CREATE PROCEDURE sp_notify_new_cache (IN nCacheId INT(10) UNSIGNED, IN nLongitude DOUBLE, IN nLatitude DOUBLE)
-	     COMMENT 'notify users with matching watch radius about this cache'
 	     BEGIN
 	       INSERT IGNORE INTO `notify_waiting` (`id`, `cache_id`, `user_id`, `type`)
 	       SELECT NULL, nCacheId, `user`.`user_id`, 1 /* notify_new_cache */
@@ -371,16 +372,16 @@
 	          AND (acos(cos((90-nLatitude) * 3.14159 / 180) * cos((90-`user`.`latitude`) * 3.14159 / 180) + sin((90-nLatitude) * 3.14159 / 180) * sin((90-`user`.`latitude`) * 3.14159 / 180) * cos((nLongitude-`user`.`longitude`) * 3.14159 / 180)) * 6370) <= `user`.`notify_radius`;
 	     END;");
 
+	// recreate the user statpic on next request
 	sql_dropProcedure('sp_refresh_statpic');
 	sql("CREATE PROCEDURE sp_refresh_statpic (IN nUserId INT(10) UNSIGNED)
-	     COMMENT 'recreate the user statpic on next request'
 	     BEGIN
 			   DELETE FROM `user_statpic` WHERE `user_id`=nUserId;
 	     END;");
 
+	// recreate all user statpic on next request
 	sql_dropProcedure('sp_refreshall_statpic');
 	sql("CREATE PROCEDURE sp_refreshall_statpic ()
-	     COMMENT 'recreate all user statpic on next request'
 	     BEGIN
 			   DELETE FROM `user_statpic`;
 	     END;");
