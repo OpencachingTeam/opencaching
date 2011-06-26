@@ -37,7 +37,7 @@ Land: {country}
 Cacheart: {type}
 Behälter: {container}
 D/T: {difficulty}/{terrain}
-Online: ' . $absolute_server_URI . '/viewcache.php?wp={waypoint}
+Online: " . $absolute_server_URI . "viewcache.php?wp={waypoint}
 
 Kurzbeschreibung: {shortdesc}
 
