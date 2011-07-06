@@ -110,7 +110,7 @@ div#bg2 {display: none;}
 	height: 60px;
 	top: 9px;
 	left: 84px;
-	border: solid 2px black;
+	border: solid 1px black;
 	position: absolute;
 	z-index: 4;
 	overflow: hidden;
@@ -886,6 +886,12 @@ ul.nodot li {
 	-moz-opacity: 0.8; 
 	-khtml-opacity: 0.8; 
 	filter: alpha(opacity=80);
+}
+
+#suchbox_de {
+	position: absolute; 
+	top:115px; 
+	right: 5px;
 }
 
 /* external links in Maindiv, decorated with ext-icon */

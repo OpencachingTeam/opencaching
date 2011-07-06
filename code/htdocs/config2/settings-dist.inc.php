@@ -170,26 +170,28 @@
 	$opt['template']['default']['country'] = 'DE';     // may be overwritten by $opt['domain'][...]['country']
 
 	// smiley path
-	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/img/';
+	$opt['template']['smiley'] = 'resource2/tinymce/plugins/emotions/images/';
 
 	/* other template options
 	 *
 	 */
 	$opt['page']['subtitle1'] = 'Geocaching with Opencaching';
 	$opt['page']['subtitle2'] = '';
-	$opt['page']['title'] = 'OPENCACHING';
+	$opt['page']['title'] = 'OPENCACHING.de';
 	$opt['page']['absolute_url'] = 'http://devel.opencaching.de/'; // may be overwritten by $opt['domain'][...]['uri']
 	$opt['page']['max_logins_per_hour'] = 25;
- 	$opt['page']['showdonations'] = false; // Show donations button
+	$opt['page']['showdonations'] = false; // Show donations button
+	$opt['page']['nowpsearch'] = false; // deactivate waypointsearch on headpano
 
   /* Sponsoring advertisements
    * (plain HTML)
    */
 
   // example: $opt['page']['sponsor']['topright'] = '<div class="site-slogan" style="background-image: url(resource2/ocstyle/images/darkbluetransparent.png);"><div style="width: 100%; text-align: left;"><p class="search"><a href="http://www.wanderjugend.de" target="_blank"><img border="0" align="right" style="margin-left: 10px;" src="resource2/ocstyle/images/dwj.gif" width="40px" height="20px" alt="... die outdoororientierte Jugendorganisation des Deutschen Wanderverbandes" /></a> Unterst&uuml;tzt und gef&ouml;rdert durch<br />die Deutsche Wanderjugend</p> </div></div>';
-  $opt['page']['sponsor']['topright'] = '';
+	$opt['page']['sponsor']['topright'] = '';
 
-  $opt['page']['sponsor']['bottom'] = 'Driven by the Opencaching Community';
+  // example: $opt['page']['sponsor']['bottom'] = '<strong>Hosting by <a target="_blank" href="http://www.schwarzwald.de">www.schwarzwald.de</a></strong>';
+	$opt['page']['sponsor']['bottom'] = 'Driven by the Opencaching Community';
 
  	/* disable or enable https access to the main site
  	 * if false and connection is https, redirect to $opt['page']['absolute_url']
@@ -251,7 +253,7 @@
 	$opt['logic']['podcasts']['maxsize'] = 1536000;
 	$opt['logic']['podcasts']['extensions'] = 'mp3';
 
-	/* cachemaps (old, see cachemaps.php)
+	/* cachemaps
 	 */
 	$opt['logic']['cachemaps']['url'] = 'images/cachemaps/';
 	$opt['logic']['cachemaps']['dir'] = $opt['rootpath'] . $opt['logic']['cachemaps']['url'];
@@ -260,20 +262,6 @@
 	$opt['logic']['cachemaps']['size']['lon'] = 0.2;
 	$opt['logic']['cachemaps']['pixel']['y'] = 200;
 	$opt['logic']['cachemaps']['pixel']['x'] = 200;
- 
-	/* cachemaps (new)
-	 * how to display the cache map on viewcache.php (200x200 pixel)
-	 *
-	 * option 1) via <img> tag (e.g. google maps)
-	 *        2) via <iframe> tag (e.g. own mapserver)
-	 *
-	 * placeholders:
-	 * {userzoom} = user zoomlevel (see myprofile.php)
-	 * {latitude} = latitude of the cache
-	 * {longitude} = longitude of the cache
-	 */
-	$opt['logic']['cachemaps']['url'] = 'http://maps.google.com/maps/api/staticmap?center={latitude},{longitude}&zoom={userzoom}&size=200x200&maptype=hybrid&markers=color:blue|label:|{latitude},{longitude}&sensor=false';
-	$opt['logic']['cachemaps']['iframe'] = false;
  
 	/* target vars
 	 * all _REQUEST-vars that identifiy the current page for target redirection after login
@@ -422,11 +410,7 @@
 	// max number of caches displayed in google maps
 	$opt['map']['maxrecords'] = 180;
 
-	// the full screen mode requires a GIS server at the moment
-	// has to be migrated to map2.php
-	$opt['map']['disablefullscreen'] = true;
-
-	/* external binaries
+ 	/* external binaries
  	 */
  	$opt['bin']['cs2cs'] = 'cs2cs';
 
@@ -455,17 +439,5 @@
 
 	$opt['logic']['theme'] = 'seasons';
 	$opt['logic']['lowresfriendly'] = false;
-
-  /* commands to start and stop apache process
-   * required to clear the webcache
-   */
-  $opt['httpd']['stop'] = '/etc/rc.d/init.d/httpd stop';
-  $opt['httpd']['start'] = '/etc/rc.d/init.d/httpd start';
-
-  /* owner and group of files created by apache daemon
-   * (used to change ownership in shell scripts)
-   */
-  $opt['httpd']['user'] = 'apache';
-  $opt['httpd']['group'] = 'apache';
 
 ?>
