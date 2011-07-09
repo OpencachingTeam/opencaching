@@ -45,14 +45,11 @@
 						<input type="button" id="mapsubmit" value="{t}Search{/t}" onclick="javascript:mapsubmit_click()" class="searchbutton" />
 					</td>
 					<td class="mapsearch-c">
-						<a href="#" onclick="javascript:showPermlinkBox_click()">
-							<img src="resource2/{$opt.template.style}/images/map/35x35-star.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Show link to this map{/t}" />
-						</a>
+						<a href="#" onclick="javascript:showPermlinkBox_click()"><img src="resource2/{$opt.template.style}/images/map/35x35-star.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Show link to this map{/t}" /></a>
 						{if !$bDisableFullscreen}
-							<a href="#" onclick="javascript:fullscreen_click()">
-								<img src="resource2/{$opt.template.style}/images/map/35x35-fullscreen.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Switch to full screen{/t}" />
-							</a>
+							<a href="#" onclick="javascript:fullscreen_click()"><img src="resource2/{$opt.template.style}/images/map/35x35-fullscreen.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Switch to full screen{/t}" /></a>
 						{/if}
+						<a href="#" onclick="javascript:download_gpx()"><img id="download_gpx_img" src="resource2/{$opt.template.style}/images/map/35x35-gpx-download.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Download GPX file (max. 500){/t}" /></a>
 					</td>
 				</tr>
 			</table>
@@ -320,6 +317,9 @@
 		var mbDataDownloadHaveSecondChance = false;
 		var mbDataDownloadStartTime;
 		var moDataLoadTimer = null;
+
+		var mnMaxDownloadCount = 500;
+		var mbDownloadEnabled = false;
 
 		function cookieLoad()
 		{
@@ -731,6 +731,20 @@
 			});
 		}
 
+		function download_gpx()
+		{
+			var oBounds = moMap.getBounds();
+			var params = get_searchfilter_params('gpx', false, true);
+
+			if (mbDownloadEnabled == false)
+				return;
+
+			params += '&bbox=' + oBounds.getSouthWest().lng() + ',' + oBounds.getSouthWest().lat() + ',' + oBounds.getNorthEast().lng() + ',' + oBounds.getNorthEast().lat();
+			params += '&count=max';
+
+			location.href = msURLSearchPHP + '?' + params;
+		}
+
 		function parseXML_GetWaypoint(xmlobject)
 		{
 			var aCaches = xmlobject.documentElement.getElementsByTagName("cache");
@@ -894,13 +908,21 @@
 			tmd_hide();
 			rqc_show();
 			data_clear();
+			download_enabled(false);
 		}
 
 		// built query string for search.php
-		function get_searchfilter_params()
+		function get_searchfilter_params(output, skipqueryid, zip)
 		{
-			var sPostBody = 'showresult=1&expert=0&output=map2&utf8=1&skipqueryid=1';
+			var sPostBody = 'showresult=1&expert=0&output=' + output + '&utf8=1';
 			var sCacheName = document.getElementById('cachename').value;
+
+			if (skipqueryid)
+				sPostBody += '&skipqueryid=1';
+
+			if (zip)
+				sPostBody += '&zip=1';
+
 			if (sCacheName!='')
 				sPostBody += '&searchto=searchbyname&cachename=' + encodeURIComponent(sCacheName);
 			else
@@ -988,9 +1010,9 @@
 			var oBounds = moMap.getBounds();
 			var sPostBody = 'mode=searchresult&resultid=' + mnResultId;
 			sPostBody += '&lat1=' + oBounds.getSouthWest().lat();
-			sPostBody += '&lat2=' + oBounds.getNorthEast().lat();;
-			sPostBody += '&lon1=' + oBounds.getSouthWest().lng();;
-			sPostBody += '&lon2=' + oBounds.getNorthEast().lng();;
+			sPostBody += '&lat2=' + oBounds.getNorthEast().lat();
+			sPostBody += '&lon1=' + oBounds.getSouthWest().lng();
+			sPostBody += '&lon2=' + oBounds.getNorthEast().lng();
 			return sPostBody;
 		}
 
@@ -1028,7 +1050,7 @@
 			}
 			else
 			{
-				GDownloadUrl(msURLSearchPHP, data_searchreceive, get_searchfilter_params());
+				GDownloadUrl(msURLSearchPHP, data_searchreceive, get_searchfilter_params('map2', true, false));
 			}
 		}
 
@@ -1046,7 +1068,7 @@
 			if (oXML.documentElement.getAttribute("available") == 0)
 			{
 				if (mbDataDownloadHaveSecondChance == true)
-					GDownloadUrl(msURLSearchPHP, data_searchreceive, get_searchfilter_params());
+					GDownloadUrl(msURLSearchPHP, data_searchreceive, get_searchfilter_params('map2', true, false));
 				else
 				{
 					alert('{t escape=js}Error: Unable to download the search result. The data was not available on the server.{/t}');
@@ -1056,9 +1078,13 @@
 
 			data_clear();
 
+			var record_count = oXML.documentElement.getAttribute("count");
+
+			download_enabled((record_count<=mnMaxDownloadCount) && (record_count>0));
+
 			if (oXML.documentElement.getAttribute("maxrecordreached") == 1)
 			{
-				tmd_show(oXML.documentElement.getAttribute("count"));
+				tmd_show(record_count);
 				return;
 			}
 
@@ -1075,6 +1101,15 @@
 
 			document.getElementById('statCachesCount').firstChild.nodeValue = oCachesList.length;
 			document.getElementById('statLoadTime').firstChild.nodeValue = getTimeDiff(mbDataDownloadStartTime, new Date());
+		}
+
+		function download_enabled(enabled)
+		{
+			mbDownloadEnabled = enabled;
+			if (enabled)
+				document.getElementById('download_gpx_img').src = 'resource2/ocstyle/images/map/35x35-gpx-download.png';
+			else
+				document.getElementById('download_gpx_img').src = 'resource2/ocstyle/images/map/35x35-no-gpx-download.png';
 		}
 
 		function getTimeDiff(dTime1, dTime2)

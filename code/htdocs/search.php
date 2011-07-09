@@ -204,6 +204,7 @@
 			$options['expert'] = isset($_REQUEST['expert']) ? $_REQUEST['expert'] : 0;
 			$options['showresult'] = isset($_REQUEST['showresult']) ? $_REQUEST['showresult'] : 0;
 			$options['output'] = isset($_REQUEST['output']) ? $_REQUEST['output'] : 'HTML';
+			$options['bbox'] = isset($_REQUEST['bbox']) ? $_REQUEST['bbox'] : false;
 
 			if (isset($_REQUEST['cache_attribs']))
 			{
@@ -413,8 +414,9 @@
 		if (!isset($options['terrainmin'])) $options['terrainmin'] = 0;
 		if (!isset($options['terrainmax'])) $options['terrainmax'] = 0;
 		if (!isset($options['recommendationmin'])) $options['recommendationmin'] = 0;
-		if (!isset($options['cachetype'])) $options['cachetype']='';
-		if (!isset($options['cachesize'])) $options['cachesize']='';
+		if (!isset($options['cachetype'])) $options['cachetype'] = '';
+		if (!isset($options['cachesize'])) $options['cachesize'] = '';
+		if (!isset($options['bbox'])) $options['bbox'] = false;
 
 		//prepare output
 		if(!isset($options['showresult'])) $options['showresult']='0';
@@ -970,6 +972,16 @@
 					foreach ($options['cache_attribs_not'] AS $attr)
 					{
 						$sql_where[] = 'NOT EXISTS (SELECT `caches_attributes`.`cache_id` FROM `caches_attributes` WHERE `caches_attributes`.`cache_id`=`caches`.`cache_id` AND `caches_attributes`.`attrib_id`=\'' . sql_escape($attr+0) . '\')';
+					}
+				}
+
+				if (isset($options['bbox']) && ($options['bbox']!==false))
+				{
+					// bbox=<lon_from>,<lat_from>,<lon_to>,<lat_to>
+					$coords = explode(',', $options['bbox']);
+					if (count($coords) == 4)
+					{
+						$sql_where[] = '`caches`.`longitude`>=' . ($coords[0]+0) . ' AND `caches`.`latitude`>=' . ($coords[1]+0) . ' AND `caches`.`longitude`<=' . ($coords[2]+0) . ' AND `caches`.`latitude`<=' . ($coords[3]+0);
 					}
 				}
 
