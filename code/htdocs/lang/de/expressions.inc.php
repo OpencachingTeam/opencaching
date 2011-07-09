@@ -25,6 +25,8 @@
 
 	****************************************************************************/
 
+	global $locale, $opt;
+
 	//only debugging
  	$runtime = t('Runtime: {time} seconds');
 
@@ -32,8 +34,7 @@
 	setlocale(LC_TIME, 'de_DE.utf8');
 
 	//common vars
-	$datetimeformat = '%d. %B %Y um %H:%M:%S Uhr';
-	$dateformat = '%Y-%m-%d';
+	$dateformat = $opt['locale'][$locale]['format']['date'];
 	$reset = t('Reset');
 	$yes = t('Yes');
 	$no = t('No');
