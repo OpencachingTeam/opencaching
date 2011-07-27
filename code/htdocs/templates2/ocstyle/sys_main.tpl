@@ -159,12 +159,14 @@
 					</a>
 				</div>
 
+			{if !$opt.page.nowpsearch}
+			{else}
 				<div id="suchbox"><form action="searchplugin.php" method="post" style="display:inline;">
 					<b>{t}Waypoint-Search{/t}:</b><br />
 					<input type="hidden" name="source" value="waypoint-suche" />
 					<input type="text" name="userinput" size="10" /><input type="submit" style="width:70px" value="{t}Go{/t}" />
 				</form></div>
-
+			{/if}
 				{* <!-- Site slogan --> *}
 				<div class="site-slogan-container">
 					{if $opt.page.sponsor.topright!=''}
@@ -197,6 +199,7 @@
 			<div class="buffer" style="height: 30px;"></div>
 
 			{if !$opt.page.nowpsearch}
+				{include file="res_wpsearch.tpl"}
 				<div id="breadcrumb">{include file="sys_breadcrumb.tpl" items="$breadcrumb"}</div>
 			{else}
 				<div id="breadcrumb_fullsize">{include file="sys_breadcrumb.tpl" items="$breadcrumb"}</div>

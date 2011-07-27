@@ -110,7 +110,7 @@ div#bg2 {display: none;}
 	height: 60px;
 	top: 9px;
 	left: 84px;
-	border: solid 2px black;
+	border: solid 1px black;
 	position: absolute;
 	z-index: 4;
 	overflow: hidden;
@@ -888,6 +888,12 @@ ul.nodot li {
 	filter: alpha(opacity=80);
 }
 
+#suchbox_de {
+	position: absolute; 
+	top:115px; 
+	right: 5px;
+}
+
 /* external links in Maindiv, decorated with ext-icon */
 
 #ocmain a[href^="http:"], #ocmain a[href^="https:"]
@@ -1029,7 +1035,7 @@ td.mapsearch-b {
 }
 
 td.mapsearch-c {
-	width: 185px;
+	width: 120px;
 	margin: 0;
 	padding: 0;
 	border: 0;
